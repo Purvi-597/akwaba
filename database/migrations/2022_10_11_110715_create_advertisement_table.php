@@ -16,8 +16,8 @@ class CreateAdvertisementTable extends Migration
         Schema::create('advertisement', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('image');
-            $table->text('link');
+            $table->text('image')->nullable();
+            $table->text('link')->nullable();
             $table->enum('status', ['1', '0']);
             $table->timestamps();
         });

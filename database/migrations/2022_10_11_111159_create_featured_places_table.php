@@ -16,8 +16,8 @@ class CreateFeaturedPlacesTable extends Migration
         Schema::create('featured_places', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('image');
-            $table->text('description');
+            $table->text('image')->nullable();
+            $table->text('description')->nullable();
             $table->enum('status', ['1', '0']);
             $table->timestamps();
         });
