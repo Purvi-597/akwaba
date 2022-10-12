@@ -21,7 +21,7 @@ class UserController extends Controller
 	public function index()
     {
     
-		$data['users'] = UsersModel::where('is_deleted',0)->where('user_type','!=','admin')->where('is_deleted',0)->orderBy('id','desc')->get();
+		$data['users'] = UsersModel::where('role','!=','Admin')->orderBy('id','desc')->get();
         return view('admin.users.index',$data);
 	}
 	public function create()
@@ -126,7 +126,7 @@ class UserController extends Controller
                 echo "nodelete";
             }
     }
-	public function delete(Request  $request){
+	/*public function delete(Request  $request){
             $id = $request->input('id');
             $delete = UsersModel::where('id',$id)->update(['is_deleted' => '1']);
             if($delete)
@@ -138,7 +138,7 @@ class UserController extends Controller
                 echo "notdelete";
             }
         
-    }
+    }*/
 
     public function users_status(Request $request)
     {
@@ -146,7 +146,7 @@ class UserController extends Controller
     	$status = $request->input('status');
     	if($status == 1)
     	{
-    		DB::table('users')->where('id',$id)->update(['status' => 0);
+    		DB::table('users')->where('id',$id)->update(['status' => 0]);
                 return response()->json(['return' => 'Inactive']);
     	}
     	elseif($status == 0)
@@ -202,7 +202,7 @@ class UserController extends Controller
     {
         $email = Hash::make($request->input('email'));
 
-        $checkemail = DB::table('users')->where('email',$request->input('email'))->where('is_deleted',0)->first();
+        $checkemail = DB::table('users')->where('email',$request->input('email'))->where('status',1)->first();
 
         if($checkemail){
 
