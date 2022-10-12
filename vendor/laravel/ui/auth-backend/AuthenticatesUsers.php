@@ -72,11 +72,7 @@ trait AuthenticatesUsers
         $request->validate([
             $this->username() => 'required|string',
             'password' => 'required|string',
-             'g-recaptcha-response' =>['required'],
-        ], [
-            'g-recaptcha-response.required' => 'Captcha is required.'
-       ]
-    );
+        ]);
     }
 
     /**
@@ -88,7 +84,7 @@ trait AuthenticatesUsers
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
+            $this->credentials($request), $request->boolean('remember')
         );
     }
 
