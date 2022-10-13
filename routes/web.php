@@ -103,12 +103,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	/* Users */
 
 	 /* encyclopedia */
-	Route::get('encyclopedia', 'EncyclopediaController@index')->name('encyclopedia.index');
-	Route::get('encyclopedia/create', 'EncyclopediaController@create')->name('encyclopedia.create');
-	Route::post('encyclopedia/store', 'EncyclopediaController@store')->name('encyclopedia.store');
-	Route::get('encyclopedia/edit/{id}', 'EncyclopediaController@edit')->name('encyclopedia.edit');
-    Route::post('encyclopedia/update/{id}', 'EncyclopediaController@update')->name('encyclopedia.update');
-    Route::get('encyclopedia/view/{id}', 'EncyclopediaController@view')->name('encyclopedia.view');
-    Route::post('delete_encyclopedia', 'EncyclopediaController@delete_encyclopedia')->name('delete_encyclopedia');
-    Route::post('encyclopedia_status', 'EncyclopediaController@encyclopedia_status')->name('encyclopedia_status');
+	Route::get('categories', 'CategoriesController@index')->name('categories.index');
+	Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
+	Route::post('categories/store', 'CategoriesController@store')->name('categories.store');
+	Route::get('categories/edit/{id}', 'CategoriesController@edit')->name('categories.edit');
+    Route::post('categories/update/{id}', 'CategoriesController@update')->name('categories.update');
+    Route::get('categories/view/{id}', 'CategoriesController@view')->name('categories.view');
+    Route::post('deletecategories', 'CategoriesController@delete')->name('deletecategories');
+    Route::post('categories_status', 'CategoriesController@categories_status')->name('categories_status');
+	Route::post('categoriesimagedelete', 'CategoriesController@categoriesimagedelete')->name('categoriesimagedelete');
 });

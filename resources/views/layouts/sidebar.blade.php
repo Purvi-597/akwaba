@@ -28,22 +28,15 @@
                     </a>
                     
                 </li>
-                 <li>
-                    <a href="{{ url('admin/encyclopedia') }}" class="">
-                        <i class="fas fa-users"></i>
-                        <span>Encyclopedia Management</span>
-                    </a>
-                    
-                </li>
                
-				<!-- <li>
+				<li>
                     <a href="{{ url('admin/categories') }}" class="">
                         <i class="fas fa-list"></i>
                         <span>Categories</span>
                     </a>
                     
                 </li>
-                    <li>
+                  <!--  <li>
                     <a href="{{ url('admin/media') }}" class="">
                         <i class="fas fa-circle-notch"></i>
                         <span>Media</span>

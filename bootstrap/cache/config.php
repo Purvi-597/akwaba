@@ -188,7 +188,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\akwaba\\storage\\framework/cache/data',
+        'path' => 'F:\\akwaba\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -416,7 +416,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'E:\\akwaba\\storage\\framework/laravel-excel',
+      'local_path' => 'F:\\akwaba\\storage\\framework/laravel-excel',
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
@@ -431,12 +431,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\akwaba\\public\\uploads',
+        'root' => 'F:\\akwaba\\public\\uploads',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\akwaba\\storage\\app/public',
+        'root' => 'F:\\akwaba\\storage\\app/public',
         'url' => 'http://localhost:8000/storage',
         'visibility' => 'public',
       ),
@@ -482,13 +482,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\akwaba\\storage\\logs/laravel.log',
+        'path' => 'F:\\akwaba\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\akwaba\\storage\\logs/laravel.log',
+        'path' => 'F:\\akwaba\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -557,7 +557,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\akwaba\\resources\\views/vendor/mail',
+        0 => 'F:\\akwaba\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -666,7 +666,7 @@
     'lifetime' => '120',
     'expire_on_close' => true,
     'encrypt' => false,
-    'files' => 'E:\\akwaba\\storage\\framework/sessions',
+    'files' => 'F:\\akwaba\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -686,9 +686,9 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\akwaba\\resources\\views',
+      0 => 'F:\\akwaba\\resources\\views',
     ),
-    'compiled' => 'E:\\akwaba\\storage\\framework\\views',
+    'compiled' => 'F:\\akwaba\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -766,7 +766,7 @@
     'timeout' => 3600,
     'enable_logging' => true,
     'set_command_and_error_output_on_exception' => false,
-    'temporary_files_root' => 'C:\\Users\\PURVI~1.TRI\\AppData\\Local\\Temp',
+    'temporary_files_root' => 'C:\\Users\\DIVYA~1.VAR\\AppData\\Local\\Temp',
   ),
   'datatables' => 
   array (

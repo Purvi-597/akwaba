@@ -1,5 +1,5 @@
  @extends('layouts.master')
-@section('title')Encyclopedia Management @endsection
+@section('title') Categories @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
@@ -8,8 +8,8 @@
 @component('common-components.breadcrumb')
 @slot('title') @endslot
 @slot('add_btn') <h4 class="card-title">
-    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('encyclopedia.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add Encyclopedia </a>
+    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('categories.create') }}"
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add Categories  </a>
 
     </h4> @endslot
 @endcomponent
@@ -39,33 +39,40 @@
                     <table id="UsersList1" class="table">
                         <thead class="thead-light">
                             <tr>
-                                <th>#</th>
-                                <th width="60%">Story</th>
-                                <th  width="10%">Status</th>
-                                <th  width="20%">Action</th>
+                                <th width="10%">#</th>
+                                <th  width="20%"> Name</th>
+                                <th  width="20%">Image</th>
+                                <th  width=" 20%">Status</th>
+                                <th  width="30%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                        	@php $i = 1; @endphp
-                           	@foreach($story as $row)
-                            @php $story  =  $row->story;  @endphp
-                            @php $sort_story = strlen($story) > 400 ? substr($story,0,400)."..." : $story @endphp
-                           	<tr>
-                           		<td>{{$i}}</td>
-                           		<td>{!! $sort_story !!}</td>
-                           		<?php if($row->status == '1'){ ?>
-                                <td id="{{$row->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$row->id}}" data-status = "{{$row->status}}" onclick="updatestatus({{$row->id}},{{$row->status}})">Active</span></td><?php } else { ?>
+                            @php $profilepicturePath = '/uploads/categories/'; @endphp
+                            @if(count($categories)>0)
+                            @php $i = 1; @endphp
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <td>{{$i}}</td>
+                                        
+                                        
+                                        <td >{{$category->name}}</td>
+                                        <td><img src="{{$profilepicturePath}}{{$category->image}}" alt="" style="width: 100px;height:100px;"></td>
                                     
-                                <td id="{{$row->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$row->id}}" data-status = "{{$row->status}}" onclick="updatestatus({{$row->id}},{{$row->status}})">Inactive</span></td><?php } ?>
-                           		<td>
-                                 <a href="{{route('encyclopedia.edit', $row->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="{{route('encyclopedia.view', $row->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
-                                <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="delete" data-id="{{$row->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>   
-                                </td>
-                           	</tr>
-                           	@php $i++; @endphp
-                            @endforeach
+                                        <?php if($category->status == 1){ ?>
+                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Active</span></td><?php } else { ?>
+                                    
+                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Inactive</span></td><?php } ?>
 
+                                    <td>
+                                        <a href="{{route('categories.edit', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="{{route('categories.view', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
+                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="delete" data-id="{{$category->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
+
+                                   </td>                                       
+                                    </tr>
+                                    @php $i++; @endphp
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -95,7 +102,7 @@
                
             $.ajax({
             type: "POST",
-            url: '{{route("encyclopedia_status")}}',
+            url: '{{route("users_status")}}',
             data: {'status': status, 'id': id, "_token": "{{ csrf_token() }}"},
             success: function(data){
               if(data.return =='Active')
@@ -131,7 +138,7 @@
             }
 
 
-            $(document).on('click','#deleteuser',function(){
+            $(document).on('click','#delete',function(){
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
@@ -145,11 +152,11 @@
                       confirmButtonText: 'Yes '
                     }).then((result) => {
                       
-                      if (result.value){
+                    if (result.value){
                         
-                          $.ajax({
+                        $.ajax({
                              type: "POST",
-                             url: '{{route("deleteuser")}}',
+                             url: '{{route("deletecategories")}}',
                              data: {'id': id, "_token": "{{ csrf_token() }}"},
                              success: function(data){
                                  if(data == "delete"){
@@ -179,15 +186,18 @@
 
                         }
 
-                    });
+                        });
 
-                      }else{
+                    }else{
                        
 
                       }
-                  })
-            })
+                    });
+         }); 
 
+
+
+            
 
 
 </script>
