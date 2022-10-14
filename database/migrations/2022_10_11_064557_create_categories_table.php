@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->text('image')->nullable();
             $table->enum('status', ['1', '0']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

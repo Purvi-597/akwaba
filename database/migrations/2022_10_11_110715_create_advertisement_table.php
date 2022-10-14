@@ -20,6 +20,7 @@ class CreateAdvertisementTable extends Migration
             $table->text('link')->nullable();
             $table->enum('status', ['1', '0']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
