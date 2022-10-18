@@ -8,7 +8,7 @@ class ChangepasswordController extends Controller
 {
     public function index()
     {
-		 return view('admin.changepassword.index');
+		 return view('admin.editpassword.index');
 	}
 
 	public function edit(Request $request)

@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function root(Request $request)
     {
             
-        $data['users'] = DB::table('users')->where('role','!=','Admin')->count();
+       
+        $data['users'] = DB::table('users')->where('deleted_at',0)->where('role','!=','admin')->count();
     
         return view('admin.dashboard.index',$data);
     

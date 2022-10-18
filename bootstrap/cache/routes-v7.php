@@ -226,7 +226,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::dmRq0A5BNFkDQFsL',
+=======
+            '_route' => 'generated::y6KUDBbUlEe1gnvI',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -245,7 +249,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::0UGcTMp7mcUccOqg',
+=======
+            '_route' => 'generated::347fv1wSAaeoPZfS',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -264,7 +272,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Ydurry0CVPO9qyEM',
+=======
+            '_route' => 'generated::MAH3UUWJcNZu4gj4',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -283,7 +295,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::rhVTMrsGDxSVngi9',
+=======
+            '_route' => 'generated::xjmXSqFmqkpMkwiL',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -302,7 +318,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::qNesyO4MVwd8TC0u',
+=======
+            '_route' => 'generated::lKq7THPTQoVwM9zI',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -321,7 +341,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::FGcTbw6Lv7tGdpml',
+=======
+            '_route' => 'generated::ZXhTZp7qTObJ5Yz9',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -340,7 +364,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::MUFu7nE7yesrQ5dg',
+=======
+            '_route' => 'generated::QODLkXBAK5Qe9hle',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -359,7 +387,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::bXYMiH1SAZZ877Ab',
+=======
+            '_route' => 'generated::3d3QnHMCaIzqNrBT',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -378,7 +410,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::re2Y3mlXYPADpKGE',
+=======
+            '_route' => 'generated::Lk1qBG9eBikFOt72',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -397,7 +433,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::JKASbXZzXQGLcTIV',
+=======
+            '_route' => 'generated::3XQ5q8bXOU8oQqwP',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -416,7 +456,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::k9bJxbXUfBEZgM7p',
+=======
+            '_route' => 'generated::5z36Mo8AdcyXuPcC',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -435,7 +479,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Wk7wMYtgoJkwIrhR',
+=======
+            '_route' => 'generated::VeHcA5rjXRDcWbjm',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -454,7 +502,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::0eSjNGeYhYS6NURU',
+=======
+            '_route' => 'generated::3HY6ww6s0YB91xsK',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -473,7 +525,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::MyEaEpHsNlI6bPL8',
+=======
+            '_route' => 'generated::NDQRpnUJdtGIJu6y',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -492,7 +548,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::qnXfT5rgI76ZSIkw',
+=======
+            '_route' => 'generated::BbIxNiBXHkss0t17',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -511,7 +571,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::P0Guv14xqezH0cY6',
+=======
+            '_route' => 'generated::303ab44fV37zIIDe',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -530,7 +594,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::nKgGxpmeAAwbFScb',
+=======
+            '_route' => 'generated::enJ6IyBOVXx2FA1z',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -549,7 +617,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::YSran93eWJ9u7nnA',
+=======
+            '_route' => 'generated::m7rejmykrYgVzn2A',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -568,7 +640,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::BkQo8LeJhQ730snp',
+=======
+            '_route' => 'generated::cxJRzVqS5qY4Vfpq',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -587,7 +663,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::uPOzdt5dBNZPBdVb',
+=======
+            '_route' => 'generated::L8BP5mZAoCoAJsRP',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -607,7 +687,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::ImNWN2cYOHvHXayL',
+=======
+            '_route' => 'generated::my7Hnqn67EbAgC2K',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -626,7 +710,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::XlMBK8Qh0L8OJEMm',
+=======
+            '_route' => 'generated::nL1ml40e8OxFkBOB',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -645,7 +733,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::DYGeoeK9hFeAHZkq',
+=======
+            '_route' => 'generated::7R14cqKsmk4BGnC8',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -664,7 +756,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::V3Y3khuAnJdSLelz',
+=======
+            '_route' => 'generated::6wi35Ry9GXk0rUPU',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -683,7 +779,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::wLdaX4s8Mn55x3FN',
+=======
+            '_route' => 'generated::RQqZCTJWuVmFT31Z',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -703,7 +803,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::etkeiRKVRQ5gdXOY',
+=======
+            '_route' => 'generated::roACPSHwYY2DHwk5',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -723,7 +827,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::0slUMu0Wp4dWvBsw',
+=======
+            '_route' => 'generated::hRgqnhCcJKBm2WQj',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -760,7 +868,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::PiCMxjPbZa2RU6yH',
+=======
+            '_route' => 'generated::s8D8X9dVRAefyugV',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -815,7 +927,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::6hcxZMHLaCs8ygbA',
+=======
+            '_route' => 'generated::sZoiYSUpiW84nNcE',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -906,7 +1022,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Vgl1O9BpqXWQqasm',
+=======
+            '_route' => 'generated::zK9HXPANWwEAun3E',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -925,7 +1045,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::dMxq6QrDHrvNBiHy',
+=======
+            '_route' => 'generated::bsxqZZ3vKZnvFgWG',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -945,7 +1069,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::JzSogSasDEhJNSMb',
+=======
+            '_route' => 'generated::zDfsasUtAOvWwHjb',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -965,7 +1093,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::ms9oLHYZEW8NQDX1',
+=======
+            '_route' => 'generated::2MYM9N5pGxw0JIRH',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -985,7 +1117,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::xZQBUzqDpe7Xq21I',
+=======
+            '_route' => 'generated::JQwcGi5ZtWBTlbBI',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1005,7 +1141,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::sL2aI7An6k6R01s7',
+=======
+            '_route' => 'generated::tPVFkNPf0tRwFz8f',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1025,7 +1165,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Gmqcjb2v6JJvqsMj',
+=======
+            '_route' => 'generated::00sbBIiyEHW9nT8g',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1045,7 +1189,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Be2TYxGiI1wbB2iY',
+=======
+            '_route' => 'generated::AWRkLNH2pYV7dMs1',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1065,7 +1213,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::RMqBrCbrBbneW7Tu',
+=======
+            '_route' => 'generated::PWKmxG7DG3TIR7ZM',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1085,7 +1237,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::dDL3MyVQX5eljduT',
+=======
+            '_route' => 'generated::rE4jsVMwEDIaTYkV',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1105,7 +1261,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::Fcrbf3C9xeuX94uK',
+=======
+            '_route' => 'generated::ImwEjdhAZpPgy51F',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1125,7 +1285,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::naAvyrCmOwIU25vq',
+=======
+            '_route' => 'generated::xwAx5mQKOmjSnLcE',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1145,7 +1309,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::vjKJ6bF3ODeBrTtP',
+=======
+            '_route' => 'generated::A4CwNtvxis4bv0FX',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1165,7 +1333,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::zOhLWLLdYJNmkNS4',
+=======
+            '_route' => 'generated::nQ4d5UG5mDVPVcp3',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1185,7 +1357,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::BZZZij3LQw9NmCw3',
+=======
+            '_route' => 'generated::I3OCaApvHbH7v2zY',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1224,7 +1400,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::NDAcwc2vjQ4Ru2um',
+=======
+            '_route' => 'generated::YMtuVwd1MzPydwZh',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1244,7 +1424,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::SPIUFs5faXgW71Gm',
+=======
+            '_route' => 'generated::sbhf3DDI7EMZa2av',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1322,7 +1506,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
+<<<<<<< HEAD
             '_route' => 'generated::tiOtg8s3D5G8S9kN',
+=======
+            '_route' => 'generated::YFNBwwlKB1zWkTgd',
+>>>>>>> divya
           ),
           1 => NULL,
           2 => 
@@ -1824,13 +2012,32 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/encyclopedia' => 
+      '/admin/checkuseremail' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia.index',
+            '_route' => 'checkuseremail',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/categories' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'categories.index',
           ),
           1 => NULL,
           2 => 
@@ -1844,13 +2051,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/encyclopedia/create' => 
+      '/admin/categories/create' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia.create',
+            '_route' => 'categories.create',
           ),
           1 => NULL,
           2 => 
@@ -1864,13 +2071,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/encyclopedia/store' => 
+      '/admin/categories/store' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia.store',
+            '_route' => 'categories.store',
           ),
           1 => NULL,
           2 => 
@@ -1883,13 +2090,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/delete_encyclopedia' => 
+      '/admin/deletecategories' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'delete_encyclopedia',
+            '_route' => 'deletecategories',
           ),
           1 => NULL,
           2 => 
@@ -1902,18 +2109,560 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/encyclopedia_status' => 
+      '/admin/categories_status' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia_status',
+            '_route' => 'categories_status',
           ),
           1 => NULL,
           2 => 
           array (
             'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/categoriesimagedelete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'categoriesimagedelete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/subcategories' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/subcategories/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/subcategories/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/deletesubcategories' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deletesubcategories',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/subcategories_status' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories_status',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/subcategoriesimagedelete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategoriesimagedelete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/advertisement' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/advertisement/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/advertisement/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/deleteadvertisement' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deleteadvertisement',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/advertisement_status' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement_status',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/advertisementPathimagedelete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisementPathimagedelete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/deletefeature' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deletefeature',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature_status' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_status',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/featureimagedelete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'featureimagedelete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature_list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature_list/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature_list/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/deletefeature_list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deletefeature_list',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature_list_status' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list_status',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/feature_listimagedelete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_listimagedelete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/editpassword' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'editpassword.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/editpassword/edit' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'editpassword.edit',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/checkoldpassword' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'checkoldpassword',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
           ),
           3 => NULL,
           4 => false,
@@ -1924,7 +2673,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/oauth/(?|tokens/([^/]++)(*:32)|clients/([^/]++)(?|(*:58))|personal\\-access\\-tokens/([^/]++)(*:99))|/password/reset/([^/]++)(*:131)|/admin/(?|users/(?|edit/([^/]++)(*:171)|view/([^/]++)(*:192)|update/([^/]++)(*:215))|encyclopedia/(?|edit/([^/]++)(*:253)|update/([^/]++)(*:276)|view/([^/]++)(*:297))))/?$}sDu',
+      0 => '{^(?|/oauth/(?|tokens/([^/]++)(*:32)|clients/([^/]++)(?|(*:58))|personal\\-access\\-tokens/([^/]++)(*:99))|/password/reset/([^/]++)(*:131)|/admin/(?|users/(?|edit/([^/]++)(*:171)|view/([^/]++)(*:192)|update/([^/]++)(*:215))|categories/(?|edit/([^/]++)(*:251)|update/([^/]++)(*:274)|view/([^/]++)(*:295))|subcategories/(?|edit/([^/]++)(*:334)|update/([^/]++)(*:357)|view/([^/]++)(*:378))|advertisement/(?|edit/([^/]++)(*:417)|update/([^/]++)(*:440)|view/([^/]++)(*:461))|feature(?|/(?|edit/([^/]++)(*:497)|update/([^/]++)(*:520)|view/([^/]++)(*:541))|_list/(?|edit/([^/]++)(*:572)|update/([^/]++)(*:595)|view/([^/]++)(*:616)))))/?$}sDu',
     ),
     3 => 
     array (
@@ -2104,13 +2853,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      253 => 
+      251 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia.edit',
+            '_route' => 'categories.edit',
           ),
           1 => 
           array (
@@ -2127,13 +2876,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      276 => 
+      274 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia.update',
+            '_route' => 'categories.update',
           ),
           1 => 
           array (
@@ -2149,13 +2898,285 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      297 => 
+      295 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'encyclopedia.view',
+            '_route' => 'categories.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      334 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      357 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      378 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'subcategories.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      417 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      440 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      461 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'advertisement.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      497 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      520 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      541 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      572 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      595 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      616 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'feature_list.view',
           ),
           1 => 
           array (
@@ -2743,7 +3764,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::dmRq0A5BNFkDQFsL' => 
+=======
+    'generated::y6KUDBbUlEe1gnvI' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2763,7 +3788,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::dmRq0A5BNFkDQFsL',
+=======
+        'as' => 'generated::y6KUDBbUlEe1gnvI',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2779,7 +3808,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::0UGcTMp7mcUccOqg' => 
+=======
+    'generated::347fv1wSAaeoPZfS' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2799,7 +3832,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::0UGcTMp7mcUccOqg',
+=======
+        'as' => 'generated::347fv1wSAaeoPZfS',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2815,7 +3852,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Ydurry0CVPO9qyEM' => 
+=======
+    'generated::MAH3UUWJcNZu4gj4' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2835,7 +3876,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Ydurry0CVPO9qyEM',
+=======
+        'as' => 'generated::MAH3UUWJcNZu4gj4',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2851,7 +3896,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::rhVTMrsGDxSVngi9' => 
+=======
+    'generated::xjmXSqFmqkpMkwiL' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2871,7 +3920,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::rhVTMrsGDxSVngi9',
+=======
+        'as' => 'generated::xjmXSqFmqkpMkwiL',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2887,7 +3940,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::qNesyO4MVwd8TC0u' => 
+=======
+    'generated::lKq7THPTQoVwM9zI' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2907,7 +3964,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::qNesyO4MVwd8TC0u',
+=======
+        'as' => 'generated::lKq7THPTQoVwM9zI',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2923,7 +3984,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::FGcTbw6Lv7tGdpml' => 
+=======
+    'generated::ZXhTZp7qTObJ5Yz9' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2943,7 +4008,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::FGcTbw6Lv7tGdpml',
+=======
+        'as' => 'generated::ZXhTZp7qTObJ5Yz9',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2959,7 +4028,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::MUFu7nE7yesrQ5dg' => 
+=======
+    'generated::QODLkXBAK5Qe9hle' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -2979,7 +4052,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::MUFu7nE7yesrQ5dg',
+=======
+        'as' => 'generated::QODLkXBAK5Qe9hle',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -2995,7 +4072,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::bXYMiH1SAZZ877Ab' => 
+=======
+    'generated::3d3QnHMCaIzqNrBT' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3015,7 +4096,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::bXYMiH1SAZZ877Ab',
+=======
+        'as' => 'generated::3d3QnHMCaIzqNrBT',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3031,7 +4116,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::re2Y3mlXYPADpKGE' => 
+=======
+    'generated::Lk1qBG9eBikFOt72' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3051,7 +4140,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::re2Y3mlXYPADpKGE',
+=======
+        'as' => 'generated::Lk1qBG9eBikFOt72',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3067,7 +4160,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::JKASbXZzXQGLcTIV' => 
+=======
+    'generated::3XQ5q8bXOU8oQqwP' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3087,7 +4184,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::JKASbXZzXQGLcTIV',
+=======
+        'as' => 'generated::3XQ5q8bXOU8oQqwP',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3103,7 +4204,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::k9bJxbXUfBEZgM7p' => 
+=======
+    'generated::5z36Mo8AdcyXuPcC' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3123,7 +4228,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::k9bJxbXUfBEZgM7p',
+=======
+        'as' => 'generated::5z36Mo8AdcyXuPcC',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3139,7 +4248,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Wk7wMYtgoJkwIrhR' => 
+=======
+    'generated::VeHcA5rjXRDcWbjm' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3159,7 +4272,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Wk7wMYtgoJkwIrhR',
+=======
+        'as' => 'generated::VeHcA5rjXRDcWbjm',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3175,7 +4292,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::0eSjNGeYhYS6NURU' => 
+=======
+    'generated::3HY6ww6s0YB91xsK' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3195,7 +4316,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::0eSjNGeYhYS6NURU',
+=======
+        'as' => 'generated::3HY6ww6s0YB91xsK',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3211,7 +4336,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::MyEaEpHsNlI6bPL8' => 
+=======
+    'generated::NDQRpnUJdtGIJu6y' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3231,7 +4360,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::MyEaEpHsNlI6bPL8',
+=======
+        'as' => 'generated::NDQRpnUJdtGIJu6y',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3247,7 +4380,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::qnXfT5rgI76ZSIkw' => 
+=======
+    'generated::BbIxNiBXHkss0t17' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3267,7 +4404,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::qnXfT5rgI76ZSIkw',
+=======
+        'as' => 'generated::BbIxNiBXHkss0t17',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3283,7 +4424,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::P0Guv14xqezH0cY6' => 
+=======
+    'generated::303ab44fV37zIIDe' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3303,7 +4448,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::P0Guv14xqezH0cY6',
+=======
+        'as' => 'generated::303ab44fV37zIIDe',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3319,7 +4468,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::nKgGxpmeAAwbFScb' => 
+=======
+    'generated::enJ6IyBOVXx2FA1z' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3339,7 +4492,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::nKgGxpmeAAwbFScb',
+=======
+        'as' => 'generated::enJ6IyBOVXx2FA1z',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3355,7 +4512,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::YSran93eWJ9u7nnA' => 
+=======
+    'generated::m7rejmykrYgVzn2A' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3375,7 +4536,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::YSran93eWJ9u7nnA',
+=======
+        'as' => 'generated::m7rejmykrYgVzn2A',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3391,7 +4556,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::BkQo8LeJhQ730snp' => 
+=======
+    'generated::cxJRzVqS5qY4Vfpq' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3411,7 +4580,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::BkQo8LeJhQ730snp',
+=======
+        'as' => 'generated::cxJRzVqS5qY4Vfpq',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3427,7 +4600,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::uPOzdt5dBNZPBdVb' => 
+=======
+    'generated::L8BP5mZAoCoAJsRP' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3448,7 +4625,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::uPOzdt5dBNZPBdVb',
+=======
+        'as' => 'generated::L8BP5mZAoCoAJsRP',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3464,7 +4645,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::ImNWN2cYOHvHXayL' => 
+=======
+    'generated::my7Hnqn67EbAgC2K' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3484,7 +4669,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::ImNWN2cYOHvHXayL',
+=======
+        'as' => 'generated::my7Hnqn67EbAgC2K',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3500,7 +4689,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::XlMBK8Qh0L8OJEMm' => 
+=======
+    'generated::nL1ml40e8OxFkBOB' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3520,7 +4713,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::XlMBK8Qh0L8OJEMm',
+=======
+        'as' => 'generated::nL1ml40e8OxFkBOB',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3536,7 +4733,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::DYGeoeK9hFeAHZkq' => 
+=======
+    'generated::7R14cqKsmk4BGnC8' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3556,7 +4757,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::DYGeoeK9hFeAHZkq',
+=======
+        'as' => 'generated::7R14cqKsmk4BGnC8',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3572,7 +4777,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::V3Y3khuAnJdSLelz' => 
+=======
+    'generated::6wi35Ry9GXk0rUPU' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3592,7 +4801,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::V3Y3khuAnJdSLelz',
+=======
+        'as' => 'generated::6wi35Ry9GXk0rUPU',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3608,7 +4821,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::wLdaX4s8Mn55x3FN' => 
+=======
+    'generated::RQqZCTJWuVmFT31Z' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3629,7 +4846,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::wLdaX4s8Mn55x3FN',
+=======
+        'as' => 'generated::RQqZCTJWuVmFT31Z',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3645,7 +4866,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::etkeiRKVRQ5gdXOY' => 
+=======
+    'generated::roACPSHwYY2DHwk5' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3666,7 +4891,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::etkeiRKVRQ5gdXOY',
+=======
+        'as' => 'generated::roACPSHwYY2DHwk5',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3682,7 +4911,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::0slUMu0Wp4dWvBsw' => 
+=======
+    'generated::hRgqnhCcJKBm2WQj' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3703,7 +4936,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::0slUMu0Wp4dWvBsw',
+=======
+        'as' => 'generated::hRgqnhCcJKBm2WQj',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3756,7 +4993,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::PiCMxjPbZa2RU6yH' => 
+=======
+    'generated::s8D8X9dVRAefyugV' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3776,7 +5017,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::PiCMxjPbZa2RU6yH',
+=======
+        'as' => 'generated::s8D8X9dVRAefyugV',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -3865,7 +5110,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::6hcxZMHLaCs8ygbA' => 
+=======
+    'generated::sZoiYSUpiW84nNcE' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -3885,7 +5134,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::6hcxZMHLaCs8ygbA',
+=======
+        'as' => 'generated::sZoiYSUpiW84nNcE',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4084,7 +5337,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Vgl1O9BpqXWQqasm' => 
+=======
+    'generated::zK9HXPANWwEAun3E' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4104,7 +5361,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Vgl1O9BpqXWQqasm',
+=======
+        'as' => 'generated::zK9HXPANWwEAun3E',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4120,7 +5381,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::dMxq6QrDHrvNBiHy' => 
+=======
+    'generated::bsxqZZ3vKZnvFgWG' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4141,7 +5406,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::dMxq6QrDHrvNBiHy',
+=======
+        'as' => 'generated::bsxqZZ3vKZnvFgWG',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4157,7 +5426,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::JzSogSasDEhJNSMb' => 
+=======
+    'generated::zDfsasUtAOvWwHjb' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4178,7 +5451,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::JzSogSasDEhJNSMb',
+=======
+        'as' => 'generated::zDfsasUtAOvWwHjb',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4194,7 +5471,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::ms9oLHYZEW8NQDX1' => 
+=======
+    'generated::2MYM9N5pGxw0JIRH' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4215,7 +5496,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::ms9oLHYZEW8NQDX1',
+=======
+        'as' => 'generated::2MYM9N5pGxw0JIRH',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4231,7 +5516,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::xZQBUzqDpe7Xq21I' => 
+=======
+    'generated::JQwcGi5ZtWBTlbBI' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4252,7 +5541,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::xZQBUzqDpe7Xq21I',
+=======
+        'as' => 'generated::JQwcGi5ZtWBTlbBI',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4268,7 +5561,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::sL2aI7An6k6R01s7' => 
+=======
+    'generated::tPVFkNPf0tRwFz8f' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4289,7 +5586,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::sL2aI7An6k6R01s7',
+=======
+        'as' => 'generated::tPVFkNPf0tRwFz8f',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4305,7 +5606,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Gmqcjb2v6JJvqsMj' => 
+=======
+    'generated::00sbBIiyEHW9nT8g' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4326,7 +5631,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Gmqcjb2v6JJvqsMj',
+=======
+        'as' => 'generated::00sbBIiyEHW9nT8g',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4342,7 +5651,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Be2TYxGiI1wbB2iY' => 
+=======
+    'generated::AWRkLNH2pYV7dMs1' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4363,7 +5676,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Be2TYxGiI1wbB2iY',
+=======
+        'as' => 'generated::AWRkLNH2pYV7dMs1',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4379,7 +5696,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::RMqBrCbrBbneW7Tu' => 
+=======
+    'generated::PWKmxG7DG3TIR7ZM' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4400,7 +5721,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::RMqBrCbrBbneW7Tu',
+=======
+        'as' => 'generated::PWKmxG7DG3TIR7ZM',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4416,7 +5741,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::dDL3MyVQX5eljduT' => 
+=======
+    'generated::rE4jsVMwEDIaTYkV' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4437,7 +5766,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::dDL3MyVQX5eljduT',
+=======
+        'as' => 'generated::rE4jsVMwEDIaTYkV',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4453,7 +5786,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::Fcrbf3C9xeuX94uK' => 
+=======
+    'generated::ImwEjdhAZpPgy51F' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4474,7 +5811,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::Fcrbf3C9xeuX94uK',
+=======
+        'as' => 'generated::ImwEjdhAZpPgy51F',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4490,7 +5831,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::naAvyrCmOwIU25vq' => 
+=======
+    'generated::xwAx5mQKOmjSnLcE' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4511,7 +5856,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::naAvyrCmOwIU25vq',
+=======
+        'as' => 'generated::xwAx5mQKOmjSnLcE',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4527,7 +5876,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::vjKJ6bF3ODeBrTtP' => 
+=======
+    'generated::A4CwNtvxis4bv0FX' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4548,7 +5901,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::vjKJ6bF3ODeBrTtP',
+=======
+        'as' => 'generated::A4CwNtvxis4bv0FX',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4564,7 +5921,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::zOhLWLLdYJNmkNS4' => 
+=======
+    'generated::nQ4d5UG5mDVPVcp3' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4585,7 +5946,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::zOhLWLLdYJNmkNS4',
+=======
+        'as' => 'generated::nQ4d5UG5mDVPVcp3',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4601,7 +5966,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::BZZZij3LQw9NmCw3' => 
+=======
+    'generated::I3OCaApvHbH7v2zY' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4621,7 +5990,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::BZZZij3LQw9NmCw3',
+=======
+        'as' => 'generated::I3OCaApvHbH7v2zY',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4674,7 +6047,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::NDAcwc2vjQ4Ru2um' => 
+=======
+    'generated::YMtuVwd1MzPydwZh' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4695,7 +6072,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::NDAcwc2vjQ4Ru2um',
+=======
+        'as' => 'generated::YMtuVwd1MzPydwZh',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4711,7 +6092,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::SPIUFs5faXgW71Gm' => 
+=======
+    'generated::sbhf3DDI7EMZa2av' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4732,7 +6117,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::SPIUFs5faXgW71Gm',
+=======
+        'as' => 'generated::sbhf3DDI7EMZa2av',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -4857,7 +6246,11 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
     'generated::tiOtg8s3D5G8S9kN' => 
+=======
+    'generated::YFNBwwlKB1zWkTgd' => 
+>>>>>>> divya
     array (
       'methods' => 
       array (
@@ -4878,7 +6271,11 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
+<<<<<<< HEAD
         'as' => 'generated::tiOtg8s3D5G8S9kN',
+=======
+        'as' => 'generated::YFNBwwlKB1zWkTgd',
+>>>>>>> divya
       ),
       'fallback' => false,
       'defaults' => 
@@ -5970,14 +7367,51 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia.index' => 
+    'checkuseremail' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/checkuseremail',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\UserController@checkuseremail',
+        'controller' => 'App\\Http\\Controllers\\UserController@checkuseremail',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'checkuseremail',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'categories.index' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/encyclopedia',
+      'uri' => 'admin/categories',
       'action' => 
       array (
         'middleware' => 
@@ -5985,14 +7419,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@index',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@index',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@index',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@index',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia.index',
+        'as' => 'categories.index',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6008,14 +7442,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia.create' => 
+    'categories.create' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/encyclopedia/create',
+      'uri' => 'admin/categories/create',
       'action' => 
       array (
         'middleware' => 
@@ -6023,14 +7457,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@create',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@create',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@create',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@create',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia.create',
+        'as' => 'categories.create',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6046,13 +7480,13 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia.store' => 
+    'categories.store' => 
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'admin/encyclopedia/store',
+      'uri' => 'admin/categories/store',
       'action' => 
       array (
         'middleware' => 
@@ -6060,14 +7494,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@store',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@store',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@store',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@store',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia.store',
+        'as' => 'categories.store',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6083,14 +7517,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia.edit' => 
+    'categories.edit' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/encyclopedia/edit/{id}',
+      'uri' => 'admin/categories/edit/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -6098,14 +7532,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@edit',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@edit',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@edit',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@edit',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia.edit',
+        'as' => 'categories.edit',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6121,13 +7555,13 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia.update' => 
+    'categories.update' => 
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'admin/encyclopedia/update/{id}',
+      'uri' => 'admin/categories/update/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -6135,14 +7569,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@update',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@update',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@update',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@update',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia.update',
+        'as' => 'categories.update',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6158,14 +7592,14 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia.view' => 
+    'categories.view' => 
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/encyclopedia/view/{id}',
+      'uri' => 'admin/categories/view/{id}',
       'action' => 
       array (
         'middleware' => 
@@ -6173,14 +7607,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@view',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@view',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@view',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@view',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia.view',
+        'as' => 'categories.view',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6196,13 +7630,13 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'delete_encyclopedia' => 
+    'deletecategories' => 
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'admin/delete_encyclopedia',
+      'uri' => 'admin/deletecategories',
       'action' => 
       array (
         'middleware' => 
@@ -6210,14 +7644,14 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@delete_encyclopedia',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@delete_encyclopedia',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@delete',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@delete',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'delete_encyclopedia',
+        'as' => 'deletecategories',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6233,13 +7667,13 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'encyclopedia_status' => 
+    'categories_status' => 
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'admin/encyclopedia_status',
+      'uri' => 'admin/categories_status',
       'action' => 
       array (
         'middleware' => 
@@ -6247,14 +7681,1512 @@ app('router')->setCompiledRoutes(
           0 => 'web',
           1 => 'auth',
         ),
-        'uses' => 'App\\Http\\Controllers\\EncyclopediaController@encyclopedia_status',
-        'controller' => 'App\\Http\\Controllers\\EncyclopediaController@encyclopedia_status',
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@categories_status',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@categories_status',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => '/admin',
         'where' => 
         array (
         ),
-        'as' => 'encyclopedia_status',
+        'as' => 'categories_status',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'categoriesimagedelete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/categoriesimagedelete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\CategoriesController@categoriesimagedelete',
+        'controller' => 'App\\Http\\Controllers\\CategoriesController@categoriesimagedelete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'categoriesimagedelete',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/subcategories',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@index',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/subcategories/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@create',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@create',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/subcategories/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@store',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/subcategories/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@edit',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/subcategories/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@update',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@update',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/subcategories/view/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@view',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@view',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'deletesubcategories' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/deletesubcategories',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@delete',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@delete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'deletesubcategories',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategories_status' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/subcategories_status',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@subcategories_status',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@subcategories_status',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategories_status',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'subcategoriesimagedelete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/subcategoriesimagedelete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\SubCategoriesController@subcategoriesimagedelete',
+        'controller' => 'App\\Http\\Controllers\\SubCategoriesController@subcategoriesimagedelete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'subcategoriesimagedelete',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/advertisement',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@index',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/advertisement/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@create',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@create',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/advertisement/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@store',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/advertisement/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@edit',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/advertisement/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@update',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@update',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/advertisement/view/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@view',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@view',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'deleteadvertisement' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/deleteadvertisement',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@delete',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@delete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'deleteadvertisement',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisement_status' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/advertisement_status',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@sub_categories_status',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@sub_categories_status',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisement_status',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'advertisementPathimagedelete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/advertisementPathimagedelete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdvertisementController@advertisementPathimagedelete',
+        'controller' => 'App\\Http\\Controllers\\AdvertisementController@advertisementPathimagedelete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'advertisementPathimagedelete',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@index',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@create',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@create',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@store',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@edit',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@update',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@update',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature/view/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@view',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@view',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'deletefeature' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/deletefeature',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@delete',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@delete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'deletefeature',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_status' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature_status',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@feature_status',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@feature_status',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_status',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'featureimagedelete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/featureimagedelete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureController@featureimagedelete',
+        'controller' => 'App\\Http\\Controllers\\FeatureController@featureimagedelete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'featureimagedelete',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature_list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@index',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature_list/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@create',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@create',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list.create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature_list/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@store',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature_list/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@edit',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature_list/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@update',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@update',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/feature_list/view/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@view',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@view',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'deletefeature_list' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/deletefeature_list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@delete',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@delete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'deletefeature_list',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_list_status' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature_list_status',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@feature_status',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@feature_status',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_list_status',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'feature_listimagedelete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/feature_listimagedelete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\FeatureplaceController@featureimagedelete',
+        'controller' => 'App\\Http\\Controllers\\FeatureplaceController@featureimagedelete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'feature_listimagedelete',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'editpassword.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/editpassword',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EditpasswordController@index',
+        'controller' => 'App\\Http\\Controllers\\EditpasswordController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'editpassword.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'editpassword.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/editpassword/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EditpasswordController@edit',
+        'controller' => 'App\\Http\\Controllers\\EditpasswordController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'editpassword.edit',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'checkoldpassword' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/checkoldpassword',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EditpasswordController@checkoldpassword',
+        'controller' => 'App\\Http\\Controllers\\EditpasswordController@checkoldpassword',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'checkoldpassword',
       ),
       'fallback' => false,
       'defaults' => 

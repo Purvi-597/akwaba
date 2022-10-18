@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('device_token')->nullable();
             $table->rememberToken();
             $table->enum('status', ['1', '0']);
+            $table->softDeletes();
             $table->timestamps();
             $table->softDeletes();
         });
