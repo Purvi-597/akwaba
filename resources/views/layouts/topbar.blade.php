@@ -133,12 +133,7 @@
 
         </div>
         <div class="d-flex">
-<<<<<<< HEAD
            <!--<div class="time_and_date">
-=======
-
-           {{-- <div class="time_and_date">
->>>>>>> divya
                 <div class="wather">
                     <body onload="digi()">
 						  <p id="tt" style="margin-top: 16px !important"></p>
@@ -146,15 +141,7 @@
 
 
                 </div>
-<<<<<<< HEAD
             </div>-->
-=======
-            </div> --}}
-
-
-
-
->>>>>>> divya
             <div class="dropdown d-inline-block d-lg-none ml-2">
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
                     aria-labelledby="page-header-search-dropdown">
@@ -291,23 +278,14 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< HEAD
                     <!--@if(Auth::user()->profile_image)
-=======
-                    {{-- @if(Auth::user()->profile_image)
->>>>>>> divya
                     <img class="rounded-circle header-profile-user" src="/uploads/users/{{Auth::user()->profile_image}}"
                         alt="Header Avatar">
                     @else
                     <img class="rounded-circle header-profile-user"src="/uploads/users/avatar-2.jpg"
                         alt="Header Avatar">
-<<<<<<< HEAD
                     @endif-->
                     <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->first_name}}</span>
-=======
-                    @endif --}}
-                    <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->firstname}}</span>
->>>>>>> divya
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
