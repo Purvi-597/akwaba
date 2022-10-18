@@ -9,13 +9,10 @@
     }
 </style>
 <header id="page-topbar">
-    <div class="navbar-header" style="
-    background-color:  #314667;
-    color: white;
-">
+    <div class="navbar-header" style="background-color:  #314667;color: white;">
         <div class="d-flex">
             <!-- LOGO -->
-		        <div class="navbar-brand-box" style="background:#314667;">
+		    <div class="navbar-brand-box" style="background:#314667;">
                 <a href="javascript:void(0);" class="logo logo-dark">
                     <span class="logo-sm">
                         <!-- logo-dark.png -->
@@ -26,8 +23,6 @@
                         <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" style="cursor: default;" height="17">
                     </span>
                 </a>
-
-
                 <a href="javascript:void(0);" class="logo logo-light">
                     <span class="logo-sm">
                       <img src="{{ URL::asset('assets/images/img/logo_p1.png')}}" alt="" style="height: 25px;margin-left: -10px;">
@@ -37,16 +32,9 @@
                        <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" >
                 </a>
             </div>
-
-		
-			
-			
-                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
                 <i class="fa fa-fw fa-bars"></i>
             </button>
-
-			
-
             <!-- App Search-->
             <!--<form class="app-search d-none d-lg-block" style="width:25%;">
                 <div class="position-relative">
@@ -54,8 +42,6 @@
                     <span class="bx bx-search-alt"></span>
                 </div>
             </form>-->
-
-
            <!-- <div class="dropdown dropdown-mega d-none d-lg-block ml-2">
                 <button type="button" class="btn header-item waves-effect" data-toggle="dropdown" aria-haspopup="false"
                     aria-expanded="false">
@@ -146,11 +132,8 @@
             </div>-->
 
         </div>
-
-
         <div class="d-flex">
-
-           {{-- <div class="time_and_date">
+           <!--<div class="time_and_date">
                 <div class="wather">
                     <body onload="digi()">
 						  <p id="tt" style="margin-top: 16px !important"></p>
@@ -158,16 +141,10 @@
 
 
                 </div>
-            </div> --}}
-
-
-
-
+            </div>-->
             <div class="dropdown d-inline-block d-lg-none ml-2">
-
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
                     aria-labelledby="page-header-search-dropdown">
-
                     <form class="p-3">
                         <div class="form-group m-0">
                             <div class="input-group">
@@ -182,8 +159,6 @@
                     </form>
                 </div>
             </div>
-
-
             <!-- <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -303,14 +278,14 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{-- @if(Auth::user()->profile_image)
+                    <!--@if(Auth::user()->profile_image)
                     <img class="rounded-circle header-profile-user" src="/uploads/users/{{Auth::user()->profile_image}}"
                         alt="Header Avatar">
                     @else
                     <img class="rounded-circle header-profile-user"src="/uploads/users/avatar-2.jpg"
                         alt="Header Avatar">
-                    @endif --}}
-                    <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->firstname}}</span>
+                    @endif-->
+                    <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->first_name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
