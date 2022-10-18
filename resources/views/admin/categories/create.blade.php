@@ -45,45 +45,44 @@ input::-webkit-inner-spin-button {
                  @csrf
 					
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Name</label>
+                        <label for="formrow-quest_name-input"> Name</label>
 						<input type="text" class="form-control" name="name" id="name" placeholder="Enter First Name" value="{{old('name')}}" required>
                         <div class="invalid-feedback">
                             Please provide a first name.
                         </div>
                     </div>
-                
-
-                         <div id="req_input" class="form-group">
+    
+                    <div id="req_input" class="form-group">
                         <label for="formrow-quest_name-input">profile Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
                                    Please select Image
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
-                    <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
-                </div>
+                        <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
+                    </div>
 
-                <div class="col-md-2" style="padding-top:1%;">
-                    <div class="form-group ">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
-                            <label class="custom-control-label" for="invalidCheck" >Active</label>
-                            <div class="invalid-feedback">
-                                You must agree before Save.
+                    <div class="col-md-2" style="padding-top:1%;">
+                        <div class="form-group ">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
+                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <div class="invalid-feedback">
+                                    You must agree before Save.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <button class="btn btn-success" type="submit" id="save">Save</button>
+                            <a href="../categories" class="btn btn-danger">Cancel</a>
                             </div>
                         </div>
-
                     </div>
-                </div>
-                       
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group ">
-                            <button class="btn btn-success" type="submit" id="save">Save</button>
-                        <a href="../categories" class="btn btn-danger">Cancel</a>
-                        </div>
-                    </div>
-                </div>
                 </form>
             </div>
         </div>
@@ -109,12 +108,16 @@ $(document).on('change','#images_0',function(e){
 if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
-  if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg,jfif,svg).");
+  if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main0").attr('src','');
       $("#image_main0").css('display','none');
+
+
+
+      
   }else{
  img = new Image();
  img.onload = function() {

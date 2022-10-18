@@ -89,7 +89,7 @@ class CategoriesController extends Controller
     }
 	public function delete(Request $request){
         $id = $request->id;
-        $delete = Categories::where('id',$id)->update(['is_deleted' => 1, 'updated_at' => now()]);
+        $delete = Categories::where('id',$id)->delete();
         if($delete)
         {
           echo "delete";

@@ -20,6 +20,7 @@ class CreateFeaturedPlacesTable extends Migration
             $table->text('description')->nullable();
             $table->enum('status', ['1', '0']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -23,7 +23,7 @@
                             <h3 class="mb-0">Change Password</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" action="{{action('EditpasswordController@edit')}}" method="post">
+                            <form class="form" role="form" autocomplete="off" action="{{route('editpassword.edit')}}" method="post">
                             	{{csrf_field()}}
                                 <div class="form-group">
                                     <label for="inputPasswordOld">Old Password</label>

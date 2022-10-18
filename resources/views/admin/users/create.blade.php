@@ -1,4 +1,4 @@
- @extends('layouts.master')
+@extends('layouts.master')
 @section('title')  Add User @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
@@ -45,12 +45,21 @@ input::-webkit-inner-spin-button {
                  @csrf
 					
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Name</label>
-						<input type="text" class="form-control" name="name" id="name" placeholder="Enter First Name" value="{{old('name')}}" required>
+                        <label for="formrow-quest_name-input">First Name</label>
+						<input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name" value="{{old('first_name')}}" required>
                         <div class="invalid-feedback">
                             Please provide a first name.
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Last Name</label>
+						<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter First Name" value="{{old('last_name')}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a first name.
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Email</label>
 						<input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{old('email')}}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
@@ -63,7 +72,7 @@ input::-webkit-inner-spin-button {
                     </div>
                      <div class="form-group">
                         <label for="formrow-quest_name-input">Phone No</label>
-                        <input type="number" class="form-control" name="phoneno" id="phoneno" placeholder="Enter Phone Number" value="{{old('phoneno')}}" required>
+                        <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Phone Number" value="{{old('contact_no')}}" required>
                         <div class="invalid-feedback">
                             Please provide a phone no.
                         </div>
@@ -86,12 +95,41 @@ input::-webkit-inner-spin-button {
 
                          <div id="req_input" class="form-group">
                         <label for="formrow-quest_name-input">profile Image</label>
-                        <input type="file"  class="form-control images" name="images0" id="images_0" >
+                        <input type="file"  class="form-control images" name="profile_pic" id="profile_pic" >
                             <div class="invalid-feedback">
                                    Please select Image
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="200" style="display:none" >
                     <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">Home Address</label>
+                    <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Enter Home Address" value="{{old('home_address')}}" required>
+                    <div class="invalid-feedback">
+                        Please provide a Home Address.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">Work Address</label>
+                    <input type="text" class="form-control" name="work_address" id="work_address" placeholder="Enter Work Address" value="{{old('work_address')}}" required>
+                    <div class="invalid-feedback">
+                        Please provide a Work Address.
+                    </div>
+                </div>
+
+                <div class="col-md-2" style="padding-top:1%;">
+                    <div class="form-group ">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
+                            <label class="custom-control-label" for="invalidCheck" >Active</label>
+                            <div class="invalid-feedback">
+                                You must agree before Save.
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
                        
                 <div class="row">
@@ -248,16 +286,11 @@ if ((file = this.files[0])) {
 
 // }
 
-//         $(document).ready(function () {
-//         (".divCheckPasswordMatch").html("");
-//             $("#confirm_password").keyup(checkPasswordMatch);
+// $(document).ready(function () {
+// (".divCheckPasswordMatch").html("");
+//     $("#confirm_password").keyup(checkPasswordMatch);
 
-
-
-
-
-
-//});
+// });
     </script>
 
 @endsection

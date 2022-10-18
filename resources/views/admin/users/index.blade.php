@@ -40,14 +40,14 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>#</th>
-                                <th  width="20%">Profile Image</th>
-                                <th  width="10%">Name</th>
-                                <th  width="10%">Email</th>
-                                <th  width="10%">Phone no</th>
-                                <th  width="10%">User Type</th>
-                                <th width=" 5%">New User</th> 
-                                <th  width=" 5%">Status</th>
-                                <th  width="30%">Action</th>
+                                
+                                <th  width="15%">First Name</th>
+                                <th  width="15%">Last Name</th>
+                                <th  width="15%">Email</th>
+                                <th  width="15%">Phone no</th>
+                                <th  width="15%">Profile Image</th>
+                                <th  width="10%">Status</th>
+                                <th  width="20%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,17 +68,14 @@
                                     @endphp
                                     <tr>
                                         <td>{{$i}}</td>
-                                        <td><img src="{{$profilepicturePath}}{{$usr->profile_image}}" alt="" style="width: 100px;height:100px;"></td>
-                                        <td >{{$usr->name}}</td>
+                                        
+                                        <td >{{$usr->first_name}}</td>
+                                        <td >{{$usr->last_name}}</td>
                                         <td>{{$usr->email}}</td>
-                                        <td>{{$usr->phone_no}}</td>
-                                        <td>{{$usr->user_type}}</td>
-                                        <td>
-                                        @if($newuser == 'new')
-                                        <span class="badge badge-success">New</span>
-                                        @endif
-                                        </td>
-                                     
+                                        <td>{{$usr->contact_no}}</td>
+                                        <td>@if ($usr->profile_pic != '')
+                                            <img src="{{$profilepicturePath}}{{$usr->profile_pic}}" alt="" style="width: 100px;height:100px;">
+                                        @endif</td>
                                         <?php if($usr->status == 1){ ?>
                                         <td id="{{$usr->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$usr->id}}" data-status = "{{$usr->status}}" onclick="updatestatus({{$usr->id}},{{$usr->status}})">Active</span></td><?php } else { ?>
                                     

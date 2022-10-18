@@ -150,7 +150,7 @@
 
         <div class="d-flex">
 
-           <div class="time_and_date">
+           {{-- <div class="time_and_date">
                 <div class="wather">
                     <body onload="digi()">
 						  <p id="tt" style="margin-top: 16px !important"></p>
@@ -158,7 +158,7 @@
 
 
                 </div>
-            </div>
+            </div> --}}
 
 
 
@@ -303,13 +303,13 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @if(Auth::user()->profile_image)
+                    {{-- @if(Auth::user()->profile_image)
                     <img class="rounded-circle header-profile-user" src="/uploads/users/{{Auth::user()->profile_image}}"
                         alt="Header Avatar">
                     @else
                     <img class="rounded-circle header-profile-user"src="/uploads/users/avatar-2.jpg"
                         alt="Header Avatar">
-                    @endif
+                    @endif --}}
                     <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->firstname}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>

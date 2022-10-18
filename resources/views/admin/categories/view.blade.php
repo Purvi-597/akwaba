@@ -28,7 +28,7 @@
 						</div>
 						
                     </div>
-
+					<div class="row">
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Status:</b></label>   
 							@if($categories->status == 1)
@@ -39,19 +39,14 @@
 						</div>
 					
                     </div>
-                    
+                    <div class="row">
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$categories->created_at}}
 						</div>
 
 	
                     </div>
-                    	
-
-
-                    	
-
-
+					
 					<div class="row">
 						<div class="form-group col-md-6">
 							 <label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>

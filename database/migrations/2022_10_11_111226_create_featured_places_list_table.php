@@ -22,6 +22,7 @@ class CreateFeaturedPlacesListTable extends Migration
             $table->foreignId('featured_places_id');
             $table->enum('status', ['1', '0']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

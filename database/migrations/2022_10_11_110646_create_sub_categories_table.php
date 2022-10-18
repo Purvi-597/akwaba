@@ -20,6 +20,7 @@ class CreateSubCategoriesTable extends Migration
             $table->foreignId('cat_id');
             $table->enum('status', ['1', '0']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

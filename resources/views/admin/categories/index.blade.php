@@ -40,10 +40,10 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%">#</th>
-                                <th  width="20%"> Name</th>
-                                <th  width="20%">Image</th>
-                                <th  width=" 20%">Status</th>
-                                <th  width="30%">Action</th>
+                                <th  width="15%"> Name</th>
+                                <th  width="15%">Image</th>
+                                <th  width="10%">Status</th>
+                                <th  width="10%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,7 +56,8 @@
                                         
                                         
                                         <td >{{$category->name}}</td>
-                                        <td><img src="{{$profilepicturePath}}{{$category->image}}" alt="" style="width: 100px;height:100px;"></td>
+                                        <td>@if ($category->profile_pic != '')
+                                            <img src="{{$profilepicturePath}}{{$category->image}}" alt="" style="width: 100px;height:100px;">@endif</td>
                                     
                                         <?php if($category->status == 1){ ?>
                                         <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Active</span></td><?php } else { ?>
@@ -66,7 +67,7 @@
                                     <td>
                                         <a href="{{route('categories.edit', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="{{route('categories.view', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
-                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="delete" data-id="{{$category->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletecategories" data-id="{{$category->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
 
                                    </td>                                       
                                     </tr>
@@ -138,7 +139,7 @@
             }
 
 
-            $(document).on('click','#delete',function(){
+            $(document).on('click','#deletecategories',function(){
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
@@ -152,9 +153,9 @@
                       confirmButtonText: 'Yes '
                     }).then((result) => {
                       
-                    if (result.value){
+                      if (result.value){
                         
-                        $.ajax({
+                          $.ajax({
                              type: "POST",
                              url: '{{route("deletecategories")}}',
                              data: {'id': id, "_token": "{{ csrf_token() }}"},
@@ -164,7 +165,7 @@
                                  Swal.fire({
                                        title: "User",
                                        icon:"success",
-                                       text: "User Deleted Successfully",
+                                       text: "Categories Deleted Successfully",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)
@@ -186,14 +187,14 @@
 
                         }
 
-                        });
+                    });
 
                     }else{
                        
 
                       }
-                    });
-         }); 
+                    })
+         })
 
 
 

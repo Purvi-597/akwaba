@@ -3,14 +3,22 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Users extends Model
 {
+    use HasFactory,SoftDeletes;
+
 	public $table = 'users';
     protected $fillable = [
-       'name','email','email_verified_at','password','mobile','state','city','location','profile_picture','profile_picture_path','verification_code','device_type','device_token','remember_token','sso','address','zipcode','user_email','user_sms','user_push','gender','age','dateofbirth','about_me','zodiac','education','height','created_at','updated_at'
+       'first_name','last_name','email','password','contact_no','role','home_address','work_address','mycar_id','profile_pic','device_type','device_token','remember_token','status'
     ];
 
+    protected $hidden = [
+        'updated_at', 'deleted_at'
+    ];
   
 }
 

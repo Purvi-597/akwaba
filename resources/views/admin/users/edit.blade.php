@@ -51,16 +51,23 @@ input::-webkit-inner-spin-button {
                 
                 <input type="hidden" value="{{ $users->id }}" name="id" id="id">
             
-                 
-                        
-                  
-                <div class="form-group">
+                    <div class="form-group">
                         <label for="formrow-quest_name-input">First Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter  Name" value="{{$users->name}}" required>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter  Name" value="{{$users->first_name}}" required>
                         <div class="invalid-feedback">
                             Please provide a first name.
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">First Name</label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter  Name" value="{{$users->last_name}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a first name.
+                        </div>
+                    </div>
+
+                    
                     
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Email</label>
@@ -72,32 +79,49 @@ input::-webkit-inner-spin-button {
                    
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Phone No</label>
-                        <input type="number" class="form-control" name="phoneno" id="phoneno" placeholder="Enter Phone Number" value="{{$users->phone_no}}" required>
+                        <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Phone Number" value="{{$users->contact_no}}" required>
                         <div class="invalid-feedback">
                             Please provide a phone no.
                         </div>
                     </div>
                     
                         
-                <div class="row">
-                     <div id="req_input" class="form-group col-md-12">
-                       <label for="formrow-quest_name-input">profile Image <span style="color:red;">*</span></label>
-                          
-                             <input type="file"  class="form-control images_0" name="images0" id="images_0" ><br>
-                                <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($users->profile_image)){ echo $users->profile_image; } ?></label><br>
-                                       @if(!empty($users->profile_image))
-                               <img src='/uploads/users/{{$users->profile_image}}' id="image_main0" name="image_main0" class="image_main0" height="200" width="250">
-                                @endif
-                                <img  id="image_main1" name="image_main1" class="image_main1" height="200" width="250" style="display:none;">
-                            <input type="hidden" name="old_image0" value="<?php if(isset($users->profile_image)){ echo $users->profile_image; } ?>">
-                               
-                                @if(!empty($users->profile_image))
-                                 <br><br>
-                                &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $users->id }}">Remove</a>
-                                @endif
-                          <span id="image0_error"  style="color:red"></span>
+                    <div class="row">
+                        <div id="req_input" class="form-group col-md-12">
+                        <label for="formrow-quest_name-input">profile Image <span style="color:red;">*</span></label>
+                            
+                                <input type="file"  class="form-control images_0" name="profile_pic" id="profile_pic" ><br>
+                                    <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?></label><br>
+                                        @if(!empty($users->profile_pic))
+                                <img src='/uploads/users/{{$users->profile_pic}}' id="image_main0" name="image_main0" class="image_main0" height="200" width="250">
+                                    @endif
+                                    <img  id="image_main1" name="image_main1" class="image_main1" height="200" width="250" style="display:none;">
+                                <input type="hidden" name="old_image0" value="<?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?>">
+                                
+                                    @if(!empty($users->profile_pic))
+                                    <br><br>
+                                    &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $users->id }}">Remove</a>
+                                    @endif
+                            <span id="image0_error"  style="color:red"></span>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Home Address</label>
+                        <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Enter Email" value="{{$users->home_address}}" >
+                        <div class="invalid-feedback">
+                            Please provide a Home Address.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Work Address</label>
+                        <input type="text" class="form-control" name="work_address" id="work_address" placeholder="Enter Email" value="{{$users->work_address}}">
+                        {{-- <div class="invalid-feedback">
+                            Please provide a Work Address.
+                        </div> --}}
+                    </div>
+
                
                          <div class="form-group"></div>
                         <div class="form-group ">

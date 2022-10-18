@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+
+use App\Http\Controllers\SubcategoriesController;
 Auth::routes();
 
 Route::get('pages-login', 'SkoteController@index');
@@ -100,9 +103,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	Route::post('deleteuser', 'UserController@delete')->name('deleteuser');
 	Route::post('users_status', 'UserController@users_status')->name('users_status');
 	Route::post('userimagedelete', 'UserController@userimagedelete')->name('userimagedelete');	
+	Route::post('checkuseremail', 'UserController@checkuseremail')->name('checkuseremail');	
 	/* Users */
 
-	 /* encyclopedia */
+	 /* Category */
 	Route::get('categories', 'CategoriesController@index')->name('categories.index');
 	Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
 	Route::post('categories/store', 'CategoriesController@store')->name('categories.store');
@@ -112,4 +116,55 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('deletecategories', 'CategoriesController@delete')->name('deletecategories');
     Route::post('categories_status', 'CategoriesController@categories_status')->name('categories_status');
 	Route::post('categoriesimagedelete', 'CategoriesController@categoriesimagedelete')->name('categoriesimagedelete');
+
+	/* Sub Category */
+	Route::get('subcategories', 'SubCategoriesController@index')->name('subcategories.index');
+	Route::get('subcategories/create', 'SubCategoriesController@create')->name('subcategories.create');
+	Route::post('subcategories/store', 'SubCategoriesController@store')->name('subcategories.store');
+	Route::get('subcategories/edit/{id}', 'SubCategoriesController@edit')->name('subcategories.edit');
+    Route::post('subcategories/update/{id}', 'SubCategoriesController@update')->name('subcategories.update');
+    Route::get('subcategories/view/{id}', 'SubCategoriesController@view')->name('subcategories.view');
+    Route::post('deletesubcategories', 'SubCategoriesController@delete')->name('deletesubcategories');
+    Route::post('subcategories_status', 'SubCategoriesController@subcategories_status')->name('subcategories_status');
+	Route::post('subcategoriesimagedelete', 'SubCategoriesController@subcategoriesimagedelete')->name('subcategoriesimagedelete');
+
+	/* Advertisement */
+	Route::get('advertisement', 'AdvertisementController@index')->name('advertisement.index');
+	Route::get('advertisement/create', 'AdvertisementController@create')->name('advertisement.create');
+	Route::post('advertisement/store', 'AdvertisementController@store')->name('advertisement.store');
+	Route::get('advertisement/edit/{id}', 'AdvertisementController@edit')->name('advertisement.edit');
+    Route::post('advertisement/update/{id}', 'AdvertisementController@update')->name('advertisement.update');
+    Route::get('advertisement/view/{id}', 'AdvertisementController@view')->name('advertisement.view');
+    Route::post('deleteadvertisement', 'AdvertisementController@delete')->name('deleteadvertisement');
+    Route::post('advertisement_status', 'AdvertisementController@sub_categories_status')->name('advertisement_status');
+	Route::post('advertisementPathimagedelete', 'AdvertisementController@advertisementPathimagedelete')->name('advertisementPathimagedelete');
+
+
+	/* Feature Places*/
+	Route::get('feature', 'FeatureController@index')->name('feature.index');
+	Route::get('feature/create', 'FeatureController@create')->name('feature.create');
+	Route::post('feature/store', 'FeatureController@store')->name('feature.store');
+	Route::get('feature/edit/{id}', 'FeatureController@edit')->name('feature.edit');
+    Route::post('feature/update/{id}', 'FeatureController@update')->name('feature.update');
+    Route::get('feature/view/{id}', 'FeatureController@view')->name('feature.view');
+    Route::post('deletefeature', 'FeatureController@delete')->name('deletefeature');
+    Route::post('feature_status', 'FeatureController@feature_status')->name('feature_status');
+	Route::post('featureimagedelete', 'FeatureController@featureimagedelete')->name('featureimagedelete');
+
+	/* Feature Places List*/
+	Route::get('feature_list', 'FeatureplaceController@index')->name('feature_list.index');
+	Route::get('feature_list/create', 'FeatureplaceController@create')->name('feature_list.create');
+	Route::post('feature_list/store', 'FeatureplaceController@store')->name('feature_list.store');
+	Route::get('feature_list/edit/{id}', 'FeatureplaceController@edit')->name('feature_list.edit');
+    Route::post('feature_list/update/{id}', 'FeatureplaceController@update')->name('feature_list.update');
+    Route::get('feature_list/view/{id}', 'FeatureplaceController@view')->name('feature_list.view');
+    Route::post('deletefeature_list', 'FeatureplaceController@delete')->name('deletefeature_list');
+    Route::post('feature_list_status', 'FeatureplaceController@feature_status')->name('feature_list_status');
+	Route::post('feature_listimagedelete', 'FeatureplaceController@featureimagedelete')->name('feature_listimagedelete');
+
+
+	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index');
+	Route::post('editpassword/edit', 'EditpasswordController@edit')->name('editpassword.edit');
+	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword');
+
 });
