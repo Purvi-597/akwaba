@@ -4,7 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeaturedPlacesTable extends Migration
+
+
+class CreateFeaturedTextTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +15,10 @@ class CreateFeaturedPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('featured_places', function (Blueprint $table) {
+        Schema::create('featured_text', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('title_fr');
-            $table->text('image')->nullable();
             $table->text('description')->nullable();
             $table->text('description_fr')->nullable();
             $table->enum('status', ['1', '0']);
@@ -33,6 +34,6 @@ class CreateFeaturedPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('featured_places');
+        Schema::dropIfExists('featured_text');
     }
 }

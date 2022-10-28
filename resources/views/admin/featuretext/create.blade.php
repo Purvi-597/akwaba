@@ -1,11 +1,11 @@
  @extends('layouts.master')
-@section('title')  Add Categories @endsection
+@section('title')  Add feature Text @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Add Categories @endslot
+@slot('title') Add feature Text @endslot
 @endcomponent
 <style>
 .form-control{
@@ -41,18 +41,43 @@ input::-webkit-inner-spin-button {
                     @endif
 
 
-            <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('categories.store')}}"  onclick="return CheckDimension()" novalidate>
+            <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('featuretext.store')}}"  onclick="return CheckDimension()" novalidate>
                  @csrf
 					
                     <div class="form-group">
-                        <label for="formrow-quest_name-input"> Name</label>
-						<input type="text" class="form-control" name="name" id="name" placeholder="Enter First Name" value="{{old('name')}}" required>
+                        <label for="formrow-quest_name-input">English Title</label>
+						<input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{old('title')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            Please provide a Title.
                         </div>
                     </div>
-    
-                    <div id="req_input" class="form-group">
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">French Title</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter Title" value="{{old('title_fr')}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a Title.
+                        </div>
+                    </div>
+{{-- 
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input"> Description</label>
+						<input type="text" class="form-control" name="description" id="description" placeholder="Enter Description" value="{{old('description')}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a Description.
+                        </div>
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">English Description</label>
+                        <textarea class="ckeditor form-control" name="description" id="description" placeholder="Enter Description" value="{{old('description')}}" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">French Description</label>
+                        <textarea class="ckeditor form-control" name="description_fr" id="description_fr" placeholder="Enter Description" value="{{old('description_fr')}}" required></textarea>
+                    </div>
+
+                    {{-- <div id="req_input" class="form-group">
                         <label for="formrow-quest_name-input">profile Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
@@ -60,7 +85,8 @@ input::-webkit-inner-spin-button {
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
-                    </div>
+                    </div> --}}
+
 
                     <div class="col-md-2" style="padding-top:1%;">
                         <div class="form-group ">
@@ -79,7 +105,7 @@ input::-webkit-inner-spin-button {
                         <div class="col-md-6">
                             <div class="form-group ">
                                 <button class="btn btn-success" type="submit" id="save">Save</button>
-                            <a href="../categories" class="btn btn-danger">Cancel</a>
+                            <a href="../feature" class="btn btn-danger">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -99,6 +125,13 @@ input::-webkit-inner-spin-button {
 <script src="{{ URL::asset('assets/libs/summernote/summernote.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-editor.init.js')}}"></script>
 
+
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 <script>
  var _URL = window.URL || window.webkitURL;
 $(document).on('change','#images_0',function(e){
@@ -114,10 +147,6 @@ if ((file = this.files[0])) {
   $("#images_0").val(null);
     $("#image_main0").attr('src','');
       $("#image_main0").css('display','none');
-
-
-
-      
   }else{
  img = new Image();
  img.onload = function() {
@@ -199,12 +228,12 @@ if ((file = this.files[0])) {
                     image.onload = function () {
                         var height = this.height;
                         var width = this.width;
-                        if (height < 38 || width < 29) {
+                        if (height > 200 || width > 200) {
      
                            //show width and height to user
                             document.getElementById("width").innerHTML=width;
                             document.getElementById("height").innerHTML=height;
-                            alert("Height and Width must not exceed 38 and 29 px");
+                            alert("Height and Width must not exceed 200px.");
                             return false;
                         }
                         alert("Uploaded image has valid Height and Width.");

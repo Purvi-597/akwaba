@@ -31,5 +31,13 @@ class HomeController extends Controller
         return view('admin.dashboard.index',$data);
     
     }
+
+    // $currentURL = $request->segment(1);
+    // if($currentURL == "en"){
+    //  $data['users'] = DB::table('users')->where('deleted_at',0)->where('role','!=','admin')->count();
+    // }else{
+    //  $data = array();
+    
+    // }     
    
 }

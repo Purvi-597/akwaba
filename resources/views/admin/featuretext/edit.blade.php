@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update Categories @endsection
+@section('title')  Update feature @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update Categories @endslot
+@slot('title') Update feature @endslot
 @endcomponent
 <style>
 .form-control{
@@ -33,7 +33,7 @@ input::-webkit-inner-spin-button {
 </style>
 <div class="row">
     <div class="col-12">
-        <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('categories.update',$categories->id)}}" novalidate>
+        <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('featuretext.update',$featuretext->id)}}" novalidate>
             @csrf
         <div class="card mb-2">
             <div class="card-body">
@@ -46,48 +46,67 @@ input::-webkit-inner-spin-button {
             </ul>
         </div>
         @endif
-             <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('categories.update',$categories->id)}}" novalidate>
+             <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('featuretext.update',$featuretext->id)}}" novalidate>
                 @csrf
                 
-                <input type="hidden" value="{{ $categories->id }}" name="id" id="id">
+                <input type="hidden" value="{{ $featuretext->id }}" name="id" id="id">
             
                  
                         
                   
                 <div class="form-group">
-                        <label for="formrow-quest_name-input">First Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter  Name" value="{{$categories->name}}" required>
+                        <label for="formrow-quest_name-input">English Title</label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter  title" value="{{$featuretext->title}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            Please provide a Title.
                         </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">French Title</label>
+                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter  title" value="{{$featuretext->title_fr}}" required>
+                    <div class="invalid-feedback">
+                        Please provide a Title.
                     </div>
-                    
+            </div>
+ 
+                
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">English Description</label>
+                    <textarea class="ckeditor form-control" name="description" id="description" placeholder="Enter Description" value="{{$featuretext->description}}" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">French Description</label>
+                    <textarea class="ckeditor form-control" name="description" id="description_fr" placeholder="Enter Description" value="{{$featuretext->description_fr}}" required></textarea>
+                </div>
                         
-                <div class="row">
+
+                {{-- <div class="row">
                      <div id="req_input" class="form-group col-md-12">
                        <label for="formrow-quest_name-input"> Image <span style="color:red;">*</span></label>
                           
                              <input type="file"  class="form-control images_0" name="image" id="images_0" ><br>
-                                <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($categories->image)){ echo $categories->image; } ?></label><br>
-                                       @if(!empty($categories->image))
-                               <img src='/uploads/categories/{{$categories->image}}' id="image_main0" name="image_main0" class="image_main0" height="50" width="50">
+                                <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($feature->image)){ echo $feature->image; } ?></label><br>
+                                       @if(!empty($feature->image))
+                               <img src='/uploads/feature/{{$feature->image}}' id="image_main0" name="image_main0" class="image_main0" height="100" width="100">
                                 @endif
                                 <img  id="image_main1" name="image_main1" class="image_main1" height="100" width="100" style="display:none;">
-                            <input type="hidden" name="old_image0" value="<?php if(isset($categories->image)){ echo $categories->image; } ?>">
+                            <input type="hidden" name="old_image0" value="<?php if(isset($feature->image)){ echo $feature->image; } ?>">
                                
-                                @if(!empty($categories->image))
+                                @if(!empty($feature->image))
                                  <br><br>
-                                &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $categories->id }}">Remove</a>
+                                &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $feature->id }}">Remove</a>
                                 @endif
                           <span id="image0_error"  style="color:red"></span>
                     </div>
-                </div>
+                </div> --}}
                
                          <div class="form-group"></div>
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
                                   @php $checked=""; @endphp
-                                @if($categories->status == 1)
+                                @if($featuretext->status == 1)
                                     @php $checked="checked"; @endphp
                                 @endif
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
@@ -104,7 +123,7 @@ input::-webkit-inner-spin-button {
                     <div class="col-md-6">
                         <div class="form-group ">
                             <button class="btn btn-success"  type="submit">Update</button>
-                            <a href="/admin/categories" class="btn btn-danger">Cancel</a>
+                            <a href="/admin/featuretext" class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
                 </div>
@@ -125,7 +144,12 @@ input::-webkit-inner-spin-button {
 <script src="{{ URL::asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-advanced.init.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
-
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 <script>
         $(document).ready(function () {
             

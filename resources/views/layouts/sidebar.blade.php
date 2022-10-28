@@ -12,10 +12,10 @@
                 
 
             <li>
-                    <a href="{{url('/')}}" class="waves-effect">
+                    <a href="{{url('/admin')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
 
-                        <span>Dashboard</span>
+                        <span>@lang('dash.Dashboard')</span>
                     </a>
 
                 </li>
@@ -24,7 +24,7 @@
                 <li>
                     <a href="{{ url('admin/users') }}" class="">
                         <i class="fas fa-users"></i>
-                        <span>User Management</span>
+                        <span>@lang('dash.User Management')</span>
                     </a>
                     
                 </li>
@@ -32,21 +32,21 @@
 				<li>
                     <a href="{{ url('admin/categories') }}" class="">
                         <i class="fas fa-list"></i>
-                        <span>Categories</span>
+                        <span>@lang('dash.Categories')</span>
                     </a> 
                 </li>
 
                 <li>
                     <a href="{{ url('admin/subcategories') }}" class="">
                         <i class="fas fa-list"></i>
-                        <span>Sub Categories</span>
+                         <span>@lang('dash.Sub Categories')</span>
                     </a>  
                 </li>
 
                 <li>
                     <a href="{{ url('admin/advertisement') }}" class="">
                         <i class='fas fa-ad'></i>
-                        <span>Advertisement</span>
+                        <span>@lang('dash.Advertisement')</span>
                     </a>
                     
                 </li>
@@ -54,15 +54,26 @@
                 <li>
                     <a href="{{ url('admin/feature') }}" class="">
                         <i class='fas fa-ad'></i>
-                        <span>Feature Places</span>
+                        <span>@lang('dash.Feature Places')</span>
                     </a>
                     
                 </li>
 
                 <li>
+                    <a href="{{ url('admin/featuretext') }}" class="">
+                        <i class='fas fa-ad'></i>
+                        <span>@lang('dash.Feature Places text')</span>
+                        
+                    </a>
+                    
+                </li>
+
+
+                <li>
                     <a href="{{ url('admin/feature_list') }}" class="">
                         <i class='fas fa-ad'></i>
-                        <span>Feature Places List</span>
+                        <span>@lang('dash.Feature Places List')</span>
+                       
                     </a>
                     
                 </li>
@@ -82,7 +93,8 @@
                     <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="fas fa-cog"></i>
-                        <span>Settings</span>
+                         <span>@lang('dash.Settings')</span>
+                       
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ url('admin/editpassword') }}"><i class="bx bx-radio-circle-marked"></i>Change Password</a></li>                          

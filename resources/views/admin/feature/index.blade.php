@@ -59,7 +59,7 @@
                                         
                                         <td >{{$features->title}}</td>
                                         <td >{{$features->description}}</td>
-                                        <td>@if ($features->profile_pic != '')
+                                        <td>@if ($features->image != '')
                                             <img src="{{$profilepicturePath}}{{$features->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td>
                                     

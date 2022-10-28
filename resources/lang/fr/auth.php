@@ -13,7 +13,10 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'title' => 'Laravel Package Tutorial',
+    // 'failed' => 'These credentials do not match our records.',
+    // 'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
+    'failed' => 'Ces informations didentification ne correspondent pas à nos enregistrements.',
+    'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans: secondes secondes.',
+    'title' => 'Tutoriel sur le paquet Laravel',
 ];

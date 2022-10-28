@@ -41,7 +41,7 @@
                             <tr>
                                 <th>#</th>
                                 
-                                <th  width="15%">First Name</th>
+                                <th  width="15%">@lang('dash.First Name')</th>
                                 <th  width="15%">Last Name</th>
                                 <th  width="15%">Email</th>
                                 <th  width="15%">Phone no</th>

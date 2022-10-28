@@ -8,6 +8,17 @@
         color: #314667;
     }
 </style>
+
+{{-- <script type="text/javascript">
+  
+    var url = "{{ route('changeLang') }}";
+  
+    $(".changeLang").change(function(){
+        window.location.href = url + "?lang="+ $(this).val();
+    });
+  
+</script>  --}}
+
 <header id="page-topbar">
     <div class="navbar-header" style="background-color:  #314667;color: white;">
         <div class="d-flex">
@@ -274,6 +285,21 @@
                     </div>
                 </div>
             </div>
+
+        
+            
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{app()->getLocale() == 'fr'?'French':'English'}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{url(app()->getLocale() == 'fr'?'en':'fr')}}"> {{app()->getLocale() == 'fr'? 'English':'French'}}</a>
+    
+                      
+                    </div>
+                  </div>
+
+            
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"

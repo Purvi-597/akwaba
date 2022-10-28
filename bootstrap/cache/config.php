@@ -7,7 +7,11 @@
     'url' => 'http://localhost:8000',
     'asset_url' => NULL,
     'timezone' => 'UTC',
-    'locale' => 'en',
+    'available_locales' => 
+    array (
+      'English' => 'en',
+      'French' => 'fr',
+    ),
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'key' => 'base64:laV1AWt347s5drWj4oKoYCEJItSVZkE/Z6hIHWGUoRg=',

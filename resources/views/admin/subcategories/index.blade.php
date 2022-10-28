@@ -56,7 +56,7 @@
                                         
                                         
                                         <td >{{$subcategory->name}}</td>
-                                        <td>@if ($subcategory->profile_pic != '')
+                                        <td>@if ($subcategory->image != '')
                                             <img src="{{$profilepicturePath}}{{$subcategory->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td>
                                         <?php if($subcategory->status == 1){ ?>
@@ -68,8 +68,7 @@
                                         <a href="{{route('subcategories.edit', $subcategory->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="{{route('subcategories.view', $subcategory->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
                                         <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletesubcategories" data-id="{{$subcategory->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
-
-                                   </td>                                       
+                                    </td>                                       
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach

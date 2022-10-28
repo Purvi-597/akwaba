@@ -1,15 +1,16 @@
  @extends('layouts.master')
-@section('title') Categories @endsection
+@section('title') Feature Text @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
+
 @component('common-components.breadcrumb')
 @slot('title') @endslot
 @slot('add_btn') <h4 class="card-title">
-    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('categories.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add Categories  </a>
+    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{route('featuretext.create') }}"
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature text  </a>
 
     </h4> @endslot
 @endcomponent
@@ -40,34 +41,40 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%">#</th>
-                                <th  width="15%"> Name</th>
-                                <th  width="15%">Image</th>
-                                <th  width="10%">Status</th>
-                                <th  width="10%">Action</th>
+                                <th  width="15%">Title</th>
+                                <th  width="15%">Title_fr</th>
+                                <th  width="15%">Description</th>
+                                <th  width="15%">Description_fr</th>
+                                <th  width="15%">Status</th>
+                                <th  width="15%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php $profilepicturePath = '/uploads/categories/'; @endphp
-                            @if(count($categories)>0)
+                            @php $profilepicturePath = '/uploads/feature/'; @endphp
+                            @if(count($featuretext)>0)
                             @php $i = 1; @endphp
-                                @foreach($categories as $category)
+                                @foreach($featuretext as $features)
                                     <tr>
                                         <td>{{$i}}</td>
                                         
                                         
-                                        <td >{{$category->name}}</td>
-                                        <td>@if ($category->image != '')
-                                            <img src="{{$profilepicturePath}}{{$category->image}}" alt="" style="width: 29px;height:28px;">@endif</td>
+                                        <td >{{$features->title}}</td>
+                                        <td >{{$features->title_fr}}</td>
+                                        <td >{{$features->description}}</td>
+                                        <td >{{$features->description_fr}}</td>
+                                        {{-- <td>@if ($features->image != '')
+                                            <img src="{{$profilepicturePath}}{{$features->image}}" alt="" style="width: 100px;height:100px;">@endif
+                                        </td> --}}
                                     
-                                        <?php if($category->status == 1){ ?>
-                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Active</span></td><?php } else { ?>
+                                        <?php if($features->status == 1){ ?>
+                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">Active</span></td><?php } else { ?>
                                     
-                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Inactive</span></td><?php } ?>
+                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">Inactive</span></td><?php } ?>
 
                                     <td>
-                                        <a href="{{route('categories.edit', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="{{route('categories.view', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
-                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletecategories" data-id="{{$category->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{route('featuretext.edit', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="{{route('featuretext.view', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
+                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletefeaturetext" data-id="{{$features->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
 
                                    </td>                                       
                                     </tr>
@@ -91,6 +98,12 @@
 <script src="{{ URL::asset('assets/js/pages/datatables.init.js')}}"></script>
 
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 <script type="text/javascript">
     $(document).ready(function() {
             $('#UsersList1').DataTable();
@@ -139,7 +152,7 @@
             }
 
 
-            $(document).on('click','#deletecategories',function(){
+            $(document).on('click','#deletefeaturetext',function(){
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
@@ -157,7 +170,7 @@
                         
                           $.ajax({
                              type: "POST",
-                             url: '{{route("deletecategories")}}',
+                             url: '{{route("deletefeaturetext")}}',
                              data: {'id': id, "_token": "{{ csrf_token() }}"},
                              success: function(data){
                                  if(data == "delete"){
@@ -165,7 +178,7 @@
                                  Swal.fire({
                                        title: "User",
                                        icon:"success",
-                                       text: "Categories Deleted Successfully",
+                                       text: "feature Deleted Successfully",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)
