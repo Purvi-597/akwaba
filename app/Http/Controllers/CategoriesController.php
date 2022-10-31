@@ -13,7 +13,7 @@ class CategoriesController extends Controller
 {
 	public function index()
     {
-    
+    /// index;
 		$data['categories'] = Categories::orderBy('id','desc')->get();
         return view('admin.categories.index',$data);
 	}
