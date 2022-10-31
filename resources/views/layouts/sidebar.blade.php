@@ -52,6 +52,14 @@
                 </li>
 
                 <li>
+                    <a href="{{ url('admin/place_advertisement') }}" class="">
+                        <i class='fas fa-ad'></i>
+                        <span>Place Advertisement</span>
+                    </a>
+                    
+                </li>
+
+                <li>
                     <a href="{{ url('admin/feature') }}" class="">
                         <i class='fas fa-ad'></i>
                         <span>Feature Places</span>

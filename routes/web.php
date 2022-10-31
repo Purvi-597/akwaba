@@ -139,6 +139,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('advertisement_status', 'AdvertisementController@sub_categories_status')->name('advertisement_status');
 	Route::post('advertisementPathimagedelete', 'AdvertisementController@advertisementPathimagedelete')->name('advertisementPathimagedelete');
 
+	/* Place Advertisement */
+	Route::get('place_advertisement', 'PlaceAdvertisementController@index')->name('place_advertisement.index');
+	Route::get('place_advertisement/create', 'PlaceAdvertisementController@create')->name('place_advertisement.create');
+	Route::post('place_advertisement/store', 'PlaceAdvertisementController@store')->name('place_advertisement.store');
+	Route::get('place_advertisement/edit/{id}', 'PlaceAdvertisementController@edit')->name('place_advertisement.edit');
+    Route::post('place_advertisement/update/{id}', 'PlaceAdvertisementController@update')->name('place_advertisement.update');
+    Route::get('place_advertisement/view/{id}', 'PlaceAdvertisementController@view')->name('place_advertisement.view');
+    Route::post('delete_place_advertisement', 'PlaceAdvertisementController@delete')->name('deleteplaceadvertisement');
+    Route::post('place_advertisement_status', 'PlaceAdvertisementController@sub_categories_status')->name('place_advertisement_status');
+	Route::post('placeAdvertisementPathimagedelete', 'PlaceAdvertisementController@advertisementPathimagedelete')->name('placeAdvertisementPathimagedelete');
+
 
 	/* Feature Places*/
 	Route::get('feature', 'FeatureController@index')->name('feature.index');
