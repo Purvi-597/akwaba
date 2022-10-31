@@ -156,8 +156,8 @@ $(document).ready(function () {
         if ((file = this.files[0])) {
         var ext = name.split('.').pop().toLowerCase();
 
-        if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-            $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg,jfif,svg).");
+        if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+            $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
             $("#images_0").val("");
             $("#images_0").val(null);
             $("#image_main1").attr('src','');
