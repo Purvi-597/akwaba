@@ -11,10 +11,10 @@ class Feature extends Model
     use HasFactory,SoftDeletes;
     protected $table = 'featured_places';
     protected $fillable = [
-        'title', 'status', 'image', 'description'
+        'title','title_fr','status', 'image', 'description','description_fr'
         ];
 
         protected $dates = ['deleted_at'];
 
-    public $timestamps = false;
+    //public $timestamps = false;
 }

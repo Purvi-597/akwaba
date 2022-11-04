@@ -31,21 +31,30 @@ class FeatureController extends Controller
         if ($files = $request->file('image')) {
             $featurePath = public_path().'/uploads/feature/';
             if ($featurePicture = $request->file('image')) {
-                $image = time().'_'.$featurePicture->getClientOriginalName().'.'.$featurePicture->getClientOriginalExtension();
+                $image = $featurePicture->getClientOriginalName();
                 $featurePicture->move($featurePath, $image);
             }
+        }
+
+        if($request->input('status')){
+            $status = 1;
+         }else{
+            $status = 0;
         }
 
         $data = array(
 
             'title' => $request->input('title'),
+            'title_fr' => $request->input('title_fr'),
+            'image' => $image,
             'description' => $request->input('description'),
-            'status' => $request->input('status'),
-            'image' => $image
+            'description_fr' => $request->input('description_fr'),
+            'status' => $status
+            
         );
         $insert = Feature::create($data);
         if($insert){
-            return redirect()->back()->with('success','feature created successfully.');
+            return redirect()->action('FeatureController@index')->with('success','feature Created Successfully');
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }
@@ -62,7 +71,7 @@ class FeatureController extends Controller
         if(!empty($request->file('image'))){
 				$destinationPath = public_path().'/uploads/feature/';
 				if ($cover_detail_image = $request->file('image')) {
-					$cover_detail = time().'_'.$cover_detail_image->getClientOriginalName().'.'.$cover_detail_image->getClientOriginalExtension();
+					$cover_detail = $cover_detail_image->getClientOriginalName();
 					$cover_detail_image->move($destinationPath, $cover_detail);
 				}
 		}else{
@@ -76,7 +85,9 @@ class FeatureController extends Controller
         $create = Feature::where('id',$id)->update([
 
             "title" => $request->input('title'),
-            "description" => $request->input('description'),
+            "title_fr" => $request->input('title_fr'),
+            "description" => $request->textarea('description'),
+            "description_fr" => $request->textarea('description_fr'),
 			"image"=>$cover_detail,
             "status" => $status
         ]);
@@ -113,12 +124,12 @@ class FeatureController extends Controller
     	$status = $request->input('status');
     	if($status == 1)
     	{
-    		DB::table('feature')->where('id',$id)->update(['status' => 0]);
+    		DB::table('featured_places')->where('id',$id)->update(['status' => 0]);
                 return response()->json(['return' => 'Inactive']);
     	}
     	elseif($status == 0)
     	{
-    		DB::table('feature')->where('id',$id)->update(['status' => 1]);
+    		DB::table('featured_places')->where('id',$id)->update(['status' => 1]);
                 return response()->json(['return' => 'Active']);
     	}
     	else

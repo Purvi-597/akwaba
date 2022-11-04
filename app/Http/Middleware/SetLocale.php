@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use Session;
 class SetLocale
 {
     /**
@@ -16,7 +16,8 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-       app()->setLocale($request->segment(1));
+        
+        app()->setLocale(Session::get('locale'));
           
         return $next($request);
     }

@@ -10,11 +10,11 @@ use DB;
 
 
 
-class SubCategoriesController extends Controller 
+class SubCategoriesController extends Controller
 {
 	public function index()
     {
-    
+
 		$data['subcategories'] = Subcategories::orderBy('id','desc')->get();
         return view('admin.subcategories.index',$data);
 	}
@@ -25,9 +25,9 @@ class SubCategoriesController extends Controller
     }
 	public function store(Request $request)
     {
-      
+
         $input = $request->all();
-        
+
         $image = '';
         if ($files = $request->file('image')) {
             $subcategoriesPath = public_path().'/uploads/subcategories/';
@@ -36,23 +36,28 @@ class SubCategoriesController extends Controller
                 $subcategoriesPicture->move($subcategoriesPath, $image);
             }
         }
-
+        $status = 0;
+        if($request->input('status')){
+            $status = 1;
+         }else{
+            $status = 0;
+        }
         $data = array(
             'cat_id' =>$request->input('cat_id'),
             'name' => $request->input('name'),
-            'status' => $request->input('status'),
+            'status' => $status,
             'image' => $image
         );
         $insert = Subcategories::create($data);
         if($insert){
-            return redirect()->back()->with('success','Subcategories created successfully.');
+            return redirect()->back()->with('success','Subcategory created successfully.');
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }
     }
 
 	public function edit($id)
-    {   
+    {
         $row['categories'] = Categories::orderBy('id','desc')->get(['id','name']);
         $row['subcategories'] = Subcategories::where('id',$id)->first();
         return view('admin.subcategories.edit',$row);
@@ -103,7 +108,7 @@ class SubCategoriesController extends Controller
         {
             echo "notdelete";
         }
-        
+
     }
 
     public function subcategories_status(Request $request)
@@ -112,18 +117,17 @@ class SubCategoriesController extends Controller
     	$status = $request->input('status');
     	if($status == 1)
     	{
-    		DB::table('subcategories')->where('id',$id)->update(['status' => 0]);
+    		Subcategories::where('id',$id)->update(['status' => 0]);
                 return response()->json(['return' => 'Inactive']);
     	}
     	elseif($status == 0)
     	{
-    		DB::table('categsubcategoriesories')->where('id',$id)->update(['status' => 1]);
+    		Subcategories::where('id',$id)->update(['status' => 1]);
                 return response()->json(['return' => 'Active']);
     	}
     	else
     	{
-    		return redirect()->back()
-	         		->with('error','Unable to change the status');
+            return response()->json(['return' => 'error']);
     	}
     }
 
@@ -133,5 +137,5 @@ class SubCategoriesController extends Controller
         return view('admin.subcategories.view',$data);
     }
 
-   
+
 }

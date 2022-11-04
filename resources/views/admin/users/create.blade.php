@@ -54,9 +54,9 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Last Name</label>
-						<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter First Name" value="{{old('last_name')}}" required>
+						<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name" value="{{old('last_name')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            Please provide a Last name.
                         </div>
                     </div>
 
@@ -122,7 +122,7 @@ input::-webkit-inner-spin-button {
                 <div class="col-md-2" style="padding-top:1%;">
                     <div class="form-group ">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
+                            <input type="checkbox" name="status" class="custom-control-input" value="" id="invalidCheck" checked>
                             <label class="custom-control-label" for="invalidCheck" >Active</label>
                             <div class="invalid-feedback">
                                 You must agree before Save.

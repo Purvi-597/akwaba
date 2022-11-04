@@ -41,11 +41,11 @@ input::-webkit-inner-spin-button {
                     @endif
 
 
-            <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('feature_list.store')}}"  onclick="return CheckDimension()" novalidate>
+            <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('feature_list.store')}}"  novalidate>
                  @csrf
                  <div class="form-group">
                     <label>Choose a Feature Places:</label>
-                    <select id="featured_places_id" name="featured_places_id" class="form-control">
+                    <select id="featured_places_id" name="featured_places_id" class="form-control" required>
                       <option value="">Select Feature Places</option>
                       @foreach($feature_list as $feature)
                         <option value="{{ $feature->id }}">{{ $feature->title }}</option>
@@ -62,8 +62,24 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
+                        <label for="formrow-quest_name-input">French Title</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French Title" value="{{old('title_fr')}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a French Title.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="formrow-quest_name-input"> Description</label>
-						<input type="text" class="form-control" name="description" id="description" placeholder="Enter Description" value="{{old('description')}}" required>
+						<textarea class="form-control" name="description" id="description" placeholder="Enter Description" value="{{old('description')}}" required></textarea>
+                        <div class="invalid-feedback">
+                            Please provide a Description.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">French  Description</label>
+						<textarea class="form-control" name="description_fr" id="description_fr" placeholder="Enter Description" value="{{old('description_fr')}}" required></textarea>
                         <div class="invalid-feedback">
                             Please provide a Description.
                         </div>
@@ -78,7 +94,7 @@ input::-webkit-inner-spin-button {
                     </div>
     
                     <div id="req_input" class="form-group">
-                        <label for="formrow-quest_name-input">profile Image</label>
+                        <label for="formrow-quest_name-input"> Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
                                    Please select Image
@@ -90,7 +106,8 @@ input::-webkit-inner-spin-button {
                     <div class="col-md-2" style="padding-top:1%;">
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
+                                @php $checked=""; @endphp
+                                <input type="checkbox" name="status" class="custom-control-input" id="invalidCheck" >
                                 <label class="custom-control-label" for="invalidCheck" >Active</label>
                                 <div class="invalid-feedback">
                                     You must agree before Save.
@@ -121,126 +138,110 @@ input::-webkit-inner-spin-button {
 <script src="{{ URL::asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-advanced.init.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
-<script src="{{ URL::asset('assets/libs/summernote/summernote.min.js')}}"></script>
-<script src="{{ URL::asset('assets/js/pages/form-editor.init.js')}}"></script>
-
-<script>
- var _URL = window.URL || window.webkitURL;
-$(document).on('change','#images_0',function(e){
- var file, img;
-
- let name = e.target.files[0].name;
-if ((file = this.files[0])) {
-  var ext = name.split('.').pop().toLowerCase();
-
-  if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
-  $("#images_0").val("");
-  $("#images_0").val(null);
-    $("#image_main0").attr('src','');
-      $("#image_main0").css('display','none');
-  }else{
- img = new Image();
- img.onload = function() {
-  $("#image0_error").text("");
-  $("#image_main0").css("display", "block");
-  $('#image_main0').attr('src', img.src).height(150);
-    }
- };
- img.src = _URL.createObjectURL(file);
-}
-});
-</script>
-
-<script>
-        $(document).ready(function () {
-        
-            $("#profile_image").change(function(){
-       
-         $('#image1').css('display','block');
-        });
-        });
-
-
-
-// function checkPasswordMatch() {
-//     var password = $("#password").val();
-//     var confirmPassword = $("#confirm_password").val();
-
-//    if(password == "" && confirmPassword == ""){
-//          $(".divCheckPasswordMatch").html("");
-//      }else{
-//     if (password != confirmPassword){
-//         $(".divCheckPasswordMatch").html("Passwords do not match!");
-//         $("#save").attr("disabled", true);
-// }else{
-//         $(".divCheckPasswordMatch").html("");
-//          $("#save").attr("disabled", false);
-//     }
-//    }
-
-// }
-
-//         $(document).ready(function () {
-//         (".divCheckPasswordMatch").html("");
-//             $("#confirm_password").keyup(checkPasswordMatch);
-
-
-
-
-
-
-//});
-    </script>
-
 
 <script type="text/javascript">
-    function CheckDimension() {
-        //Get reference of File.
-        var fileUpload = document.getElementById("file");
-     
-        //Check whether the file is valid Image.
-        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
-        if (regex.test(fileUpload.value.toLowerCase())) {
-     
-            //Check whether HTML5 is supported.
-            if (typeof (fileUpload.files) != "undefined") {
-                //Initiate the FileReader object.
-                var reader = new FileReader();
-                //Read the contents of Image File.
-                reader.readAsDataURL(fileUpload.files[0]);
-                reader.onload = function (e) {
-                    //Initiate the JavaScript Image object.
-                    var image = new Image();
-     
-                    //Set the Base64 string return from FileReader as source.
-                    image.src = e.target.result;
-                           
-                    //Validate the File Height and Width.
-                    image.onload = function () {
-                        var height = this.height;
-                        var width = this.width;
-                        if (height > 200 || width > 200) {
-     
-                           //show width and height to user
-                            document.getElementById("width").innerHTML=width;
-                            document.getElementById("height").innerHTML=height;
-                            alert("Height and Width must not exceed 200px.");
-                            return false;
-                        }
-                        alert("Uploaded image has valid Height and Width.");
-                        return true;
-                    };
-     
-                }
-            } else {
-                alert("This browser does not support HTML5.");
-                return false;
-            }
-        } else {
-            alert("Please select a valid Image file.");
-            return false;
-        }
-    }
-    </script>
+    tinymce.init({
+ selector: 'textarea#description,#description_fr',
+ plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+ imagetools_cors_hosts: ['picsum.photos'],
+ menubar: 'file edit view insert format tools table help',
+ toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+ toolbar_sticky: true,
+ autosave_ask_before_unload: true,
+ autosave_interval: "30s",
+ autosave_prefix: "{path}{query}-{id}-",
+ autosave_restore_when_empty: false,
+ autosave_retention: "2m",
+ image_advtab: true,
+ content_css: '//www.tiny.cloud/css/codepen.min.css',
+ link_list: [
+   { title: 'My page 1', value: 'http://www.tinymce.com' },
+   { title: 'My page 2', value: 'http://www.moxiecode.com' }
+ ],
+ image_list: [
+   { title: 'My page 1', value: 'http://www.tinymce.com' },
+   { title: 'My page 2', value: 'http://www.moxiecode.com' }
+ ],
+ image_class_list: [
+   { title: 'None', value: '' },
+   { title: 'Some class', value: 'class-name' }
+ ],
+ importcss_append: true,
+ file_picker_callback: function (callback, value, meta) {
+   /* Provide file and text for the link dialog */
+   if (meta.filetype === 'file') {
+     callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+   }
+   /* Provide image and alt text for the image dialog */
+   if (meta.filetype === 'image') {
+     callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+   }
+   /* Provide alternative source and posted for the media dialog */
+   if (meta.filetype === 'media') {
+     callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+   }
+ },
+ templates: [
+       { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+   { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+   { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+ ],
+ template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+ template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+ height: 520,
+ image_caption: true,
+ quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+ noneditable_noneditable_class: "mceNonEditable",
+ toolbar_mode: 'sliding',
+ contextmenu: "link image imagetools table",
+});
+
+</script> 
+
+
+<script>
+    var _URL = window.URL || window.webkitURL;
+   $(document).on('change','#images_0',function(e){
+    var file, img;
+   
+    let name = e.target.files[0].name;
+   if ((file = this.files[0])) {
+     var ext = name.split('.').pop().toLowerCase();
+   
+     if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+     $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
+     $("#images_0").val("");
+     $("#images_0").val(null);
+       $("#image_main0").attr('src','');
+         $("#image_main0").css('display','none');
+   
+     }else{
+   
+           var imgwidth = 0;
+           var imgheight = 0;
+           var maxwidth = 400;
+           var maxheight = 280;
+           img = new Image();
+           img.onload = function() {
+   
+           imgwidth = this.width;
+           imgheight = this.height;
+   
+           if(imgwidth > maxwidth && imgheight > maxheight){
+   
+           $("#image0_error").text("Please upload images of following dimension width/height(400*280).");
+           $("#image_main0").css("display", "none");
+           $("#image_main0").attr('src','');
+           $("#images_0").val("");
+           }else{
+           $("#image0_error").text("");
+           $("#image_main0").css("display", "block");
+           $('#image_main0').attr('src', img.src).height(280).width(400);
+               }
+           }
+       };
+           img.src = _URL.createObjectURL(file);
+   }
+   });
+   </script>
 @endsection

@@ -11,10 +11,10 @@ class Advertisement extends Model
     use HasFactory,SoftDeletes;
     protected $table = 'advertisement';
     protected $fillable = [
-        'title', 'status', 'image','link'
+        'title','title_fr','status', 'image','link'
         ];
 
         protected $dates = ['deleted_at'];
 
-    public $timestamps = false;
+    //public $timestamps = false;
 }

@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') @endslot
+@slot('title') @lang('language.Advertisement')@endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('advertisement.create') }}"
         class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add Advertisement  </a>
@@ -41,9 +41,10 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th  width="15%"> Title</th>
+                                <th  width="15%"> French Title</th>
                                 <th  width="15%">Image</th>
-                                <th  width="15%">Link</th>
-                                <th  width="15%">Status</th>
+                                <th  width="10%">Link</th>
+                                <th  width="10%">Status</th>
                                 <th  width="20%">Action</th>
                             </tr>
                         </thead>
@@ -57,8 +58,10 @@
                                         
                                         
                                         <td >{{$advertisement->title}}</td>
+                                        
+                                        <td >{{$advertisement->title_fr}}</td>
 
-                                        <td>@if ($advertisement->profile_pic != '')
+                                        <td>@if ($advertisement->image != '')
                                             <img src="{{$advertisementPath}}{{$advertisement->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td>
 
@@ -68,6 +71,7 @@
                                         <td id="{{$advertisement->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$advertisement->id}}" data-status = "{{$advertisement->status}}" onclick="updatestatus({{$advertisement->id}},{{$advertisement->status}})">Active</span></td><?php } else { ?>
                                     
                                         <td id="{{$advertisement->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$advertisement->id}}" data-status = "{{$advertisement->status}}" onclick="updatestatus({{$advertisement->id}},{{$advertisement->status}})">Inactive</span></td><?php } ?>
+                                        
 
                                     <td>
                                         <a href="{{route('advertisement.edit', $advertisement->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -108,7 +112,7 @@
                
             $.ajax({
             type: "POST",
-            url: '{{route("users_status")}}',
+            url: '{{route("advertisement_status")}}',
             data: {'status': status, 'id': id, "_token": "{{ csrf_token() }}"},
             success: function(data){
               if(data.return =='Active')
@@ -149,7 +153,7 @@
                
                  Swal.fire({
                       title: 'Are You sure',
-                      text: "You want to delete this user",
+                      text: "You want to delete this Advertisement",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -168,7 +172,7 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "User",
+                                       title: "Advertisement",
                                        icon:"success",
                                        text: "Advertisement Deleted Successfully",
                                        type: "success"
@@ -179,7 +183,7 @@
                             }else{
 
                                    Swal.fire({
-                                       title: "User",
+                                       title: "Advertisement",
                                        icon:"error",
                                         text: "Something went wrong",
                                        type: "error"
@@ -193,18 +197,12 @@
                         }
 
                     });
-                    }else{
+        }else{
                        
 
-                      }
-                    })
-         })
-
-
-
-            
-
-
+         }
+    })
+})
 </script>
 
 @endsection

@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title')  Add Advertisement @endslot
+@slot('title')  @lang('dash.') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -41,23 +41,31 @@ input::-webkit-inner-spin-button {
                     @endif
 
 
-            <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('advertisement.store')}}"  onclick="return CheckDimension()" novalidate>
+                <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data"  action="{{route('advertisement.store')}}"  novalidate>
                  @csrf
 					
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Title</label>
-						<input type="text" class="form-control" name="title" id="title" placeholder="Enter First Name" value="{{old('title')}}" required>
+						<input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{old('title')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            Please provide a Title.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">French Title</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French Title" value="{{old('title_fr')}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a French Title.
                         </div>
                     </div>
                 
 
                     <div id="req_input" class="form-group">
-                        <label for="formrow-quest_name-input">profile Image</label>
+                        <label for="formrow-quest_name-input"> Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
-                                   Please select Image
+                                Please select Image
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
@@ -65,33 +73,33 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Link</label>
-						<input type="text" class="form-control" name="link" id="link" placeholder="Enter First Name" value="{{old('link')}}" required>
-                        <div class="invalid-feedback">
-                            Please provide a first name.
-                        </div>
+						<input type="text" class="form-control" name="link" id="link" placeholder="Enter Link" value="{{old('link')}}" required>
+                            <div class="invalid-feedback">
+                                Please provide a Link.
+                            </div>
                     </div>
 
-                <div class="col-md-2" style="padding-top:1%;">
-                    <div class="form-group ">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
-                            <label class="custom-control-label" for="invalidCheck" >Active</label>
-                            <div class="invalid-feedback">
-                                You must agree before Save.
+                    <div class="form-group">
+                        <div class="col-md-2" style="padding-top:1%;">
+                            <div class="custom-control custom-checkbox">
+                                @php $checked=""; @endphp
+                                <input type="checkbox" name="status[]" class="custom-control-input"  id="invalidCheck" >
+                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                    <div class="invalid-feedback">
+                                        You must agree before Save.
+                                    </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
                        
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group ">
-                            <button class="btn btn-success" type="submit" id="save">Save</button>
-                        <a href="../advertisement" class="btn btn-danger">Cancel</a>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <button class="btn btn-success" type="submit" id="save">Save</button>
+                                   <a href="../advertisement" class="btn btn-danger">Cancel</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
@@ -109,122 +117,50 @@ input::-webkit-inner-spin-button {
 <script src="{{ URL::asset('assets/js/pages/form-editor.init.js')}}"></script>
 
 <script>
- var _URL = window.URL || window.webkitURL;
-$(document).on('change','#images_0',function(e){
- var file, img;
-
- let name = e.target.files[0].name;
-if ((file = this.files[0])) {
-  var ext = name.split('.').pop().toLowerCase();
-
-  if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg,jfif,svg).");
-  $("#images_0").val("");
-  $("#images_0").val(null);
-    $("#image_main0").attr('src','');
-      $("#image_main0").css('display','none');
-  }else{
- img = new Image();
- img.onload = function() {
-  $("#image0_error").text("");
-  $("#image_main0").css("display", "block");
-  $('#image_main0').attr('src', img.src).height(150);
-    }
- };
- img.src = _URL.createObjectURL(file);
-}
-});
-</script>
-
-<script>
-        $(document).ready(function () {
-        
-            $("#profile_image").change(function(){
-       
-         $('#image1').css('display','block');
-        });
-        });
-
-
-
-// function checkPasswordMatch() {
-//     var password = $("#password").val();
-//     var confirmPassword = $("#confirm_password").val();
-
-//    if(password == "" && confirmPassword == ""){
-//          $(".divCheckPasswordMatch").html("");
-//      }else{
-//     if (password != confirmPassword){
-//         $(".divCheckPasswordMatch").html("Passwords do not match!");
-//         $("#save").attr("disabled", true);
-// }else{
-//         $(".divCheckPasswordMatch").html("");
-//          $("#save").attr("disabled", false);
-//     }
-//    }
-
-// }
-
-//         $(document).ready(function () {
-//         (".divCheckPasswordMatch").html("");
-//             $("#confirm_password").keyup(checkPasswordMatch);
-
-
-
-
-
-
-//});
-    </script>
-
-
-<script type="text/javascript">
-    function CheckDimension() {
-        //Get reference of File.
-        var fileUpload = document.getElementById("file");
-     
-        //Check whether the file is valid Image.
-        var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
-        if (regex.test(fileUpload.value.toLowerCase())) {
-     
-            //Check whether HTML5 is supported.
-            if (typeof (fileUpload.files) != "undefined") {
-                //Initiate the FileReader object.
-                var reader = new FileReader();
-                //Read the contents of Image File.
-                reader.readAsDataURL(fileUpload.files[0]);
-                reader.onload = function (e) {
-                    //Initiate the JavaScript Image object.
-                    var image = new Image();
-     
-                    //Set the Base64 string return from FileReader as source.
-                    image.src = e.target.result;
-                           
-                    //Validate the File Height and Width.
-                    image.onload = function () {
-                        var height = this.height;
-                        var width = this.width;
-                        if (height > 200 || width > 200) {
-     
-                           //show width and height to user
-                            document.getElementById("width").innerHTML=width;
-                            document.getElementById("height").innerHTML=height;
-                            alert("Height and Width must not exceed 200px.");
-                            return false;
-                        }
-                        alert("Uploaded image has valid Height and Width.");
-                        return true;
-                    };
-     
-                }
-            } else {
-                alert("This browser does not support HTML5.");
-                return false;
-            }
-        } else {
-            alert("Please select a valid Image file.");
-            return false;
-        }
-    }
-    </script>
+    var _URL = window.URL || window.webkitURL;
+   $(document).on('change','#images_0',function(e){
+    var file, img;
+   
+    let name = e.target.files[0].name;
+   if ((file = this.files[0])) {
+     var ext = name.split('.').pop().toLowerCase();
+   
+     if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+     $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
+     $("#images_0").val("");
+     $("#images_0").val(null);
+       $("#image_main0").attr('src','');
+         $("#image_main0").css('display','none');
+   
+     }else{
+   
+           var imgwidth = 0;
+           var imgheight = 0;
+           var maxwidth = 400;
+           var maxheight = 280;
+           img = new Image();
+           img.onload = function() {
+   
+           imgwidth = this.width;
+           imgheight = this.height;
+   
+           if(imgwidth > maxwidth && imgheight > maxheight){
+   
+           $("#image0_error").text("Please upload images of following dimension width/height(400*280).");
+           $("#image_main0").css("display", "none");
+           $("#image_main0").attr('src','');
+           $("#images_0").val("");
+           }else{
+           $("#image0_error").text("");
+           $("#image_main0").css("display", "block");
+           $('#image_main0').attr('src', img.src).height(280).width(400);
+               }
+           }
+       };
+           img.src = _URL.createObjectURL(file);
+   }
+   });
+   </script>
+   
+   
 @endsection

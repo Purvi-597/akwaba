@@ -1,16 +1,15 @@
- @extends('layouts.master')
-@section('title') Feature @endsection
+@extends('layouts.master')
+@section('title')Feature @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
-
 @component('common-components.breadcrumb')
-@slot('title') @endslot
+@slot('title') @lang('dash.Feature Places') @endslot
 @slot('add_btn') <h4 class="card-title">
-    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{route('feature.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature  </a>
+    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('feature.create') }}"
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add Feature places </a>
 
     </h4> @endslot
 @endcomponent
@@ -42,36 +41,44 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th  width="15%">Title</th>
+                               
                                 <th  width="15%">Description</th>
+                                
                                 <th  width="15%">Image</th>
                                 <th  width="15%">Status</th>
                                 <th  width="15%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php $profilepicturePath = '/uploads/feature/'; @endphp
+                            @php $featurePath = '/uploads/feature/'; @endphp
                             @if(count($feature)>0)
                             @php $i = 1; @endphp
-                                @foreach($feature as $features)
+                                @foreach($feature as $feature)
                                     <tr>
                                         <td>{{$i}}</td>
                                         
                                         
-                                        <td >{{$features->title}}</td>
-                                        <td >{{$features->description}}</td>
-                                        <td>@if ($features->image != '')
-                                            <img src="{{$profilepicturePath}}{{$features->image}}" alt="" style="width: 100px;height:100px;">@endif
+                                        <td >{{$feature->title}}</td>
+                                        
+                                        
+                                        <td >{{$feature->description}}</td>
+                                       
+                                        <td>@if ($feature->image != '')
+                                            <img src="{{$featurePath}}{{$feature->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td>
+
+                                        
+
+                                        <?php if($feature->status == 1){ ?>
+                                        <td id="{{$feature->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$feature->id}}" data-status = "{{$feature->status}}" onclick="updatestatus({{$feature->id}},{{$feature->status}})">Active</span></td><?php } else { ?>
                                     
-                                        <?php if($features->status == 1){ ?>
-                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">Active</span></td><?php } else { ?>
-                                    
-                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">Inactive</span></td><?php } ?>
+                                        <td id="{{$feature->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$feature->id}}" data-status = "{{$feature->status}}" onclick="updatestatus({{$feature->id}},{{$feature->status}})">Inactive</span></td><?php } ?>
+                                        
 
                                     <td>
-                                        <a href="{{route('feature.edit', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="{{route('feature.view', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
-                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletefeature" data-id="{{$features->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{route('feature.edit', $feature->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="{{route('feature.view', $feature->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
+                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletefeature" data-id="{{$feature->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
 
                                    </td>                                       
                                     </tr>
@@ -107,7 +114,7 @@
                
             $.ajax({
             type: "POST",
-            url: '{{route("users_status")}}',
+            url: '{{route("feature_status")}}',
             data: {'status': status, 'id': id, "_token": "{{ csrf_token() }}"},
             success: function(data){
               if(data.return =='Active')
@@ -148,7 +155,7 @@
                
                  Swal.fire({
                       title: 'Are You sure',
-                      text: "You want to delete this user",
+                      text: "You want to delete this feature",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -167,7 +174,7 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "User",
+                                       title: "feature",
                                        icon:"success",
                                        text: "feature Deleted Successfully",
                                        type: "success"
@@ -178,7 +185,7 @@
                             }else{
 
                                    Swal.fire({
-                                       title: "User",
+                                       title: "feature",
                                        icon:"error",
                                         text: "Something went wrong",
                                        type: "error"
@@ -192,19 +199,12 @@
                         }
 
                     });
-
                     }else{
                        
 
                       }
                     })
          })
-
-
-
-            
-
-
 </script>
 
 @endsection

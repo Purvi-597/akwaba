@@ -13,6 +13,33 @@
         <!-- App js -->
         <script src="{{ URL::asset('assets/js/app.min.js')}}"></script>
         <script>
+
+            // $(document).on("changeLang",  function(e) {
+              $("#changeLang").change(function(){
+          
+                var Language = $(this).val();
+                
+            
+                $.ajax({
+                    type: "POST",
+                    data: {"Lang": Language,"_token": "{{ csrf_token() }}"},
+                    url: '{{ route('changeLang') }}',
+                    success: function(data) {
+                       if(data == 1){
+                        //alert(data);
+                     location.reload();
+                       }else{
+                       //alert(data);
+                       location.reload();
+                       }
+                                                    
+                    }
+                });
+            
+            });
+            
+            </script>
+        <script>
 function openNav() {
     document.getElementById("custom_saction_filter").style.right = "0";
 }

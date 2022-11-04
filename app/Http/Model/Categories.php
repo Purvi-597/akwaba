@@ -16,5 +16,5 @@ class Categories extends Model
 
         protected $dates = ['deleted_at'];
 
-    public $timestamps = false;
+    // public $timestamps = false;
 }

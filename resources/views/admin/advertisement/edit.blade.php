@@ -38,63 +38,68 @@ input::-webkit-inner-spin-button {
         <div class="card mb-2">
             <div class="card-body">
                 @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+                    <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif    
+            </div>
+        
              <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('advertisement.update',$advertisement->id)}}" novalidate>
                 @csrf
                 
                 <input type="hidden" value="{{ $advertisement->id }}" name="id" id="id">
-            
-                 
-                        
-                  
-                <div class="form-group">
+                    
+                    <div class="form-group">
                         <label for="formrow-quest_name-input">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter  Name" value="{{$advertisement->title}}" required>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{$advertisement->title}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a Title.
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">French Title</label>
+                        <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French Name" value="{{$advertisement->title_fr}}" required>
+                        <div class="invalid-feedback">
+                            Please provide a french title.
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div id="req_input" class="form-group col-md-12">
+                            <label for="formrow-quest_name-input"> Image <span style="color:red;">*</span></label>
+                          
+                                <input type="file"  class="form-control images_0" name="image" id="images_0" ><br>
+                                <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($advertisement->image)){ echo $advertisement->image; } ?></label><br>
+                                    @if(!empty($advertisement->image))
+                                        <img src='/uploads/advertisement/{{$advertisement->image}}' id="image_main0" name="image_main0" class="image_main0" height="100" width="100">
+                                     @endif
+                                        <img  id="image_main1" name="image_main1" class="image_main1" height="100" width="100" style="display:none;">
+                                <input type="hidden" name="old_image0" value="<?php if(isset($advertisement->image)){ echo $advertisement->image; } ?>">
+                               
+                                {{-- @if(!empty($advertisement->image))
+                                 <br><br>
+                                &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $advertisement->id }}">Remove</a>
+                                @endif --}}
+                            <span id="image0_error"  style="color:red"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Link</label>
+                        <input type="text" class="form-control" name="link" id="link" placeholder="Enter  Name" value="{{$advertisement->link}}" required>
                         <div class="invalid-feedback">
                             Please provide a first name.
                         </div>
                     </div>
-                    
-                        
-                <div class="row">
-                     <div id="req_input" class="form-group col-md-12">
-                       <label for="formrow-quest_name-input"> Image <span style="color:red;">*</span></label>
-                          
-                             <input type="file"  class="form-control images_0" name="image" id="images_0" ><br>
-                                <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($advertisement->image)){ echo $advertisement->image; } ?></label><br>
-                                       @if(!empty($advertisement->image))
-                               <img src='/uploads/advertisement/{{$advertisement->image}}' id="image_main0" name="image_main0" class="image_main0" height="100" width="100">
-                                @endif
-                                <img  id="image_main1" name="image_main1" class="image_main1" height="100" width="100" style="display:none;">
-                            <input type="hidden" name="old_image0" value="<?php if(isset($advertisement->image)){ echo $advertisement->image; } ?>">
-                               
-                                @if(!empty($advertisement->image))
-                                 <br><br>
-                                &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $advertisement->id }}">Remove</a>
-                                @endif
-                          <span id="image0_error"  style="color:red"></span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="formrow-quest_name-input">Link</label>
-                    <input type="text" class="form-control" name="link" id="link" placeholder="Enter  Name" value="{{$advertisement->link}}" required>
-                    <div class="invalid-feedback">
-                        Please provide a first name.
-                    </div>
-                </div>
                
-                         <div class="form-group"></div>
-                        <div class="form-group ">
-                            <div class="custom-control custom-checkbox">
-                                  @php $checked=""; @endphp
+                         
+                    <div class="form-group ">
+                        <div class="custom-control custom-checkbox">
+                            @php $checked=""; @endphp
                                 @if($advertisement->status == 1)
                                     @php $checked="checked"; @endphp
                                 @endif
@@ -103,25 +108,24 @@ input::-webkit-inner-spin-button {
                                 <div class="invalid-feedback">
                                     You must agree before Save.
                                 </div>
-                            </div>
-
                         </div>
+                    </div>
                     
                         
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group ">
-                            <button class="btn btn-success"  type="submit">Update</button>
-                            <a href="/admin/categories" class="btn btn-danger">Cancel</a>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <button class="btn btn-success"  type="submit">Update</button>
+                                 <a href="/admin/categories" class="btn btn-danger">Cancel</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                  </div>
-                </div>
-                </form>
             </div>
+            </form>
         </div>
-    </div> <!-- end col -->
+    </div>
+</div> <!-- end col -->
 </div>
 <!-- end row -->
 @endsection

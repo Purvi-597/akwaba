@@ -25,31 +25,38 @@ class FeatureplaceController extends Controller
     }
 	public function store(Request $request)
     {
-      
-        $input = $request->all();
         
+        $input = $request->all();
+        // echo "hiii";
+        // print_r($input);exit;
         $image = '';
         if ($files = $request->file('image')) {
             $featurePath = public_path().'/uploads/feature_list/';
             if ($featurePicture = $request->file('image')) {
-                $image = time().'_'.$featurePicture->getClientOriginalName().'.'.$featurePicture->getClientOriginalExtension();
+                $image = $featurePicture->getClientOriginalName();
                 $featurePicture->move($featurePath, $image);
             }
         }
-        
+        if($request->input('status')){
+            $status = 1;
+         }else{
+            $status = 0;
+        }
 
         $data = array(
 
             'title' => $request->input('title'),
-            'description' => $request->input('description'),
+            'title_fr' => $request->input('title_fr'),
+            'description' => $request->textarea('description'),
+            'description_fr' => $request->textarea('description_fr'),
             "ratings" => $request->input('ratings'),
             'featured_places_id' =>$request->input('featured_places_id'),
-            'status' => $request->input('status'),
+            'status' => $status,
             'image' => $image
         );
         $insert = Featureplace::create($data);
         if($insert){
-            return redirect()->back()->with('success','feature created successfully.');
+            return redirect()->action('FeatureplaceController@index')->with('success','feature Created Successfully');
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }
@@ -66,7 +73,7 @@ class FeatureplaceController extends Controller
         if(!empty($request->file('image'))){
 				$destinationPath = public_path().'/uploads/feature_list/';
 				if ($cover_detail_image = $request->file('image')) {
-					$cover_detail = time().'_'.$cover_detail_image->getClientOriginalName().'.'.$cover_detail_image->getClientOriginalExtension();
+					$cover_detail = $cover_detail_image->getClientOriginalName();
 					$cover_detail_image->move($destinationPath, $cover_detail);
 				}
 		}else{
@@ -80,7 +87,9 @@ class FeatureplaceController extends Controller
         $create = Featureplace::where('id',$id)->update([
 
             "title" => $request->input('title'),
-            "description" => $request->input('description'),
+            "title_fr" => $request->input('title_fr'),
+            "description" => $request->textarea('description'),
+            "description_fr" => $request->textarea('description_fr'),
             "ratings" => $request->input('ratings'),
             "featured_places_id" => $request->input('featured_places_id'),
 			"image"=>$cover_detail,
@@ -113,18 +122,18 @@ class FeatureplaceController extends Controller
         
     }
 
-    public function feature_list_status(Request $request)
+    public function feature_status(Request $request)
     {
     	$id = $request->input('id');
     	$status = $request->input('status');
     	if($status == 1)
     	{
-    		DB::table('feature')->where('id',$id)->update(['status' => 0]);
+    		DB::table('featured_places_list')->where('id',$id)->update(['status' => 0]);
                 return response()->json(['return' => 'Inactive']);
     	}
     	elseif($status == 0)
     	{
-    		DB::table('feature')->where('id',$id)->update(['status' => 1]);
+    		DB::table('featured_places_list')->where('id',$id)->update(['status' => 1]);
                 return response()->json(['return' => 'Active']);
     	}
     	else

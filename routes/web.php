@@ -13,15 +13,10 @@
 
 
 use App\Http\Controllers\SubcategoriesController;
-
-
-// Route::group(['prefix'=>'{locale}'], function(){
-// Route::get('/', function(){
-// 	return view('sidebar');
-// })->middleware('setLocale');	
-// });
 Auth::routes();
 
+//Route::get('lang/home', 'LangController@index');
+Route::post('lang/change', 'LangController@change')->name('changeLang');
 Route::get('pages-login', 'SkoteController@index');
 Route::get('pages-login-2', 'SkoteController@index');
 Route::get('pages-register', 'SkoteController@index');
@@ -39,14 +34,10 @@ Route::get('create_test', 'SkoteController@create');
 
 Route::post('keep-live', 'SkoteController@live');
 
-Route::group(['prefix'=>'{locale}'], function(){
-	// Route::get('/', function(){
-	// 	return view('sidebar');
-	// })->middleware('setLocale');	
-	
 
-
-});
+Route::get('/', 'HomeController@root')->middleware('setLocale');
+Route::get('/', 'HomeController@root')->name('home');
+Route::get('/index', 'HomeController@index');
 Route::get('/firebase', 'UsersController@pushfirebase');
 Route::post('/save-token', 'UsersController@saveToken')->name('save-token');
 
@@ -75,9 +66,8 @@ Route::post('updatepassword',  'UserController@updatepassword')->name('updatepas
 Route::post('forgotpasswordupdate',  'UserController@forgotpasswordupdate')->name('forgotpasswordupdate');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-	
-	Route::get('/', 'HomeController@root')->middleware('setLocale');;
-//Route::get('/', 'HomeController@root')->name('home')->middleware('setLocale');
+
+
 
 	/* CMS Management */
 	// About Us
@@ -108,89 +98,88 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
    
 
 	/* Users */
-
-	
-	Route::get('users', 'UserController@index')->name('users.index')->middleware('setLocale');
-	Route::get('users/create', 'UserController@create')->name('users.create')->middleware('setLocale');
-	Route::post('users/store', 'UserController@store')->name('users.store')->middleware('setLocale');
-	Route::get('users/edit/{id}', 'UserController@edit')->name('users.edit')->middleware('setLocale');
-	Route::get('users/view/{id}', 'UserController@view')->name('users.view')->middleware('setLocale');
-	Route::post('users/update/{id}', 'UserController@update')->name('users.update')->middleware('setLocale');
-	Route::post('deleteuser', 'UserController@delete')->name('deleteuser')->middleware('setLocale');
-	Route::post('users_status', 'UserController@users_status')->name('users_status')->middleware('setLocale');
-	Route::post('userimagedelete', 'UserController@userimagedelete')->name('userimagedelete')->middleware('setLocale');	
-	Route::post('checkuseremail', 'UserController@checkuseremail')->name('checkuseremail')->middleware('setLocale');	
+	Route::get('users', 'UserController@index')->name('users.index');
+	Route::get('users/create', 'UserController@create')->name('users.create');
+	Route::post('users/store', 'UserController@store')->name('users.store');
+	Route::get('users/edit/{id}', 'UserController@edit')->name('users.edit');
+	Route::get('users/view/{id}', 'UserController@view')->name('users.view');
+	Route::post('users/update/{id}', 'UserController@update')->name('users.update');
+	Route::post('deleteuser', 'UserController@delete')->name('deleteuser');
+	Route::post('users_status', 'UserController@users_status')->name('users_status');
+	Route::post('userimagedelete', 'UserController@userimagedelete')->name('userimagedelete');	
+	Route::post('checkuseremail', 'UserController@checkuseremail')->name('checkuseremail');	
+	/* Users */
 
 	 /* Category */
-	Route::get('categories', 'CategoriesController@index')->name('categories.index')->middleware('setLocale');
-	Route::get('categories/create', 'CategoriesController@create')->name('categories.create')->middleware('setLocale');
-	Route::post('categories/store', 'CategoriesController@store')->name('categories.store')->middleware('setLocale');
-	Route::get('categories/edit/{id}', 'CategoriesController@edit')->name('categories.edit')->middleware('setLocale');
-    Route::post('categories/update/{id}', 'CategoriesController@update')->name('categories.update')->middleware('setLocale');
-    Route::get('categories/view/{id}', 'CategoriesController@view')->name('categories.view')->middleware('setLocale');
-    Route::post('deletecategories', 'CategoriesController@delete')->name('deletecategories')->middleware('setLocale');
-    Route::post('categories_status', 'CategoriesController@categories_status')->name('categories_status')->middleware('setLocale');
-	Route::post('categoriesimagedelete', 'CategoriesController@categoriesimagedelete')->name('categoriesimagedelete')->middleware('setLocale');
+	Route::get('categories', 'CategoriesController@index')->name('categories.index');
+	Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
+	Route::post('categories/store', 'CategoriesController@store')->name('categories.store');
+	Route::get('categories/edit/{id}', 'CategoriesController@edit')->name('categories.edit');
+    Route::post('categories/update/{id}', 'CategoriesController@update')->name('categories.update');
+    Route::get('categories/view/{id}', 'CategoriesController@view')->name('categories.view');
+    Route::post('deletecategories', 'CategoriesController@delete')->name('deletecategories');
+    Route::post('categories_status', 'CategoriesController@categories_status')->name('categories_status');
+	Route::post('categoriesimagedelete', 'CategoriesController@categoriesimagedelete')->name('categoriesimagedelete');
 
 	/* Sub Category */
-	Route::get('subcategories', 'SubCategoriesController@index')->name('subcategories.index')->middleware('setLocale');
-	Route::get('subcategories/create', 'SubCategoriesController@create')->name('subcategories.create')->middleware('setLocale');
-	Route::post('subcategories/store', 'SubCategoriesController@store')->name('subcategories.store')->middleware('setLocale');
-	Route::get('subcategories/edit/{id}', 'SubCategoriesController@edit')->name('subcategories.edit')->middleware('setLocale');
-    Route::post('subcategories/update/{id}', 'SubCategoriesController@update')->name('subcategories.update')->middleware('setLocale');
-    Route::get('subcategories/view/{id}', 'SubCategoriesController@view')->name('subcategories.view')->middleware('setLocale');
-    Route::post('deletesubcategories', 'SubCategoriesController@delete')->name('deletesubcategories')->middleware('setLocale');
-    Route::post('subcategories_status', 'SubCategoriesController@subcategories_status')->name('subcategories_status')->middleware('setLocale');
-	Route::post('subcategoriesimagedelete', 'SubCategoriesController@subcategoriesimagedelete')->name('subcategoriesimagedelete')->middleware('setLocale');
+	Route::get('subcategories', 'SubCategoriesController@index')->name('subcategories.index');
+	Route::get('subcategories/create', 'SubCategoriesController@create')->name('subcategories.create');
+	Route::post('subcategories/store', 'SubCategoriesController@store')->name('subcategories.store');
+	Route::get('subcategories/edit/{id}', 'SubCategoriesController@edit')->name('subcategories.edit');
+    Route::post('subcategories/update/{id}', 'SubCategoriesController@update')->name('subcategories.update');
+    Route::get('subcategories/view/{id}', 'SubCategoriesController@view')->name('subcategories.view');
+    Route::post('deletesubcategories', 'SubCategoriesController@delete')->name('deletesubcategories');
+    Route::post('subcategories_status', 'SubCategoriesController@subcategories_status')->name('subcategories_status');
+	Route::post('subcategoriesimagedelete', 'SubCategoriesController@subcategoriesimagedelete')->name('subcategoriesimagedelete');
 
 	/* Advertisement */
-	Route::get('advertisement', 'AdvertisementController@index')->name('advertisement.index')->middleware('setLocale');
-	Route::get('advertisement/create', 'AdvertisementController@create')->name('advertisement.create')->middleware('setLocale');
-	Route::post('advertisement/store', 'AdvertisementController@store')->name('advertisement.store')->middleware('setLocale');
-	Route::get('advertisement/edit/{id}', 'AdvertisementController@edit')->name('advertisement.edit')->middleware('setLocale');
-    Route::post('advertisement/update/{id}', 'AdvertisementController@update')->name('advertisement.update')->middleware('setLocale');
-    Route::get('advertisement/view/{id}', 'AdvertisementController@view')->name('advertisement.view')->middleware('setLocale');
-    Route::post('deleteadvertisement', 'AdvertisementController@delete')->name('deleteadvertisement')->middleware('setLocale');
-    Route::post('advertisement_status', 'AdvertisementController@sub_categories_status')->name('advertisement_status')->middleware('setLocale');
-	Route::post('advertisementPathimagedelete', 'AdvertisementController@advertisementPathimagedelete')->name('advertisementPathimagedelete')->middleware('setLocale');
+	Route::get('advertisement', 'AdvertisementController@index')->name('advertisement.index');
+	Route::get('advertisement/create', 'AdvertisementController@create')->name('advertisement.create');
+	Route::post('advertisement/store', 'AdvertisementController@store')->name('advertisement.store');
+	Route::get('advertisement/edit/{id}', 'AdvertisementController@edit')->name('advertisement.edit');
+    Route::post('advertisement/update/{id}', 'AdvertisementController@update')->name('advertisement.update');
+    Route::get('advertisement/view/{id}', 'AdvertisementController@view')->name('advertisement.view');
+    Route::post('deleteadvertisement', 'AdvertisementController@delete')->name('deleteadvertisement');
+    Route::post('advertisement_status', 'AdvertisementController@sub_categories_status')->name('advertisement_status');
+	Route::post('advertisementPathimagedelete', 'AdvertisementController@advertisementPathimagedelete')->name('advertisementPathimagedelete');
+
+	/* Place Advertisement */
+	Route::get('place_advertisement', 'PlaceAdvertisementController@index')->name('place_advertisement.index');
+	Route::get('place_advertisement/create', 'PlaceAdvertisementController@create')->name('place_advertisement.create');
+	Route::post('place_advertisement/store', 'PlaceAdvertisementController@store')->name('place_advertisement.store');
+	Route::get('place_advertisement/edit/{id}', 'PlaceAdvertisementController@edit')->name('place_advertisement.edit');
+    Route::post('place_advertisement/update/{id}', 'PlaceAdvertisementController@update')->name('place_advertisement.update');
+    Route::get('place_advertisement/view/{id}', 'PlaceAdvertisementController@view')->name('place_advertisement.view');
+    Route::post('delete_place_advertisement', 'PlaceAdvertisementController@delete')->name('deleteplaceadvertisement');
+    Route::post('place_advertisement_status', 'PlaceAdvertisementController@sub_categories_status')->name('place_advertisement_status');
+	Route::post('placeAdvertisementPathimagedelete', 'PlaceAdvertisementController@advertisementPathimagedelete')->name('placeAdvertisementPathimagedelete');
 
 
 	/* Feature Places*/
-	Route::get('feature', 'FeatureController@index')->name('feature.index')->middleware('setLocale');
-	Route::get('feature/create', 'FeatureController@create')->name('feature.create')->middleware('setLocale');
-	Route::post('feature/store', 'FeatureController@store')->name('feature.store')->middleware('setLocale');
-	Route::get('feature/edit/{id}', 'FeatureController@edit')->name('feature.edit')->middleware('setLocale');
-    Route::post('feature/update/{id}', 'FeatureController@update')->name('feature.update')->middleware('setLocale');
-    Route::get('feature/view/{id}', 'FeatureController@view')->name('feature.view')->middleware('setLocale');
-    Route::post('deletefeature', 'FeatureController@delete')->name('deletefeature')->middleware('setLocale');
-    Route::post('feature_status', 'FeatureController@feature_status')->name('feature_status')->middleware('setLocale');
-	Route::post('featureimagedelete', 'FeatureController@featureimagedelete')->name('featureimagedelete')->middleware('setLocale');
+	Route::get('feature', 'FeatureController@index')->name('feature.index');
+	Route::get('feature/create', 'FeatureController@create')->name('feature.create');
+	Route::post('feature/store', 'FeatureController@store')->name('feature.store');
+	Route::get('feature/edit/{id}', 'FeatureController@edit')->name('feature.edit');
+    Route::post('feature/update/{id}', 'FeatureController@update')->name('feature.update');
+    Route::get('feature/view/{id}', 'FeatureController@view')->name('feature.view');
+    Route::post('deletefeature', 'FeatureController@delete')->name('deletefeature');
+    Route::post('feature_status', 'FeatureController@feature_status')->name('feature_status');
+	Route::post('featureimagedelete', 'FeatureController@featureimagedelete')->name('featureimagedelete');
 
 	/* Feature Places List*/
-	Route::get('feature_list', 'FeatureplaceController@index')->name('feature_list.index')->middleware('setLocale');
-	Route::get('feature_list/create', 'FeatureplaceController@create')->name('feature_list.create')->middleware('setLocale');
-	Route::post('feature_list/store', 'FeatureplaceController@store')->name('feature_list.store')->middleware('setLocale');
-	Route::get('feature_list/edit/{id}', 'FeatureplaceController@edit')->name('feature_list.edit')->middleware('setLocale');
-    Route::post('feature_list/update/{id}', 'FeatureplaceController@update')->name('feature_list.update')->middleware('setLocale');
-    Route::get('feature_list/view/{id}', 'FeatureplaceController@view')->name('feature_list.view')->middleware('setLocale');
-    Route::post('deletefeature_list', 'FeatureplaceController@delete')->name('deletefeature_list')->middleware('setLocale');
-    Route::post('feature_list_status', 'FeatureplaceController@feature_status')->name('feature_list_status')->middleware('setLocale');
-	Route::post('feature_listimagedelete', 'FeatureplaceController@featureimagedelete')->name('feature_listimagedelete')->middleware('setLocale');
+	Route::get('feature_list', 'FeatureplaceController@index')->name('feature_list.index');
+	Route::get('feature_list/create', 'FeatureplaceController@create')->name('feature_list.create');
+	Route::post('feature_list/store', 'FeatureplaceController@store')->name('feature_list.store');
+	Route::get('feature_list/edit/{id}', 'FeatureplaceController@edit')->name('feature_list.edit');
+    Route::post('feature_list/update/{id}', 'FeatureplaceController@update')->name('feature_list.update');
+    Route::get('feature_list/view/{id}', 'FeatureplaceController@view')->name('feature_list.view');
+    Route::post('deletefeature_list', 'FeatureplaceController@delete')->name('deletefeature_list');
+    Route::post('feature_list_status', 'FeatureplaceController@feature_status')->name('feature_list_status');
+	Route::post('feature_listimagedelete', 'FeatureplaceController@featureimagedelete')->name('feature_listimagedelete');
 
 
-	/* Feature Places*/
-	Route::get('featuretext', 'FeaturetextController@index')->name('featuretext.index')->middleware('setLocale');
-	Route::get('featuretext/create', 'FeaturetextController@create')->name('featuretext.create')->middleware('setLocale');
-	Route::post('featuretext/store', 'FeaturetextController@store')->name('featuretext.store')->middleware('setLocale');
-	Route::get('featuretext/edit/{id}', 'FeaturetextController@edit')->name('featuretext.edit')->middleware('setLocale');
-    Route::post('featuretext/update/{id}', 'FeaturetextController@update')->name('featuretext.update')->middleware('setLocale');
-    Route::get('featuretext/view/{id}', 'FeaturetextController@view')->name('featuretext.view')->middleware('setLocale');
-    Route::post('deletefeaturetext', 'FeaturetextController@delete')->name('deletefeaturetext')->middleware('setLocale');
-    Route::post('featuretext_status', 'FeaturetextController@feature_status')->name('featuretext_status')->middleware('setLocale');
-
-	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index')->middleware('setLocale');
-	Route::post('editpassword/edit', 'EditpasswordController@edit')->name('editpassword.edit')->middleware('setLocale');
-	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword')->middleware('setLocale');
+	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index');
+	Route::post('editpassword/edit', 'EditpasswordController@edit')->name('editpassword.edit');
+	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword');
 
 });
-

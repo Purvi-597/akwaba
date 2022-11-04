@@ -6,6 +6,7 @@
 
 </footer>
 @endif
+
 <script>
 function digi() {
   var date = new Date(),

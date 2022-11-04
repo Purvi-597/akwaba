@@ -15,68 +15,63 @@
 
 <div class="row">
     <div class="col-12">
-      
-        <div class="card mb-2">
+      	<div class="card mb-2">
             <div class="card-body">
-        
-                <input type="hidden" value="{{ $advertisement->id }}" name="id" id="id">
+				<input type="hidden" value="{{ $advertisement->id }}" name="id" id="id">
 					<div class="row">
-						
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Title:</b></label>     
 							{{$advertisement->title}}
-						</div>
-						
+						</div>	
                     </div>
+
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="formrow-quest_name-input"><b>French Title:</b></label>     
+							{{$advertisement->title_fr}}
+						</div>	
+                    </div>
+
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Status:</b></label>   
 							@if($advertisement->status == 1)
-							@php echo "Active"; @endphp
-							@else
-							@php echo "InActive"; @endphp
+									@php echo "Active"; @endphp
+								@else
+									@php echo "InActive"; @endphp
 							@endif
 						</div>
-					
-                    </div>
-                    <div class="row">
+					</div>
+                    
+					<div class="row">
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$advertisement->created_at}}
 						</div>
-
-	
-                    </div>
-                    <div class="row">
+					</div>
+                    
+					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>
+							<label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>
 							 	@if(!empty($advertisement->image))
-							 <img src="/uploads/advertisement/{{$advertisement->image}}" id="prescriptionpreview" style="height: 100px; width: 100px;"></img>
+							 		<img src="/uploads/advertisement/{{$advertisement->image}}" id="prescriptionpreview" style="height: 100px; width: 100px;"></img>
 									@else
-									@php echo "No Image uploaded"; @endphp
-									@endif
-
+										@php echo "No Image uploaded"; @endphp
+								@endif
 						</div>
 					</div>
-				  <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group ">
-                            <a href="/admin/categories" class="btn btn-danger">Cancel</a>
-                        </div>
-                    </div>
-                </div>
-
-              
-               
+				  
+					<div class="row">
+                    	<div class="col-md-6">
+                        	<div class="form-group ">
+                            	<a href="/admin/categories" class="btn btn-danger">Cancel</a>
+                        	</div>
+                    	</div>
+               		</div>
 				</div>	
-				
-                </div>
-               
-              
-
-            </div>
-        </div>
-    </div> <!-- end col -->
-</div>
+			</div>
+   		</div>
+	</div>
+</div> <!-- end col -->
 <!-- end row -->
 
 @endsection

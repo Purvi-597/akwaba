@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Carbon\Carbon;
-
+use Session;
 class HomeController extends Controller
 {
 
@@ -19,12 +19,17 @@ class HomeController extends Controller
     public function __construct()
     {
 		
-         $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function root(Request $request)
     {
-            
+            //echo session()->get('locale');die;
+        if(session()->get('locale') == 'en'){
+            echo "english";
+        }else{
+            echo "french";
+        }
        
         $data['users'] = DB::table('users')->where('deleted_at',0)->where('role','!=','admin')->count();
     

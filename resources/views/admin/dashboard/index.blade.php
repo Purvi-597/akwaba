@@ -6,7 +6,11 @@
     <div class="col-12">
        
      
-			<h5 style="color: #000E42;"> @lang('dash.System Statistics')</h5>
+			<h5 style="color: #000E42;"> 
+            
+                @lang('dash.System Statistics')
+                
+            </h5>
 			
 			
 						<div class="row">

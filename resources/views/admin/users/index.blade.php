@@ -10,7 +10,7 @@
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('users.create') }}"
         class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add User  </a>
-
+        
     </h4> @endslot
 @endcomponent
 <style>
@@ -20,6 +20,9 @@
 </style>
 <div class="row">
     <div class="col-12">
+
+        <h5 style="color: #000E42;"> @lang('user.User Management')</h5>
+
         <div class="card">
             <div class="card-body">
                   @if ($notification = Session::get('error'))

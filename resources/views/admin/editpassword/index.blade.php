@@ -7,6 +7,7 @@
 @component('common-components.breadcrumb')
 @slot('title') Change Password @endslot
 @endcomponent
+
 <div class="row">
 	<div class="col-md-6 offset-md-3">
                     <span class="anchor" id="formChangePassword"></span>
@@ -94,3 +95,4 @@
 
                 </div>
             </div>
+            @endsection

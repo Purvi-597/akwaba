@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update Subcategories @endsection
+@section('title')  Update Subcategory @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update Subcategories @endslot
+@slot('title') Update Subcategory @endslot
 @endcomponent
 <style>
 .form-control{
@@ -48,9 +48,9 @@ input::-webkit-inner-spin-button {
         @endif
              <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('subcategories.update',$subcategories->id)}}" novalidate>
                 @csrf
-                
+
                 <input type="hidden" value="{{ $subcategories->id }}" name="id" id="id">
-                        
+
                 <div class="form-group">
                     <label>Choose a Category:</label>
                     <select id="cat_id" name="cat_id" class="form-control">
@@ -69,28 +69,28 @@ input::-webkit-inner-spin-button {
                             Please provide a name.
                         </div>
                     </div>
-                    
-                        
+
+
                 <div class="row">
                      <div id="req_input" class="form-group col-md-12">
                        <label for="formrow-quest_name-input"> Image <span style="color:red;">*</span></label>
-                          
+
                              <input type="file"  class="form-control images_0" name="image" id="images_0" ><br>
                                 <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($subcategories->image)){ echo $subcategories->image; } ?></label><br>
                                        @if(!empty($subcategories->image))
-                               <img src='/uploads/subcategories/{{$subcategories->image}}' id="image_main0" name="image_main0" class="image_main0" height="100" width="100">
+                               <img src='/uploads/subcategories/{{$subcategories->image}}' id="image_main0" name="image_main0" class="image_main0" height="38" width="29">
                                 @endif
-                                <img  id="image_main1" name="image_main1" class="image_main1" height="100" width="100" style="display:none;">
+                                <img  id="image_main1" name="image_main1" class="image_main1" height="38" width="29" style="display:none;">
                             <input type="hidden" name="old_image0" value="<?php if(isset($subcategories->image)){ echo $subcategories->image; } ?>">
-                               
-                                @if(!empty($subcategories->image))
+
+                                {{-- @if(!empty($subcategories->image))
                                  <br><br>
                                 &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $subcategories->id }}">Remove</a>
-                                @endif
+                                @endif --}}
                           <span id="image0_error"  style="color:red"></span>
                     </div>
                 </div>
-               
+
                          <div class="form-group"></div>
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
@@ -106,8 +106,8 @@ input::-webkit-inner-spin-button {
                             </div>
 
                         </div>
-                    
-                        
+
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
@@ -126,7 +126,7 @@ input::-webkit-inner-spin-button {
 <!-- end row -->
 @endsection
 @section('script')
-<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script> 
+<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/select2/select2.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-validation.init.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
@@ -136,8 +136,8 @@ input::-webkit-inner-spin-button {
 
 <script>
         $(document).ready(function () {
-            
-           
+
+
                 var _URL = window.URL || window.webkitURL;
 $(document).on('change','#images_0',function(e){
       $("#image_main0").css('display','none');
@@ -157,101 +157,115 @@ if ((file = this.files[0])) {
     $("#image_main1").css('display','none');
   }else{
       $("#lbl1").css('display','none');
- img = new Image();
- img.onload = function() {
-  $("#image0_error").text("");
-  $("#image_main1").css("display", "block");
-  $('#image_main1').attr('src', img.src).height(150);
-    }
- };
- img.src = _URL.createObjectURL(file);
-}
-});
+        var imgwidth = 0;
+        var imgheight = 0;
+        var maxwidth = 29;
+        var maxheight = 38;
+        img = new Image();
+        img.onload = function() {
+
+        imgwidth = this.width;
+        imgheight = this.height;
+        if(imgwidth > maxwidth && imgheight > maxheight){
+        $("#image0_error").text("Please upload images of following dimension width/height(29*38).");
+        $("#image_main1").css("display", "none");
+        $("#image_main1").attr('src','');
+        $("#images_0").val("");
+        }else{
+        $("#image0_error").text("");
+        $("#image_main1").css("display", "block");
+        $('#image_main1').attr('src', img.src).height(38).width(29);
+            }
+        }
+        };
+        img.src = _URL.createObjectURL(file);
+        }
+        });
 
 
-             $("#profile_picture").change(function(){
-         //submit the form here
-         $("#presrciptionpreview").css('display','block');
-          $("#deleteBtn").css("display", "block");
-         
- });
-            
-    $("#deleteBtn").click(function(){
-   $("#presrciptionpreview").css("display", "none");
-   $("#deleteBtn").css("display", "none");
-   $('#presrciptionpreview').attr('src', '');
-   $('#profile_picture').css("display", "block");
- });
+//              $("#profile_picture").change(function(){
+//          //submit the form here
+//          $("#presrciptionpreview").css('display','block');
+//           $("#deleteBtn").css("display", "block");
+
+//  });
+
+//     $("#deleteBtn").click(function(){
+//    $("#presrciptionpreview").css("display", "none");
+//    $("#deleteBtn").css("display", "none");
+//    $('#presrciptionpreview').attr('src', '');
+//    $('#profile_picture').css("display", "block");
+//  });
 
    });
 
-$(document).on('click','#deleteimage',function(){
-                var id = $(this).attr('data-id');
-               
-                 Swal.fire({
-                      title: 'Are You sure',
-                      text: "You want to delete this profile picture",
-                      type: "warning",
-                      icon: 'warning',
-                      showCancelButton: true,
-                      confirmButtonColor: '#34BA8E',
-                      cancelButtonColor: '#d33',
-                      confirmButtonText: 'Yes '
-                    }).then((result) => {
-                      
-                      if (result.value){
-                        
-                          $.ajax({
-                             type: "POST",
-                             url: '{{route("userimagedelete")}}',
-                             data: {'id': id, "_token": "{{ csrf_token() }}"},
-                             success: function(data){
-                                 if(data == "delete"){
-                               
-                                 Swal.fire({
-                                       title: "User",
-                                       icon:"success",
-                                       text: "Profile image updated successfully",
-                                       type: "success"
-                          }).then(function() {
-                           history.go(0)
-                             });
+// $(document).on('click','#deleteimage',function(){
+//                 var id = $(this).attr('data-id');
 
-                            }else{
+//                  Swal.fire({
+//                       title: 'Are You sure',
+//                       text: "You want to delete this profile picture",
+//                       type: "warning",
+//                       icon: 'warning',
+//                       showCancelButton: true,
+//                       confirmButtonColor: '#34BA8E',
+//                       cancelButtonColor: '#d33',
+//                       confirmButtonText: 'Yes '
+//                     }).then((result) => {
 
-                                   Swal.fire({
-                                       title: "User",
-                                       icon:"error",
-                                       text: "Something went wrong..",
-                                       type: "error"
-                          // }).then(function() {
-                          //  history.go(0)
-                             });
+//                       if (result.value){
 
-                            }
+//                           $.ajax({
+//                              type: "POST",
+//                              url: '{{route("userimagedelete")}}',
+//                              data: {'id': id, "_token": "{{ csrf_token() }}"},
+//                              success: function(data){
+//                                  if(data == "delete"){
+
+//                                  Swal.fire({
+//                                        title: "User",
+//                                        icon:"success",
+//                                        text: "Profile image updated successfully",
+//                                        type: "success"
+//                           }).then(function() {
+//                            history.go(0)
+//                              });
+
+//                             }else{
+
+//                                    Swal.fire({
+//                                        title: "User",
+//                                        icon:"error",
+//                                        text: "Something went wrong..",
+//                                        type: "error"
+//                           // }).then(function() {
+//                           //  history.go(0)
+//                              });
+
+//                             }
 
 
-                        }
+//                         }
 
-                    });
+//                     });
 
-                      }else{
-                       
+//                       }else{
 
-                      }
-                  })
-            })
+
+//                       }
+//                   })
+//             })
     </script>
-
+{{--
 <script type="text/javascript">
     function CheckDimension() {
         //Get reference of File.
         var fileUpload = document.getElementById("file");
-     
+
         //Check whether the file is valid Image.
         var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
         if (regex.test(fileUpload.value.toLowerCase())) {
-     
+
             //Check whether HTML5 is supported.
             if (typeof (fileUpload.files) != "undefined") {
                 //Initiate the FileReader object.
@@ -261,16 +275,16 @@ $(document).on('click','#deleteimage',function(){
                 reader.onload = function (e) {
                     //Initiate the JavaScript Image object.
                     var image = new Image();
-     
+
                     //Set the Base64 string return from FileReader as source.
                     image.src = e.target.result;
-                           
+
                     //Validate the File Height and Width.
                     image.onload = function () {
                         var height = this.height;
                         var width = this.width;
                         if (height < 38 || width < 29) {
-     
+
                            //show width and height to user
                             document.getElementById("width").innerHTML=width;
                             document.getElementById("height").innerHTML=height;
@@ -280,7 +294,7 @@ $(document).on('click','#deleteimage',function(){
                         alert("Uploaded image has valid Height and Width.");
                         return true;
                     };
-     
+
                 }
             } else {
                 alert("This browser does not support HTML5.");
@@ -291,6 +305,6 @@ $(document).on('click','#deleteimage',function(){
             return false;
         }
     }
-    </script>
+    </script> --}}
 
 @endsection

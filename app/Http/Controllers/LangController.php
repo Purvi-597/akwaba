@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
 use App;
+use Session;
   
 class LangController extends Controller
 {
@@ -14,7 +15,7 @@ class LangController extends Controller
     */
     public function index()
     {
-        return view('lang');
+        return view('sidebar');
     }
   
     /**
@@ -24,10 +25,12 @@ class LangController extends Controller
     */
     public function change(Request $request)
     {
-        App::setLocale($request->lang);
-       
-        session()->put('locale', $request->lang);
-  
-        return redirect()->back();
+        App::setLocale('en');
+        session()->put('locale', $request->Lang);
+        
+        return true;
+        // $session = $request->session()->all();
+        // print_r($session);exit;
+        // return redirect()->back();
     }
 }

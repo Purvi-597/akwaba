@@ -7,7 +7,7 @@
 @section('content')
 
 @component('common-components.breadcrumb')
-@slot('title') @endslot
+@slot('title') @lang('dash.Feature Places Text');@endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{route('featuretext.create') }}"
         class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature text  </a>
@@ -116,7 +116,7 @@
                
             $.ajax({
             type: "POST",
-            url: '{{route("users_status")}}',
+            url: '{{route("featuretext_status")}}',
             data: {'status': status, 'id': id, "_token": "{{ csrf_token() }}"},
             success: function(data){
               if(data.return =='Active')
@@ -157,7 +157,7 @@
                
                  Swal.fire({
                       title: 'Are You sure',
-                      text: "You want to delete this user",
+                      text: "You want to delete this feature",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -176,7 +176,7 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "User",
+                                       title: "feature",
                                        icon:"success",
                                        text: "feature Deleted Successfully",
                                        type: "success"
@@ -187,7 +187,7 @@
                             }else{
 
                                    Swal.fire({
-                                       title: "User",
+                                       title: "feature",
                                        icon:"error",
                                         text: "Something went wrong",
                                        type: "error"

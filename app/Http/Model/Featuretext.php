@@ -16,5 +16,5 @@ class Featuretext extends Model
 
         protected $dates = ['deleted_at'];
 
-    public $timestamps = false;
+    //ublic $timestamps = false;
 }

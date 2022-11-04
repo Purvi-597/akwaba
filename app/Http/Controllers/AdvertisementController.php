@@ -31,20 +31,29 @@ class AdvertisementController extends Controller
         if ($files = $request->file('image')) {
             $advertisementPath = public_path().'/uploads/advertisement/';
             if ($advertisementPicture = $request->file('image')) {
-                $image = time().'_'.$advertisementPicture->getClientOriginalName().'.'.$advertisementPicture->getClientOriginalExtension();
+                $image = $advertisementPicture->getClientOriginalName();
                 $advertisementPicture->move($advertisementPath, $image);
             }
         }
 
+        if($request->input('status')){
+            $status = 1;
+         }else{
+            $status = 0;
+        }
+
         $data = array(
             'title' => $request->input('title'),
-            'status' => $request->input('status'),
+            'title_fr' => $request->input('title_fr'),
             'link' => $request->input('link'),
-            'image' => $image
+            'image' => $image,
+            'status' => $status
         );
+        
         $insert = Advertisement::create($data);
         if($insert){
-            return redirect()->back()->with('success','Advertisement created successfully.');
+            // return redirect()->back()->with('success','Advertisement created successfully.');
+            return redirect()->action('AdvertisementController@index')->with('success','Advertisement created Successfully');
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }
@@ -61,7 +70,7 @@ class AdvertisementController extends Controller
         if(!empty($request->file('image'))){
 				$destinationPath = public_path().'/uploads/advertisement/';
 				if ($cover_detail_image = $request->file('image')) {
-					$cover_detail = time().'_'.$cover_detail_image->getClientOriginalName().'.'.$cover_detail_image->getClientOriginalExtension();
+					$cover_detail = $cover_detail_image->getClientOriginalName();
 					$cover_detail_image->move($destinationPath, $cover_detail);
 				}
 		}else{
@@ -74,6 +83,7 @@ class AdvertisementController extends Controller
         }
         $create = Advertisement::where('id',$id)->update([
             "title" => $request->input('title'),
+            "title_fr" => $request->input('title_fr'),
             "link" => $request->input('link'),
 			"image"=>$cover_detail,
             "status" => $status

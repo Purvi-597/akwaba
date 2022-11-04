@@ -9,15 +9,7 @@
     }
 </style>
 
-{{-- <script type="text/javascript">
-  
-    var url = "{{ route('changeLang') }}";
-  
-    $(".changeLang").change(function(){
-        window.location.href = url + "?lang="+ $(this).val();
-    });
-  
-</script>  --}}
+ 
 
 <header id="page-topbar">
     <div class="navbar-header" style="background-color:  #314667;color: white;">
@@ -31,16 +23,16 @@
                     </span>
                     <span class="logo-lg">
                         <!-- logo-dark.png -->
-                        <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" style="cursor: default;" height="17">
+                        {{-- <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" style="cursor: default;" height="17"> --}}
                     </span>
                 </a>
                 <a href="javascript:void(0);" class="logo logo-light">
                     <span class="logo-sm">
-                      <img src="{{ URL::asset('assets/images/img/logo_p1.png')}}" alt="" style="height: 25px;margin-left: -10px;">
+                      {{-- <img src="{{ URL::asset('assets/images/img/logo_p1.png')}}" alt="" style="height: 25px;margin-left: -10px;"> --}}
                     </span>
                     <span class="logo-lg">
                         <!-- logo-dark.png -->
-                       <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" >
+                       {{-- <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" > --}}
                 </a>
             </div>
             <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
@@ -287,19 +279,32 @@
             </div>
 
         
-            
+{{--             
                 <div class="dropdown">
+                    
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      {{app()->getLocale() == 'fr'?'French':'English'}}
+                     
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="{{url(app()->getLocale() == 'fr'?'en':'fr')}}"> {{app()->getLocale() == 'fr'? 'English':'French'}}</a>
     
                       
                     </div>
-                  </div>
+                  </div> --}}
 
-            
+
+                
+                <div class="row">
+                    <strong>Select Language:</strong>
+                        <div class="col-md-8">
+                            <select class="form-control changeLang" id="changeLang">
+                                <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                                <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>France</option>
+                            </select>
+                        </div>
+                </div>
+               
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
@@ -335,3 +340,14 @@
         </div>
     </div>
 </header>
+
+{{-- <script type="text/javascript">
+  
+    var url = "{{ route('changeLang') }}";
+  
+    $(".changeLang").change(function(){
+
+        window.location.href = url + "?lang="+ $(this).val();
+    });
+  
+</script>   --}}

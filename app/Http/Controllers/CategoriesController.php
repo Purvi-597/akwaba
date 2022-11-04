@@ -6,40 +6,47 @@ use Illuminate\Http\Request;
 use App\Http\Model\Categories;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Carbon\Carbon;
 
 
-
-class CategoriesController extends Controller 
+class CategoriesController extends Controller
 {
 	public function index()
     {
-    /// index;
+
 		$data['categories'] = Categories::orderBy('id','desc')->get();
         return view('admin.categories.index',$data);
 	}
 	public function create()
     {
-    	
+
         return view('admin.categories.create');
     }
 	public function store(Request $request)
     {
-      
+        // echo "<pre>";
+        // print_r($request->all());die;
         $input = $request->all();
-        
+        $status = 0;
+        if($request->status){
+            $status  = 1;
+        }else{
+            $status = 0;
+        }
         $image = '';
         if ($files = $request->file('image')) {
             $categoriesPath = public_path().'/uploads/categories/';
             if ($categoriesPicture = $request->file('image')) {
-                $image = time().'_'.$categoriesPicture->getClientOriginalName().'.'.$categoriesPicture->getClientOriginalExtension();
+                $image = time().'_'.$categoriesPicture->getClientOriginalName();
                 $categoriesPicture->move($categoriesPath, $image);
             }
         }
-
         $data = array(
             'name' => $request->input('name'),
-            'status' => $request->input('status'),
-            'image' => $image
+            'status' =>$status,
+            'image' => $image,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         );
         $insert = Categories::create($data);
         if($insert){
@@ -52,7 +59,7 @@ class CategoriesController extends Controller
 	public function edit($id)
     {
         $row['categories'] = Categories::where('id',$id)->first();
-  
+
         return view('admin.categories.edit',$row);
     }
 	public function update(Request $request, $id)
@@ -74,7 +81,8 @@ class CategoriesController extends Controller
         $create = Categories::where('id',$id)->update([
             "name" => $request->input('name'),
 			"image"=>$cover_detail,
-            "status" => $status
+            "status" => $status,
+            'updated_at' => Carbon::now()
         ]);
 		return redirect()->action('CategoriesController@index')->with('success','Categories Updated Successfully');
 	}
@@ -98,7 +106,7 @@ class CategoriesController extends Controller
         {
             echo "notdelete";
         }
-        
+
     }
 
     public function categories_status(Request $request)
@@ -107,18 +115,17 @@ class CategoriesController extends Controller
     	$status = $request->input('status');
     	if($status == 1)
     	{
-    		DB::table('categories')->where('id',$id)->update(['status' => 0]);
+    		Categories::where('id',$id)->update(['status' => 0]);
                 return response()->json(['return' => 'Inactive']);
     	}
     	elseif($status == 0)
     	{
-    		DB::table('categories')->where('id',$id)->update(['status' => 1]);
+    		Categories::where('id',$id)->update(['status' => 1]);
                 return response()->json(['return' => 'Active']);
     	}
     	else
     	{
-    		return redirect()->back()
-	         		->with('error','Unable to change the status');
+            return response()->json(['return' => 'error']);
     	}
     }
 
@@ -128,5 +135,5 @@ class CategoriesController extends Controller
         return view('admin.categories.view',$data);
     }
 
-   
+
 }

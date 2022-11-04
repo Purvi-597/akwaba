@@ -10,7 +10,7 @@
 @slot('title') @endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('feature_list.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature  </a>
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature list</a>
 
     </h4> @endslot
 @endcomponent
@@ -60,6 +60,7 @@
                                         
                                         <td >{{$feature->title}}</td>
                                         <td >{{$feature->description}}</td>
+                                        
                                         <td >{{$feature->ratings}}</td>
                                         <td>@if($feature->image != '')
                                             <img src="{{$profilepicturePath}}{{$feature->image}}" alt="" style="width: 100px;height:100px;">@endif
@@ -109,7 +110,7 @@
                
             $.ajax({
             type: "POST",
-            url: '{{route("users_status")}}',
+            url: '{{route("feature_list_status")}}',
             data: {'status': status, 'id': id, "_token": "{{ csrf_token() }}"},
             success: function(data){
               if(data.return =='Active')
@@ -150,7 +151,7 @@
                
                  Swal.fire({
                       title: 'Are You sure',
-                      text: "You want to delete this user",
+                      text: "You want to delete this Feature Place",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -169,7 +170,7 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "User",
+                                       title: "Feature Place",
                                        icon:"success",
                                        text: "Feature Places Deleted Successfully",
                                        type: "success"
@@ -180,7 +181,7 @@
                             }else{
 
                                    Swal.fire({
-                                       title: "User",
+                                       title: "Feature Place",
                                        icon:"error",
                                         text: "Something went wrong",
                                        type: "error"

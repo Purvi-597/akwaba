@@ -27,7 +27,11 @@ class FeaturetextController extends Controller
       
         $input = $request->all();
 
-
+        if($request->input('status')){
+            $status = 1;
+         }else{
+            $status = 0;
+        }
 
         $data = array(
 
@@ -35,7 +39,7 @@ class FeaturetextController extends Controller
             'title_fr' => $request->input('title_fr'),
             'description' => $request->input('description'),
             'description_fr' => $request->input('description_fr'),
-            'status' => $request->input('status')
+            'status' => $status
 
         );
         $insert = Featuretext::create($data);
@@ -86,18 +90,18 @@ class FeaturetextController extends Controller
         
     }
 
-    public function featuretext_status(Request $request)
+    public function feature_status(Request $request)
     {
     	$id = $request->input('id');
     	$status = $request->input('status');
     	if($status == 1)
     	{
-    		DB::table('featuretext')->where('id',$id)->update(['status' => 0]);
+    		DB::table('featured_text')->where('id',$id)->update(['status' => 0]);
                 return response()->json(['return' => 'Inactive']);
     	}
     	elseif($status == 0)
     	{
-    		DB::table('featuretext')->where('id',$id)->update(['status' => 1]);
+    		DB::table('featured_text')->where('id',$id)->update(['status' => 1]);
                 return response()->json(['return' => 'Active']);
     	}
     	else
