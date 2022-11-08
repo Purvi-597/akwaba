@@ -52,43 +52,43 @@ input::-webkit-inner-spin-button {
                 <input type="hidden" value="{{ $users->id }}" name="id" id="id">
             
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">First Name</label>
+                        <label for="formrow-quest_name-input">@lang('language.First Name')</label>
                         <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter  Name" value="{{$users->first_name}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            @lang('language.Please provide a first name.')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">First Name</label>
+                        <label for="formrow-quest_name-input">@lang('language.Last Name')</label>
                         <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter  Name" value="{{$users->last_name}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            @lang('language.Please provide a Last name.')'
                         </div>
                     </div>
 
                     
                     
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Email</label>
+                        <label for="formrow-quest_name-input">>@lang('language.Email')</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{$users->email}}" required>
                         <div class="invalid-feedback">
-                            Please provide a email.
+                            @lang('language.Please provide a email.')
                         </div>
                     </div>
                    
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Phone No</label>
+                        <label for="formrow-quest_name-input">@lang('language.Phone No')</label>
                         <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Phone Number" value="{{$users->contact_no}}" required>
                         <div class="invalid-feedback">
-                            Please provide a phone no.
+                            @lang('language.Please provide a email.')
                         </div>
                     </div>
                     
                         
                     <div class="row">
                         <div id="req_input" class="form-group col-md-12">
-                        <label for="formrow-quest_name-input">profile Image <span style="color:red;">*</span></label>
+                        <label for="formrow-quest_name-input">@lang('language.Profile Image') <span style="color:red;">*</span></label>
                             
                                 <input type="file"  class="form-control images_0" name="profile_pic" id="profile_pic" ><br>
                                     <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?></label><br>
@@ -107,15 +107,15 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Home Address</label>
+                        <label for="formrow-quest_name-input">@lang('language.Home Address')</label>
                         <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Enter Email" value="{{$users->home_address}}" >
                         <div class="invalid-feedback">
-                            Please provide a Home Address.
+                            @lang('language.Please provide a Home Address.')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Work Address</label>
+                        <label for="formrow-quest_name-input">@lang('language.Work Address')</label>
                         <input type="text" class="form-control" name="work_address" id="work_address" placeholder="Enter Email" value="{{$users->work_address}}">
                         {{-- <div class="invalid-feedback">
                             Please provide a Work Address.
@@ -131,9 +131,9 @@ input::-webkit-inner-spin-button {
                                     @php $checked="checked"; @endphp
                                 @endif
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
-                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    You must agree before Save.
+                                    @lang('language.You must agree before Save.')'
                                 </div>
                             </div>
 
@@ -143,8 +143,8 @@ input::-webkit-inner-spin-button {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <button class="btn btn-success"  type="submit">Update</button>
-                            <a href="/admin/users" class="btn btn-danger">Cancel</a>
+                            <button class="btn btn-success"  type="submit">@lang('language.Update')</button>
+                            <a href="/admin/users" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg,jfif,svg).");
+  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg,jfif,svg).')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');
@@ -221,8 +221,8 @@ $(document).on('click','#deleteimage',function(){
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
-                      title: 'Are You sure',
-                      text: "You want to delete this profile picture",
+                      title: '@lang('language.Are You sure')',
+                      text: "@lang('language.You want to delete this profile picture')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,

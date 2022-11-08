@@ -41,11 +41,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%">#</th>
-                                <th  width="15%">Title</th>
-                                <th  width="15%">Title_fr</th>
+                                <th  width="15%">@lang('language.Title')</th>
                                 <th  width="15%">Description</th>
-                                <th  width="15%">Description_fr</th>
-                                <th  width="15%">Status</th>
+                                <th  width="15%">@lang('language.Status')</th>
                                 <th  width="15%">Action</th>
                             </tr>
                         </thead>
@@ -67,9 +65,9 @@
                                         </td> --}}
                                     
                                         <?php if($features->status == 1){ ?>
-                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">Active</span></td><?php } else { ?>
+                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">@lang('language.Active')</span></td><?php } else { ?>
                                     
-                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">Inactive</span></td><?php } ?>
+                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">@lang('language.Inactive')</span></td><?php } ?>
 
                                     <td>
                                         <a href="{{route('featuretext.edit', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -122,12 +120,12 @@
               if(data.return =='Active')
               {
                 status = 1;
-                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">Active</span>';
+                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">>@lang('language.Active')</span>';
 
 
                 Swal.fire(
-                                'Status',
-                                'Status Changed Successfully',
+                                '@lang("language.Status")',
+                                '@lang("language.Status Changed Successfully")',
                                 'success'
                                 )   
 
@@ -135,11 +133,11 @@
               else
               {
                 status = 0;
-                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">Inactive</span>';
+                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
 
                  Swal.fire(
-                                'Status',
-                                'Status Changed Successfully',
+                                '@lang("language.Status")',
+                                '@lang("language.Status Changed Successfully")',
                                 'success'
                                 )   
 
@@ -156,8 +154,8 @@
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
-                      title: 'Are You sure',
-                      text: "You want to delete this feature",
+                      title: '@lang('language.Are You sure')',
+                      text: "@lang('language.You want to delete this feature')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -176,9 +174,9 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "feature",
+                                       title: "Feature",
                                        icon:"success",
-                                       text: "feature Deleted Successfully",
+                                       text: "@lang('language.feature Deleted Successfully')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)

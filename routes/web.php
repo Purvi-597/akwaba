@@ -178,6 +178,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	Route::post('feature_listimagedelete', 'FeatureplaceController@featureimagedelete')->name('feature_listimagedelete');
 
 
+	/* Feature Places text*/
+	Route::get('featuretext', 'FeaturetextController@index')->name('featuretext.index')->middleware('setLocale');
+	Route::get('featuretext/create', 'FeaturetextController@create')->name('featuretext.create')->middleware('setLocale');
+	Route::post('featuretext/store', 'FeaturetextController@store')->name('featuretext.store')->middleware('setLocale');
+	Route::get('featuretext/edit/{id}', 'FeaturetextController@edit')->name('featuretext.edit')->middleware('setLocale');
+    Route::post('featuretext/update/{id}', 'FeaturetextController@update')->name('featuretext.update')->middleware('setLocale');
+    Route::get('featuretext/view/{id}', 'FeaturetextController@view')->name('featuretext.view')->middleware('setLocale');
+    Route::post('deletefeaturetext', 'FeaturetextController@delete')->name('deletefeaturetext')->middleware('setLocale');
+    Route::post('featuretext_status', 'FeaturetextController@feature_status')->name('featuretext_status')->middleware('setLocale');
+     
+
 	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index');
 	Route::post('editpassword/edit', 'EditpasswordController@edit')->name('editpassword.edit');
 	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword');

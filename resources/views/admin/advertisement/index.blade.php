@@ -40,11 +40,11 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%">#</th>
-                                <th  width="15%"> Title</th>
-                                <th  width="15%"> French Title</th>
-                                <th  width="15%">Image</th>
-                                <th  width="10%">Link</th>
-                                <th  width="10%">Status</th>
+                                <th  width="15%"> @lang('language.Title')</th>
+                                <th  width="15%">@lang('language.French Title')</th>
+                                <th  width="15%">@lang('language.Image')</th>
+                                <th  width="10%">@lang('language.Link')</th>
+                                <th  width="10%">@lang('language.Status')</th>
                                 <th  width="20%">Action</th>
                             </tr>
                         </thead>
@@ -68,9 +68,9 @@
                                         <td >{{$advertisement->link}}</td>
 
                                         <?php if($advertisement->status == 1){ ?>
-                                        <td id="{{$advertisement->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$advertisement->id}}" data-status = "{{$advertisement->status}}" onclick="updatestatus({{$advertisement->id}},{{$advertisement->status}})">Active</span></td><?php } else { ?>
+                                        <td id="{{$advertisement->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$advertisement->id}}" data-status = "{{$advertisement->status}}" onclick="updatestatus({{$advertisement->id}},{{$advertisement->status}})">@lang('language.Active')</span></td><?php } else { ?>
                                     
-                                        <td id="{{$advertisement->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$advertisement->id}}" data-status = "{{$advertisement->status}}" onclick="updatestatus({{$advertisement->id}},{{$advertisement->status}})">Inactive</span></td><?php } ?>
+                                        <td id="{{$advertisement->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$advertisement->id}}" data-status = "{{$advertisement->status}}" onclick="updatestatus({{$advertisement->id}},{{$advertisement->status}})">@lang('language.Inctive')</span></td><?php } ?>
                                         
 
                                     <td>
@@ -122,7 +122,7 @@
 
 
                 Swal.fire(
-                                'Status',
+                                '@lang('language.status')',
                                 'Status Changed Successfully',
                                 'success'
                                 )   
@@ -153,7 +153,7 @@
                
                  Swal.fire({
                       title: 'Are You sure',
-                      text: "You want to delete this Advertisement",
+                      text: "@lang('language.You want to delete this Advertisement')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,

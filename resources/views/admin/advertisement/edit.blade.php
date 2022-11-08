@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update advertisement @endsection
+@section('title')  @lang('language.Update advertisement') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update advertisement @endslot
+@slot('title') @lang('language.Update advertisement') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -53,24 +53,24 @@ input::-webkit-inner-spin-button {
                 <input type="hidden" value="{{ $advertisement->id }}" name="id" id="id">
                     
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Title</label>
+                        <label for="formrow-quest_name-input">@lang('language.Title')</label>
                         <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{$advertisement->title}}" required>
                         <div class="invalid-feedback">
-                            Please provide a Title.
+                            @lang('language.Please provide a Title.');
                         </div>
                     </div>
                 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">French Title</label>
+                        <label for="formrow-quest_name-input">@lang('language.French Title')</label>
                         <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French Name" value="{{$advertisement->title_fr}}" required>
                         <div class="invalid-feedback">
-                            Please provide a french title.
+                            @lang('language.Please provide a French Title.');
                         </div>
                     </div>
                         
                     <div class="row">
                         <div id="req_input" class="form-group col-md-12">
-                            <label for="formrow-quest_name-input"> Image <span style="color:red;">*</span></label>
+                            <label for="formrow-quest_name-input">  @lang('language.Image') <span style="color:red;">*</span></label>
                           
                                 <input type="file"  class="form-control images_0" name="image" id="images_0" ><br>
                                 <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($advertisement->image)){ echo $advertisement->image; } ?></label><br>
@@ -89,10 +89,10 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Link</label>
+                        <label for="formrow-quest_name-input">@lang('language.Link')</label>
                         <input type="text" class="form-control" name="link" id="link" placeholder="Enter  Name" value="{{$advertisement->link}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            @lang('language.Please provide a Link.')
                         </div>
                     </div>
                
@@ -104,9 +104,9 @@ input::-webkit-inner-spin-button {
                                     @php $checked="checked"; @endphp
                                 @endif
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
-                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    You must agree before Save.
+                                    @lang('language.You must agree before Save.');
                                 </div>
                         </div>
                     </div>
@@ -115,8 +115,8 @@ input::-webkit-inner-spin-button {
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <button class="btn btn-success"  type="submit">Update</button>
-                                 <a href="/admin/categories" class="btn btn-danger">Cancel</a>
+                                <button class="btn btn-success"  type="submit"> @lang('language.Update')</button>
+                                 <a href="/admin/categories" class="btn btn-danger">@lang('language.Cancel')</a>
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,6 @@ if ((file = this.files[0])) {
  };
  img.src = _URL.createObjectURL(file);
 }
-});
 
 
              $("#profile_picture").change(function(){
@@ -213,7 +212,7 @@ $(document).on('click','#deleteimage',function(){
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "User",
+                                       title: "",
                                        icon:"success",
                                        text: "Profile image updated successfully",
                                        type: "success"

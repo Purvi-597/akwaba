@@ -8,7 +8,7 @@
      
 			<h5 style="color: #000E42;"> 
             
-                @lang('dash.System Statistics')
+                @lang('language.System Statistics')
                 
             </h5>
 			

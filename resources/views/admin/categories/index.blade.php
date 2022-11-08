@@ -42,9 +42,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%">#</th>
-                                <th width="15%"> Name</th>
-                                <th width="15%">Image</th>
-                                <th width="10%">Status</th>
+                                <th width="15%">@lang('language.Name')</th>
+                                <th width="15%">@lang('language.Image')</th>
+                                <th width="10%">@lang('language.Status')</th>
                                 <th width="15%">Action</th>
                             </tr>
                         </thead>
@@ -63,9 +63,9 @@
                                         </td>
 
                                         <?php if($category->status == 1){ ?>
-                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Active</span></td><?php } else { ?>
+                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">>@lang('language.Active')</span></td><?php } else { ?>
 
-                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">Inactive</span></td><?php } ?>
+                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">>@lang('language.Inactive')</span></td><?php } ?>
 
                                         <td>
                                             <a href="{{route('categories.edit', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -110,12 +110,12 @@
               if(data.return =='Active')
               {
                 status = 1;
-                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">Active</span>';
+                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang("language.Active")</span>';
 
 
                 Swal.fire(
-                                'Status',
-                                'Status Changed Successfully',
+                                '@lang("language.Status")',
+                                '@lang("language.Status Changed Successfully")',
                                 'success'
                                 )
 
@@ -123,11 +123,11 @@
               else
               {
                 status = 0;
-                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">Inactive</span>';
+                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang("language.Inactive")</span>';
 
                  Swal.fire(
-                                'Status',
-                                'Status Changed Successfully',
+                                '@lang("language.Status")',
+                                '@lang("language.Status Changed Successfully")',
                                 'success'
                                 )
 
@@ -144,8 +144,8 @@
                 var id = $(this).attr('data-id');
 
                  Swal.fire({
-                      title: 'Are You sure',
-                      text: "You want to delete this user",
+                      title: "@lang('language.Category')",
+                      text: "@lang('language.You want to delete this Category')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -164,16 +164,16 @@
                                  if(data == "delete"){
 
                                  Swal.fire({
-                                       title: "Category",
+                                       title: "@lang('language.Are You sure')",
                                        icon:"success",
-                                       text: "Category Deleted Successfully",
+                                       text: "@lang('language.Category Deleted Successfully')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)
                                      });
                             }else{
                                    Swal.fire({
-                                       title: "Category",
+                                       title: "@lang('language.Category')",
                                        icon:"error",
                                         text: "Something went wrong",
                                        type: "error"

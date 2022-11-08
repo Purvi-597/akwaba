@@ -23,29 +23,29 @@
 					<div class="row">
 						
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>English Title:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.English Title'):</b></label>     
 							{{$featuretext->title}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>French Title:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.French Title'):</b></label>     
 							{{$featuretext->title_fr}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>English Description:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.English Description'):</b></label>     
 							{{$featuretext->description}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>French Description:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.French Description'):</b></label>     
 							{{$featuretext->description_fr}}
 						</div>
 						
                     </div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Status:</b></label>   
+							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($featuretext->status == 1)
 							@php echo "Active"; @endphp
 							@else
@@ -63,7 +63,7 @@
 				  <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <a href="/admin/featuretext" class="btn btn-danger">Cancel</a>
+                            <a href="/admin/featuretext" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>

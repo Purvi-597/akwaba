@@ -55,16 +55,16 @@ input::-webkit-inner-spin-button {
                         
                   
                 <div class="form-group">
-                        <label for="formrow-quest_name-input">English Title</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter title" value="{{$featuretext->title}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.English Title')</label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Enter English Title')" value="{{$featuretext->title}}" required>
                         <div class="invalid-feedback">
                             Please provide a Title.
                         </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">French Title</label>
-                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter  title" value="{{$featuretext->title_fr}}" required>
+                    <label for="formrow-quest_name-input">@lang('language.French Title')</label>
+                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Please provide a Title." value="{{$featuretext->title_fr}}" required>
                     <div class="invalid-feedback">
                         Please provide a Title.
                     </div>
@@ -72,12 +72,12 @@ input::-webkit-inner-spin-button {
  
                 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">English Description</label>
+                    <label for="formrow-quest_name-input">@lang('language.English Description')</label>
                     <textarea class="form-control" name="description" id="description" placeholder="Enter Description" required>{{$featuretext->description}}</textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">French Description</label>
+                    <label for="formrow-quest_name-input">@lang('language.French Description')</label>
                     <textarea class="form-control" name="description_fr" id="description_fr" placeholder="Enter Description" required>{{$featuretext->description_fr}}</textarea>
                 </div>
                         
@@ -110,9 +110,9 @@ input::-webkit-inner-spin-button {
                                     @php $checked="checked"; @endphp
                                 @endif
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
-                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <label class="custom-control-label" for="invalidCheck">@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    You must agree before Save.
+                                    @lang('language.You must agree before Save.')
                                 </div>
                             </div>
 
@@ -122,8 +122,8 @@ input::-webkit-inner-spin-button {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <button class="btn btn-success"  type="submit">Update</button>
-                            <a href="/admin/featuretext" class="btn btn-danger">Cancel</a>
+                            <button class="btn btn-success"  type="submit">@lang('language.Update')</button>
+                            <a href="/admin/featuretext" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>

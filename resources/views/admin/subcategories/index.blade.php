@@ -40,10 +40,10 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%" >#</th>
-                                <th width="20%">Category Name</th>
-                                <th width="20%">Subcategory Name</th>
+                                <th width="20%">@lang('language.Category Name')</th>
+                                <th width="20%">@lang('language.Subcategory Name')</th>
                                 <th width="15%">Image</th>
-                                <th width="15%">Status</th>
+                                <th width="15%">@lang('language.Status')</th>
                                 <th >Action</th>
                             </tr>
                         </thead>
@@ -60,9 +60,9 @@
                                             <img src="{{$profilepicturePath}}{{$subcategory->image}}" alt="" style="width: 29px;height:38px;">@endif
                                         </td>
                                         <?php if($subcategory->status == 1){ ?>
-                                        <td id="{{$subcategory->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$subcategory->id}}" data-status = "{{$subcategory->status}}" onclick="updatestatus({{$subcategory->id}},{{$subcategory->status}})">Active</span></td><?php } else { ?>
+                                        <td id="{{$subcategory->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$subcategory->id}}" data-status = "{{$subcategory->status}}" onclick="updatestatus({{$subcategory->id}},{{$subcategory->status}})">@lang('language.Active')</span></td><?php } else { ?>
 
-                                        <td id="{{$subcategory->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$subcategory->id}}" data-status = "{{$subcategory->status}}" onclick="updatestatus({{$subcategory->id}},{{$subcategory->status}})">Inactive</span></td><?php } ?>
+                                        <td id="{{$subcategory->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$subcategory->id}}" data-status = "{{$subcategory->status}}" onclick="updatestatus({{$subcategory->id}},{{$subcategory->status}})">@lang('language.Inactive')</span></td><?php } ?>
 
                                     <td>
                                         <a href="{{route('subcategories.edit', $subcategory->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -108,7 +108,7 @@
               if(data.return =='Active')
               {
                 status = 1;
-                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">Active</span>';
+                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Active')</span>';
 
 
                 Swal.fire(
@@ -121,7 +121,7 @@
               else
               {
                 status = 0;
-                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">Inactive</span>';
+                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
 
                  Swal.fire(
                                 'Status',
@@ -142,8 +142,8 @@
                 var id = $(this).attr('data-id');
 
                  Swal.fire({
-                      title: 'Are You sure',
-                      text: "You want to delete this user",
+                      title: '@lang('language.Are You sure')',
+                      text: "@lang('language.You want to delete this subcategory')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -162,8 +162,8 @@
                                  if(data == "delete"){
 
                                  Swal.fire({
-                                       title: "User",
-                                       icon:"success",
+                                       title: "Subcategory",
+                                       icon:"@lang('language.success')",
                                        text: "Subcategories Deleted Successfully",
                                        type: "success"
                                 }).then(function() {
@@ -173,9 +173,9 @@
                             }else{
 
                                    Swal.fire({
-                                       title: "User",
-                                       icon:"error",
-                                        text: "Something went wrong",
+                                       title: "Subcategory",
+                                       icon:"@lang('language.error')",
+                                        text: "@lang('language.Something went wrong')",
                                        type: "error"
                                         // }).then(function() {
                                 //  history.go(0)

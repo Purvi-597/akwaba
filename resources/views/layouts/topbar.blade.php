@@ -316,6 +316,13 @@
                     <img class="rounded-circle header-profile-user"src="/uploads/users/avatar-2.jpg"
                         alt="Header Avatar">
                     @endif-->
+                     <!--@if(Auth::user()->profile_image)
+                    <img class="rounded-circle header-profile-user" src="/uploads/users/{{Auth::user()->profile_image}}"
+                        alt="Header Avatar">
+                    @else
+                    <img class="rounded-circle header-profile-user"src="/uploads/users/avatar-2.jpg"
+                        alt="Header Avatar">
+                    @endif-->
                     <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->first_name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>

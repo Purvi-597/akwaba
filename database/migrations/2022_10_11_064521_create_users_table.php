@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->enum('status', ['1', '0']);
             $table->softDeletes();
             $table->timestamps();
-            
+            $table->softDeletes();
         });
 
         DB::table('users')->insert(

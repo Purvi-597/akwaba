@@ -45,77 +45,79 @@ input::-webkit-inner-spin-button {
                  @csrf
 					
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">First Name</label>
-						<input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name" value="{{old('first_name')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.First Name')</label>
+						<input type="text" class="form-control" name="first_name" id="first_name" placeholder="@lang('language.Enter First Name')" value="{{old('first_name')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a first name.
+                            @lang('language.Please provide a first name.')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Last Name</label>
-						<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name" value="{{old('last_name')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.Last Name')</label>
+						<input type="text" class="form-control" name="last_name" id="last_name" placeholder="@lang('language.Enter Last Name')" value="{{old('last_name')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a Last name.
+                            @lang('language.Please provide a Last name.')'
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Email</label>
-						<input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{old('email')}}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                        <label for="formrow-quest_name-input">@lang('language.Email')</label>
+						<input type="email" class="form-control" name="email" id="email" placeholder="@lang('language.Enter Email')" value="{{old('email')}}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                         <div class="invalid-feedback">
-                            Please provide a email.
+                            @lang('language.Please provide a email.')
                         </div>
                  <div class="emailcheckerror" style="display: none; color:#f46a6a;margin-top: 0.25rem;font-size: 80%;">
-                        Email Is Already Exists
+                        @lang('language.Email Is Already Exists')
                         </div>
                     </div>
                      <div class="form-group">
-                        <label for="formrow-quest_name-input">Phone No</label>
-                        <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Phone Number" value="{{old('contact_no')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.Phone No')</label>
+                        <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="@lang('language.Enter Phone Number')" value="{{old('contact_no')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a phone no.
+                            
+                           c
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Password</label>
-						<input type="password" class="form-control" name="password" id="password" placeholder="Enter password" value="{{old('password')}}"  required>
+                        <label for="formrow-quest_name-input">@lang('language.Password')</label>
+						<input type="password" class="form-control" name="password" id="password" placeholder="@lang('language.Enter password')" value="{{old('password')}}"  required>
                         <div class="invalid-feedback">
-                            Please provide a Valid password.
+                            @lang('language.Please provide a Valid password.')
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Confirm Password</label>
-						<input type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Enter Confirm Password" value="{{old('confirmpassword')}}" required data-parsley-equalto="#password">
+                        <label for="formrow-quest_name-input">@lang('language.Confirm Password')</label>
+						<input type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="@lang('language.Enter Confirm Password')" value="{{old('confirmpassword')}}" required data-parsley-equalto="#password">
                         <div class="invalid-feedback">
-                            Please provide a confirm password.
+                            @lang('language.Please provide a confirm password.')
                         </div>
                         <span id="passwordcheck" style="color:red;color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
                     </div> 
 
                          <div id="req_input" class="form-group">
-                        <label for="formrow-quest_name-input">profile Image</label>
+                        <label for="formrow-quest_name-input">@lang('language.Profile Image')</label>
                         <input type="file"  class="form-control images" name="profile_pic" id="profile_pic" >
                             <div class="invalid-feedback">
-                                   Please select Image
+                                   @lang('language.Please select Image')
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="200" style="display:none" >
                     <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">Home Address</label>
-                    <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Enter Home Address" value="{{old('home_address')}}" required>
+                    <label for="formrow-quest_name-input">@lang('language.Home Address')</label>
+                    <input type="text" class="form-control" name="home_address" id="home_address" placeholder="@lang('language.Enter Home Address')" value="{{old('home_address')}}" required>
                     <div class="invalid-feedback">
-                        Please provide a Home Address.
+                        @lang('language.Please provide a Home Address.')
+
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">Work Address</label>
-                    <input type="text" class="form-control" name="work_address" id="work_address" placeholder="Enter Work Address" value="{{old('work_address')}}" required>
+                    <label for="formrow-quest_name-input">@lang('language.Work Address')</label>
+                    <input type="text" class="form-control" name="work_address" id="work_address" placeholder="@lang('language.Enter Work Address')" value="{{old('work_address')}}" required>
                     <div class="invalid-feedback">
-                        Please provide a Work Address.
+                       @lang('language.Please provide a Work Address.')
                     </div>
                 </div>
 
@@ -123,9 +125,9 @@ input::-webkit-inner-spin-button {
                     <div class="form-group ">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="status" class="custom-control-input" value="" id="invalidCheck" checked>
-                            <label class="custom-control-label" for="invalidCheck" >Active</label>
+                            <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                             <div class="invalid-feedback">
-                                You must agree before Save.
+                                @lang('language.You must agree before Save.')
                             </div>
                         </div>
 
@@ -135,8 +137,8 @@ input::-webkit-inner-spin-button {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <button class="btn btn-success" type="submit" id="save">Save</button>
-                        <a href="../users" class="btn btn-danger">Cancel</a>
+                            <button class="btn btn-success" type="submit" id="save">@lang('language.Save')</button>
+                        <a href="../users" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>
@@ -166,7 +168,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg,jfif,svg).");
+  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg,jfif,svg).')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main0").attr('src','');

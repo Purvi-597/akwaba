@@ -44,10 +44,10 @@ input::-webkit-inner-spin-button {
                 <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('categories.store')}}"  novalidate>
                     @csrf
                     <div class="form-group">
-                        <label for="formrow-quest_name-input"> Name</label>
-						    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Category Name" value="{{old('name')}}" required>
+                        <label for="formrow-quest_name-input"> @lang('language.Name')</label>
+						    <input type="text" class="form-control" name="name" id="name" placeholder="@lang('language.Enter Category Name') " value="{{old('name')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a  Category Name.
+                            @lang('language.Please provide a  Category Name.')
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ input::-webkit-inner-spin-button {
                         <label for="formrow-quest_name-input">Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
-                                   Please select Image
+                                @lang('language.Please select Image')
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
@@ -65,9 +65,9 @@ input::-webkit-inner-spin-button {
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
-                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    You must agree before Save.
+                                    @lang('language.You must agree before Save.');
                                 </div>
                             </div>
                         </div>
@@ -76,8 +76,8 @@ input::-webkit-inner-spin-button {
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <button class="btn btn-success" type="submit" id="save">Save</button>
-                            <a href="../categories" class="btn btn-danger">Cancel</a>
+                                <button class="btn btn-success" type="submit" id="save">@lang('language.Save')</button>
+                            <a href="../categories" class="btn btn-danger">@lang('language.Cancel')</a>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
+  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main0").attr('src','');
@@ -127,7 +127,7 @@ if ((file = this.files[0])) {
 
         if(imgwidth > maxwidth && imgheight > maxheight){
 
-        $("#image0_error").text("Please upload images of following dimension width/height(29*38).");
+        $("#image0_error").text("@lang('language.Please upload images of following dimension width/height(29*38).')");
         $("#image_main0").css("display", "none");
         $("#image_main0").attr('src','');
         $("#images_0").val("");

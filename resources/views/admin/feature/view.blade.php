@@ -23,14 +23,14 @@
 					<div class="row">
 						
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Name:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.Name:')</b></label>     
 							{{$feature->name}}
 						</div>
 						
                     </div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Status:</b></label>   
+							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($feature->status == 1)
 							@php echo "Active"; @endphp
 							@else
@@ -46,7 +46,7 @@
                     </div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile Picture'):</b></label> <br>
 							 	@if(!empty($feature->image))
 							 <img src="/uploads/feature/{{$feature->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;"></img>
 									@else
@@ -58,7 +58,7 @@
 				  <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <a href="/admin/feature" class="btn btn-danger">Cancel</a>
+                            <a href="/admin/feature" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>

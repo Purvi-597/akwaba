@@ -23,12 +23,12 @@
 					<div class="row">
 						
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Name:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.Name:')</b></label>     
 							{{$users->name}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Email:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.Email'):</b></label>     
 							{{$users->email}}
 						</div>
 						
@@ -36,11 +36,11 @@
 
                     <div class="row">
                     	<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Phone No:</b></label>   {{$users->phone_no}}
+							<label for="formrow-quest_name-input"><b>@lang('language.Phone No'):</b></label>   {{$users->phone_no}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Status:</b></label>   
+							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($users->status == 1)
 							@php echo "Active"; @endphp
 							@else
@@ -52,7 +52,7 @@
                     	
                     	<div class="row">
                     		<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>User Type:</b></label>   {{$users->user_type}}
+							<label for="formrow-quest_name-input"><b>@lang('language.User Type'):</b></label>   {{$users->user_type}}
 						</div>
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$users->created_at}}
@@ -68,9 +68,9 @@
 
 					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile Picture'):</b></label> <br>
 							 	@if(!empty($users->profile_image))
-							 <img src="/uploads/users/{{$users->profile_image}}" id="prescriptionpreview" style="height: 100px; width: 200px;"></img>
+							 <img src="/uploads/users/{{$users->profile_image}}" id="prescriptionpreview" style="height: 100px; width: 200px;">
 									@else
 									@php echo "No Image uploaded"; @endphp
 									@endif
@@ -80,7 +80,7 @@
 				  <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <a href="/admin/users" class="btn btn-danger">Cancel</a>
+                            <a href="/admin/users" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>

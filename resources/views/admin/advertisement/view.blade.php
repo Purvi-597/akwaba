@@ -20,14 +20,14 @@
 				<input type="hidden" value="{{ $advertisement->id }}" name="id" id="id">
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Title:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.Title'):</b></label>     
 							{{$advertisement->title}}
 						</div>	
                     </div>
 
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>French Title:</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.French Title')</b></label>     
 							{{$advertisement->title_fr}}
 						</div>	
                     </div>
@@ -53,7 +53,7 @@
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>
 							 	@if(!empty($advertisement->image))
-							 		<img src="/uploads/advertisement/{{$advertisement->image}}" id="prescriptionpreview" style="height: 100px; width: 100px;"></img>
+							 		<img src="/uploads/advertisement/{{$advertisement->image}}" id="prescriptionpreview" style="height: 100px; width: 100px;">
 									@else
 										@php echo "No Image uploaded"; @endphp
 								@endif

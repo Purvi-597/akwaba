@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title')  @lang('dash.') @endslot
+@slot('title')  @lang('language.Advertisement') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -45,37 +45,37 @@ input::-webkit-inner-spin-button {
                  @csrf
 					
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Title</label>
-						<input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{old('title')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.Title')</label>
+						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Enter Title')" value="{{old('title')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a Title.
+                            @lang('language.Please provide a Title.');
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">French Title</label>
-						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French Title" value="{{old('title_fr')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.French Title')</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.Enter French Title')" value="{{old('title_fr')}}" required>
                         <div class="invalid-feedback">
-                            Please provide a French Title.
+                            @lang('language.Please provide a French Title.');
                         </div>
                     </div>
                 
 
                     <div id="req_input" class="form-group">
-                        <label for="formrow-quest_name-input"> Image</label>
+                        <label for="formrow-quest_name-input"> @lang('language.Image')</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
-                                Please select Image
+                                @lang('language.Please select Image'); 
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Link</label>
-						<input type="text" class="form-control" name="link" id="link" placeholder="Enter Link" value="{{old('link')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.Link')</label>
+						<input type="text" class="form-control" name="link" id="link" placeholder=" @lang('language.Enter Link')" value="{{old('link')}}" required>
                             <div class="invalid-feedback">
-                                Please provide a Link.
+                                @lang('language.Please provide a Link.')
                             </div>
                     </div>
 
@@ -84,9 +84,9 @@ input::-webkit-inner-spin-button {
                             <div class="custom-control custom-checkbox">
                                 @php $checked=""; @endphp
                                 <input type="checkbox" name="status[]" class="custom-control-input"  id="invalidCheck" >
-                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <label class="custom-control-label" for="invalidCheck">@lang('language.Active')</label>
                                     <div class="invalid-feedback">
-                                        You must agree before Save.
+                                        @lang('language.You must agree before Save.')
                                     </div>
                             </div>
                         </div>
@@ -95,8 +95,8 @@ input::-webkit-inner-spin-button {
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <button class="btn btn-success" type="submit" id="save">Save</button>
-                                   <a href="../advertisement" class="btn btn-danger">Cancel</a>
+                                <button class="btn btn-success" type="submit" id="save">@lang('language.Save')</button>
+                                   <a href="../advertisement" class="btn btn-danger">@lang('language.Cancel')</a>
                             </div>
                         </div>
                     </div>

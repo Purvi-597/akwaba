@@ -63,10 +63,10 @@ input::-webkit-inner-spin-button {
                 </div>
 
                 <div class="form-group">
-                        <label for="formrow-quest_name-input">Name</label>
+                        <label for="formrow-quest_name-input">@lang('language.Name')</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter  Name" value="{{$subcategories->name}}" required>
                         <div class="invalid-feedback">
-                            Please provide a name.
+                            @lang('language. Please provide a name.')'
                         </div>
                     </div>
 
@@ -99,9 +99,9 @@ input::-webkit-inner-spin-button {
                                     @php $checked="checked"; @endphp
                                 @endif
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
-                                <label class="custom-control-label" for="invalidCheck" >Active</label>
+                                <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    You must agree before Save.
+                                    @lang('language. You must agree before Save.')
                                 </div>
                             </div>
 
@@ -111,8 +111,8 @@ input::-webkit-inner-spin-button {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
-                            <button class="btn btn-success"  type="submit">Update</button>
-                            <a href="/admin/subcategories" class="btn btn-danger">Cancel</a>
+                            <button class="btn btn-success"  type="submit">@lang('language.Update')</button>
+                            <a href="/admin/subcategories" class="btn btn-danger">@lang('language.Cancel')</a>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
+  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');
@@ -167,7 +167,7 @@ if ((file = this.files[0])) {
         imgwidth = this.width;
         imgheight = this.height;
         if(imgwidth > maxwidth && imgheight > maxheight){
-        $("#image0_error").text("Please upload images of following dimension width/height(29*38).");
+        $("#image0_error").text("@lang('language.Please upload images of following dimension width/height(29*38).')");
         $("#image_main1").css("display", "none");
         $("#image_main1").attr('src','');
         $("#images_0").val("");
