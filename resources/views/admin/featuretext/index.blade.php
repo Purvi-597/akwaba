@@ -161,10 +161,10 @@
 
             $(document).on('click','#deletefeaturetext',function(){
                 var id = $(this).attr('data-id');
-               
+
                  Swal.fire({
-                      title: "@lang('language.confirm_alert')",
-                      text: "@lang('language.delete_feature')",s
+                      title: "@lang('language.Confirm_alert')",
+                      text: "@lang('language.delete_feature')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -172,50 +172,45 @@
                       cancelButtonColor: '#d33',
                       confirmButtonText: 'Yes '
                     }).then((result) => {
-                      
-                      if (result.value){
-                        
-                          $.ajax({
+
+                    if (result.value){
+
+                        $.ajax({
                              type: "POST",
                              url: '{{route("deletefeaturetext")}}',
                              data: {'id': id, "_token": "{{ csrf_token() }}"},
                              success: function(data){
                                  if(data == "delete"){
-                               
+
                                  Swal.fire({
-                                       title: "Feature",
+                                       title: "@lang('language.Confirm_alert')",
                                        icon:"success",
-                                       text: "@lang('language.text_delete')",
+                                       text: "@lang('language.feature_Deleted')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)
                                      });
-
                             }else{
-
                                    Swal.fire({
-                                       title: "feature",
+                                       title: "@lang('language.Category')",
                                        icon:"error",
-                                        text:  "@lang('language.error_msg')",
+                                        text: "Something went wrong",
                                        type: "error"
                                         // }).then(function() {
                                 //  history.go(0)
                              });
 
                             }
-
-
                         }
 
                     });
 
                     }else{
-                       
+
 
                       }
                     })
-         })
-
+        })
 
 
             
