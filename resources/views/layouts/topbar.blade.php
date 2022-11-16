@@ -278,29 +278,18 @@
                 </div>
             </div>
 
-        
-{{--             
-                <div class="dropdown">
-                    
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     {{app()->getLocale() == 'fr'?'French':'English'}}
-                     
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="{{url(app()->getLocale() == 'fr'?'en':'fr')}}"> {{app()->getLocale() == 'fr'? 'English':'French'}}</a>
-    
-                      
-                    </div>
-                  </div> --}}
 
 
                 
-                <div class="row">
-                    <strong>Select Language:</strong>
-                        <div class="col-md-8">
+                <div class="row" style="padding-top:18px;">
+                    <div class="col-md-4">
+                    <strong>@lang('language.language')</strong>
+                    </div>
+                        <div class="col-md-6">
+                           
                             <select class="form-control changeLang" id="changeLang">
                                 <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-                                <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>France</option>
+                                <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>French</option>
                             </select>
                         </div>
                 </div>

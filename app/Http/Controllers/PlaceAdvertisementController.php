@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Model\PlaceAdvertisement;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Session;
+use Lang;
 
 class PlaceAdvertisementController extends Controller
 {
@@ -17,6 +19,7 @@ class PlaceAdvertisementController extends Controller
      */
     public function index()
     {
+
         $data['place_advertisement'] = PlaceAdvertisement::orderBy('id','desc')->get();
         return view('admin.placeAdvertisement.index',$data);
     }
@@ -46,7 +49,7 @@ class PlaceAdvertisementController extends Controller
         if ($files = $request->file('image')) {
             $placeAdvertisementPath = public_path().'/uploads/place_advertisement/';
             if ($placeAdvertisementPicture = $request->file('image')) {
-                $image = time().'_'.$placeAdvertisementPicture->getClientOriginalName().'.'.$placeAdvertisementPicture->getClientOriginalExtension();
+                $image = time().'_'.$placeAdvertisementPicture->getClientOriginalName();
                 $placeAdvertisementPicture->move($placeAdvertisementPath, $image);
             }
         }
@@ -65,9 +68,9 @@ class PlaceAdvertisementController extends Controller
         );
         $insert = PlaceAdvertisement::create($data);
         if($insert){
-            return redirect()->back()->with('success','Place advertisement created successfully.');
+            return redirect()->back()->with('success',Lang::get('language.place_success'));
         }else{
-            return redirect()->back()->with('error','Something went wrong');
+            return redirect()->back()->with('error',Lang::get('language.error_msg'));
         }
     }
 
@@ -127,7 +130,7 @@ class PlaceAdvertisementController extends Controller
             }
             $updateImage = PlaceAdvertisement::where('id',$id)->update(['image' => $image]);
         }
-        return redirect()->action('PlaceAdvertisementController@index')->with('success','Place Advertisement Updated Successfully');
+        return redirect()->action('PlaceAdvertisementController@index')->with('success',Lang::get('language.place_update'));
     }
 
     /**

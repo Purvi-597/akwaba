@@ -24,14 +24,6 @@
 							{{$advertisement->title}}
 						</div>	
                     </div>
-
-					<div class="row">
-						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.French Title')</b></label>     
-							{{$advertisement->title_fr}}
-						</div>	
-                    </div>
-
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Status:</b></label>   
@@ -42,12 +34,12 @@
 							@endif
 						</div>
 					</div>
-                    
+{{--                     
 					<div class="row">
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$advertisement->created_at}}
 						</div>
-					</div>
+					</div> --}}
                     
 					<div class="row">
 						<div class="form-group col-md-6">

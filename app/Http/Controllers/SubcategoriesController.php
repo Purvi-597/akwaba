@@ -7,6 +7,8 @@ use App\Http\Model\Categories;
 use App\Http\Model\Subcategories;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Session;
+use Lang;
 
 
 
@@ -14,9 +16,17 @@ class SubCategoriesController extends Controller
 {
 	public function index()
     {
+        if(Session::get('locale') == 'fr'){
+            $data['subcategories'] = Subcategories::leftjoin('categories','categories.id','=','sub_categories.cat_id')->orderBy('id','desc')->get(['sub_categories.name','sub_categories.display_name_fr as display_name','sub_categories.image','cat_id','sub_categories.status','sub_categories.id','categories.name as category_name']);
+        }else{
+	    $data['subcategories'] = Subcategories:: leftjoin('categories','categories.id','=','sub_categories.cat_id')->orderBy('id','desc')->get(['sub_categories.name','sub_categories.display_name as display_name','sub_categories.image','cat_id','sub_categories.status','sub_categories.id','categories.name as category_name']);
+        }
 
-		$data['subcategories'] = Subcategories::orderBy('id','desc')->get();
+        $row['categories'] = Categories::orderBy('id','desc')->get();
         return view('admin.subcategories.index',$data);
+
+             
+        
 	}
 	public function create()
     {
@@ -32,9 +42,10 @@ class SubCategoriesController extends Controller
         if ($files = $request->file('image')) {
             $subcategoriesPath = public_path().'/uploads/subcategories/';
             if ($subcategoriesPicture = $request->file('image')) {
-                $image = time().'_'.$subcategoriesPicture->getClientOriginalName().'.'.$subcategoriesPicture->getClientOriginalExtension();
+                $image =$subcategoriesPicture->getClientOriginalName();
                 $subcategoriesPicture->move($subcategoriesPath, $image);
             }
+
         }
         $status = 0;
         if($request->input('status')){
@@ -45,20 +56,27 @@ class SubCategoriesController extends Controller
         $data = array(
             'cat_id' =>$request->input('cat_id'),
             'name' => $request->input('name'),
+            'display_name' => $request->input('display_name'),
+            'display_name_fr' => $request->input('display_name_fr'),           
             'status' => $status,
             'image' => $image
         );
         $insert = Subcategories::create($data);
         if($insert){
-            return redirect()->back()->with('success','Subcategory created successfully.');
+            return redirect()->back()->with('success',Lang::get('language.sub_add_Success'));
         }else{
-            return redirect()->back()->with('error','Something went wrong');
+            return redirect()->back()->with('error',Lang::get('language.error_msg'));
         }
     }
 
 	public function edit($id)
     {
-        $row['categories'] = Categories::orderBy('id','desc')->get(['id','name']);
+        if(Session::get('locale') == 'fr'){
+            $row['categories'] = Categories::orderBy('id','desc')->get(['display_name_fr as display_name','id']);
+        }else{
+	    $row['categories'] = Categories::orderBy('id','desc')->get(['display_name as display_name','id']);
+        }
+        
         $row['subcategories'] = Subcategories::where('id',$id)->first();
         return view('admin.subcategories.edit',$row);
     }
@@ -67,7 +85,7 @@ class SubCategoriesController extends Controller
         if(!empty($request->file('image'))){
 				$destinationPath = public_path().'/uploads/subcategories/';
 				if ($cover_detail_image = $request->file('image')) {
-					$cover_detail = time().'_'.$cover_detail_image->getClientOriginalName().'.'.$cover_detail_image->getClientOriginalExtension();
+					$cover_detail = time().'_'.$cover_detail_image->getClientOriginalName();
 					$cover_detail_image->move($destinationPath, $cover_detail);
 				}
 		}else{
@@ -81,12 +99,14 @@ class SubCategoriesController extends Controller
         $create = Subcategories::where('id',$id)->update([
             "cat_id" => $request->input('cat_id'),
             "name" => $request->input('name'),
+            "display_name" => $request->input('display_name'),
+            "display_name_fr" => $request->input('display_name_fr'),
 			"image"=>$cover_detail,
             "status" => $status
         ]);
-		return redirect()->action('SubCategoriesController@index')->with('success','subcategories Updated Successfully');
+		return redirect()->action('SubCategoriesController@index')->with('success',Lang::get('language.sub_update'));
 
-        // return redirect()->action('CategoriesController@index')->with('success','Categories Updated Successfully');
+       
 	}
     public function subcategoriesimagedelete(Request $request){
         $id = $request->input('id');
@@ -133,7 +153,14 @@ class SubCategoriesController extends Controller
 
        public function view($id)
     {
-        $data['subcategories'] = Subcategories::where('id',$id)->first();
+
+        if(Session::get('locale') == 'fr'){
+            $data['subcategories'] = Subcategories::where('id',$id)->first(['display_name_fr as display_name', 'image', 'status','cat_id']);
+        }else{
+            $data['subcategories'] = Subcategories::where('id',$id)->first(['display_name as display_name', 'image', 'status','cat_id']);
+        }
+
+      
         return view('admin.subcategories.view',$data);
     }
 

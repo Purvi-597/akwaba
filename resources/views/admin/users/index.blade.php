@@ -1,5 +1,5 @@
  @extends('layouts.master')
-@section('title') User Management @endsection
+@section('title')@lang('language.User_Management') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
@@ -9,7 +9,7 @@
 @slot('title') @endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('users.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add User  </a>
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_User')  </a>
         
     </h4> @endslot
 @endcomponent
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-12">
 
-        <h5 style="color: #000E42;"> @lang('user.User Management')</h5>
+        <h5 style="color: #000E42;"> @lang('language.User_Management')</h5>
 
         <div class="card">
             <div class="card-body">
@@ -44,11 +44,11 @@
                             <tr>
                                 <th>#</th>
                                 
-                                <th  width="15%">@lang('dash.First Name')</th>
-                                <th  width="15%">@lang('language.Last Name')</th>
+                                <th  width="15%">@lang('language.First_Name')</th>
+                                <th  width="15%">@lang('language.Last_Name')</th>
                                 <th  width="15%">@lang('language.Email')</th>
-                                <th  width="15%">@lang('language.Phone No')</th>
-                                <th  width="15%">@lang('language.Profile Image')</th>
+                                <th  width="15%">@lang('language.Phone_No')</th>
+                                <th  width="15%">@lang('language.Profile_Image')</th>
                                 <th  width="10%">@lang('language.Status')</th>
                                 <th  width="20%">Action</th>
                             </tr>
@@ -77,7 +77,7 @@
                                         <td>{{$usr->email}}</td>
                                         <td>{{$usr->contact_no}}</td>
                                         <td>@if ($usr->profile_pic != '')
-                                            <img src="{{$profilepicturePath}}{{$usr->profile_pic}}" alt="" style="width: 100px;height:100px;">
+                                            <img src="{{$profilepicturePath}}{{$usr->profile_pic}}" alt="" style="width: auto;height:auto;">
                                         @endif</td>
                                         <?php if($usr->status == 1){ ?>
                                         <td id="{{$usr->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$usr->id}}" data-status = "{{$usr->status}}" onclick="updatestatus({{$usr->id}},{{$usr->status}})">@lang('language.Active')</span></td><?php } else { ?>
@@ -112,7 +112,17 @@
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-            $('#UsersList1').DataTable();
+            $('#UsersList1').DataTable({
+                "language": {
+                    "search": "@lang('language.search')",
+                    "sLengthMenu": "@lang('language.show')",
+                    "sInfo" : "@lang('language.show_text')",
+                    "paginate": {
+                        "previous": "@lang('language.previous')",
+                        "next" : "@lang('language.next')",
+    }
+                    }
+                });
         } );
 </script>
 
@@ -133,7 +143,7 @@
 
                 Swal.fire(
                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang('language.Status_Changed')',
                                 'success'
                                 )   
 
@@ -144,8 +154,8 @@
                 var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
 
                  Swal.fire(
-                                '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                    '@lang("language.Status")',
+                                '@lang('language.Status_Changed')',
                                 'success'
                                 )   
 
@@ -162,8 +172,8 @@
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
-                      title: '@lang('language.Are You sure')',
-                      text: "@lang('language.You want to delete this user')",
+                      title: '@lang('language.Confirm_alert')',
+                      text: "@lang('language.delete_msg')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -182,9 +192,9 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "User",
+                                       title: "@lang('language.user')",
                                        icon:"success",
-                                       text: "User Deleted Successfully",
+                                       text: "@lang('language.user_deleted')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)

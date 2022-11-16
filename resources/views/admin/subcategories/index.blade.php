@@ -1,15 +1,15 @@
 @extends('layouts.master')
-@section('title') Subcategories @endsection
+@section('title') @lang('language.Subcategory_List') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') @lang('dash.Subcategory List') @endslot
+@slot('title') @lang('language.Subcategory_List') @endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('subcategories.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add subcategory  </a>
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_Subcat')</a>
 
     </h4> @endslot
 @endcomponent
@@ -40,8 +40,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%" >#</th>
-                                <th width="20%">@lang('language.Category Name')</th>
-                                <th width="20%">@lang('language.Subcategory Name')</th>
+                                {{-- <th width="20%">@lang('language.Name')</th>  --}}
+                                <th width="20%">@lang('language.cat_name')</th>
+                                <th width="20%">@lang('language.display_name')</th>
                                 <th width="15%">Image</th>
                                 <th width="15%">@lang('language.Status')</th>
                                 <th >Action</th>
@@ -54,10 +55,11 @@
                                 @foreach($subcategories as $subcategory)
                                     <tr>
                                         <td>{{$i}}</td>
-                                        <td>Category Name</td>
-                                        <td >{{$subcategory->name}}</td>
+                                        <td>{{$subcategory->category_name}}</td>
+
+                                      <td >{{$subcategory->display_name}}
                                         <td>@if ($subcategory->image != '')
-                                            <img src="{{$profilepicturePath}}{{$subcategory->image}}" alt="" style="width: 29px;height:38px;">@endif
+                                            <img src="{{$profilepicturePath}}{{$subcategory->image}}" alt="" style="width:auto ;height:auto;">@endif
                                         </td>
                                         <?php if($subcategory->status == 1){ ?>
                                         <td id="{{$subcategory->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$subcategory->id}}" data-status = "{{$subcategory->status}}" onclick="updatestatus({{$subcategory->id}},{{$subcategory->status}})">@lang('language.Active')</span></td><?php } else { ?>
@@ -92,7 +94,17 @@
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-            $('#UsersList1').DataTable();
+            $('#UsersList1').DataTable({
+                "language": {
+                    "search": "@lang('language.search')",
+                    "sLengthMenu": "@lang('language.show')",
+                    "sInfo" : "@lang('language.show_text')",
+                    "paginate": {
+                        "previous": "@lang('language.previous')",
+                        "next" : "@lang('language.next')",
+    }
+                    }
+                });
         } );
 </script>
 
@@ -112,8 +124,8 @@
 
 
                 Swal.fire(
-                                'Status',
-                                'Status Changed Successfully',
+                                '@lang("language.Status")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )
 
@@ -124,8 +136,8 @@
                 var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
 
                  Swal.fire(
-                                'Status',
-                                'Status Changed Successfully',
+                                '@lang("language.Status")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )
 
@@ -142,8 +154,8 @@
                 var id = $(this).attr('data-id');
 
                  Swal.fire({
-                      title: '@lang('language.Are You sure')',
-                      text: "@lang('language.You want to delete this subcategory')",
+                      title: "@lang('language.Confirm_alert')",
+                      text: "@lang('language.delete_subcat')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -162,9 +174,9 @@
                                  if(data == "delete"){
 
                                  Swal.fire({
-                                       title: "Subcategory",
+                                       title: "@lang('language.Sub_Categories')",
                                        icon:"@lang('language.success')",
-                                       text: "Subcategories Deleted Successfully",
+                                       text: "@lang('language.Subcategory_deleted')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)
@@ -175,7 +187,7 @@
                                    Swal.fire({
                                        title: "Subcategory",
                                        icon:"@lang('language.error')",
-                                        text: "@lang('language.Something went wrong')",
+                                        text: "@lang('language.error_msg')",
                                        type: "error"
                                         // }).then(function() {
                                 //  history.go(0)

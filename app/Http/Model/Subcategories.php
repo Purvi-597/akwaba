@@ -11,7 +11,7 @@ class Subcategories extends Model
     use HasFactory,SoftDeletes;
     protected $table = 'sub_categories';
     protected $fillable = [
-        'name', 'status', 'image', 'cat_id'
+        'name','display_name','display_name_fr','status', 'image', 'cat_id'
         ];
 
         protected $dates = ['deleted_at'];

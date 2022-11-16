@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use DataTables;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
-use App\Users;
+use App\Http\Model\Users;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Facades\Mail;
@@ -11,6 +11,7 @@ use App\Mail\TestEmail;
 use App\Mail\DemoEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
+use Lang;
 
 
 
@@ -49,7 +50,6 @@ class UserController extends Controller
                     $profile_pic = $request->input('first_name').'_'.time().'.'.$userPicture->getClientOriginalExtension();
                     $userPicture->move($userPath, $profile_pic);
 
-                        // $users->profile_pic = $profile_pic;
                 }
         }
         
@@ -69,10 +69,10 @@ class UserController extends Controller
         $details = array('email' => $users->email, 'password' => $request->input('password'), 'verification_code' => $verifyemail,'url' => $url);
 
         $mail = Mail::to($to_email)->send(new TestEmail(($details)));
-        return redirect()->action('UserController@index')->with('success','Email Sent Successfully');
+        return redirect()->action('UserController@index')->with('success',Lang::get('language.email_send'));
 
     }else{
-          return redirect()->action('UserController@create')->with('error','Email Already Exist');
+          return redirect()->action('UserController@create')->with('error',Lang::get('language.email_exist'));
        
     }
 
@@ -113,7 +113,7 @@ class UserController extends Controller
                 "status" => $status
             ]);
 			
-			 return redirect()->action('UserController@index')->with('success','User Updated Successfully');
+			 return redirect()->action('UserController@index')->with('success',Lang::get('language.user_update'));
 	}
     
     public function userimagedelete(Request $request){
@@ -188,11 +188,11 @@ class UserController extends Controller
            // dd(DB::getQueryLog()); die;
             if($update)
             {
-                return redirect('login')->with('success','Email Verified Successfully'); 
+                return redirect('login')->with('success',Lang::get('language.email_verify')); 
             }
             else
             {
-                 return redirect('login')->with('error','Email Verification Failed!');
+                 return redirect('login')->with('error',Lang::get('language.email_failed'));
             }
         }
       }
@@ -217,7 +217,7 @@ class UserController extends Controller
     return redirect()->back()->with('success','Email Sent Successfully');
         
         }else{
-             return redirect()->back()->with('error','Email is not registered or deleted.please contact to admin.');
+             return redirect()->back()->with('error',Lang::get('language.warning'));
         }
         
     }
@@ -239,11 +239,11 @@ class UserController extends Controller
         $update = DB::table('users')->where('email',$email)->update(['password' => $confirmpassword,'updated_at' => NOW()]);
         if($update)
         {
-             return redirect('login')->with('success','Login with new password');
+             return redirect('login')->with('success',Lang::get('language.login_password'));
         }
         else
         {
-            return redirect()->back()->with('error','Unable to reset password');
+            return redirect()->back()->with('error',Lang::get('language.reset'));
         }
     }
 
@@ -262,7 +262,7 @@ class UserController extends Controller
 
     public function view($id)
     {
-        $data['users'] = UsersModel::where('id',$id)->first();
+        $data['users'] = Users::where('id',$id)->first();
         return view('admin.users.view',$data);
     }
 

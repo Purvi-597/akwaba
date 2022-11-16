@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Model\Feature;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Session;
+use Lang;
 
 
 
@@ -13,8 +15,12 @@ class FeatureController extends Controller
 {
 	public function index()
     {
-    
-		$data['feature'] = Feature::orderBy('id','desc')->get();
+        if(Session::get('locale') == 'fr'){
+            $data['feature'] = Feature::orderBy('id','desc')->get(['title_fr as title','description_fr as description','image','status','id']);
+        }else{
+	    $data['feature'] = Feature::orderBy('id','desc')->get(['title as title','description as description','image','status','id']);
+        }
+		// $data['feature'] = Feature::orderBy('id','desc')->get();
         return view('admin.feature.index',$data);
 	}
 	public function create()
@@ -31,7 +37,7 @@ class FeatureController extends Controller
         if ($files = $request->file('image')) {
             $featurePath = public_path().'/uploads/feature/';
             if ($featurePicture = $request->file('image')) {
-                $image = $featurePicture->getClientOriginalName();
+                $image = time().'_'.$featurePicture->getClientOriginalName();
                 $featurePicture->move($featurePath, $image);
             }
         }
@@ -54,9 +60,9 @@ class FeatureController extends Controller
         );
         $insert = Feature::create($data);
         if($insert){
-            return redirect()->action('FeatureController@index')->with('success','feature Created Successfully');
+            return redirect()->action('FeatureController@index')->with('success',Lang::get('language.feature_success'));
         }else{
-            return redirect()->back()->with('error','Something went wrong');
+            return redirect()->back()->with('error',Lang::get('language.error_msg'));
         }
     }
 
@@ -91,7 +97,7 @@ class FeatureController extends Controller
 			"image"=>$cover_detail,
             "status" => $status
         ]);
-		return redirect()->action('FeatureController@index')->with('success','feature Updated Successfully');
+		return redirect()->action('FeatureController@index')->with('success',Lang::get('language.feature_update'));
 
         
 	}
@@ -141,7 +147,13 @@ class FeatureController extends Controller
 
        public function view($id)
     {
-        $data['feature'] = Feature::where('id',$id)->first();
+
+        if(Session::get('locale') == 'fr'){
+            $data['feature'] = Feature::where('id',$id)->first(['title_fr as title','description_fr as description','image','status','id']);
+        }else{
+            $data['feature'] = Feature::where('id',$id)->first(['title as title','description as description','image','status','id']);
+        }
+        // $data['feature'] = Feature::where('id',$id)->first();
         return view('admin.feature.view',$data);
     }
 

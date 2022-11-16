@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update feature @endsection
+@section('title')@lang('language.update_feature') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update feature @endslot
+@slot('title') @lang('language.update_feature') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -56,17 +56,18 @@ input::-webkit-inner-spin-button {
                   
                 <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Title')</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter title" value="{{$feature->title}}" required>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Title_placeholder')" value="{{$feature->title}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Title.');
+                            @lang('language.Title_validation');
                         </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">@lang('language.French Title')</label>
-                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French title" value="{{$feature->title_fr}}" required>
+                    <label for="formrow-quest_name-input">@lang('language.FrTitle')</label>
+                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="
+                    @lang('language.frTitle_placeholder')" value="{{$feature->title_fr}}" required>
                     <div class="invalid-feedback">
-                        @lang('language.Please provide a French Title.');
+                        @lang('language.frTitle_validation');
                     </div>
             </div>
 
@@ -74,15 +75,15 @@ input::-webkit-inner-spin-button {
                     <label for="formrow-quest_name-input">@lang('language.Description')</label>
                     <textarea class="form-control" name="description" id="description" placeholder="Enter Description"  required>{{$feature->description_fr}}</textarea>
                     <div class="invalid-feedback">
-                        @lang('language.Please provide a Description.')
+                        @lang('language.Description_validation')
                     </div>
                 </div>   
                 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">@lang('language.French Description')</label>
+                    <label for="formrow-quest_name-input">@lang('language.FrDescription')</label>
                     <textarea class="form-control" name="description_fr" id="description_fr" placeholder="Enter French Description"" required>{{$feature->description_fr}}</textarea>
                     <div class="invalid-feedback">
-                        @lang('language.Please provide a French Description.')
+                        @lang('language.frDescription_validation')
                     </div>
                 </div>   
 
@@ -225,7 +226,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");");
+  $("#image0_error").text("@lang('language.image_format')");");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');

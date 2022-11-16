@@ -22,9 +22,14 @@
                 <input type="hidden" value="{{ $feature->id }}" name="id" id="id">
 					<div class="row">
 						
-						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.Name:')</b></label>     
-							{{$feature->name}}
+						<div class="form-group col-md-12">
+							<label for="formrow-quest_name-input"><b> @lang('language.Title')</b></label>     
+							{{$feature->title}}
+						</div>
+
+						<div class="form-group col-md-12">
+							<label for="formrow-quest_name-input"><b>@lang('language.Description')</b></label>     
+							{{$feature->description}}
 						</div>
 						
                     </div>
@@ -32,23 +37,23 @@
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($feature->status == 1)
-							@php echo "Active"; @endphp
+							"@lang('language.Active')"	
 							@else
-							@php echo "InActive"; @endphp
+								"@lang('language.Inactive')" 
 							@endif
 						</div>
 					
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$feature->created_at}}
 						</div>
-                    </div>
+                    </div> --}}
 					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>@lang('language.Profile Picture'):</b></label> <br>
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile_Image'):</b></label> <br>
 							 	@if(!empty($feature->image))
-							 <img src="/uploads/feature/{{$feature->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;"></img>
+							 <img src="/uploads/feature/{{$feature->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;">
 									@else
 									@php echo "No Image uploaded"; @endphp
 									@endif

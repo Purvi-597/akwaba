@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') User Detail @endsection
+@section('title')  @lang('language.User_Detail') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') User Detail @endslot
+@slot('title') @lang('language.User_Detail') @endslot
 @endcomponent
 
 
@@ -23,8 +23,12 @@
 					<div class="row">
 						
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.Name:')</b></label>     
-							{{$users->name}}
+							<label for="formrow-quest_name-input"><b>@lang('language.First_Name')</b></label>     
+							{{$users->first_name}}
+						</div>
+						<div class="form-group col-md-6">
+							<label for="formrow-quest_name-input"><b>@lang('language.Last_Name')</b></label>     
+							{{$users->last_name}}
 						</div>
 
 						<div class="form-group col-md-6">
@@ -36,41 +40,52 @@
 
                     <div class="row">
                     	<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.Phone No'):</b></label>   {{$users->phone_no}}
+							<label for="formrow-quest_name-input"><b>@lang('language.Phone_No'):</b></label>   {{$users->contact_no}}
 						</div>
 
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($users->status == 1)
-							@php echo "Active"; @endphp
+								"@lang('language.Active')"	
 							@else
-							@php echo "InActive"; @endphp
+								"@lang('language.Inactive')" 
 							@endif
 						</div>
 					
                     </div>
-                    	
+{{--                     	
                     	<div class="row">
                     		<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.User Type'):</b></label>   {{$users->user_type}}
-						</div>
-                    	<div class="form-group col-md-6">
+						</div> --}}
+                    	{{-- <div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$users->created_at}}
 						</div>
 
 	
-                    </div>
+                    </div> --}}
                     	
 
 
                     	
 
+					{{-- <div class="row">
+						<div class="form-group col-md-6">
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile_Image'):</b></label> <br>
+							 	@if(!empty($feature->image))
+							 <img src="/uploads/feature/{{$feature->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;">
+									@else
+									@php echo "No Image uploaded"; @endphp
+									@endif
+
+						</div>
+					</div> --}}
 
 					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>@lang('language.Profile Picture'):</b></label> <br>
-							 	@if(!empty($users->profile_image))
-							 <img src="/uploads/users/{{$users->profile_image}}" id="prescriptionpreview" style="height: 100px; width: 200px;">
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile_Image'):</b></label> <br>
+							 	@if(!empty($users->profile_pic))
+							 <img src="/uploads/users/{{$users->profile_pic}}" id="prescriptionpreview" style="height: 100px; width: 100px;">
 									@else
 									@php echo "No Image uploaded"; @endphp
 									@endif

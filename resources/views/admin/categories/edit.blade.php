@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update Categories @endsection
+@section('title')  @lang('language.Update_Categories') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update Categories @endslot
+@slot('title') @lang('language.Update_Categories') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -52,11 +52,36 @@ input::-webkit-inner-spin-button {
                         <input type="hidden" value="{{ $categories->id }}" name="id" id="id">
                         <div class="form-group">
                             <label for="formrow-quest_name-input"> @lang('language.Name')</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter  Name" value="{{$categories->name}}" required>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="@lang('language.catName_placeholder')" value="{{$categories->name}}" required>
                             <div class="invalid-feedback">
-                                @lang('language.Please provide a  Category Name.')
+                                @lang('language.Category_validation')
                              </div>
                         </div>
+
+                        {{-- <div class="form-group">
+                            <label for="formrow-quest_name-input"> @lang('language.frName')</label>
+                            <input type="text" class="form-control" name="name_fr" id="name_fr" placeholder="@lang('language.catName_placeholder')" value="{{$categories->name_fr}}" required>
+                            <div class="invalid-feedback">
+                                @lang('language.Category_validation')
+                             </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="formrow-quest_name-input"> @lang('language.display_en')</label>
+                                <input type="text" class="form-control" name="display_name" id="display_name" placeholder="Enter Category Display Name" value="{{$categories->display_name}}" required>
+                            <div class="invalid-feedback">
+                                @lang('language.cat_validation')
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="formrow-quest_name-input"> @lang('language.display_fr')</label>
+                                <input type="text" class="form-control" name="display_name_fr" id="display_name_fr" placeholder="@lang('language.display_placeholder')" value="{{$categories->display_name_fr}}" required>
+                            <div class="invalid-feedback">
+                                @lang('language.cat_validation')
+                            </div>
+                        </div>
+
+
                         
                     <div class="row">
                         <div id="req_input" class="form-group col-md-12">
@@ -131,7 +156,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');
@@ -150,7 +175,7 @@ if ((file = this.files[0])) {
 
         if(imgwidth > maxwidth && imgheight > maxheight){
 
-            $("#image0_error").text("@lang('language.Please upload images of following dimension width/height(29*38).')");
+            $("#image0_error").text("@lang('language.image_size')");
         $("#image_main1").css("display", "none");
         $("#image_main1").attr('src','');
         $("#images_0").val("");

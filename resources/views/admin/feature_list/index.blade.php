@@ -1,5 +1,5 @@
  @extends('layouts.master')
-@section('title')Feature List @endsection
+@section('title')@lang('language.Feature_list') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
@@ -7,10 +7,11 @@
 @section('content')
 
 @component('common-components.breadcrumb')
-@slot('title') @endslot
+@slot('title')@lang('language.Feature_list')
+@endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('feature_list.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature list</a>
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_feature_list')</a>
 
     </h4> @endslot
 @endcomponent
@@ -43,7 +44,7 @@
                                 <th width="10%">#</th>
                                 <th  width="15%">@lang('language.Title')</th>
                                 <th  width="15%">@lang('language.Description')</th>
-                                <th  width="15%">@lang('language.Ratings')</th>
+                                <th  width="15%">@lang('language.Rating')</th>
                                 <th  width="15%">Image</th>
                                 <th  width="15%">@lang('language.Status')</th>
                                 <th  width="15%">Action</th>
@@ -100,7 +101,17 @@
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-            $('#UsersList1').DataTable();
+            $('#UsersList1').DataTable({
+                "language": {
+                    "search": "@lang('language.search')",
+                    "sLengthMenu": "@lang('language.show')",
+                    "sInfo" : "@lang('language.show_text')",
+                    "paginate": {
+                        "previous": "@lang('language.previous')",
+                        "next" : "@lang('language.next')",
+    }
+                    }
+                });
         } );
 </script>
 
@@ -121,7 +132,7 @@
 
                 Swal.fire(
                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )   
 
@@ -132,8 +143,8 @@
                 var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
 
                  Swal.fire(
-                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang("language.Status")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )   
 
@@ -150,8 +161,8 @@
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
-                      title: '@lang('language.Are You sure')',
-                      text: "@lang('language.You want to delete this feature')",
+                      title: "@lang('language.confirm_alert')",
+                      text: "@lang('language.delete_feature')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -170,9 +181,9 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "Feature Place",
+                                       title: "@lang('language.Feature Place')",
                                        icon:"success",
-                                       text: "Feature Places Deleted Successfully",
+                                       text: "@lang('language.text_delete')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)

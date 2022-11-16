@@ -6,15 +6,25 @@ use Illuminate\Http\Request;
 use App\Http\Model\Featuretext;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Session;
+use Lang;
 
 
 
 class FeaturetextController extends Controller 
 {
 	public function index()
+
     {
     
-		$data['featuretext'] = Featuretext::orderBy('id','desc')->get();
+            
+        if(Session::get('locale') == 'fr'){
+        $data['featuretext'] = Featuretext::orderBy('id','desc')->get(['title_fr as title','description_fr as description','status','id']);
+    }else{
+        $data['featuretext'] = Featuretext::orderBy('id','desc')->get(['title as title','description as description','status','id']);
+    }
+    
+		// $data['featuretext'] = Featuretext::orderBy('id','desc')->get();
         return view('admin.featuretext.index',$data);
 	}
 	public function create()
@@ -44,9 +54,9 @@ class FeaturetextController extends Controller
         );
         $insert = Featuretext::create($data);
         if($insert){
-            return redirect()->action('FeaturetextController@index')->with('success','feature created successfully.');
+            return redirect()->action('FeaturetextController@index')->with('success',Lang::get('language.text_success'));
         }else{
-            return redirect()->back()->with('error','Something went wrong');
+            return redirect()->back()->with('error',Lang::get('language.error_msg'));
         }
     }
 
@@ -71,7 +81,7 @@ class FeaturetextController extends Controller
             "description_fr" => $request->input('description_fr'),
             "status" => $status
         ]);
-		return redirect()->action('FeaturetextController@index')->with('success','feature Updated Successfully');
+		return redirect()->action('FeaturetextController@index')->with('success',Lang::get('language.text_update'));
 
         
 	}
@@ -113,6 +123,13 @@ class FeaturetextController extends Controller
 
        public function view($id)
     {
+
+        
+        if(Session::get('locale') == 'fr'){
+            $data['featuretext'] = Featuretext::orderBy('id','desc')->get(['title_fr as title','description_fr as description','status','id']);
+        }else{
+	        $data['featuretext'] = Featuretext::orderBy('id','desc')->get(['title as title','description as description','status','id']);
+        }
         $data['featuretext'] = Featuretext::where('id',$id)->first();
         return view('admin.featuretext.view',$data);
     }

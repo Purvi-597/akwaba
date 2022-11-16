@@ -19,36 +19,36 @@
         <div class="card mb-2">
             <div class="card-body">
         
-                <input type="hidden" value="{{ $feature->id }}" name="id" id="id">
+                <input type="hidden" value="{{ $featured_places_list->id }}" name="id" id="id">
 					<div class="row">
 						
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.Name'):</b></label>     
-							{{$feature->name}}
+							<label for="formrow-quest_name-input"><b> @lang('language.Title'):</b></label>     
+							{{$featured_places_list->title}}
 						</div>
 						
                     </div>
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
-							@if($feature->status == 1)
-							@php echo "Active"; @endphp
+							@if($featured_places_list->status == 1)
+							"@lang('language.Active')"	
 							@else
-							@php echo "InActive"; @endphp
+								"@lang('language.Inactive')" 
 							@endif
 						</div>
 					
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                     	<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$feature->created_at}}
+							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$featured_places_list->created_at}}
 						</div>
-                    </div>
+                    </div> --}}
 					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>@lang('language.Profile Picture'):</b></label> <br>
-							 	@if(!empty($feature->image))
-							 <img src="/uploads/feature_list/{{$feature->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;"></img>
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile_Image'):</b></label> <br>
+							 	@if(!empty($featured_places_list->image))
+							 <img src="/uploads/feature_list/{{$featured_places_list->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;">
 									@else
 									@php echo "No Image uploaded"; @endphp
 									@endif

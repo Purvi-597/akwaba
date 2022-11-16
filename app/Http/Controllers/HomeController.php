@@ -31,7 +31,7 @@ class HomeController extends Controller
             echo "french";
         }
        
-        $data['users'] = DB::table('users')->where('deleted_at',0)->where('role','!=','admin')->count();
+        $data['users'] = DB::table('users')->where('role','!=','admin')->count();
     
         return view('admin.dashboard.index',$data);
     

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update Subcategory @endsection
+@section('title')  @lang('language.Update_Subcategory') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update Subcategory @endslot
+@slot('title') @lang('language.Update_Subcategory') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -52,11 +52,11 @@ input::-webkit-inner-spin-button {
                 <input type="hidden" value="{{ $subcategories->id }}" name="id" id="id">
 
                 <div class="form-group">
-                    <label>Choose a Category:</label>
+                    <label>@lang('language.select'):</label>
                     <select id="cat_id" name="cat_id" class="form-control">
-                      <option value="">Select Category</option>
+                      <option value="">@lang('language.select_cat')</option>
                       @foreach($categories as $categories)
-                        <option value="{{ $categories->id }}" {{$categories->id == $subcategories->cat_id ? 'selected':''}}>{{ $categories->name }}</option>
+                        <option value="{{ $categories->id }}" {{$categories->id == $subcategories->cat_id ? 'selected':''}}>{{ $categories->display_name}} </option>
                       @endforeach
 
                     </select>
@@ -64,11 +64,34 @@ input::-webkit-inner-spin-button {
 
                 <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Name')</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter  Name" value="{{$subcategories->name}}" required>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="@lang('language.Name_placeholder')" value="{{$subcategories->name}}" required>
                         <div class="invalid-feedback">
-                            @lang('language. Please provide a name.')'
+                            @lang('language.subcat_validation')
                         </div>
+                </div>
+
+                {{-- <div class="form-group">
+                    <label for="formrow-quest_name-input">@lang('language.frName')</label>
+                    <input type="text" class="form-control" name="name_fr" id="name_fr" placeholder="@lang('language.Name_placeholder')" value="{{$subcategories->name_fr}}" required>
+                    <div class="invalid-feedback">
+                        @lang('language.subcat_validation')
                     </div>
+                </div> --}}
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">@lang('language.display_en')</label>
+                    <input type="text" class="form-control" name="display_name" id="display_name" placeholder="Enter Subcategory Display Name" value="{{$subcategories->display_name}}" required>
+                    <div class="invalid-feedback">
+                        @lang('language.en_validation')
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">@lang('language.display_fr')</label>
+                    <input type="text" class="form-control" name="display_name_fr" id="display_name_fr" placeholder="Enter Subcategory Display Name" value="{{$subcategories->display_name_fr}}" required>
+                    <div class="invalid-feedback">
+                        @lang('language.en_validation')
+                        </div>
+                </div>
 
 
                 <div class="row">
@@ -101,7 +124,7 @@ input::-webkit-inner-spin-button {
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
                                 <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    @lang('language. You must agree before Save.')
+                                    @lang('language.status_msg')
                                 </div>
                             </div>
 
@@ -150,7 +173,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');
@@ -167,7 +190,7 @@ if ((file = this.files[0])) {
         imgwidth = this.width;
         imgheight = this.height;
         if(imgwidth > maxwidth && imgheight > maxheight){
-        $("#image0_error").text("@lang('language.Please upload images of following dimension width/height(29*38).')");
+        $("#image0_error").text("@lang('image_size')");
         $("#image_main1").css("display", "none");
         $("#image_main1").attr('src','');
         $("#images_0").val("");

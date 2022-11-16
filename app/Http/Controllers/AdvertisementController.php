@@ -6,16 +6,31 @@ use Illuminate\Http\Request;
 use App\Http\Model\Advertisement;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Session;
+use Lang;
 
 
 
 class AdvertisementController extends Controller 
 {
 	public function index()
-    {
+   
     
-		$data['advertisement'] = Advertisement::orderBy('id','desc')->get();
+    {
+        if(Session::get('locale') == 'fr'){
+            $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title_fr as title','image','link','status','id']);
+        }else{
+	    $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title as title','image','status','link','id']);
+        }
+		
         return view('admin.advertisement.index',$data);
+
+        if($advertisement=='en ? fr'){
+            @lang('language.title');
+        }
+        else{
+            @lang('language.title_fr');
+        }
 	}
 	public function create()
     {
@@ -42,6 +57,7 @@ class AdvertisementController extends Controller
             $status = 0;
         }
 
+
         $data = array(
             'title' => $request->input('title'),
             'title_fr' => $request->input('title_fr'),
@@ -53,9 +69,9 @@ class AdvertisementController extends Controller
         $insert = Advertisement::create($data);
         if($insert){
             // return redirect()->back()->with('success','Advertisement created successfully.');
-            return redirect()->action('AdvertisementController@index')->with('success','Advertisement created Successfully');
+            return redirect()->action('AdvertisementController@index')->with('success',Lang::get('language.ad_success'));
         }else{
-            return redirect()->back()->with('error','Something went wrong');
+            return redirect()->back()->with('error',Lang::get('language.error_msg'));
         }
     }
 
@@ -88,7 +104,7 @@ class AdvertisementController extends Controller
 			"image"=>$cover_detail,
             "status" => $status
         ]);
-		return redirect()->action('AdvertisementController@index')->with('success','Advertisement Updated Successfully');
+		return redirect()->action('AdvertisementController@index')->with('success',Lang::get('language.ad_update'));
 	}
     public function advertisementimagedelete(Request $request){
         $id = $request->input('id');
@@ -136,6 +152,13 @@ class AdvertisementController extends Controller
 
        public function view($id)
     {
+
+        if(Session::get('locale') == 'fr'){
+            $data['advertisement'] = Advertisement::where('id',$id)->first(['title_fr as title', 'image', 'status']);
+        }else{
+            $data['advertisement'] = Advertisement::where('id',$id)->first(['title as title', 'image', 'status']);
+        }
+
         $data['advertisement'] = Advertisement::where('id',$id)->first();
         return view('admin.advertisement.view',$data);
     }

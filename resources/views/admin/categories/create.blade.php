@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title')  Add Categories @endsection
+@section('title')  @lang('language.Add_Categories') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Add Categories @endslot
+@slot('title') @lang('language.Add_Categories') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -45,17 +45,42 @@ input::-webkit-inner-spin-button {
                     @csrf
                     <div class="form-group">
                         <label for="formrow-quest_name-input"> @lang('language.Name')</label>
-						    <input type="text" class="form-control" name="name" id="name" placeholder="@lang('language.Enter Category Name') " value="{{old('name')}}" required>
+						    <input type="text" class="form-control" name="name" id="name" placeholder="@lang('language.catName_placeholder') " value="{{old('name')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a  Category Name.')
+                            @lang('language.Category_validation')
                         </div>
                     </div>
+
+                    {{-- <div class="form-group">
+                        <label for="formrow-quest_name-input"> @lang('language.frName')</label>
+						    <input type="text" class="form-control" name="name_fr" id="name_fr" placeholder="@lang('language.catName_placeholder') " value="{{old('name_fr')}}" required>
+                        <div class="invalid-feedback">
+                            @lang('language.Category_validation')
+                        </div>
+                    </div> --}}
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input"> @lang('language.display_en')</label>
+						    <input type="text" class="form-control" name="display_name" id="display_name" placeholder="@lang('language.cat_placeholder')" value="{{old('display_name')}}" required>
+                        <div class="invalid-feedback">
+                            @lang('language.cat_validation')
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input"> @lang('language.display_fr')</label>
+						    <input type="text" class="form-control" name="display_name_fr" id="display_name_fr" placeholder="@lang('language.display_placeholder')" value="{{old('display_name_fr')}}" required>
+                        <div class="invalid-feedback">
+                            @lang('language.cat_validation')
+                        </div>
+                    </div>
+
 
                     <div id="req_input" class="form-group">
                         <label for="formrow-quest_name-input">Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
-                                @lang('language.Please select Image')
+                                @lang('language.Image')
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
@@ -67,7 +92,7 @@ input::-webkit-inner-spin-button {
                                 <input type="checkbox" name="status" class="custom-control-input" value="1" id="invalidCheck" checked>
                                 <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
                                 <div class="invalid-feedback">
-                                    @lang('language.You must agree before Save.');
+                                    @lang('language.status_msg');
                                 </div>
                             </div>
                         </div>
@@ -107,7 +132,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main0").attr('src','');
@@ -127,7 +152,7 @@ if ((file = this.files[0])) {
 
         if(imgwidth > maxwidth && imgheight > maxheight){
 
-        $("#image0_error").text("@lang('language.Please upload images of following dimension width/height(29*38).')");
+        $("#image0_error").text("@lang('language.image_size')");
         $("#image_main0").css("display", "none");
         $("#image_main0").attr('src','');
         $("#images_0").val("");

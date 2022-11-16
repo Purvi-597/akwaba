@@ -7,15 +7,23 @@ use App\Http\Model\Feature;
 use App\Http\Model\Featureplace;
 use Illuminate\Support\Facades\Auth;
 use DB;
-
+use session;
+use Lang;
 
 
 class FeatureplaceController extends Controller 
 {
 	public function index()
     {
-    
-		$data['feature_list'] = Featureplace::orderBy('id','desc')->get();
+        
+        
+        if(Session::get('locale') == 'fr'){
+            $data['feature_list'] = Featureplace::orderBy('id','desc')->get(['title_fr as title','description_fr as description','image','ratings','featured_places_id','status','id']);
+        }else{
+	        $data['feature_list'] = Featureplace::orderBy('id','desc')->get(['title as title','description as description','image','ratings','featured_places_id','status','id']);
+        }
+
+		// $data['feature_list'] = Featureplace::orderBy('id','desc')->get();
         return view('admin.feature_list.index',$data);
 	}
 	public function create()
@@ -33,7 +41,7 @@ class FeatureplaceController extends Controller
         if ($files = $request->file('image')) {
             $featurePath = public_path().'/uploads/feature_list/';
             if ($featurePicture = $request->file('image')) {
-                $image = $featurePicture->getClientOriginalName();
+                $image = time().'_'.$featurePicture->getClientOriginalName();
                 $featurePicture->move($featurePath, $image);
             }
         }
@@ -56,7 +64,7 @@ class FeatureplaceController extends Controller
         );
         $insert = Featureplace::create($data);
         if($insert){
-            return redirect()->action('FeatureplaceController@index')->with('success','feature Created Successfully');
+            return redirect()->action('FeatureplaceController@index')->with('success',Lang::get('language.feature_success'));
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }
@@ -95,7 +103,7 @@ class FeatureplaceController extends Controller
 			"image"=>$cover_detail,
             "status" => $status
         ]);
-		return redirect()->action('FeatureplaceController@index')->with('success','feature Updated Successfully');
+		return redirect()->action('FeatureplaceController@index')->with('success',Lang::get('language.feature_update'));
 
         
 	}
@@ -144,9 +152,14 @@ class FeatureplaceController extends Controller
     }
 
        public function view($id)
-    {
-        $data['feature'] = Featureplace::where('id',$id)->first();
-        return view('admin.feature.view',$data);
+    {   if(Session::get('locale') == 'fr'){
+        $data['featured_places_list'] = Featureplace::where('id',$id)->first(['title_fr as title','description_fr as description','image','ratings','featured_places_id','status','id']);
+    }else{
+        $data['featured_places_list'] = Featureplace::where('id',$id)->first(['title as title','description as description','image','ratings','featured_places_id','status','id']);
+    }
+
+        $data['featured_places_list'] = Featureplace::where('id',$id)->first();
+        return view('admin.feature_list.view',$data);
     }
 
    

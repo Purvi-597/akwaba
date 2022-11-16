@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title') Place Advertisement Detail @endsection
+@section('title') @lang('language.Place_Detail') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Place Advertisement Detail @endslot
+@slot('title') @lang('language.Place_Detail')@endslot
 @endcomponent
 
 <div class="row">
@@ -17,7 +17,7 @@
                 <input type="hidden" value="{{ $place_advertisement->id }}" name="id" id="id">
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="formrow-quest_name-input"><b>@lang('language.Place Name'):</b></label>     
+                        <label for="formrow-quest_name-input"><b>@lang('language.Place_Name'):</b></label>     
                         {{$place_advertisement->place_name}}
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                 @if($place_advertisement->type == 'External')
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="formrow-quest_name-input"><b>@lang('language.External Link'):</b></label>     
+                        <label for="formrow-quest_name-input"><b>@lang('language.External_Link'):</b></label>     
                         {{$place_advertisement->external_link}}
                     </div>
                 </div>
@@ -39,9 +39,9 @@
                     <div class="form-group col-md-6">
                         <label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
                         @if($place_advertisement->status == 1)
-                        @php echo "Active"; @endphp
+                        "@lang('language.Active')"	
                         @else
-                        @php echo "InActive"; @endphp
+                            "@lang('language.Inactive')" 
                         @endif
                     </div>
                 </div>

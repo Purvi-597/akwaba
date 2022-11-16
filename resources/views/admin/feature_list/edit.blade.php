@@ -67,15 +67,15 @@ input::-webkit-inner-spin-button {
                         <label for="formrow-quest_name-input">@lang('language.Title')</label>
                         <input type="text" class="form-control" name="title" id="title" placeholder="Enter  title" value="{{$feature_list->title}}" required>
                         <div class="invalid-feedback">
-                            Please provide a Title.
+                            @lang('language.Title_validation')
                         </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">@lang('language.French Title')</label>
-                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter  title" value="{{$feature_list->title_fr}}" required>
+                    <label for="formrow-quest_name-input">@lang('language.French_Title')</label>
+                    <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.frTitle_placeholder')" value="{{$feature_list->title_fr}}" required>
                     <div class="invalid-feedback">
-                        Please provide a French Title.
+                        @lang('language.frTitle_validation')
                     </div>
             </div>
 
@@ -84,15 +84,15 @@ input::-webkit-inner-spin-button {
                     <label for="formrow-quest_name-input"> @lang('language.Description')</label>
                     <textarea class="form-control" name="description" id="description" placeholder="Enter  Description"  required>{{$feature_list->description}}</textarea>
                     <div class="invalid-feedback">
-                        Please provide a Description.
+                        @lang('language.Description_validation')
                     </div>
                 </div>    
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">@lang('language.French Description')</label>
+                    <label for="formrow-quest_name-input">@lang('language.FrDescription')</label>
                     <textarea class="form-control" name="description_fr" id="description_fr" placeholder="Enter  French Description" required>{{$feature_list->description_fr}}</textarea>
                     <div class="invalid-feedback">
-                        Please provide a French Description.
+                        @lang('language.FrDescription_validation')
                     </div>
                 </div>
 
@@ -245,7 +245,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("language.Please upload images of following formats(*png,jpe;g,jpg).')");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');

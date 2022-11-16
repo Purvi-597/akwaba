@@ -1,5 +1,5 @@
  @extends('layouts.master')
-@section('title') Feature Text @endsection
+@section('title') @lang('language.Feature_Text') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
@@ -7,10 +7,10 @@
 @section('content')
 
 @component('common-components.breadcrumb')
-@slot('title') @lang('dash.Feature Places Text');@endslot
+@slot('title') @lang('language.Feature_Text')@endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{route('featuretext.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add feature text  </a>
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.add_text')</a>
 
     </h4> @endslot
 @endcomponent
@@ -42,7 +42,7 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th  width="15%">@lang('language.Title')</th>
-                                <th  width="15%">Description</th>
+                                <th  width="15%">@lang('language.Description')</th>
                                 <th  width="15%">@lang('language.Status')</th>
                                 <th  width="15%">Action</th>
                             </tr>
@@ -57,24 +57,23 @@
                                         
                                         
                                         <td >{{$features->title}}</td>
-                                        <td >{{$features->title_fr}}</td>
+                                        
                                         <td >{{$features->description}}</td>
-                                        <td >{{$features->description_fr}}</td>
+                                        
                                         {{-- <td>@if ($features->image != '')
                                             <img src="{{$profilepicturePath}}{{$features->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td> --}}
                                     
                                         <?php if($features->status == 1){ ?>
-                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">@lang('language.Active')</span></td><?php } else { ?>
+                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})"> @lang('language.Active')</span></td><?php } else { ?>
                                     
-                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})">@lang('language.Inactive')</span></td><?php } ?>
+                                        <td id="{{$features->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$features->id}}" data-status = "{{$features->status}}" onclick="updatestatus({{$features->id}},{{$features->status}})"> @lang('language.Inactive')</span></td><?php } ?>
 
                                     <td>
                                         <a href="{{route('featuretext.edit', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="{{route('featuretext.view', $features->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
                                         <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletefeaturetext" data-id="{{$features->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
-
-                                   </td>                                       
+                                    </td>                                       
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach
@@ -104,7 +103,17 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-            $('#UsersList1').DataTable();
+            $('#UsersList1').DataTable({
+                "language": {
+                    "search": "@lang('language.search')",
+                    "sLengthMenu": "@lang('language.show')",
+                    "sInfo" : "@lang('language.show_text')",
+                    "paginate": {
+                        "previous": "@lang('language.previous')",
+                        "next" : "@lang('language.next')",
+    }
+                    }
+                });
         } );
 </script>
 
@@ -120,12 +129,12 @@
               if(data.return =='Active')
               {
                 status = 1;
-                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">>@lang('language.Active')</span>';
+                var html = '<span class="btn btn-block btn-success btn-sm status" data-id ="'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang("language.Active")</span>';
 
 
                 Swal.fire(
                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )   
 
@@ -133,11 +142,11 @@
               else
               {
                 status = 0;
-                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
+                var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang("language.Inactive")</span>';
 
                  Swal.fire(
                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )   
 
@@ -154,8 +163,8 @@
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
-                      title: '@lang('language.Are You sure')',
-                      text: "@lang('language.You want to delete this feature')",
+                      title: "@lang('language.confirm_alert')",
+                      text: "@lang('language.delete_feature')",s
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -176,7 +185,7 @@
                                  Swal.fire({
                                        title: "Feature",
                                        icon:"success",
-                                       text: "@lang('language.feature Deleted Successfully')",
+                                       text: "@lang('language.text_delete')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)
@@ -187,7 +196,7 @@
                                    Swal.fire({
                                        title: "feature",
                                        icon:"error",
-                                        text: "Something went wrong",
+                                        text:  "@lang('language.error_msg')",
                                        type: "error"
                                         // }).then(function() {
                                 //  history.go(0)

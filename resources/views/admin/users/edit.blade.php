@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  Update User @endsection
+@section('title') @lang('language.Update_user') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Update User @endslot
+@slot('title')@lang('language.Update_user') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -52,7 +52,7 @@ input::-webkit-inner-spin-button {
                 <input type="hidden" value="{{ $users->id }}" name="id" id="id">
             
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.First Name')</label>
+                        <label for="formrow-quest_name-input">@lang('language.First_Name')</label>
                         <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter  Name" value="{{$users->first_name}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a first name.')
@@ -60,7 +60,7 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.Last Name')</label>
+                        <label for="formrow-quest_name-input">@lang('language.Last_Name')</label>
                         <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter  Name" value="{{$users->last_name}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a Last name.')'
@@ -70,7 +70,7 @@ input::-webkit-inner-spin-button {
                     
                     
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">>@lang('language.Email')</label>
+                        <label for="formrow-quest_name-input">@lang('language.Email')</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{$users->email}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a email.')
@@ -78,7 +78,7 @@ input::-webkit-inner-spin-button {
                     </div>
                    
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.Phone No')</label>
+                        <label for="formrow-quest_name-input">@lang('language.Phone_No')</label>
                         <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Phone Number" value="{{$users->contact_no}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a email.')
@@ -88,12 +88,12 @@ input::-webkit-inner-spin-button {
                         
                     <div class="row">
                         <div id="req_input" class="form-group col-md-12">
-                        <label for="formrow-quest_name-input">@lang('language.Profile Image') <span style="color:red;">*</span></label>
+                        <label for="formrow-quest_name-input">@lang('language.Profile_Image') <span style="color:red;">*</span></label>
                             
                                 <input type="file"  class="form-control images_0" name="profile_pic" id="profile_pic" ><br>
                                     <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?></label><br>
                                         @if(!empty($users->profile_pic))
-                                <img src='/uploads/users/{{$users->profile_pic}}' id="image_main0" name="image_main0" class="image_main0" height="200" width="250">
+                                <img src='/uploads/users/{{$users->profile_pic}}' id="image_main0" name="image_main0" class="image_main0" height="100" width="100">
                                     @endif
                                     <img  id="image_main1" name="image_main1" class="image_main1" height="200" width="250" style="display:none;">
                                 <input type="hidden" name="old_image0" value="<?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?>">
@@ -107,7 +107,7 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.Home Address')</label>
+                        <label for="formrow-quest_name-input">@lang('language.Home_Address')</label>
                         <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Enter Email" value="{{$users->home_address}}" >
                         <div class="invalid-feedback">
                             @lang('language.Please provide a Home Address.')
@@ -115,7 +115,7 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.Work Address')</label>
+                        <label for="formrow-quest_name-input">@lang('language.Work_Address')</label>
                         <input type="text" class="form-control" name="work_address" id="work_address" placeholder="Enter Email" value="{{$users->work_address}}">
                         {{-- <div class="invalid-feedback">
                             Please provide a Work Address.
@@ -182,7 +182,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg,jfif,svg).')");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');

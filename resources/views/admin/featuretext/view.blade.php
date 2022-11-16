@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') feature Detail @endsection
+@section('title') @lang('language.detail') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') feature Detail @endslot
+@slot('title')  @lang('language.detail') @endslot
 @endcomponent
 
 
@@ -23,22 +23,22 @@
 					<div class="row">
 						
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.English Title'):</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.Title'):</b></label>     
 							{{$featuretext->title}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.French Title'):</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.French_Title'):</b></label>     
 							{{$featuretext->title_fr}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.English Description'):</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.Description'):</b></label>     
 							{{$featuretext->description}}
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.French Description'):</b></label>     
+							<label for="formrow-quest_name-input"><b>@lang('language.FrDescription'):</b></label>     
 							{{$featuretext->description_fr}}
 						</div>
 						
@@ -47,18 +47,18 @@
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($featuretext->status == 1)
-							@php echo "Active"; @endphp
+							"@lang('language.Active')"	
 							@else
-							@php echo "InActive"; @endphp
+								"@lang('language.Inactive')" 
 							@endif
 						</div>
 					
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$featuretext->created_at}}
 						</div>
-                    </div>
+                    </div> --}}
 				
 				  <div class="row">
                     <div class="col-md-6">

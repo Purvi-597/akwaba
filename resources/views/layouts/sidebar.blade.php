@@ -11,7 +11,7 @@
            
                 
 
-            <li>
+                <li>
                     <a href="{{url('/admin')}}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
 
@@ -24,7 +24,7 @@
                 <li>
                     <a href="{{ url('admin/users') }}" class="">
                         <i class="fas fa-users"></i>
-                        <span>@lang('language.User Management')</span>
+                        <span>@lang('language.User_Management')</span>
                     </a>
                     
                 </li>
@@ -39,7 +39,7 @@
                 <li>
                     <a href="{{ url('admin/subcategories') }}" class="">
                         <i class="fas fa-list"></i>
-                         <span>@lang('language.Sub Categories')</span>
+                         <span>@lang('language.Sub_Categories')</span>
                     </a>  
                 </li>
 
@@ -54,14 +54,14 @@
                 <li>
                     <a href="{{ url('admin/place_advertisement') }}" class="">
                         <i class='fas fa-ad'></i>
-                        <span>Place Advertisement</span>
+                        <span>@lang('language.place_advertisement')</span>
                     </a>
                     
                 </li>
 
                 <li>
                     <a href="{{ url('admin/feature') }}" class="">
-                        <i class='fas fa-ad'></i>
+                        <i class="fa fa-key" ></i>
                         <span>@lang('language.Feature Places')</span>
                     </a>
                     
@@ -70,7 +70,7 @@
                 <li>
                     <a href="{{ url('admin/featuretext') }}" class="">
                         <i class='fas fa-ad'></i>
-                        <span>@lang('language.Feature Places text')</span>
+                        <span>@lang('language.Feature_Text')</span>
                         
                     </a>
                     
@@ -84,6 +84,46 @@
                        
                     </a>
                     
+                </li>
+
+                <li>
+                    <a href="{{ url('admin/photos') }}" class="">
+                        <i class='fas fa-ad'></i>
+                        <span>Photos</span>
+
+                    </a>
+
+                </li>
+
+                
+
+                <li>
+                    <a href="{{ url('admin/rating') }}" class="">
+                        <i class="fa fa-star"></i>
+                        <span>@lang('language.ratings')</span>
+                       
+                    </a>
+                    
+                </li>
+
+                <li>
+                    <a href="{{ url('admin/notes') }}" class="">
+                        <i class="fas fa-sticky-note"></i>
+                        <span>@lang('language.notes')</span>
+                       
+                    </a>
+                    
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                         <i class="fas fa-cog"></i>
+                        <span>CMS Management</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ url('admin/privacy_policy') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.privacy_policy') </a></li>                          
+                        <li><a href="{{ url('admin/license') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.license') </a></li> 
+                    </ul>
                 </li>
 
                 
@@ -105,7 +145,7 @@
                        
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ url('admin/editpassword') }}"><i class="bx bx-radio-circle-marked"></i>Change Password</a></li>                          
+                        <li><a href="{{ url('admin/editpassword') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.Change_Password')</a></li>                          
                          {{-- <li><a href="{{ url('admin/support') }}"><i class="bx bx-radio-circle-marked"></i>Support</a></li>
                          <li><a href="{{ url('admin/bookingfee') }}"><i class="bx bx-radio-circle-marked"></i>Booking Fee</a></li> --}}
                     </ul>

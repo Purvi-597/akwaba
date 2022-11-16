@@ -1,15 +1,15 @@
 @extends('layouts.master')
-@section('title') Categories @endsection
+@section('title') @lang('language.Category_List') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') @lang('dash.Category List') @endslot
+@slot('title') @lang('language.Category_List') @endslot
 @slot('add_btn') <h4 class="card-title">
     <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('categories.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>Add Categories  </a>
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_Categories')</a>
 
     </h4> @endslot
 @endcomponent
@@ -43,7 +43,8 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th width="15%">@lang('language.Name')</th>
-                                <th width="15%">@lang('language.Image')</th>
+                                <th width="15%">Image</th>
+                                
                                 <th width="10%">@lang('language.Status')</th>
                                 <th width="15%">Action</th>
                             </tr>
@@ -55,7 +56,7 @@
                                 @foreach($categories as $category)
                                     <tr>
                                         <td>{{$i}}</td>
-                                        <td >{{$category->name}}</td>
+                                        <td >{{$category->display_name}}</td>
                                         <td>
                                             @if ($category->image != '')
                                                 <img src="{{$profilepicturePath}}{{$category->image}}" alt="" style="width: 29px;height:38px;">
@@ -63,9 +64,9 @@
                                         </td>
 
                                         <?php if($category->status == 1){ ?>
-                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">>@lang('language.Active')</span></td><?php } else { ?>
+                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">@lang('language.Active')</span></td><?php } else { ?>
 
-                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">>@lang('language.Inactive')</span></td><?php } ?>
+                                        <td id="{{$category->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$category->id}}" data-status = "{{$category->status}}" onclick="updatestatus({{$category->id}},{{$category->status}})">@lang('language.Inactive')</span></td><?php } ?>
 
                                         <td>
                                             <a href="{{route('categories.edit', $category->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -95,7 +96,17 @@
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-            $('#UsersList1').DataTable();
+            $('#UsersList1').DataTable({
+                "language": {
+                    "search": "@lang('language.search')",
+                    "sLengthMenu": "@lang('language.show')",
+                    "sInfo" : "@lang('language.show_text')",
+                    "paginate": {
+                        "previous": "@lang('language.previous')",
+                        "next" : "@lang('language.next')",
+    }
+                    }
+                });
         } );
 </script>
 
@@ -115,7 +126,7 @@
 
                 Swal.fire(
                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )
 
@@ -127,7 +138,7 @@
 
                  Swal.fire(
                                 '@lang("language.Status")',
-                                '@lang("language.Status Changed Successfully")',
+                                '@lang("language.Status_Changed")',
                                 'success'
                                 )
 
@@ -144,8 +155,8 @@
                 var id = $(this).attr('data-id');
 
                  Swal.fire({
-                      title: "@lang('language.Category')",
-                      text: "@lang('language.You want to delete this Category')",
+                      title: "@lang('language.Confirm_alert')",
+                      text: "@lang('language.delete_categories')",
                       type: "warning",
                       icon: 'warning',
                       showCancelButton: true,
@@ -164,9 +175,9 @@
                                  if(data == "delete"){
 
                                  Swal.fire({
-                                       title: "@lang('language.Are You sure')",
+                                       title: "@lang('language.Confirm_alert')",
                                        icon:"success",
-                                       text: "@lang('language.Category Deleted Successfully')",
+                                       text: "@lang('language.Category_Deleted')",
                                        type: "success"
                                 }).then(function() {
                                         history.go(0)

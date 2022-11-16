@@ -7,14 +7,19 @@ use App\Http\Model\Categories;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Carbon\Carbon;
+use Session;
+use Lang;
 
 
 class CategoriesController extends Controller
 {
 	public function index()
     {
-
-		$data['categories'] = Categories::orderBy('id','desc')->get();
+        if(Session::get('locale') == 'fr'){
+            $data['categories'] = Categories::orderBy('id','desc')->get(['display_name_fr as display_name','image','status','id']);
+        }else{
+	    $data['categories'] = Categories::orderBy('id','desc')->get(['display_name as display_name','image','status','id']);
+        }
         return view('admin.categories.index',$data);
 	}
 	public function create()
@@ -43,6 +48,9 @@ class CategoriesController extends Controller
         }
         $data = array(
             'name' => $request->input('name'),
+            // 'name_fr' => $request->input('name_fr'),
+            'display_name' => $request->input('display_name'),
+            'display_name_fr' => $request->input('display_name_fr'),
             'status' =>$status,
             'image' => $image,
             'created_at' => Carbon::now(),
@@ -50,15 +58,17 @@ class CategoriesController extends Controller
         );
         $insert = Categories::create($data);
         if($insert){
-            return redirect()->back()->with('success','Categories created successfully.');
+            return redirect()->back()->with('success',Lang::get('language.cat_add_success'));
         }else{
-            return redirect()->back()->with('error','Something went wrong');
+            return redirect()->back()->with('error',Lang::get('language.error_msg'));
         }
     }
 
 	public function edit($id)
     {
         $row['categories'] = Categories::where('id',$id)->first();
+        // echo "<pre>";
+        // print_r($row);die;
 
         return view('admin.categories.edit',$row);
     }
@@ -67,9 +77,10 @@ class CategoriesController extends Controller
         if(!empty($request->file('image'))){
 				$destinationPath = public_path().'/uploads/categories/';
 				if ($cover_detail_image = $request->file('image')) {
-					$cover_detail = time().'_'.$cover_detail_image->getClientOriginalName().'.'.$cover_detail_image->getClientOriginalExtension();
+					$cover_detail =$cover_detail_image->getClientOriginalName();
 					$cover_detail_image->move($destinationPath, $cover_detail);
 				}
+
 		}else{
 			$cover_detail = $request->input('old_image0');
 		}
@@ -80,11 +91,14 @@ class CategoriesController extends Controller
         }
         $create = Categories::where('id',$id)->update([
             "name" => $request->input('name'),
+            // "name_fr" => $request->input('name_fr'),
+            'display_name' => $request->input('display_name'),
+            'display_name_fr' => $request->input('display_name_fr'),
 			"image"=>$cover_detail,
             "status" => $status,
             'updated_at' => Carbon::now()
         ]);
-		return redirect()->action('CategoriesController@index')->with('success','Categories Updated Successfully');
+		return redirect()->action('CategoriesController@index')->with('success',Lang::get('language.cat_update'));
 	}
     public function categoriesimagedelete(Request $request){
         $id = $request->input('id');
@@ -131,7 +145,13 @@ class CategoriesController extends Controller
 
        public function view($id)
     {
-        $data['categories'] = Categories::where('id',$id)->first();
+
+        if(Session::get('locale') == 'fr'){
+            $data['categories'] = Categories::where('id',$id)->first(['display_name_fr as display_name', 'image', 'status']);
+        }else{
+            $data['categories'] = Categories::where('id',$id)->first(['display_name as display_name', 'image', 'status']);
+        }
+        
         return view('admin.categories.view',$data);
     }
 

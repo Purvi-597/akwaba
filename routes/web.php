@@ -36,7 +36,7 @@ Route::post('keep-live', 'SkoteController@live');
 
 
 Route::get('/', 'HomeController@root')->middleware('setLocale');
-Route::get('/', 'HomeController@root')->name('home');
+Route::get('/admin', 'HomeController@root')->name('home');
 Route::get('/index', 'HomeController@index');
 Route::get('/firebase', 'UsersController@pushfirebase');
 Route::post('/save-token', 'UsersController@saveToken')->name('save-token');
@@ -74,9 +74,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	Route::get('about_us', 'AboutusController@index')->name('about_us.index');
 	Route::post('about_us', 'AboutusController@update')->name('about_us.update');
 
-	// Privacy_policy
-	Route::get('privacy_policy', 'PrivacypolicyController@index')->name('privacy_policy.index');
-	Route::post('privacy_policy', 'PrivacypolicyController@update')->name('privacy_policy.update');
+	// // Privacy_policy
+	// Route::get('privacy_policy', 'PrivacypolicyController@index')->name('privacy_policy.index');
+	// Route::post('privacy_policy', 'PrivacypolicyController@update')->name('privacy_policy.update');
 
 	// Terms & Conditions
 	Route::get('terms_conditions', 'TermsconditionsController@index')->name('terms_conditions.index');
@@ -140,7 +140,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('advertisement/update/{id}', 'AdvertisementController@update')->name('advertisement.update');
     Route::get('advertisement/view/{id}', 'AdvertisementController@view')->name('advertisement.view');
     Route::post('deleteadvertisement', 'AdvertisementController@delete')->name('deleteadvertisement');
-    Route::post('advertisement_status', 'AdvertisementController@sub_categories_status')->name('advertisement_status');
+    Route::post('advertisement_status', 'AdvertisementController@advertisement_status')->name('advertisement_status');
 	Route::post('advertisementPathimagedelete', 'AdvertisementController@advertisementPathimagedelete')->name('advertisementPathimagedelete');
 
 	/* Place Advertisement */
@@ -189,8 +189,44 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('featuretext_status', 'FeaturetextController@feature_status')->name('featuretext_status')->middleware('setLocale');
      
 
+	// /* Turist Places */
+	//  Route::get('privacy_policy', 'PrivacyPolicyController@index')->name('privacy_policy.index.edit');
+	// Route::get('privacy_policy/edit', 'PrivacyPolicyController@edit')->name('privacy_policy.edit');
+ 	// Route::post('privacy_policy/update/', 'PrivacyPolicyController@update')->name('privacy_policy.update');
+    // // Route::get('privacy_policy/view/{id}', 'PrivacyPolicyController@view')->name('privacy_policy.view');
+
+
+	/* Privacy_policy   */
+	 Route::get('privacy_policy', 'PrivacypolicyController@index')->name('privacy_policy.index');
+	 Route::get('privacy_policy/edit', 'PrivacypolicyController@edit')->name('privacy_policy.edit');
+	 Route::post('privacy_policy/update', 'PrivacypolicyController@update')->name('privacy_policy.update');
+
+
+	 /*License */
+	 
+	 Route::get('license', 'LicenseController@index')->name('license.index');
+	 Route::get('license/edit', 'LicenseController@edit')->name('license.edit');
+	 Route::post('license/update', 'LicenseController@update')->name('license.update');
+
+	 Route::get('rating', 'RatingReviewsController@index')->name('rating.index');
+
+
+	 Route::get('notes', 'NotesController@index')->name('notes.index');
+
+
 	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index');
 	Route::post('editpassword/edit', 'EditpasswordController@edit')->name('editpassword.edit');
 	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword');
+	
 
+	Route::get('photos', 'PhotosController@index')->name('photos.index');
+	Route::get('photos/create', 'PhotosController@create')->name('photos.create');
+	Route::post('photos/store', 'PhotosController@store')->name('photos.store');
+	Route::get('photos/edit/{id}', 'PhotosController@edit')->name('photos.edit');
+    Route::post('photos/update/{id}', 'PhotosController@update')->name('photos.update');
+    Route::get('photos/view/{id}', 'PhotosController@view')->name('photos.view');
+    Route::post('deletephotos', 'PhotosController@delete')->name('deletephotos');
+    Route::post('photos_status', 'PhotosController@status')->name('photos_status');
+
+	
 });

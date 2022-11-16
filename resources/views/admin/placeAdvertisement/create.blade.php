@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title')  Add Place Advertisement @endsection
+@section('title') @lang('language.Add_place') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title')  Add Place Advertisement @endslot
+@slot('title') @lang('language.Add_place')@endslot
 @endcomponent
 <style>
 .form-control{
@@ -40,10 +40,10 @@ input::-webkit-inner-spin-button {
                 <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('place_advertisement.store')}}" novalidate>
                  @csrf
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.Place Title')</label>
-						<input type="text" class="form-control" name="place_title" id="place_title" placeholder="Enter Place Title" value="{{old('link')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.Place_Title')</label>
+						<input type="text" class="form-control" name="place_title" id="place_title" placeholder="@lang('language.Title_placeholder')" value="{{old('link')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Place Title.')
+                            @lang('language.Title_validation')
                         </div>
                     </div>
                     <div id="req_input" class="form-group">
@@ -56,21 +56,21 @@ input::-webkit-inner-spin-button {
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.Type')</label>
+                        <label for="formrow-quest_name-input" required>@lang('language.Type')</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="type" id="POI" value="POI">
                             <label class="form-check-label" for="POI">
-                                POI
+                               @lang('language.POI')
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="type" id="External" value="External">
                             <label class="form-check-label" for="External">
-                                External
+                                @lang('language.External')
                             </label>
                         </div>
                         <div class="invalid-feedback">
-                            @lang('language.Please select the type')
+                            @lang('language.select')
                         </div>
                     </div>
                     <div class="form-group" id="external" style="display:none;">
@@ -81,7 +81,7 @@ input::-webkit-inner-spin-button {
                         </div>
                     </div>
                     <div class="form-group" id="place_name_div" style="display:none;">
-                        <label for="formrow-quest_name-input">@lang('language.Place Name')</label>
+                        <label for="formrow-quest_name-input">@lang('language.Place_Name')</label>
                         <select class="js-example-basic-single form-control" name="place_name" id="place_name">
                         @foreach($place_name as $place_name)
                             <option value="{{$place_name->osm_id}}">{{$place_name->name}}</option>
@@ -139,7 +139,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-    $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+    $("#image0_error").text("@lang('language.image_format')");
     $("#images_0").val("");
     $("#images_0").val(null);
     $("#image_main0").attr('src','');

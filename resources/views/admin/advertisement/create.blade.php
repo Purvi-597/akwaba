@@ -1,11 +1,11 @@
  @extends('layouts.master')
-@section('title')  Add Advertisement @endsection
+@section('title')  @lang('language.Add_Advertisement') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title')  @lang('language.Advertisement') @endslot
+@slot('title')  @lang('language.Add_Advertisement') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -46,26 +46,26 @@ input::-webkit-inner-spin-button {
 					
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Title')</label>
-						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Enter Title')" value="{{old('title')}}" required>
+						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Title_placeholder')" value="{{old('title')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Title.');
+                            @lang('language.Title_validation');
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French Title')</label>
-						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.Enter French Title')" value="{{old('title_fr')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.French_Title')</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.frTitle_placeholder')" value="{{old('title_fr')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a French Title.');
+                            @lang('language.frDescription_validation');
                         </div>
                     </div>
                 
 
                     <div id="req_input" class="form-group">
-                        <label for="formrow-quest_name-input"> @lang('language.Image')</label>
+                        <label for="formrow-quest_name-input">Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
-                                @lang('language.Please select Image'); 
+                                @lang('language.Image'); 
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
@@ -73,9 +73,9 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Link')</label>
-						<input type="text" class="form-control" name="link" id="link" placeholder=" @lang('language.Enter Link')" value="{{old('link')}}" required>
+						<input type="text" class="form-control" name="link" id="link" placeholder=" @lang('language.Link_placeholder')" value="{{old('link')}}" required>
                             <div class="invalid-feedback">
-                                @lang('language.Please provide a Link.')
+                                @lang('language.Link_validation')
                             </div>
                     </div>
 
@@ -126,7 +126,7 @@ input::-webkit-inner-spin-button {
      var ext = name.split('.').pop().toLowerCase();
    
      if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-     $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg).");
+     $("#image0_error").text("@lang('language.image_format')");
      $("#images_0").val("");
      $("#images_0").val(null);
        $("#image_main0").attr('src','');
@@ -144,7 +144,7 @@ input::-webkit-inner-spin-button {
            imgwidth = this.width;
            imgheight = this.height;
    
-           if(imgwidth > maxwidth && imgheight > maxheight){
+           if(imgwidth < maxwidth && imgheight < maxheight){
    
            $("#image0_error").text("Please upload images of following dimension width/height(400*280).");
            $("#image_main0").css("display", "none");

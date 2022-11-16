@@ -1,76 +1,97 @@
 @extends('layouts.master')
-@section('title') Change Password @endsection
+@section('title') @lang('language.Change_Password') @endsection
 @section('css')
 
 @endsection
 @section('content')
-@component('common-components.breadcrumb')
-@slot('title') Change Password @endslot
-@endcomponent
-
 <div class="row">
-	<div class="col-md-6 offset-md-3">
+	<div class="col-md-12">
                     <span class="anchor" id="formChangePassword"></span>
-                    <hr class="mb-5">
-                      @if ($notification = Session::get('error'))
+                    
+                    @if ($notification = Session::get('error'))
                         <div class="alert alert-danger alert-block">
                             <button type="button" class="close" data-dismiss="alert">×</button> 
                                 <strong>{{ $notification }}</strong>
                         </div>
                     @endif
                     <!-- form card change password -->
+                    
+                        <h4 class="mb-0 font-size-28">@lang('language.Change_Password')</h4>
+                      
                     <div class="card card-outline-secondary">
-                        <div class="card-header">
-                            <h3 class="mb-0">Change Password</h3>
-                        </div>
-                        <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" action="{{route('editpassword.edit')}}" method="post">
+                        
+                <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" action="{{route('editpassword.edit')}}" method="post"  class="needs-validation" novalidate>
                             	{{csrf_field()}}
                                 <div class="form-group">
-                                    <label for="inputPasswordOld">Old Password</label>
-                                    <input type="password" class="form-control" id="inputPasswordOld" required="true" name="oldpassword">
+                                    <label for="inputPasswordOld">@lang('language.old_password')</label>
+                                    <input type="password" class="form-control" id="inputPasswordOld" required="true" name="oldpassword" required>
                                     <span id="checkerror" class="checkerror" style="color:red;"></span>
+
+                                    <div class="invalid-feedback">
+                                        @lang('language.old_validation')
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPasswordNew">New Password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew" required="" name="newpassword" oninput="validate()">
+                                    <label for="inputPasswordNew">@lang('language.new_password')</label>
+                                    <input type="password" class="form-control" id="inputPasswordNew" required="" name="newpassword" oninput="validate()" required>
                                     <!-- <span class="form-text small text-muted">
                                             The password must be 8-20 characters, and must <em>not</em> contain spaces.
                                         </span> -->
+                                        <div class="invalid-feedback">
+                                            @lang('language.new_validation')
+                                        </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputPasswordNewVerify">Confirm New Password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNewVerify" required="" name="confirmpassword" oninput="validate()">
+                                    <label for="inputPasswordNewVerify">@lang('language.confirm_password')</label>
+                                    <input type="password" class="form-control" id="inputPasswordNewVerify" required="" name="confirmpassword" oninput="validate()" required>
                                     <span class="form-text small text-muted">
-                                            To confirm, type the new password again.
+                                            @lang('language.confirm_msg')
                                         </span>
                                         <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+                                        <div class="invalid-feedback">
+                                            @lang('language.confirm_validation')
+                                        </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg float-right" name="submit" id="submit_btn">Change</button>
+                                    <button type="submit" class="btn btn-success btn-lg float-left" name="submit" id="submit_btn"> @lang('language.change')</button>
                                 </div>
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+            @endsection
+            @section('script')
+          
+            <script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
+            <script src="{{ URL::asset('assets/js/pages/form-validation.init.js')}}"></script>
+            <script src="{{ URL::asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+            <script src="{{ URL::asset('assets/js/pages/form-advanced.init.js')}}"></script>
+            <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
+            <script src="{{ URL::asset('assets/libs/summernote/summernote.min.js')}}"></script>
+            <script src="{{ URL::asset('assets/js/pages/form-editor.init.js')}}"></script> 
+                              
 				<script>
 					function validate() {
-					  var password = document.getElementById("inputPasswordNew").value;
-					  var confirmpassword = document.getElementById("inputPasswordNewVerify").value;
-					  if(password == confirmpassword)
-					  {
-					  	 document.getElementById("CheckPasswordMatch").style.color = "green";
-					 	 document.getElementById("CheckPasswordMatch").innerHTML = "Passwords Matching";
-					 	  document.getElementById("submit_btn").disabled = false;
-					  }
-					  else
-					  {
-					  	 document.getElementById("CheckPasswordMatch").style.color = "red";
-					  	 document.getElementById("CheckPasswordMatch").innerHTML = "Passwords are not matching";
+					    var password = document.getElementById("inputPasswordNew").value;
+					    var confirmpassword = document.getElementById("inputPasswordNewVerify").value;
+					    if(password == confirmpassword)
+					    {
+					  	    document.getElementById("CheckPasswordMatch").style.color = "green";
+					 	    document.getElementById("CheckPasswordMatch").innerHTML = "Passwords Matching";
+					 	    document.getElementById("submit_btn").disabled = false;
+					    }
+					    else
+					    {
+					  	    document.getElementById("CheckPasswordMatch").style.color = "red";
+					  	    document.getElementById("CheckPasswordMatch").innerHTML = "Passwords are not matching";
 					  	 document.getElementById("submit_btn").disabled = true;
 					  }
 					}
-			</script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			    </script>    
+
+
             <script type="text/javascript">
                   $("#inputPasswordOld").keyup(function() {
             var password = $('#inputPasswordOld').val();
@@ -93,6 +114,6 @@
         });
             </script>
 
-                </div>
-            </div>
+            
             @endsection
+                 

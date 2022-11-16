@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') SubCategories Detail @endslot
+@slot('title')@lang('language.SubCategories_Detail') @endslot
 @endcomponent
 
 
@@ -24,7 +24,7 @@
 						
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Name'):</b></label>     
-							{{$subcategories->name}}
+							{{$subcategories->display_name}}
 						</div>
 						
                     </div>
@@ -34,25 +34,25 @@
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Status'):</b></label>   
 							@if($subcategories->status == 1)
-							@php echo "Active"; @endphp
+							 	"@lang('language.Active')"	
 							@else
-							@php echo "InActive"; @endphp
+								"@lang('language.Inactive')" 
 							@endif
 						</div>
 					
                     </div>
                     
-					<div class="row">
+					{{-- <div class="row">
                     	<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>Created Date:</b></label>   {{$subcategories->created_at}}
 						</div>
 
 	
                     </div>
-                    	
+                    	 --}}
 					<div class="row">
 						<div class="form-group col-md-6">
-							 <label for="formrow-quest_name-input"><b>@lang('language.Profile Picture'):</b></label> <br>
+							 <label for="formrow-quest_name-input"><b>@lang('language.Profile_Image'):</b></label> <br>
 							 	@if(!empty($subcategories->image))
 							 <img src="/uploads/subcategories/{{$subcategories->image}}" id="prescriptionpreview" style="height: 100px; width: 200px;"></img>
 									@else

@@ -18,7 +18,7 @@
 							<div class="col-lg-4">
                                 <div class="card border border-secondary">
                                     <div class="card-header bg-transparent border-primary">
-                                        <a href="{{url('admin/users')}}"><h5 class="my-0 text-grey" style="font-size: x-large; color: grey;"> @lang('dash.Total Users')</h5></a>
+                                        <a href="{{url('admin/users')}}"><h5 class="my-0 text-grey" style="font-size: x-large; color: grey;"> @lang('language.total_user')</h5></a>
 										  <a href="{{url('admin/users')}}"><p class="card-text" style="font-size: x-large; color: lightgrey;">
 										  	{{isset($users)?$users:"0"}}
 										  </p></a>

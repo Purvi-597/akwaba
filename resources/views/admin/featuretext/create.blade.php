@@ -1,11 +1,11 @@
  @extends('layouts.master')
-@section('title')  Add feature Text @endsection
+@section('title')  @lang('language.add_text') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Add feature Text @endslot
+@slot('title') @lang('language.add_text') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -45,34 +45,34 @@ input::-webkit-inner-spin-button {
                  @csrf
 					
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.English Title')</label>
-						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Enter English Title')" value="{{old('title')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.Title')</label>
+						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Title_placeholder')" value="{{old('title')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Title.')
+                            @lang('language.Title_validation')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French Title')</label>
-						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.Enter French Title')" value="{{old('title_fr')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.French_Title')</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.frTitle_placeholder')" value="{{old('title_fr')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Title.')
+                            @lang('language.frTitle_validation')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.English Description')</label>
-                        <textarea class=" form-control" name="description" id="description" placeholder="@lang('language.Enter Description')" value="{{old('description')}}" required></textarea>
+                        <label for="formrow-quest_name-input">@lang('language.Description')</label>
+                        <textarea class=" form-control" name="description" id="description" placeholder="@lang('language.Description_placeholder')" value="{{old('description')}}" required></textarea>
                         <div class="invalid-feedback">
-                            @lang('lang.Please provide a English Description.')
+                            @lang('language.Description_validation')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French Description')</label>
-                        <textarea class="form-control" name="description_fr" id="description_fr" placeholder="@lang('language.Enter French Description')" value="{{old('description_fr')}}"required ></textarea>
+                        <label for="formrow-quest_name-input">@lang('language.FrDescription')</label>
+                        <textarea class="form-control" name="description_fr" id="description_fr" placeholder="@lang('language.frDescription_placeholder')" value="{{old('description_fr')}}"required ></textarea>
                         <div class="invalid-feedback">
-                            @lang('lang.Please provide a French Description.')'
+                            @lang('language.frDescription_validation')
                         </div>
                     </div>
 
@@ -190,7 +190,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-  $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main0").attr('src','');

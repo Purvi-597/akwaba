@@ -1,11 +1,11 @@
  @extends('layouts.master')
-@section('title')  Add feature List @endsection
+@section('title')   @lang('language.Add_feature_list')@endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') Add feature list @endslot
+@slot('title') @lang('language.Add_feature_list') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -44,7 +44,7 @@ input::-webkit-inner-spin-button {
             <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('feature_list.store')}}"  novalidate>
                  @csrf
                  <div class="form-group">
-                    <label>Choose a Feature Places:</label>
+                    <label>@lang('language.choose_feature')</label>
                     <select id="featured_places_id" name="featured_places_id" class="form-control" required>
                       <option value="">Select Feature Places</option>
                       @foreach($feature_list as $feature)
@@ -55,33 +55,33 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input"> @lang('language.Title')</label>
-						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Enter Title')" value="{{old('title')}}" required>
+						<input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Title_placeholder')" value="{{old('title')}}" required>
                         <div class="invalid-feedback">
-                           @lang('language.Please provide a Title.')
+                           @lang('language.Title_validation')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French Title')</label>
-						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.Enter French Title')" value="{{old('title_fr')}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.French_Title')</label>
+						<input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.frTitle_placeholder')" value="{{old('title_fr')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a French Title.')'
+                            @lang('language.frTitle_validation')'
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input"> @lang('language.Description')</label>
-						<textarea class="form-control" name="description" id="description" placeholder="@lang('language.Enter Description')" value="{{old('description')}}" required></textarea>
+						<textarea class="form-control" name="description" id="description" placeholder="@lang('language.Description_placeholder')" value="{{old('description')}}" required></textarea>
                         <div class="invalid-feedback">
-                           @lang('language.Please provide a Description.')
+                           @lang('language.Description_validation')
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French Description')</label>
-						<textarea class="form-control" name="description_fr" id="description_fr" placeholder="@lang('language.Enter French Description')" value="{{old('description_fr')}}" required></textarea>
+                        <label for="formrow-quest_name-input">@lang('language.FrDescription')</label>
+						<textarea class="form-control" name="description_fr" id="description_fr" placeholder="@lang('language.frDescription_placeholder')" value="{{old('description_fr')}}" required></textarea>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Description.')
+                            @lang('language.frDescription_validation')
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@ input::-webkit-inner-spin-button {
                         <label for="formrow-quest_name-input">@lang('language.Rating')</label>
 						<input type="number" class="form-control" name="ratings" id="ratings" placeholder="Enter ratings" value="{{old('ratings')}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Rating.')
+                            @lang('language.rating_validation')
                         </div>
                     </div>
     
@@ -97,7 +97,7 @@ input::-webkit-inner-spin-button {
                         <label for="formrow-quest_name-input"> Image</label>
                         <input type="file"  class="form-control images" name="image" id="images_0" required >
                             <div class="invalid-feedback">
-                                   @lang('language.Please select Image')
+                                   @lang('language.Image')
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="100" style="display:none" >
                         <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
@@ -209,7 +209,7 @@ input::-webkit-inner-spin-button {
      var ext = name.split('.').pop().toLowerCase();
    
      if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-     $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+     $("#image0_error").text("@lang('language.image_format')");
      $("#images_0").val("");
      $("#images_0").val(null);
        $("#image_main0").attr('src','');

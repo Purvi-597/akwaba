@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')  @lang('language.Update advertisement') @endsection
+@section('title')  @lang('language.update_ad') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') @lang('language.Update advertisement') @endslot
+@slot('title') @lang('language.update_ad') @endslot
 @endcomponent
 <style>
 .form-control{
@@ -39,32 +39,33 @@ input::-webkit-inner-spin-button {
             <div class="card-body">
                 @if ($errors->any())
                     <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>    
                 @endif    
-            </div>
+                
         
-             <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('advertisement.update',$advertisement->id)}}" novalidate>
+            <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('advertisement.update',$advertisement->id)}}" novalidate>
                 @csrf
                 
                 <input type="hidden" value="{{ $advertisement->id }}" name="id" id="id">
                     
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Title')</label>
-                        <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{$advertisement->title}}" required>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="@lang('language.Title_placeholder')" value="{{$advertisement->title}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a Title.');
+                            @lang('language.Title_validation');
                         </div>
                     </div>
                 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French Title')</label>
-                        <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="Enter French Name" value="{{$advertisement->title_fr}}" required>
+                        <label for="formrow-quest_name-input">@lang('language.French_Title')</label>
+                        <input type="text" class="form-control" name="title_fr" id="title_fr" placeholder="@lang('language.frTitle_placeholder')" value="{{$advertisement->title_fr}}" required>
                         <div class="invalid-feedback">
-                            @lang('language.Please provide a French Title.');
+                            @lang('language.frTitle_validation');
                         </div>
                     </div>
                         
@@ -120,7 +121,6 @@ input::-webkit-inner-spin-button {
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             </form>
         </div>
@@ -154,7 +154,7 @@ if ((file = this.files[0])) {
   var ext = name.split('.').pop().toLowerCase();
 
   if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("Please upload images of following formats(*png,jpeg,jpg,jfif,svg).");
+  $("#image0_error").text("@lang('language.image_format')");
   $("#images_0").val("");
   $("#images_0").val(null);
     $("#image_main1").attr('src','');
@@ -245,5 +245,50 @@ $(document).on('click','#deleteimage',function(){
                   })
             })
     </script>
+    <script>
+    var _URL = window.URL || window.webkitURL;
+   $(document).on('change','#images_0',function(e){
+    var file, img;
+   
+    let name = e.target.files[0].name;
+   if ((file = this.files[0])) {
+     var ext = name.split('.').pop().toLowerCase();
+   
+     if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+     $("#image0_error").text("@lang('language.image_format')");
+     $("#images_0").val("");
+     $("#images_0").val(null);
+       $("#image_main0").attr('src','');
+         $("#image_main0").css('display','none');
+   
+     }else{
+   
+           var imgwidth = 0;
+           var imgheight = 0;
+           var maxwidth = 400;
+           var maxheight = 280;
+           img = new Image();
+           img.onload = function() {
+   
+           imgwidth = this.width;
+           imgheight = this.height;
+   
+           if(imgwidth < maxwidth && imgheight < maxheight){
+   
+           $("#image0_error").text("Please upload images of following dimension width/height(400*280).");
+           $("#image_main0").css("display", "none");
+           $("#image_main0").attr('src','');
+           $("#images_0").val("");
+           }else{
+           $("#image0_error").text("");
+           $("#image_main0").css("display", "block");
+           $('#image_main0').attr('src', img.src).height(280).width(400);
+               }
+           }
+       };
+           img.src = _URL.createObjectURL(file);
+   }
+   });
+   </script>
 
 @endsection

@@ -50,10 +50,10 @@ input::-webkit-inner-spin-button {
                 @csrf
                 <input type="hidden" value="{{ $placeAdvertisement->id }}" name="id" id="id">
                 <div class="form-group">
-                <label for="formrow-quest_name-input">>@lang('language.Place Title')</label>
-					<input type="text" class="form-control" name="place_title" id="place_title" placeholder="Enter Place Title" value="{{$placeAdvertisement->place_name}}" required>
+                <label for="formrow-quest_name-input">@lang('language.Place_Title')</label>
+					<input type="text" class="form-control" name="place_title" id="place_title" placeholder="Title_placeholder" value="{{$placeAdvertisement->place_name}}" required>
                     <div class="invalid-feedback">
-                        @lang('language.Please provide a Place Title.')
+                        @lang('language.Title_validation')
                         </div>
                 </div>
                 <div class="row">
@@ -74,13 +74,13 @@ input::-webkit-inner-spin-button {
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="type" id="POI" value="POI" @if($placeAdvertisement->type == 'POI') checked @endif>
                         <label class="form-check-label" for="POI">
-                            POI
+                            @lang('language.POI')
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="type" id="External" value="External" @if($placeAdvertisement->type == 'External') checked @endif>
                         <label class="form-check-label" for="External">
-                            External
+                            @lang('language.External')
                         </label>
                     </div>
                     <div class="invalid-feedback">
@@ -95,7 +95,7 @@ input::-webkit-inner-spin-button {
                     </div>
                 </div>
                 <div class="form-group" id="place_name_div" @if($placeAdvertisement->type == 'External') style="display:none;" @endif>
-                    <label for="formrow-quest_name-input">@lang('language.Place Name')</label>
+                    <label for="formrow-quest_name-input">@lang('language.Place_Name')</label>
                     <select class="js-example-basic-single form-control" name="place_name" id="place_name">
                     @foreach($place_name as $place_name)
                         <option value="{{$place_name->osm_id}}" @if($placeAdvertisement->osm_id == $place_name->osm_id) selected @endif>{{$place_name->name}}</option>
@@ -157,7 +157,7 @@ $(document).ready(function () {
         var ext = name.split('.').pop().toLowerCase();
 
         if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
-            $("#image0_error").text("@lang('language.Please upload images of following formats(*png,jpeg,jpg).')");
+            $("#image0_error").text("@lang('language.image_format')");
             $("#images_0").val("");
             $("#images_0").val(null);
             $("#image_main1").attr('src','');
