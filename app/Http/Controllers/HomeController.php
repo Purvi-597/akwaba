@@ -25,11 +25,11 @@ class HomeController extends Controller
     public function root(Request $request)
     {
             //echo session()->get('locale');die;
-        if(session()->get('locale') == 'en'){
-            echo "english";
-        }else{
-            echo "french";
-        }
+        // if(session()->get('locale') == 'en'){
+        //     echo "english";
+        // }else{
+        //     echo "french";
+        // }
        
         $data['users'] = DB::table('users')->where('role','!=','admin')->count();
     

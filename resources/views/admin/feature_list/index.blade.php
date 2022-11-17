@@ -60,6 +60,7 @@
                                         
                                         
                                         <td >{{$feature->title}}</td>
+
                                         <td >{{$feature->description}}</td>
                                         
                                         <td >{{$feature->ratings}}</td>

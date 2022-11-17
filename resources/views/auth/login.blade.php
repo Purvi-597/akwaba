@@ -73,7 +73,7 @@ body {
                                             <div class="row" style="align-content: center;justify-content: center;display: flex;">
 
                                                 <div class="col-12 align-self-end mob_imiage_part">
-                                                <img src="{{url('/images/img/admin_app_logo.png')}}" height="100px" width="140px">
+                                                <img src="{{url('/images/img/admin_app_logo.png')}}" height="80px" width="140px">
 
 
                                                 </div>

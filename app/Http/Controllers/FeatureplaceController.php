@@ -28,7 +28,7 @@ class FeatureplaceController extends Controller
 	}
 	public function create()
     {
-    	$data['feature_list'] = Feature::orderBy('id','desc')->get(['id','title']);
+    	$data['feature'] = Feature::orderBy('id','desc')->get(['id','title']);
         return view('admin.feature_list.create',$data);
     }
 	public function store(Request $request)
@@ -55,8 +55,8 @@ class FeatureplaceController extends Controller
 
             'title' => $request->input('title'),
             'title_fr' => $request->input('title_fr'),
-            'description' => $request->textarea('description'),
-            'description_fr' => $request->textarea('description_fr'),
+            'description' => $request->input('description'),
+            'description_fr' => $request->input('description_fr'),
             "ratings" => $request->input('ratings'),
             'featured_places_id' =>$request->input('featured_places_id'),
             'status' => $status,
@@ -96,8 +96,8 @@ class FeatureplaceController extends Controller
 
             "title" => $request->input('title'),
             "title_fr" => $request->input('title_fr'),
-            "description" => $request->textarea('description'),
-            "description_fr" => $request->textarea('description_fr'),
+            "description" => $request->input('description'),
+            "description_fr" => $request->input('description_fr'),
             "ratings" => $request->input('ratings'),
             "featured_places_id" => $request->input('featured_places_id'),
 			"image"=>$cover_detail,
