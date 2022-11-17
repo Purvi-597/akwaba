@@ -208,10 +208,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	 Route::get('license/edit', 'LicenseController@edit')->name('license.edit');
 	 Route::post('license/update', 'LicenseController@update')->name('license.update');
 
+
+	 /* Rating */ 
 	 Route::get('rating', 'RatingReviewsController@index')->name('rating.index');
 
-
+	/*Notes */ 
 	 Route::get('notes', 'NotesController@index')->name('notes.index');
+
+	/*Feedback */ 
+	 Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
+
 
 
 	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index');
@@ -219,6 +225,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword');
 	
 
+	/* Photo */
 	Route::get('photos', 'PhotosController@index')->name('photos.index');
 	Route::get('photos/create', 'PhotosController@create')->name('photos.create');
 	Route::post('photos/store', 'PhotosController@store')->name('photos.store');

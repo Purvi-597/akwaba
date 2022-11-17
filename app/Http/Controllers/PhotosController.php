@@ -7,6 +7,7 @@ use App\Http\Model\Photos;
 use DB;
 use Carbon\Carbon;
 use Session;
+use Lang;
 class PhotosController extends Controller
 {
     /**

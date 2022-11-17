@@ -237,6 +237,7 @@ return [
 
     'notes' => 'Notes',
 
+    /*Photo */ 
     'add_photo' => 'Add Photo',
     'photo_address' => 'Address',
     'photo_image' => 'Image',
@@ -259,5 +260,18 @@ return [
     'add_photo_success' => 'Photos added successfully.',
     'update_photo' => 'Photos updated successfully.',
 
+
+    /* Feedback */
+    'name' => 'Name',
+    'email' => 'Email',
+    'contact_no' => 'Contact No',
+    'message' => 'Messages',
+    'feedback' => 'Feedback',
+
+    'cms_management' => 'CMS Management',
+
+
+    'Yes' => 'Yes',
+    
 
 ];

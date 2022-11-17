@@ -111,14 +111,22 @@
                         <i class="fas fa-sticky-note"></i>
                         <span>@lang('language.notes')</span>
                        
-                    </a>
-                    
+                    </a>   
+                </li>
+
+                
+                <li>
+                    <a href="{{ url('admin/feedback') }}" class="">
+                        <i class="fa fa-comments"></i>
+                        <span>@lang('language.feedback')</span>
+                       
+                    </a>   
                 </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="fas fa-cog"></i>
-                        <span>CMS Management</span>
+                        <span>@lang('language.cms_management')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ url('admin/privacy_policy') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.privacy_policy') </a></li>                          

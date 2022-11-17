@@ -267,4 +267,17 @@ return [
     'photo_image_format' => 'Veuillez télécharger des images de dimension suivante largeur/hauteur (30*30)',
     'add_photo_success' => 'Photos ajoutées avec succès.',
     'update_photo' => 'Photos mises à jour avec succès.',
+
+
+    /*Feedback */
+    'name' => 'Nom',
+    'email' => 'E-mail',
+    'contact_no' => 'N° de contact',
+    'message' => 'messages',
+    'feedback' => "Retour d'information",
+
+    'cms_management' => 'Gestion CMS',
+
+
+    'Yes' => 'oui',
 ];
