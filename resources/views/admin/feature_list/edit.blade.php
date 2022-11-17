@@ -61,6 +61,18 @@ input::-webkit-inner-spin-button {
 
                     </select>
                   </div>
+
+
+                  {{-- <div class="form-group">
+                    <label>@lang('language.select'):</label>
+                    <select id="cat_id" name="cat_id" class="form-control">
+                      <option value="">@lang('language.select_cat')</option>
+                      @foreach($categories as $categories)
+                        <option value="{{ $categories->id }}" {{$categories->id == $subcategories->cat_id ? 'selected':''}}>{{ $categories->display_name}} </option>
+                      @endforeach
+
+                    </select>
+                </div> --}}
                         
                   
                 <div class="form-group">

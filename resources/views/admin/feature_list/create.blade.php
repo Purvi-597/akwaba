@@ -45,13 +45,29 @@ input::-webkit-inner-spin-button {
                  @csrf
                  <div class="form-group">
                     <label>@lang('language.choose_feature')</label>
-                    <select id="featured_places_id" name="featured_places_id" class="form-control" required>
+                    <select id="title" name="featured_places_id" class="form-control" required>
                       <option value="">Select Feature Places</option>
-                      @foreach($feature_list as $feature)
+                      @foreach($feature as $feature)
                         <option value="{{ $feature->id }}">{{ $feature->title }}</option>
                       @endforeach
                     </select>
                   </div>
+
+                  {{-- <div class="form-group">
+                    <label>@lang('language.select'):</label>
+                    <select id="name" name="cat_id" class="form-control" required>
+                      <option value="" selected disabled>@lang('language.select_cat')</option>
+                      @foreach($categories as $categories)
+                        <option value="{{ $categories->id }}">{{ $categories->name }}</option>
+                      @endforeach
+                    </select> 
+                    <div class="invalid-feedback">
+                        @lang('language.subcat_validation')
+                    </div>
+                  </div> --}}
+
+
+
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input"> @lang('language.Title')</label>
