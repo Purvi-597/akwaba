@@ -73,7 +73,7 @@ body {
                                             <div class="row" style="align-content: center;justify-content: center;display: flex;">
 
                                                 <div class="col-12 align-self-end mob_imiage_part">
-                                                <img src="{{url('/images/img/logo_p.png')}}" height="100px" width="140px">
+                                                <img src="{{url('/images/img/admin_app_logo.png')}}" height="100px" width="140px">
 
 
                                                 </div>
@@ -109,13 +109,13 @@ body {
                                     </div>
                                     {{-- Captcha field --}}
 
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label style="color:white;">Recaptcha</label>
                                             {!! NoCaptcha::renderJs() !!}
                                             {!! NoCaptcha::display() !!}
                                             @if ($errors->has('g-recaptcha-response')) <p style="margin-top: 0.25rem;                                     font-size: 80%;
                                         color: #f46a6a;font-weight: bolder;">{{ $errors->first('g-recaptcha-response') }}</p> @endif
-                                        </div>
+                                        </div> --}}
 
 
 
