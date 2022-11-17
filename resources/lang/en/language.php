@@ -74,7 +74,7 @@ return [
     'ad_deleted' => 'Advertisement Deleted Successfully',
 
 
-    /* CAtegorgy */
+    /* Category */
 
     'Name' => 'Name',
     'catName_placeholder' => 'Enter Category Name',
@@ -129,7 +129,7 @@ return [
     'choose_feature' => 'Choose a Feature Places:',
 
 
-    /* Feature TExt */
+    /* Feature Text */
     'add_text' => 'Add feature Text',
     'Add_feature_list' => 'Add Feature List',
     'Feature_list' => 'Feature List',

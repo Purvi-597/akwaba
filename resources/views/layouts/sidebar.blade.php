@@ -69,7 +69,7 @@
 
                 <li>
                     <a href="{{ url('admin/featuretext') }}" class="">
-                        <i class='fas fa-ad'></i>
+                        <i class="fa fa-key"></i>
                         <span>@lang('language.Feature_Text')</span>
                         
                     </a>
@@ -79,7 +79,7 @@
 
                 <li>
                     <a href="{{ url('admin/feature_list') }}" class="">
-                        <i class='fas fa-ad'></i>
+                        <i class="fa fa-key"></i>
                         <span>@lang('language.Feature Places List')</span>
                        
                     </a>
@@ -88,7 +88,7 @@
 
                 <li>
                     <a href="{{ url('admin/photos') }}" class="">
-                        <i class='fas fa-ad'></i>
+                        <i class="fa fa-image"></i>
                         <span>Photos</span>
 
                     </a>
