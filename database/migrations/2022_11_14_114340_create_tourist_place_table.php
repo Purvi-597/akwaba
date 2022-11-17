@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeaturedPlacesListTable extends Migration
+class CreateTouristPlaceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,15 @@ class CreateFeaturedPlacesListTable extends Migration
      */
     public function up()
     {
-        Schema::create('featured_places_list', function (Blueprint $table) {
+        Schema::create('tourist_place', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('title_fr');
-            $table->text('image')->nullable();
-            $table->text('description')->nullable();
-            $table->text('description_fr')->nullable();
-            $table->integer('ratings')->nullable();
-            $table->foreignId('featured_places_id');
+            $table->text('photo_image');
+            $table->string('photo_name');
+            $table->text('photo_address');
             $table->string('latitude');
             $table->string('longitude');
             $table->enum('status', ['1', '0']);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -37,6 +32,6 @@ class CreateFeaturedPlacesListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('featured_places_list');
+        Schema::dropIfExists('tourist_place');
     }
 }

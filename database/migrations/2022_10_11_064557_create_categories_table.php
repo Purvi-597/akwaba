@@ -28,10 +28,11 @@ class CreateCategoriesTable extends Migration
 
 $data = [
     ['name'=>'Sustenance', 'display_name'=> 'Eat Out','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
-    ['name'=>'shop-supermarket', 'display_name'=> 'Groceries','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
-    ['name'=>'shop-mall', 'display_name'=> 'Malls','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
-    ['name'=>'tourism-hotel', 'display_name'=> 'Hotels','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
-    ['name'=>'shop-gas', 'display_name'=> 'Gas','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
+    ['name'=>'shop-supermarket', 'display_name'=> 'Groceries','display_name_fr' =>'', 'image'=>'1667915729_bar.png','status' => 1],
+    ['name'=>'shop-mall', 'display_name'=> 'Malls','display_name_fr' =>'', 'image'=>'1667915730_bar.png','status' => 1],
+    ['name'=>'advertisement', 'display_name'=> 'Dental','display_name_fr' =>'', 'image'=>'1667915731_bar.png','status' => 1],
+    ['name'=>'tourism-hotel', 'display_name'=> 'Hotels','display_name_fr' =>'', 'image'=>'1667915732_bar.png','status' => 1],
+    ['name'=>'shop-gas', 'display_name'=> 'Gas','display_name_fr' =>'', 'image'=>'1667915733_bar.png','status' => 1],
     ['name'=>'Transportation', 'display_name'=> 'Car service centers','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
     ['name'=>'shop-beauty', 'display_name'=> 'Beauty','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
     ['name'=>'Entertainment', 'display_name'=> 'Entertainment','display_name_fr' =>'', 'image'=>'1667915728_bar.png','status' => 1],
