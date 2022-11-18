@@ -280,4 +280,28 @@ return [
 
 
     'Yes' => 'oui',
-];
+
+
+    /* Faq */
+    'Question' => 'Question',
+    'FrAnswer' => 'Réponse française',
+    'Answer' => 'Réponse',
+    'FrQuestion' => 'Questions françaises',
+    'Question_validation' => 'Veuillez fournir une question.',
+    'frQuestion_validation' => 'Veuillez fournir une question en français.',
+    'Answer_validation' => 'Veuillez fournir une réponse',
+    'frAnswer_validation' => 'Veuillez fournir une réponse en français',
+    'Question_placeholder' => 'Saisir la question',
+    'frQuestion_placeholder' => 'Entrez la question française',
+    'Answer_placeholder' => 'Saisir la réponse',
+    'frAnswer_placeholder' => 'Entrez la réponse en français',
+
+    'faq' => 'FAQ',
+    'update_faq' => 'Mettre à jour la FAQ',
+    'add_faq' => 'Ajouter une FAQ',
+    'detail_faq' => 'FAQ Détails',
+    'delete_faq' => 'Vous souhaitez supprimer cette FAQ',
+    'faq_Deleted' => 'FAQ supprimée avec succès',
+
+
+ ];

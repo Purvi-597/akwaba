@@ -272,6 +272,26 @@ return [
 
 
     'Yes' => 'Yes',
-    
+
+    /*Faq */
+    'Question' => 'Question',
+    'FrQuestion' => 'French Question',
+    'Answer' => 'Answer',
+    'FrAnswer' => 'French Answer',    
+    'Question_validation' => 'Please provide a Question.',
+    'frQuestion_validation' => 'Please provide a French Question.',
+    'Answer_validation' => 'Please Provide a Answer',
+    'frAnswer_validation' => 'Please Provise French Answer',
+    'Question_placeholder' => 'Enter Question',
+    'frQuestion_placeholder' => 'Enter French Question',
+    'Answer_placeholder' => 'Enter Answer',
+    'frAnswer_placeholder' => 'Enter French Answer',
+
+    'faq' => 'FAQ',
+    'update_faq' => 'Update FAQ',
+    'add_faq' => 'Add FAQ',
+    'detail_faq' => 'FAQ Details',
+    'delete_faq' => 'You want to delete this FAQ',
+    'faq_Deleted' => 'FAQ Deleted Successfully',
 
 ];

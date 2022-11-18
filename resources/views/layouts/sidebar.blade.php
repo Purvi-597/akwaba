@@ -123,6 +123,7 @@
                     </a>   
                 </li>
 
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                          <i class="fas fa-cog"></i>
@@ -130,7 +131,9 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ url('admin/privacy_policy') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.privacy_policy') </a></li>                          
-                        <li><a href="{{ url('admin/license') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.license') </a></li> 
+                        <li><a href="{{ url('admin/license') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.license') </a></li>
+                        <li><a href="{{ url('admin/faq') }}"><i class="bx bx-radio-circle-marked"></i>@lang('language.faq') </a></li>
+                         
                     </ul>
                 </li>
 

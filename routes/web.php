@@ -235,5 +235,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::post('deletephotos', 'PhotosController@delete')->name('deletephotos');
     Route::post('photos_status', 'PhotosController@status')->name('photos_status');
 
+
+	/* Feature Places text*/
+	Route::get('faq', 'FaqController@index')->name('faq.index')->middleware('setLocale');
+	Route::get('faq/create', 'FaqController@create')->name('faq.create')->middleware('setLocale');
+	Route::post('faq/store', 'FaqController@store')->name('faq.store')->middleware('setLocale');
+	Route::get('faq/edit/{id}', 'FaqController@edit')->name('faq.edit')->middleware('setLocale');
+    Route::post('faq/update/{id}', 'FaqController@update')->name('faq.update')->middleware('setLocale');
+    Route::get('faq/view/{id}', 'FaqController@view')->name('faq.view')->middleware('setLocale');
+    Route::post('deletefaq', 'FaqController@delete')->name('deletefaq')->middleware('setLocale');
+    Route::post('faq_status', 'FaqController@faq_status')->name('faq_status')->middleware('setLocale');
+
 	
 });

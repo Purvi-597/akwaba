@@ -44,7 +44,8 @@
                                 <th  width="15%">@lang('language.email')</th>
                                 <th  width="15%">@lang('language.contact_no')</th>
                                 <th  width="15%">@lang('language.message')</th>
-                                <th  width="15%">@lang('language.Status')</th>        
+                                <th  width="15%">@lang('language.Status')</th> 
+                                <th width ="15%">Reply</th>       
                             </tr>
                         </thead>
                         <tbody>
