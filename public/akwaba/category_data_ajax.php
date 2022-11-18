@@ -23,6 +23,10 @@ if(isset($_REQUEST['id'])){
     
     $values = implode("','",$valuesarr);
     //echo "SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data FROM planet_osm_point WHERE ".$fieldName." IN ('".$values."') and name!=''";
+
+    $categoryCountResult = pg_query($db, "SELECT count(osm_id) as tolcnt FROM planet_osm_point WHERE ".$fieldName." IN ('".$values."') and name!=''");
+    $cntrow = pg_fetch_array($categoryCountResult,NULL, PGSQL_ASSOC);
+
     $categoryResult = pg_query($db, "SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, tags->'phone' as phone,
     tags->'name:en' as en_Name, 
     tags->'opening_hours' as opening_hours,  
@@ -35,12 +39,13 @@ if(isset($_REQUEST['id'])){
     tags->'addr:district' as district,
     tags->'image' as image,
     $fieldName as cat_type
-     FROM planet_osm_point WHERE ".$fieldName." IN ('".$values."') and name!=''");
+     FROM planet_osm_point WHERE ".$fieldName." IN ('".$values."') and name!='' limit 10 offset $offset");
     $i=0;
     while($row = pg_fetch_array($categoryResult,NULL, PGSQL_ASSOC)) {
         $categoryData[] = $row;
         $categoryData[$i]['name'] = base64_encode($row['name']);
         $categoryData[$i]['coordinates'] = json_decode($row['geojson_data'])->coordinates;
+        $categoryData[$i]['tolcnt'] = $cntrow['tolcnt'];
         $i++;
     }
   }
