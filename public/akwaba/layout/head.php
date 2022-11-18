@@ -35,7 +35,7 @@
 		 <link rel="stylesheet" type="text/css" href="assets/plugin/simplebar/simplebar.css">
 	<script src="https://cdn.jsdelivr.net/gh/tomik23/autocomplete@1.8.5/dist/js/autocomplete.min.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-	
+	 <link rel="stylesheet" href="../assets/libs/sweetalert2/sweetalert2.min.css">
 	<!--<link rel="stylesheet" href="global.css" />-->
 	
 	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
@@ -340,6 +340,319 @@
       box-shadow: -1px 0 0 0 rgb(38 38 38 / 12%);
       max-width: 390px;
     } */	
+
+
+
+
+    /* ADDD COMOPANY MODEL */
+
+.addcompany-modal .modal-header {
+    color: rgb(0 0 0);
+    font-size: 18px;
+    padding: 24px 24px 0px;
+    line-height: 20px;
+    border-bottom: 0px solid #e9ecef;
+}
+
+.addcompany-modal .modal-body {
+  padding: 24px 20px 12px;
+  max-height: calc(100vh - 220px);
+    /* overflow-y: scroll; */
+}
+
+
+.addcompany-profile .addone-head{
+  padding: 12px 0px 12px 40px;
+  font-size: 13px;
+    line-height: 16px;
+    font-weight: 700;
+}
+
+.addcompany-profile .addone-head.padding-extra{
+  padding: 24px 0;
+}
+
+.addcompany-profile .input-company {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+}
+
+.addcompany-profile .input-company .input-image{
+position: absolute;
+    top: 8px;
+    left: 8px;
+    color: rgb(2, 142, 255);
+}
+
+.addcompany-profile .input-company .input-image img{
+  width: 24px;
+}
+
+.addcompany-profile .fields {
+    padding-left: 40px;
+    margin-bottom: 0;
+}
+
+
+.add-number{
+display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+  }
+
+  .add-number span{
+    padding: 12px 24px;
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+    text-align: center;
+    color: rgb(0, 114, 206);
+    box-shadow: rgb(230 230 230) 0px 0px 0px 1px inset;
+    width: 100%;
+    opacity: 0.5;
+
+  }
+
+
+  .lable-input label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(2, 142, 255);
+    width: 96px;
+    height: 96px;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-right: 20px;
+  }
+
+  .addcompany-profile  .inputgroupcustom {
+    display: flex;
+    flex-wrap: wrap;
+}
+.addcompany-profile  .leftinput {
+    width: calc(100% - 30px);
+}
+.addcompany-profile  .icon-cross {
+    width: 20px;
+    margin-left: 10px;
+    color: rgb(146, 146, 146);
+}
+.addcompany-profile .lable-input label span{
+  font-size: 11px;
+    line-height: 12px;
+    font-weight: 400;
+    width: 52px;
+    text-align: center;
+    margin-top: 5px;
+}
+.addcompany-profile .lable-input {
+    display: flex;
+}
+
+.addcompany-profile .lable-content{
+  font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    padding-top: 24px;
+    max-width: 280px;
+}
+
+.addcompany-profile .spanone a{
+  color: #007bff !important;
+}
+
+.addcompany-profile .spantwo{
+  color: rgb(146, 146, 146);
+}
+
+
+.addcompany-modal .modal-footer {
+    padding: 24px;
+}
+
+.addcompany-modal .img_top_username .usericon div {
+    width: 40px;
+    height: 40px;
+}
+
+.addcompany-modal .img_top_username .Username {
+    font-size: 13px;
+    margin-left: 7px;
+}
+.addcompany-modal .img_top_username .usericon div P {
+    font-size: 12px;
+}
+
+.addcompany-modal .img_top_username {
+    padding:  0px;
+    align-items: center;
+    margin-bottom: 0px;
+        flex: auto;
+}
+
+.Edit-modal .modal-header {
+      color: rgb(146, 146, 146);
+      font-size: 13px;
+      padding: 16px 34px 16px 24px;
+    }
+
+    .Edit-modal .modal-body {
+      padding: 16px 34px 16px 24px;
+      outline: none;
+    }
+
+    .Edit-modal .fields {
+      margin-bottom: 16px;
+    }
+
+    .Edit-modal .user-name-field {
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 400;
+      color: rgb(146, 146, 146);
+      margin-bottom: 0;
+
+    }
+
+    .Edit-modal .input-field {
+    width: 100%;
+    align-items: center;
+    color: rgb(146, 146, 146);
+    padding: 12px 0px;
+    position: relative;
+    }
+
+    .Edit-modal  .modal-footer{
+      background: rgb(242, 242, 242);
+    padding: 20px 24px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    }
+
+    .Edit-modal  .btn{
+    font-size: 13px;
+    line-height: 16px;
+    background: transparent;
+    padding: 12px 24px;
+    color: rgb(0, 114, 206);
+    }
+
+    .Edit-modal  .btn.btn-primary{
+    background: rgb(2, 142, 255);
+    color: #fff;
+    }
+
+    .Edit-modal .input-field:after{
+      content: "";
+    position: absolute;
+    bottom: 0px;
+    height: 1px;
+    width: 100%;
+    left: 0px;
+    background: rgb(230, 230, 230);
+    }
+
+    .Edit-modal .field-input{
+      color: rgb(38, 38, 38);
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 0px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    outline: none;
+    box-shadow: none;
+    }
+    .img_section{
+    display: inline-flex;
+
+    margin-bottom: 8px;
+}
+.pip {
+   margin-bottom: 8px;
+    display:inline-flex;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #444;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.remove:hover {
+  background: white;
+  color: black;
+}
+.close_imge{
+    position: absolute;
+    margin-left: -18px;
+    cursor: pointer;
+    margin-top:7px;
+}
+
+.signinbtn1 a{
+    display: flex;
+    align-items: center;
+}
+
+.signinbtn1 a p{
+    margin-bottom: 0px;
+    margin-left: 15px;
+}
+.img_top_username .usericon a {
+    color: black;
+}
+.img_top_username .usericon a div{
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 100%;
+}
+
+.img_top_username .usericon a div p{
+    margin-bottom: 0px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 700;
+
+}
+.fields #searchResult {
+        border: 1px solid #c7c7c7;
+    padding: 10px;
+    height: 300px;
+    overflow: auto;
+    overflow-x: hidden;
+    border-radius: 6px;
+    margin-top: 11px;
+}
+
+.fields #searchResult .signinbtn1:hover {
+    background-color: rgb(246,246,246);
+}
+.fields #searchResult .signinbtn1 {
+    display: flex;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.fields #searchResult .signinbtn1 p {
+    margin-left: 10px;
+    color: black;
+}
+
+
+
   </style>
 </head>
 

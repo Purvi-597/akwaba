@@ -19,7 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('country_code');
             $table->string('contact_no');
+            $table->string('otp');
             $table->enum('role', ['Admin', 'User']);
             $table->text('home_address')->nullable();
             $table->text('work_address')->nullable();
