@@ -1560,7 +1560,8 @@ include('layout/footer.php');
                     {
                     for(i = 0; i < arr.length; i++)
                     {
-                     
+                     //Jainil
+
                         // arr[i].lat arr[i].lon <img src="assets/img/icons/signin.png">
                     out +='<div class="img_top_username autodiv">';
                     out +='<div class="signinbtn1 address" data-latitude="'+arr[i].lat+'" data-longtitude="'+arr[i].lon+'">';
