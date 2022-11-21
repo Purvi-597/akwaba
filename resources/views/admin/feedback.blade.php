@@ -65,6 +65,40 @@
                                             <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Active')</span></td><?php } else { ?>
     
                                             <td id="{{$feedback->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Inactive')</span></td><?php } ?>
+
+                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status btnreply" data-id = "{{$feedback->id}}" >Reply</span></td> 
+
+
+                                            <!-- Button trigger modal -->
+                                            {{-- data-toggle="modal" data-target="#exampleModal"  --}}
+                                                {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                    Launch demo modal
+                                                </button> --}}
+                                                
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Reply</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <input type="hidden" id="reply_id" name="reply_id">
+                                                        <div class="modal-body">
+                                                            <textarea class="form-control" name="message" id="message"></textarea>
+                                                        </div>
+
+                                                
+                                                        
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" id="reply" class="btn btn-primary">Send</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach
@@ -181,5 +215,42 @@ $(document).on('click','#deleteplaceadvertisement',function(){
             }
         })
 })
+</script>
+
+<script>
+    $(".btnreply").click(function(){
+        var id = $(this).attr('data-id');
+        $("#reply_id").val(id)
+        $("#exampleModal").modal('show');
+    
+    $(document).click(function(){
+        $("#reply").click(function() {
+            var reply_id = $('#reply_id ').val();
+            var message = $("#message").val();
+
+            $.ajax({
+            type: "POST",
+            url: '{{route("feedbackemail")}}',
+            data: {'reply_id': reply_id,'message':message,"_token": "{{ csrf_token() }}"},
+            success: function(data){
+                
+               if(data == 1){
+               
+                $(".emailcheckerror").css("display", "block");
+                $("#save").attr("disabled", true);
+
+               }
+               else{
+                $("#save").attr("disabled", false);
+                 $(".emailcheckerror").css("display", "none");
+               }
+            }
+            });     
+        });
+    });
+    });
+    
+
+    
 </script>
 @endsection

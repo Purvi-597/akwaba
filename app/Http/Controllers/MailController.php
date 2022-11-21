@@ -11,6 +11,8 @@ class MailController extends Controller
 {
      public function sendMail(){
 		$data = ['message' => 'This is a test!'];
-		Mail::to('darshanmodi2010@gmail.com')->send(new TestEmail($data));
+		Mail::to('divya.varma@occucare.co.in')->send(new TestEmail($data));
    }
+
+
 }

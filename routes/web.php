@@ -217,6 +217,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
 	/*Feedback */ 
 	 Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
+	 Route::post('feedbackemail', 'FeedbackController@feedbackemail')->name('feedbackemail');
 
 
 
