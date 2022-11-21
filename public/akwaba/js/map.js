@@ -139,173 +139,91 @@ $('.leaflet-control-container .leaflet-control-layers-overlays label').removeCla
 $(this).addClass('active');
 });
 
-$(document).on('click','#iconBtn,.page_no', function(){ 
+$(document).on('click','#iconBtn', function(){ 
 
-var id = $(this).attr('data-index');
-var flag = $(this).attr('data-id');
-var add = $(this).attr('data-add');
-var type = $(this).attr('data-type');
-var current_page = $(this).find('a').text();
-$(this).addClass('active');
-$(this).siblings('.active').removeClass('active');
-//$(this).find('.active').removeClass('active')
+	var id = $(this).attr('data-index');
+	var flag = $(this).attr('data-id');
+	var add = $(this).attr('data-add');
+	var type = $(this).attr('data-type');
+	$(this).addClass('active');
+	$(this).siblings('.active').removeClass('active');
+	//$(this).find('.active').removeClass('active')
 
-if(flag == "Yes" && id == 'allCategory'){
-	$(".morecategoryDiv").removeClass('extralarge');
-	$(".indexDiv").css('display','none');
-	$(".morecategoryDiv").css('display','block');
-	$.getScript(bootstrap);
-	$.getScript(popper);
-	$.getScript(simplebar);
-	$.getScript(custom);
-}else if(flag == "Yes" && id == 'favorite'){
-   var sessionid = $("#sessionid").val();
-   if (typeof sessionid === "undefined") {
-	   $("#exampleModal1").modal('show');
-   }
-}else if(flag == "Yes" && add == 'true'){
-	if(type == 'External'){
-		var external_link = $(this).attr('data-link');
-		window.open(external_link);
-	}else{
-		$.ajax({
-			type: "POST",
-			url: 'category_detail_ajax.php',
-			data: {'from':'addvertisement','id': id, 'cat_type':'Add'},
-			success: function(response){
-				$(".leaflet-marker-icon").css('display','none');
-				$(".indexDiv").css('display','none');
-				$(".addsidebar").html(response);
-				var lat = $('.lat').text();
-				var long = $('.long').text();
-				var markersLayer = new L.LayerGroup();
-				let customIcon = {
-					iconUrl:base_url+'assets/img/icons/ic_eat_out_20X20_Green.png',
-					iconSize:[30,30]
-				   }
-				   let myIcon = L.icon(customIcon);
-				   let iconOptions = {
-					title:'company name',
-					draggable:false,
-					icon:myIcon
-				   }
-					var markerLocation = new L.LatLng(long, lat);
-					var marker = new L.Marker(markerLocation, iconOptions);
-					map.addLayer(marker);
-					var title = $('.leaflet-marker-icon').attr('title');
-					$(title).css('display','block');
-					//$(".addsidebar").addClass('extralarge');
-					$(".addsidebar").css('display','block');
-			}
-		 })
+	if(flag == "Yes" && id == 'allCategory'){
+		$(".morecategoryDiv").removeClass('extralarge');
+		$(".indexDiv").css('display','none');
+		$(".morecategoryDiv").css('display','block');
+		$.getScript(bootstrap);
+		$.getScript(popper);
+		$.getScript(simplebar);
+		$.getScript(custom);
+	}else if(flag == "Yes" && id == 'favorite'){
+	var sessionid = $("#sessionid").val();
+	if (typeof sessionid === "undefined") {
+		$("#exampleModal1").modal('show');
 	}
- }else{
-	$.ajax({
-		type: "POST",
-		url: 'category_data_ajax.php',
-		data: {'id': id, 'page_no': current_page},
-		success: function(catData){
-			$(this).attr('data-id', 'No');
-			$(".indexDiv").css('display','none');
-			$(".catDataDiv").css('display','flex');
-			$(".catDataDiv").removeClass('extralarge');
-			let customIcon = {
-			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
-			 iconSize:[30,30]
-			}
-			let myIcon = L.icon(customIcon);
-			let iconOptions = {
-			 title:'company name',
-			 draggable:false,
-			 icon:myIcon
-			}
-
-			var catData = JSON.parse(catData);
-			console.log(catData);
-			var cathtml = '<div class="closeiconleftpanel" id="catCloseBtn"><a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a> </div> <div class="closeiconleftpanel closeleftpanel2 closeleftpanel"> <img src="assets/img/icons/left-arrow.png"> </div> <div class="scrollbar list-page"> <div class="img-top "> <div class="input-group search-bar"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span> </div> <input type="text" class="form-control" placeholder="Eat Out"> <div class="cross-btn"> <button type="button" class="cross-btn2" aria-label="Clear local search field"> <img src="./assets/img/icons/cross-search.png" alt=""> </button> </div> </div> <div class="row mt-3"> <div class="col-md-6"> <button class="No_Filters"> <a href="#"> <span class="Filter-btn"> <img src="./assets/img/icons/filter-btn.png" alt=""> </span> <span class="No_Filters_btn">Filters</span> </a> </button> </div> <div class="col-md-6"> <div class="float-right"> <div class="No_places"> <a href="#" class="No_places-list">Places: <span class="No_places-number">'+catData[0]['tolcnt']+'</span> </a> </div> </div> </div> </div> </div> <div class="info-card categories-icons-sections"> <div class="row m-0"> <div class="filterpart" data-simplebar> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <a class="btn p-0 toggle-btn"> <i class="fa fa-angle-down" aria-hidden="true"></i> </a> <ul> <li class="side-list">Cafe</li> <li class="side-list">Bars</li> <li class="side-list">Restaurants</li> <li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <ul> <li class="side-list">Wi-Fi</li> <li class="side-list">Amenities</li> <li class="side-list">Brunch</li> <li class="side-list">payment</li> <li class="side-list">Photo available</li> </ul> <div class="input"> <input type="text" class="cafesbar-input" value="" placeholder="Metro station"> </div> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Opening hours</h6> <ul> <li class="side-list active">Open right now</li> <li class="side-list">Open 24 hours</li> <li class="side-list">At the specific time</li> </ul> <div class="input-group"> <div class="input"> <input type="text" class="cafesbar-input w-101" value="" placeholder="06:00 pm"> </div> <div class="input ml-2"> <input type="text" class="cafesbar-input w-64" value="" placeholder="Wed"> </div> </div> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Cuisine</h6> <ul> <li class="side-list">Afgan</li> <li class="side-list">African</li> <li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Average bill from 8 to 550 AED</h6> <div class="slidermaindiv"> <div id="slider-range"></div> <div class="row slider-labels"> <div class="col-xs-6 caption"><span id="slider-range-value1"></span> </div> <div class="col-xs-6 text-right caption"><span id="slider-range-value2"></span> </div> </div> <div class="row"> <div class="col-sm-12"> <form> <input type="hidden" name="min-value" value=""> <input type="hidden" name="max-value" value=""> </form> </div> </div> </div> </div> </div> </div> <div class="restaurantslistpart "> <div class="restaurantslistmaindiv" data-simplebar>';
-
-			if(catData.length > 0){
-				for(var i = 0; i < catData.length; i++) {
-					var lon = catData[i].coordinates[0];
-					var lat = catData[i].coordinates[1];
-					var popupText =  atob(catData[i]['name']);
-					var markerLocation = new L.LatLng(lat, lon);
-					var marker = new L.Marker(markerLocation, iconOptions);
-					map.addLayer(marker);
-					marker.bindPopup(popupText);
-					$(".leaflet-marker-icon").css('display','block');
-	
-					if(catData[i]['cuisine'] != '' && catData[i]['cuisine'] != null){
-						var cuisine = catData[i]['cuisine'].replace(";", ",");
-					}else{
-						var cuisine = '';
+	}else if(flag == "Yes" && add == 'true'){
+		if(type == 'External'){
+			var external_link = $(this).attr('data-link');
+			window.open(external_link);
+		}else{
+			$.ajax({
+				type: "POST",
+				url: 'category_detail_ajax.php',
+				data: {'from':'addvertisement','id': id, 'cat_type':'Add'},
+				success: function(response){
+					$(".leaflet-marker-icon").css('display','none');
+					$(".indexDiv").css('display','none');
+					$(".addsidebar").html(response);
+					var lat = $('.lat').text();
+					var long = $('.long').text();
+					var markersLayer = new L.LayerGroup();
+					let customIcon = {
+						iconUrl:base_url+'assets/img/icons/ic_eat_out_20X20_Green.png',
+						iconSize:[30,30]
 					}
-					if(catData[i]['image'] != '' && catData[i]['image'] != null){
-						var image = '<img src="'+catData[i]['image']+'">';
-					}else{
-						var image = '<img src="assets/img/left-brand-image.png">';
+					let myIcon = L.icon(customIcon);
+					let iconOptions = {
+						title:'company name',
+						draggable:false,
+						icon:myIcon
 					}
-					if(catData[i]['opening_hours'] != '' && catData[i]['opening_hours'] != null){
-						var arr = catData[i]['opening_hours'].split(" ");
-						if(arr[0] != '' && arr[1] != '' && arr[0] != null && arr[1] != null){
-							var day = arr[0].split("-");
-							var week = day[0]+" To " +day[1];
-							console.log(arr[0]);
-							var time = arr[1].split("-");
-						}else{
-							var day = "";
-							var time = arr[0].split("-");
-						}
-						catData[i]['opening_hours'] = catData[i]['opening_hours'];
-					}else{
-						var days = "";
-						var week = "";
-						var time = "";
-						catData[i]['opening_hours'] ='';
-					}
-					if(catData[i]['name'] != '' && catData[i]['name'] != null){
-						var name = catData[i]['name'].replace('"', "");
-					}else{
-						var name = '';
-					}
-					var address='';
-					if(catData[i]['street'] != '' && catData[i]['street']!= null){
-						var address = catData[i]['street'];
-					}else if(catData[i]['city'] != '' && catData[i]['city']!= null){
-						var address =+ ", "+catData[i]['city'];
-					}else if(catData[i]['district'] != '' && catData[i]['district']!= null){
-						var address =+ ", "+catData[i]['district'];
-					}else if(catData[i]['country'] != '' && catData[i]['country']!= null){
-						var address =+ ", "+catData[i]['country'];
-					}
-					if(address != ''){
-						var address = '<div class="location"> <img src="assets/img/icons/location.png"> <p>'+address+'</p> </div>';
-					}
-					else{
-						var address = '';
-					}
-					catData[i]['cat_type'] = catData[i]['cat_type'].replace('_', " ");
-					catData[i]['cat_type'] = catData[i]['cat_type'].ucwords();
-					var bill = 'Average bill $ '+Math.floor((Math.random() * 100) + 1)+' '+cuisine;
-					cathtml += '<div class="singledivlist"> <div class="leftpart"> <a href="javascript:void(0);" class="getcatDetail" id="'+catData[i]['osm_id']+'" data-cat-type="'+catData[i]['cat_type']+'"><p class="title">'+popupText+'</p></a> <p class="subtitle">'+catData[i]['cat_type']+'</p><p class="details">'+ bill +'</p> <div class="orderonlinebtn"> <a href="#">Order Online</a> </div> '+address+' <div class="location"><p> '+catData[i]['opening_hours']+' </p></div> </div> <div class="rightpart"> <div class="restaurantsimg">'+image+'</div> <div class="starboxmaindiv"> <div class="starbox"> <img src="assets/img/icons/cross-search.png"> <img src="assets/img/icons/cross-search.png"> <img src="assets/img/icons/cross-search.png"> <img src="assets/img/icons/cross-search.png"> </div> <div class="ratting"> <p>4.0</p> </div> </div> <p class="totalreviews">'+Math.floor((Math.random() * 1000) + 100)+' Reviews</p> </div> </div>';
+						var markerLocation = new L.LatLng(long, lat);
+						var marker = new L.Marker(markerLocation, iconOptions);
+						map.addLayer(marker);
+						var title = $('.leaflet-marker-icon').attr('title');
+						$(title).css('display','block');
+						//$(".addsidebar").addClass('extralarge');
+						$(".addsidebar").css('display','block');
 				}
-				cathtml += '</div> <div class="paginationmaindiv"> <nav aria-label="..."> <ul class="pagination"><li class="page-item disabled"> <span class="page-link"><img src="assets/img/icons/left-arrow.png"></span> </li>';
-				var tolPage = Math.ceil(catData[0]['tolcnt']/10);
-				for(var p=1;p<=tolPage;p++){
-					var activeClass= '';
-					if(p==current_page){activeClass = 'active';}
-					cathtml +='<li class="page-item page_no '+activeClass+'" data-index="'+id+'"> <a class="page-link" href="javascript:void(0)">'+p+'</a> </li>'; 
-				}
-				cathtml +='<li class="page-item"> <a class="page-link" href="#"><img src="assets/img/icons/right-arrow.png"></a> </li></ul> </nav> </div> </div> </div> </div> </div> <!-- Hotel sub sidebar --> <div class="extrapart catSubsidebar" style="display: none;"></div> </div>';
-			}
-			else{
-				cathtml += '<div class="singledivlist"><div class="leftpart"><p>No Data Found</p></div></div></div></div></div></div></div></div>';
-			}
-			$('.catDataDiv').html(cathtml);
+			})
 		}
-	 })
-}
+	}else{
+		getCatData(id,'1');
+	}
 
+});	
+
+$(document).on('click','.page_no', function(){ 
+
+	var id = $(this).attr('data-index');
+	var current_page = $(this).find('a').text();
+	
+	getCatData(id,current_page);
+});	
+
+$(document).on('click','.catNamefilter', function(){ 
+
+	var id = $(this).parents('.filterpart').attr('data-index');
+	var catName = $(this).attr('data-value');
+	getCatData(id,'1',catName);
+});	
+
+$(document).on('click','.hoursFilter', function(){ 
+
+	var id = $(this).parents('.filterpart').attr('data-index');
+	var hoursfilter = $(this).text();
+	getCatData(id,'1','',hoursfilter);
 });	
 
 String.prototype.ucwords = function() {
@@ -323,6 +241,7 @@ $(document).on('click','#catCloseBtn', function(){
 	$('.getEatoutDetail').attr('id');
 	$('.icon-'+id).attr('data-id', 'Yes');
 	$(".leaflet-marker-icon").css('display','none');
+	$(".leaflet-marker-icon").remove();
 	//window.location.reload();
 });
 
@@ -624,3 +543,144 @@ function Copy() {
   $("#exampleModal2").modal('hide');
   $("#urllink").val('');
 }  
+
+function getCatData(id,current_page,catName='',hoursfilter=''){
+	var cathtml ='';
+	if(catName == ''){
+		$(".catNamefilter").each(function() {
+			if($(this).hasClass('active')){
+				catName = $(this).attr('data-value');
+			}
+		})
+	}
+	$.ajax({
+		type: "POST",
+		url: 'category_data_ajax.php',
+		data: {'id': id,'page_no': current_page,'catName':catName,'hoursfilter':hoursfilter},
+		success: function(catData){
+			$(this).attr('data-id', 'No');
+			$(".indexDiv").css('display','none');
+			$(".catDataDiv").css('display','flex');
+			$(".catDataDiv").removeClass('extralarge');
+			let customIcon = {
+			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
+			 iconSize:[30,30]
+			}
+			let myIcon = L.icon(customIcon);
+			let iconOptions = {
+			 title:'company name',
+			 draggable:false,
+			 icon:myIcon
+			}
+
+			var catData = JSON.parse(catData);
+			var catfilter = catData.slice(-1);
+			var catData = catData.slice(0,-1);
+
+			var tolCnt = 0;
+			if(catData.length > 0){
+				tolCnt = catData[0]['tolcnt'];
+			}
+
+			cathtml = '<div class="closeiconleftpanel" id="catCloseBtn"><a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a> </div> <div class="closeiconleftpanel closeleftpanel2 closeleftpanel"> <img src="assets/img/icons/left-arrow.png"> </div> <div class="scrollbar list-page"> <div class="img-top "> <div class="input-group search-bar"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span> </div> <input type="text" class="form-control" placeholder="Eat Out"> <div class="cross-btn"> <button type="button" class="cross-btn2" aria-label="Clear local search field"> <img src="./assets/img/icons/cross-search.png" alt=""> </button> </div> </div> <div class="row mt-3"> <div class="col-md-6"> <button class="No_Filters"> <a href="#"> <span class="Filter-btn"> <img src="./assets/img/icons/filter-btn.png" alt=""> </span> <span class="No_Filters_btn">Filters</span> </a> </button> </div> <div class="col-md-6"> <div class="float-right"> <div class="No_places"> <a href="#" class="No_places-list">Places: <span class="No_places-number">'+tolCnt+'</span> </a> </div> </div> </div> </div> </div> <div class="info-card categories-icons-sections"> <div class="row m-0"><div class="filterpart" data-simplebar data-index="'+id+'"> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <a class="btn p-0 toggle-btn"> <i class="fa fa-angle-down" aria-hidden="true"></i> </a> <ul>';
+			
+			var catfilterArr = catfilter[0]['subcateArr'].split(",");
+			for(var c=0;c<catfilterArr.length;c++){
+				var sunCateName = catfilterArr[c].replace('_', " ");
+				sunCateName = sunCateName.ucwords();
+				var filtercatclass='';
+				if(catName != '' && catName == catfilterArr[c]){filtercatclass= 'active';}
+				cathtml += ' <li class="side-list catNamefilter '+filtercatclass+'" data-value="'+catfilterArr[c]+'">'+sunCateName+'</li>';
+			}
+
+			cathtml +='<li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <ul> <li class="side-list">Wi-Fi</li> <li class="side-list">Amenities</li> <li class="side-list">Brunch</li> <li class="side-list">payment</li> <li class="side-list">Photo available</li> </ul> <div class="input"> <input type="text" class="cafesbar-input" value="" placeholder="Metro station"> </div> </div> </div>';
+
+			cathtml +='<div class="col-md-12 border-bottom"> <div class="cafesbar"><h6 class="list-heading">Opening hours</h6> <ul> <li class="side-list hoursFilter">Open right now</li> <li class="side-list hoursFilter">Open 24 hours</li> <li class="side-list hoursFilter">At the specific time</li> </ul> <div class="input-group"> <div class="input"> <input type="text" class="cafesbar-input w-101" value="" placeholder="06:00 pm"> </div> <div class="input ml-2"> <input type="text" class="cafesbar-input w-64" value="" placeholder="Wed"> </div> </div> </div> </div>'; 
+
+			cathtml +='<div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Cuisine</h6> <ul> <li class="side-list">Afgan</li> <li class="side-list">African</li> <li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Average bill from 8 to 550 AED</h6> <div class="slidermaindiv"> <div id="slider-range"></div> <div class="row slider-labels"> <div class="col-xs-6 caption"><span id="slider-range-value1"></span> </div> <div class="col-xs-6 text-right caption"><span id="slider-range-value2"></span> </div> </div> <div class="row"> <div class="col-sm-12"> <form> <input type="hidden" name="min-value" value=""> <input type="hidden" name="max-value" value=""> </form> </div> </div> </div> </div> </div> </div>';
+			
+			cathtml += '<div class="restaurantslistpart "> <div class="restaurantslistmaindiv" data-simplebar>';
+			$(".leaflet-marker-icon").css('display','none');
+			$(".leaflet-marker-icon").remove();
+			if(catData.length > 0){
+				
+				for(var i = 0; i < catData.length; i++) {
+					var lon = catData[i].coordinates[0];
+					var lat = catData[i].coordinates[1];
+					var popupText =  atob(catData[i]['name']);
+					var markerLocation = new L.LatLng(lat, lon);
+					var marker = new L.Marker(markerLocation, iconOptions);
+					map.addLayer(marker);
+					marker.bindPopup(popupText);
+					$(".leaflet-marker-icon").css('display','block');
+	
+					if(catData[i]['cuisine'] != '' && catData[i]['cuisine'] != null){
+						var cuisine = catData[i]['cuisine'].replace(";", ",");
+					}else{
+						var cuisine = '';
+					}
+					if(catData[i]['image'] != '' && catData[i]['image'] != null){
+						var image = '<img src="'+catData[i]['image']+'">';
+					}else{
+						var image = '<img src="assets/img/left-brand-image.png">';
+					}
+					if(catData[i]['opening_hours'] != '' && catData[i]['opening_hours'] != null){
+						var arr = catData[i]['opening_hours'].split(" ");
+						if(arr[0] != '' && arr[1] != '' && arr[0] != null && arr[1] != null){
+							var day = arr[0].split("-");
+							var week = day[0]+" To " +day[1];
+							var time = arr[1].split("-");
+						}else{
+							var day = "";
+							var time = arr[0].split("-");
+						}
+						catData[i]['opening_hours'] = catData[i]['opening_hours'];
+					}else{
+						var days = "";
+						var week = "";
+						var time = "";
+						catData[i]['opening_hours'] ='';
+					}
+					if(catData[i]['name'] != '' && catData[i]['name'] != null){
+						var name = catData[i]['name'].replace('"', "");
+					}else{
+						var name = '';
+					}
+					var address='';
+					if(catData[i]['street'] != '' && catData[i]['street']!= null){
+						var address = catData[i]['street'];
+					}else if(catData[i]['city'] != '' && catData[i]['city']!= null){
+						var address =+ ", "+catData[i]['city'];
+					}else if(catData[i]['district'] != '' && catData[i]['district']!= null){
+						var address =+ ", "+catData[i]['district'];
+					}else if(catData[i]['country'] != '' && catData[i]['country']!= null){
+						var address =+ ", "+catData[i]['country'];
+					}
+					if(address != ''){
+						var address = '<div class="location"> <img src="assets/img/icons/location.png"> <p>'+address+'</p> </div>';
+					}
+					else{
+						var address = '';
+					}
+					catData[i]['cat_type'] = catData[i]['cat_type'].replace('_', " ");
+					catData[i]['cat_type'] = catData[i]['cat_type'].ucwords();
+					var bill = 'Average bill $ '+Math.floor((Math.random() * 100) + 1)+' '+cuisine;
+					cathtml += '<div class="singledivlist"> <div class="leftpart"> <a href="javascript:void(0);" class="getcatDetail" id="'+catData[i]['osm_id']+'" data-cat-type="'+catData[i]['cat_type']+'"><p class="title">'+popupText+'</p></a> <p class="subtitle">'+catData[i]['cat_type']+'</p><p class="details">'+ bill +'</p> <div class="orderonlinebtn"> <a href="#">Order Online</a> </div> '+address+' <div class="location"><p> '+catData[i]['opening_hours']+' </p></div> </div> <div class="rightpart"> <div class="restaurantsimg">'+image+'</div> <div class="starboxmaindiv"> <div class="starbox"> <img src="assets/img/icons/cross-search.png"> <img src="assets/img/icons/cross-search.png"> <img src="assets/img/icons/cross-search.png"> <img src="assets/img/icons/cross-search.png"> </div> <div class="ratting"> <p>4.0</p> </div> </div> <p class="totalreviews">'+Math.floor((Math.random() * 1000) + 100)+' Reviews</p> </div> </div>';
+				}
+				cathtml += '</div> <div class="paginationmaindiv"> <nav aria-label="..."> <ul class="pagination"><li class="page-item disabled"> <span class="page-link"><img src="assets/img/icons/left-arrow.png"></span> </li>';
+				var tolPage = Math.ceil(catData[0]['tolcnt']/10);
+				for(var p=1;p<=tolPage;p++){
+					var activeClass= '';
+					if(p==current_page){activeClass = 'active';}
+					cathtml +='<li class="page-item page_no '+activeClass+'" data-index="'+id+'"> <a class="page-link" href="javascript:void(0)">'+p+'</a> </li>'; 
+				}
+				cathtml +='<li class="page-item"> <a class="page-link" href="#"><img src="assets/img/icons/right-arrow.png"></a> </li></ul> </nav> </div> </div> </div> </div> </div> <!-- Hotel sub sidebar --> <div class="extrapart catSubsidebar" style="display: none;"></div> </div>';
+
+			}
+			else{
+				cathtml += '<div class="singledivlist"><div class="leftpart"><p>No Data Found</p></div></div></div></div></div></div></div></div>';
+			}
+			$('.catDataDiv').html(cathtml);
+		}
+	})
+}
