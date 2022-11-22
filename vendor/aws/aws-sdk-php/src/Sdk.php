@@ -496,6 +496,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionRekognition(array $args = [])
  * @method \Aws\ResilienceHub\ResilienceHubClient createResilienceHub(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionResilienceHub(array $args = [])
+ * @method \Aws\ResourceExplorer2\ResourceExplorer2Client createResourceExplorer2(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionResourceExplorer2(array $args = [])
  * @method \Aws\ResourceGroups\ResourceGroupsClient createResourceGroups(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionResourceGroups(array $args = [])
  * @method \Aws\ResourceGroupsTaggingAPI\ResourceGroupsTaggingAPIClient createResourceGroupsTaggingAPI(array $args = [])
@@ -542,6 +544,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionSagemakerEdgeManager(array $args = [])
  * @method \Aws\SavingsPlans\SavingsPlansClient createSavingsPlans(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSavingsPlans(array $args = [])
+ * @method \Aws\Scheduler\SchedulerClient createScheduler(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionScheduler(array $args = [])
  * @method \Aws\Schemas\SchemasClient createSchemas(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSchemas(array $args = [])
  * @method \Aws\SecretsManager\SecretsManagerClient createSecretsManager(array $args = [])
@@ -576,6 +580,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionSqs(array $args = [])
  * @method \Aws\Ssm\SsmClient createSsm(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionSsm(array $args = [])
+ * @method \Aws\SsmSap\SsmSapClient createSsmSap(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionSsmSap(array $args = [])
  * @method \Aws\StorageGateway\StorageGatewayClient createStorageGateway(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionStorageGateway(array $args = [])
  * @method \Aws\Sts\StsClient createSts(array $args = [])
@@ -641,7 +647,11 @@ namespace Aws;
  */
 class Sdk
 {
+<<<<<<< HEAD
     const VERSION = '3.238.3';
+=======
+    const VERSION = '3.245.0';
+>>>>>>> sahil
 
     /** @var array Arguments for creating clients */
     private $args;

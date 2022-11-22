@@ -227,6 +227,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::xrIJkSunTV5t2qBV',
 =======
 <<<<<<< HEAD
@@ -370,6 +371,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::8j5FANM6vt18FelQ',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::roRrB0KZeOa6xCyx',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -389,6 +393,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::19DUEpY3cUG9sKfa',
 =======
 <<<<<<< HEAD
@@ -397,6 +402,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::EesWAdYGJSPrZ1X0',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::SgxD6AlAQtTkimAa',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -409,12 +417,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/logout' => 
+      '/api/verify_otp' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::XuLtpjWriP3MlJQS',
 =======
@@ -424,6 +433,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::bJcGmDCQVqvwJJyX',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::BiycTV3czletLuEV',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -436,12 +448,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/checkuser' => 
+      '/api/logout_user' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::3cpJmn2J9uhfDQiK',
 =======
@@ -451,6 +464,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::efvatkzsjTmHvaSl',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::INTLPGKxL5oaTffJ',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -463,12 +479,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/verifyotp' => 
+      '/api/resend_otp' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::5e9iflYNu1lkELJ4',
 =======
@@ -478,6 +495,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::brcf2NMEosv4Ktru',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::CpO8CbDFc22I3DOJ',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -490,12 +510,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/verifyotpuser' => 
+      '/api/forgot_password' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::QdXfaS4s7c1kyy94',
 =======
@@ -505,6 +526,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::kFiJa5OvhRI5ECW9',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::tQHUnPmecRjd3l8a',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -517,12 +541,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/resetotp' => 
+      '/api/home' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::zN9gIz75PDrUPCO3',
 =======
@@ -748,6 +773,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::74DqzSgNU2zgm6XV',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::cJSpLBrkcVQnQf1R',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -761,12 +789,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/upload_album_picture' => 
+      '/api/demo' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::y8a8T2OLYAduPUEZ',
 =======
@@ -776,6 +805,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::iWOf7NWuGNblGqfY',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::xXi6isxl9D58vRmr',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -788,12 +820,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/getalbumList' => 
+      '/api/category_data' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::hwuWaJoqWjiXwOet',
 =======
@@ -803,6 +836,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::ZOiNryhMM25FSsmB',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::KTwMJmlPOQJsa1gP',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -815,12 +851,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/Image_Like_Dislike' => 
+      '/api/Main_category' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::Rq8VAv1wYE9bDFSz',
 =======
@@ -830,6 +867,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::CagMANH6o5qo4CW6',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::QUYZT5gmgsp2dDLP',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -842,12 +882,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/get_user_list' => 
+      '/api/update_user' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::dQodshnPXnAqnwxT',
 =======
@@ -857,6 +898,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::S18J1S7Twomw6ait',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::giFXcmRWxCp0Cvk3',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -869,12 +913,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/get_city_list' => 
+      '/api/view_profile' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::1LkfC8cpeZfJMzyF',
 =======
@@ -884,6 +929,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::WrZ4mHRgxNVbgyyn',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::mZMvxZoF2YgIYeqA',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -897,12 +945,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/get_zodiac_list' => 
+      '/api/featured_places' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::sqqI7JeybmHd26Wm',
 =======
@@ -912,6 +961,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::eFgyEX41YFq7yK2H',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::90TZSBOf3t2OOYlI',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -925,12 +977,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/education_list' => 
+      '/api/more_category' => 
       array (
         0 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
 <<<<<<< HEAD
             '_route' => 'generated::tqI0Ycept1urHixI',
 =======
@@ -940,12 +993,247 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::sf2GGC4B8R0kJaeu',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::iAMvDtWXhAidHosb',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/sub_categories' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::ia6yipwvkLH58C3C',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/add_company' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::aJYIpRbJxOlaLE3h',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/faq' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::DIcvuymfP4ipRIlF',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/Privacy_policy' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::IzAanCM1JErI1FOh',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/savedroutes/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::PtJRsdYgL546CPYz',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/savedroutes/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::FDWrbBLCK3Tg4uIr',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/savedroutes/delete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::ZMkOLu6TACsCvAK1',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/savedroutes/destroy' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::Ruk63CJarV5B4gkl',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/mypalces/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::VpNInQ48xc7rBxNh',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/mypalces/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::KSm6UR3XcOigTRse',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/mypalces/delete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::PsaK6afnuv8bGRmg',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/api/mypalces/destroy' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::t1WPMZR7oq1Hhen8',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -977,6 +1265,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::k6qqAjY0PJwPblEM',
 =======
 <<<<<<< HEAD
@@ -985,6 +1274,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::LoUiN9znJc3Q17xT',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::LRfP8ArCfXSF5pDT',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1040,6 +1332,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::GNorBVxNkBN8r6Es',
 =======
 <<<<<<< HEAD
@@ -1048,6 +1341,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::aWTfKUXtO8fLXns4',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::mYV0P2vi1CsANsf9',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1139,6 +1435,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::GMnVr614aENDz3tp',
 =======
 <<<<<<< HEAD
@@ -1146,6 +1443,9 @@ app('router')->setCompiledRoutes(
 =======
             '_route' => 'generated::1Rsns4qBOz1KGej9',
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::8YeTsWaHCPzqH5kl',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1185,6 +1485,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::Gj0YGR0O7RzIGIfw',
 =======
 <<<<<<< HEAD
@@ -1193,6 +1494,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::n9gYsTdg7XHja1wg',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::f61sblGkqw212tXT',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1213,6 +1517,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::26MQhRtSyjZgCkuo',
 =======
 <<<<<<< HEAD
@@ -1221,6 +1526,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::kJ4jQJ1727qiE6C7',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::xcdDBR5JhVAZBUf7',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1241,6 +1549,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::Ba1UBZbdIcDy1nmO',
 =======
 <<<<<<< HEAD
@@ -1249,6 +1558,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::oejc7nBPaMnkV0yd',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::JdZTcdqUvVAIzZR0',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1269,6 +1581,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::nrlCHdDkCTqFvfZ8',
 =======
 <<<<<<< HEAD
@@ -1277,6 +1590,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::msuQvRai6nYlZzrP',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::mYCGAtrg12bHtqSt',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1297,6 +1613,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::GfFdkD1Su01mSssn',
 =======
 <<<<<<< HEAD
@@ -1305,6 +1622,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::54NvinJUzzETz5fR',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::9fDqKhm2xf0UWJ3j',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1325,6 +1645,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::pAic1KTgbUpJ3mtH',
 =======
 <<<<<<< HEAD
@@ -1333,6 +1654,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::FwJmro6td752wIf6',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::0ct1evRFr0ANAquV',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1353,6 +1677,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::LVEul8pbziEKBSni',
 =======
 <<<<<<< HEAD
@@ -1361,6 +1686,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::T7A8vBDUR4SOgOft',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::DbPWJFKrj1elSSJK',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1381,6 +1709,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::nroKaPVCGCRZAO9x',
 =======
 <<<<<<< HEAD
@@ -1389,6 +1718,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::vvg7LcAHWmFhY0dI',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::D7CHElqJ0vuZXqgx',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1409,6 +1741,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::TKNjKB3iYW3FeFcg',
 =======
 <<<<<<< HEAD
@@ -1417,6 +1750,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::jmqcymW6auyCGtU9',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::MC8Uwi3GaTa7RzSL',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1437,6 +1773,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::elKT72pcdOiOt34r',
 =======
 <<<<<<< HEAD
@@ -1445,6 +1782,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::QEkNBjLS6gCACBxE',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::qCx3qJCo6j6AqEQE',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1465,6 +1805,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::iMRnbI7OvQndfTdb',
 =======
 <<<<<<< HEAD
@@ -1473,6 +1814,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::2gsFSKU1pcxrCBjy',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::OBraGkSQDqrFijKg',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1493,6 +1837,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::IfiuOGuDJuofHL0H',
 =======
 <<<<<<< HEAD
@@ -1501,6 +1846,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::gKuEpr1V8CgbQ4IR',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::Wz8VMFNw130jWl3K',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1521,6 +1869,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::sjsWlrA738oRCmmf',
 =======
 <<<<<<< HEAD
@@ -1529,6 +1878,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::iBszfiVqdUzHvuum',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::qEaHzDAVMzcFU6a8',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1549,6 +1901,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::DrJZ0n3h91IodPYL',
 =======
 <<<<<<< HEAD
@@ -1557,6 +1910,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::nmpcsTdG0IwZkTs4',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::lNh39AzSqKfu12Qt',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1576,10 +1932,14 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::VPuJEjkNbNJomq3S',
 =======
             '_route' => 'generated::VB9iJiHEOXRSKx1A',
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::WEbmW7DCp78R0Mf2',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1620,6 +1980,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::AhXUe2Hp6e5vkzOJ',
 =======
 <<<<<<< HEAD
@@ -1628,6 +1989,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::4sfAOdX9dv5mR1dx',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::RMDT4BLiT4GupKsc',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1648,6 +2012,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::C1npTQwKHN0Gg1Tx',
 =======
 <<<<<<< HEAD
@@ -1656,6 +2021,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::F580INg1QbH0Nbji',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::Yyl6GF9r4lN9gkCp',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -1734,6 +2102,7 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
 <<<<<<< HEAD
+<<<<<<< HEAD
             '_route' => 'generated::LNdMDVlcjCu3atVD',
 =======
 <<<<<<< HEAD
@@ -1742,6 +2111,9 @@ app('router')->setCompiledRoutes(
             '_route' => 'generated::3tk93uOlQSv6TtLI',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+            '_route' => 'generated::pkRFCpxg8ZSS4eRM',
+>>>>>>> sahil
           ),
           1 => NULL,
           2 => 
@@ -4632,6 +5004,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::xrIJkSunTV5t2qBV' => 
 =======
 <<<<<<< HEAD
@@ -4640,6 +5013,9 @@ app('router')->setCompiledRoutes(
     'generated::HqudMWl8ye0un1b7' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::roRrB0KZeOa6xCyx' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -4652,13 +5028,14 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@register',
-        'controller' => 'App\\Http\\Controllers\\UserController@register',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@register',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@register',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::xrIJkSunTV5t2qBV',
 =======
@@ -4668,6 +5045,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::HqudMWl8ye0un1b7',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::roRrB0KZeOa6xCyx',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -4683,6 +5063,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::wWEIzjEAIiw5Almj' => 
 =======
@@ -4952,6 +5333,9 @@ app('router')->setCompiledRoutes(
     'generated::EesWAdYGJSPrZ1X0' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::SgxD6AlAQtTkimAa' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -4964,13 +5348,14 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@login',
-        'controller' => 'App\\Http\\Controllers\\UserController@login',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@login',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@login',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::19DUEpY3cUG9sKfa',
 =======
@@ -4980,6 +5365,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::EesWAdYGJSPrZ1X0',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::SgxD6AlAQtTkimAa',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -4995,6 +5383,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::XuLtpjWriP3MlJQS' => 
 =======
@@ -5004,25 +5393,29 @@ app('router')->setCompiledRoutes(
     'generated::bJcGmDCQVqvwJJyX' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::BiycTV3czletLuEV' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/logout',
+      'uri' => 'api/verify_otp',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@logout',
-        'controller' => 'App\\Http\\Controllers\\UserController@logout',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@verify_otp',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@verify_otp',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::XuLtpjWriP3MlJQS',
 =======
@@ -5032,6 +5425,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::bJcGmDCQVqvwJJyX',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::BiycTV3czletLuEV',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5047,6 +5443,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::3cpJmn2J9uhfDQiK' => 
 =======
@@ -5056,25 +5453,29 @@ app('router')->setCompiledRoutes(
     'generated::efvatkzsjTmHvaSl' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::INTLPGKxL5oaTffJ' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/checkuser',
+      'uri' => 'api/logout_user',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@checkuser',
-        'controller' => 'App\\Http\\Controllers\\UserController@checkuser',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@logout_user',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@logout_user',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::3cpJmn2J9uhfDQiK',
 =======
@@ -5084,6 +5485,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::efvatkzsjTmHvaSl',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::INTLPGKxL5oaTffJ',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5099,6 +5503,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::5e9iflYNu1lkELJ4' => 
 =======
@@ -5108,25 +5513,29 @@ app('router')->setCompiledRoutes(
     'generated::brcf2NMEosv4Ktru' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::CpO8CbDFc22I3DOJ' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/verifyotp',
+      'uri' => 'api/resend_otp',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@verifyotp',
-        'controller' => 'App\\Http\\Controllers\\UserController@verifyotp',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@resend_otp',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@resend_otp',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::5e9iflYNu1lkELJ4',
 =======
@@ -5136,6 +5545,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::brcf2NMEosv4Ktru',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::CpO8CbDFc22I3DOJ',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5151,6 +5563,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::QdXfaS4s7c1kyy94' => 
 =======
@@ -5160,25 +5573,29 @@ app('router')->setCompiledRoutes(
     'generated::kFiJa5OvhRI5ECW9' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::tQHUnPmecRjd3l8a' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/verifyotpuser',
+      'uri' => 'api/forgot_password',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@verifyotpuser',
-        'controller' => 'App\\Http\\Controllers\\UserController@verifyotpuser',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@forgot_password',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@forgot_password',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::QdXfaS4s7c1kyy94',
 =======
@@ -5188,6 +5605,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::kFiJa5OvhRI5ECW9',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::tQHUnPmecRjd3l8a',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5203,6 +5623,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::zN9gIz75PDrUPCO3' => 
 =======
@@ -5628,26 +6049,30 @@ app('router')->setCompiledRoutes(
     'generated::74DqzSgNU2zgm6XV' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::cJSpLBrkcVQnQf1R' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'api/testxml',
+      'uri' => 'api/home',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\UserController@testxml',
-        'controller' => 'App\\Http\\Controllers\\UserController@testxml',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@home',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@home',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::GHZE3FC6KdMbJwjk',
 =======
@@ -5657,6 +6082,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::74DqzSgNU2zgm6XV',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::cJSpLBrkcVQnQf1R',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5672,6 +6100,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::y8a8T2OLYAduPUEZ' => 
 =======
@@ -5681,25 +6110,29 @@ app('router')->setCompiledRoutes(
     'generated::iWOf7NWuGNblGqfY' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::xXi6isxl9D58vRmr' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/upload_album_picture',
+      'uri' => 'api/demo',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@upload_album_picture',
-        'controller' => 'App\\Http\\Controllers\\DatingController@upload_album_picture',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@demo',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@demo',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::y8a8T2OLYAduPUEZ',
 =======
@@ -5709,6 +6142,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::iWOf7NWuGNblGqfY',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::xXi6isxl9D58vRmr',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5724,6 +6160,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::hwuWaJoqWjiXwOet' => 
 =======
@@ -5733,25 +6170,29 @@ app('router')->setCompiledRoutes(
     'generated::ZOiNryhMM25FSsmB' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::KTwMJmlPOQJsa1gP' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/getalbumList',
+      'uri' => 'api/category_data',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@getalbumList',
-        'controller' => 'App\\Http\\Controllers\\DatingController@getalbumList',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@category_data',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@category_data',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::hwuWaJoqWjiXwOet',
 =======
@@ -5761,6 +6202,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::ZOiNryhMM25FSsmB',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::KTwMJmlPOQJsa1gP',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5776,6 +6220,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::Rq8VAv1wYE9bDFSz' => 
 =======
@@ -5785,25 +6230,29 @@ app('router')->setCompiledRoutes(
     'generated::CagMANH6o5qo4CW6' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::QUYZT5gmgsp2dDLP' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/Image_Like_Dislike',
+      'uri' => 'api/Main_category',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@Image_Like_Dislike',
-        'controller' => 'App\\Http\\Controllers\\DatingController@Image_Like_Dislike',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@Main_category',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@Main_category',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::Rq8VAv1wYE9bDFSz',
 =======
@@ -5813,6 +6262,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::CagMANH6o5qo4CW6',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::QUYZT5gmgsp2dDLP',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5828,6 +6280,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::dQodshnPXnAqnwxT' => 
 =======
@@ -5837,25 +6290,29 @@ app('router')->setCompiledRoutes(
     'generated::S18J1S7Twomw6ait' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::giFXcmRWxCp0Cvk3' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'POST',
       ),
-      'uri' => 'api/get_user_list',
+      'uri' => 'api/update_user',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@get_user_list',
-        'controller' => 'App\\Http\\Controllers\\DatingController@get_user_list',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@update_user',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@update_user',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::dQodshnPXnAqnwxT',
 =======
@@ -5865,6 +6322,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::S18J1S7Twomw6ait',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::giFXcmRWxCp0Cvk3',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5880,6 +6340,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::1LkfC8cpeZfJMzyF' => 
 =======
@@ -5889,26 +6350,30 @@ app('router')->setCompiledRoutes(
     'generated::WrZ4mHRgxNVbgyyn' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::mZMvxZoF2YgIYeqA' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'api/get_city_list',
+      'uri' => 'api/view_profile',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@get_city_list',
-        'controller' => 'App\\Http\\Controllers\\DatingController@get_city_list',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@view_profile',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@view_profile',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::1LkfC8cpeZfJMzyF',
 =======
@@ -5918,6 +6383,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::WrZ4mHRgxNVbgyyn',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::mZMvxZoF2YgIYeqA',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5933,6 +6401,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+<<<<<<< HEAD
 <<<<<<< HEAD
     'generated::sqqI7JeybmHd26Wm' => 
 =======
@@ -5942,26 +6411,30 @@ app('router')->setCompiledRoutes(
     'generated::eFgyEX41YFq7yK2H' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::90TZSBOf3t2OOYlI' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'api/get_zodiac_list',
+      'uri' => 'api/featured_places',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@get_zodiac_list',
-        'controller' => 'App\\Http\\Controllers\\DatingController@get_zodiac_list',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@featured_places',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@featured_places',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::sqqI7JeybmHd26Wm',
 =======
@@ -5971,6 +6444,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::eFgyEX41YFq7yK2H',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::90TZSBOf3t2OOYlI',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -5987,6 +6463,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::tqI0Ycept1urHixI' => 
 =======
 <<<<<<< HEAD
@@ -5995,26 +6472,30 @@ app('router')->setCompiledRoutes(
     'generated::sf2GGC4B8R0kJaeu' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::iAMvDtWXhAidHosb' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'api/education_list',
+      'uri' => 'api/more_category',
       'action' => 
       array (
         'middleware' => 
         array (
           0 => 'api',
         ),
-        'uses' => 'App\\Http\\Controllers\\DatingController@education_list',
-        'controller' => 'App\\Http\\Controllers\\DatingController@education_list',
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@more_category',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@more_category',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
+<<<<<<< HEAD
 <<<<<<< HEAD
         'as' => 'generated::tqI0Ycept1urHixI',
 =======
@@ -6024,6 +6505,445 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::sf2GGC4B8R0kJaeu',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::iAMvDtWXhAidHosb',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::ia6yipwvkLH58C3C' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/sub_categories',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@sub_categories',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@sub_categories',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::ia6yipwvkLH58C3C',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::aJYIpRbJxOlaLE3h' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/add_company',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@add_company',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@add_company',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::aJYIpRbJxOlaLE3h',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::DIcvuymfP4ipRIlF' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/faq',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@faq',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@faq',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::DIcvuymfP4ipRIlF',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::IzAanCM1JErI1FOh' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/Privacy_policy',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\UserController@Privacy_policy',
+        'controller' => 'App\\Http\\Controllers\\API\\UserController@Privacy_policy',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::IzAanCM1JErI1FOh',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::PtJRsdYgL546CPYz' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/savedroutes/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\savedroutes@store',
+        'controller' => 'App\\Http\\Controllers\\API\\savedroutes@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::PtJRsdYgL546CPYz',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::FDWrbBLCK3Tg4uIr' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/savedroutes/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\savedroutes@show',
+        'controller' => 'App\\Http\\Controllers\\API\\savedroutes@show',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::FDWrbBLCK3Tg4uIr',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::ZMkOLu6TACsCvAK1' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/savedroutes/delete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\savedroutes@delete',
+        'controller' => 'App\\Http\\Controllers\\API\\savedroutes@delete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::ZMkOLu6TACsCvAK1',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::Ruk63CJarV5B4gkl' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/savedroutes/destroy',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\savedroutes@destroy',
+        'controller' => 'App\\Http\\Controllers\\API\\savedroutes@destroy',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::Ruk63CJarV5B4gkl',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::VpNInQ48xc7rBxNh' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/mypalces/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\Mypalces@store',
+        'controller' => 'App\\Http\\Controllers\\API\\Mypalces@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::VpNInQ48xc7rBxNh',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::KSm6UR3XcOigTRse' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'api/mypalces/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\Mypalces@show',
+        'controller' => 'App\\Http\\Controllers\\API\\Mypalces@show',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::KSm6UR3XcOigTRse',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::PsaK6afnuv8bGRmg' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/mypalces/delete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\Mypalces@delete',
+        'controller' => 'App\\Http\\Controllers\\API\\Mypalces@delete',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::PsaK6afnuv8bGRmg',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::t1WPMZR7oq1Hhen8' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'api/mypalces/destroy',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'api',
+        ),
+        'uses' => 'App\\Http\\Controllers\\API\\Mypalces@destroy',
+        'controller' => 'App\\Http\\Controllers\\API\\Mypalces@destroy',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => 'api',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::t1WPMZR7oq1Hhen8',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6077,6 +6997,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::k6qqAjY0PJwPblEM' => 
 =======
 <<<<<<< HEAD
@@ -6085,6 +7006,9 @@ app('router')->setCompiledRoutes(
     'generated::LoUiN9znJc3Q17xT' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::LRfP8ArCfXSF5pDT' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6105,6 +7029,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::k6qqAjY0PJwPblEM',
 =======
 <<<<<<< HEAD
@@ -6113,6 +7038,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::LoUiN9znJc3Q17xT',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::LRfP8ArCfXSF5pDT',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6202,6 +7130,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::GNorBVxNkBN8r6Es' => 
 =======
 <<<<<<< HEAD
@@ -6210,6 +7139,9 @@ app('router')->setCompiledRoutes(
     'generated::aWTfKUXtO8fLXns4' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::mYV0P2vi1CsANsf9' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6230,6 +7162,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::GNorBVxNkBN8r6Es',
 =======
 <<<<<<< HEAD
@@ -6238,6 +7171,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::aWTfKUXtO8fLXns4',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::mYV0P2vi1CsANsf9',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6437,6 +7373,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::GMnVr614aENDz3tp' => 
 =======
 <<<<<<< HEAD
@@ -6445,6 +7382,9 @@ app('router')->setCompiledRoutes(
     'generated::1Rsns4qBOz1KGej9' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::8YeTsWaHCPzqH5kl' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6465,6 +7405,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::GMnVr614aENDz3tp',
 =======
 <<<<<<< HEAD
@@ -6473,6 +7414,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::1Rsns4qBOz1KGej9',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::8YeTsWaHCPzqH5kl',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6528,11 +7472,15 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::Gj0YGR0O7RzIGIfw' => 
 =======
     'generated::n9gYsTdg7XHja1wg' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::f61sblGkqw212tXT' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6554,6 +7502,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::Gj0YGR0O7RzIGIfw',
 =======
 <<<<<<< HEAD
@@ -6562,6 +7511,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::n9gYsTdg7XHja1wg',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::f61sblGkqw212tXT',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6578,6 +7530,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::26MQhRtSyjZgCkuo' => 
 =======
 <<<<<<< HEAD
@@ -6586,6 +7539,9 @@ app('router')->setCompiledRoutes(
     'generated::kJ4jQJ1727qiE6C7' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::xcdDBR5JhVAZBUf7' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6607,6 +7563,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::26MQhRtSyjZgCkuo',
 =======
 <<<<<<< HEAD
@@ -6615,6 +7572,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::kJ4jQJ1727qiE6C7',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::xcdDBR5JhVAZBUf7',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6631,6 +7591,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::Ba1UBZbdIcDy1nmO' => 
 =======
 <<<<<<< HEAD
@@ -6639,6 +7600,9 @@ app('router')->setCompiledRoutes(
     'generated::oejc7nBPaMnkV0yd' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::JdZTcdqUvVAIzZR0' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6660,6 +7624,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::Ba1UBZbdIcDy1nmO',
 =======
 <<<<<<< HEAD
@@ -6668,6 +7633,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::oejc7nBPaMnkV0yd',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::JdZTcdqUvVAIzZR0',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6684,6 +7652,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::nrlCHdDkCTqFvfZ8' => 
 =======
 <<<<<<< HEAD
@@ -6692,6 +7661,9 @@ app('router')->setCompiledRoutes(
     'generated::msuQvRai6nYlZzrP' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::mYCGAtrg12bHtqSt' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6713,6 +7685,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::nrlCHdDkCTqFvfZ8',
 =======
 <<<<<<< HEAD
@@ -6721,6 +7694,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::msuQvRai6nYlZzrP',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::mYCGAtrg12bHtqSt',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6737,6 +7713,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::GfFdkD1Su01mSssn' => 
 =======
 <<<<<<< HEAD
@@ -6745,6 +7722,9 @@ app('router')->setCompiledRoutes(
     'generated::54NvinJUzzETz5fR' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::9fDqKhm2xf0UWJ3j' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6766,6 +7746,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::GfFdkD1Su01mSssn',
 =======
 <<<<<<< HEAD
@@ -6774,6 +7755,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::54NvinJUzzETz5fR',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::9fDqKhm2xf0UWJ3j',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6790,6 +7774,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::pAic1KTgbUpJ3mtH' => 
 =======
 <<<<<<< HEAD
@@ -6798,6 +7783,9 @@ app('router')->setCompiledRoutes(
     'generated::FwJmro6td752wIf6' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::0ct1evRFr0ANAquV' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6819,6 +7807,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::pAic1KTgbUpJ3mtH',
 =======
 <<<<<<< HEAD
@@ -6827,6 +7816,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::FwJmro6td752wIf6',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::0ct1evRFr0ANAquV',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6843,6 +7835,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::LVEul8pbziEKBSni' => 
 =======
 <<<<<<< HEAD
@@ -6851,6 +7844,9 @@ app('router')->setCompiledRoutes(
     'generated::T7A8vBDUR4SOgOft' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::DbPWJFKrj1elSSJK' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6872,6 +7868,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::LVEul8pbziEKBSni',
 =======
 <<<<<<< HEAD
@@ -6880,6 +7877,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::T7A8vBDUR4SOgOft',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::DbPWJFKrj1elSSJK',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6896,6 +7896,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::nroKaPVCGCRZAO9x' => 
 =======
 <<<<<<< HEAD
@@ -6904,6 +7905,9 @@ app('router')->setCompiledRoutes(
     'generated::vvg7LcAHWmFhY0dI' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::D7CHElqJ0vuZXqgx' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6925,6 +7929,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::nroKaPVCGCRZAO9x',
 =======
 <<<<<<< HEAD
@@ -6933,6 +7938,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::vvg7LcAHWmFhY0dI',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::D7CHElqJ0vuZXqgx',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -6949,6 +7957,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::TKNjKB3iYW3FeFcg' => 
 =======
 <<<<<<< HEAD
@@ -6957,6 +7966,9 @@ app('router')->setCompiledRoutes(
     'generated::jmqcymW6auyCGtU9' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::MC8Uwi3GaTa7RzSL' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -6978,6 +7990,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::TKNjKB3iYW3FeFcg',
 =======
 <<<<<<< HEAD
@@ -6986,6 +7999,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::jmqcymW6auyCGtU9',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::MC8Uwi3GaTa7RzSL',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7002,6 +8018,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::elKT72pcdOiOt34r' => 
 =======
 <<<<<<< HEAD
@@ -7010,6 +8027,9 @@ app('router')->setCompiledRoutes(
     'generated::QEkNBjLS6gCACBxE' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::qCx3qJCo6j6AqEQE' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7031,6 +8051,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::elKT72pcdOiOt34r',
 =======
 <<<<<<< HEAD
@@ -7039,6 +8060,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::QEkNBjLS6gCACBxE',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::qCx3qJCo6j6AqEQE',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7055,6 +8079,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::iMRnbI7OvQndfTdb' => 
 =======
 <<<<<<< HEAD
@@ -7063,6 +8088,9 @@ app('router')->setCompiledRoutes(
     'generated::2gsFSKU1pcxrCBjy' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::OBraGkSQDqrFijKg' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7084,6 +8112,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::iMRnbI7OvQndfTdb',
 =======
 <<<<<<< HEAD
@@ -7092,6 +8121,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::2gsFSKU1pcxrCBjy',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::OBraGkSQDqrFijKg',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7108,6 +8140,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::IfiuOGuDJuofHL0H' => 
 =======
 <<<<<<< HEAD
@@ -7116,6 +8149,9 @@ app('router')->setCompiledRoutes(
     'generated::gKuEpr1V8CgbQ4IR' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::Wz8VMFNw130jWl3K' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7137,6 +8173,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::IfiuOGuDJuofHL0H',
 =======
 <<<<<<< HEAD
@@ -7145,6 +8182,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::gKuEpr1V8CgbQ4IR',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::Wz8VMFNw130jWl3K',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7161,6 +8201,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::sjsWlrA738oRCmmf' => 
 =======
 <<<<<<< HEAD
@@ -7169,6 +8210,9 @@ app('router')->setCompiledRoutes(
     'generated::iBszfiVqdUzHvuum' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::qEaHzDAVMzcFU6a8' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7190,6 +8234,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::sjsWlrA738oRCmmf',
 =======
 <<<<<<< HEAD
@@ -7198,6 +8243,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::iBszfiVqdUzHvuum',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::qEaHzDAVMzcFU6a8',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7214,6 +8262,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::DrJZ0n3h91IodPYL' => 
 =======
 <<<<<<< HEAD
@@ -7222,6 +8271,9 @@ app('router')->setCompiledRoutes(
     'generated::nmpcsTdG0IwZkTs4' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::lNh39AzSqKfu12Qt' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7242,6 +8294,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::DrJZ0n3h91IodPYL',
 =======
 <<<<<<< HEAD
@@ -7249,6 +8302,9 @@ app('router')->setCompiledRoutes(
 =======
         'as' => 'generated::nmpcsTdG0IwZkTs4',
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::lNh39AzSqKfu12Qt',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7265,10 +8321,14 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::VPuJEjkNbNJomq3S' => 
 =======
     'generated::VB9iJiHEOXRSKx1A' => 
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::WEbmW7DCp78R0Mf2' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7291,11 +8351,15 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::VPuJEjkNbNJomq3S',
 =======
         'as' => 'generated::VB9iJiHEOXRSKx1A',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::WEbmW7DCp78R0Mf2',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7349,6 +8413,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::AhXUe2Hp6e5vkzOJ' => 
 =======
 <<<<<<< HEAD
@@ -7357,6 +8422,9 @@ app('router')->setCompiledRoutes(
     'generated::4sfAOdX9dv5mR1dx' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::RMDT4BLiT4GupKsc' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7378,6 +8446,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::AhXUe2Hp6e5vkzOJ',
 =======
 <<<<<<< HEAD
@@ -7386,6 +8455,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::4sfAOdX9dv5mR1dx',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::RMDT4BLiT4GupKsc',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7402,6 +8474,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::C1npTQwKHN0Gg1Tx' => 
 =======
 <<<<<<< HEAD
@@ -7410,6 +8483,9 @@ app('router')->setCompiledRoutes(
     'generated::F580INg1QbH0Nbji' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::Yyl6GF9r4lN9gkCp' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7431,6 +8507,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::C1npTQwKHN0Gg1Tx',
 =======
 <<<<<<< HEAD
@@ -7439,6 +8516,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::F580INg1QbH0Nbji',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::Yyl6GF9r4lN9gkCp',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 
@@ -7564,6 +8644,7 @@ app('router')->setCompiledRoutes(
       'withTrashed' => false,
     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
     'generated::LNdMDVlcjCu3atVD' => 
 =======
 <<<<<<< HEAD
@@ -7572,6 +8653,9 @@ app('router')->setCompiledRoutes(
     'generated::3tk93uOlQSv6TtLI' => 
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+    'generated::pkRFCpxg8ZSS4eRM' => 
+>>>>>>> sahil
     array (
       'methods' => 
       array (
@@ -7593,6 +8677,7 @@ app('router')->setCompiledRoutes(
         array (
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
         'as' => 'generated::LNdMDVlcjCu3atVD',
 =======
 <<<<<<< HEAD
@@ -7601,6 +8686,9 @@ app('router')->setCompiledRoutes(
         'as' => 'generated::3tk93uOlQSv6TtLI',
 >>>>>>> purvi
 >>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
+=======
+        'as' => 'generated::pkRFCpxg8ZSS4eRM',
+>>>>>>> sahil
       ),
       'fallback' => false,
       'defaults' => 

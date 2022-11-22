@@ -20,6 +20,11 @@ use Twilio\Rest\Api\V2010\Account\Call\PaymentList;
 use Twilio\Rest\Api\V2010\Account\Call\RecordingList;
 use Twilio\Rest\Api\V2010\Account\Call\SiprecList;
 use Twilio\Rest\Api\V2010\Account\Call\StreamList;
+<<<<<<< HEAD
+=======
+use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageList;
+use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageSubscriptionList;
+>>>>>>> sahil
 use Twilio\Values;
 use Twilio\Version;
 
@@ -59,6 +64,11 @@ class CallInstance extends InstanceResource {
     protected $_payments;
     protected $_siprec;
     protected $_streams;
+<<<<<<< HEAD
+=======
+    protected $_userDefinedMessageSubscriptions;
+    protected $_userDefinedMessages;
+>>>>>>> sahil
 
     /**
      * Initialize the CallInstance
@@ -203,6 +213,23 @@ class CallInstance extends InstanceResource {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Access the userDefinedMessageSubscriptions
+     */
+    protected function getUserDefinedMessageSubscriptions(): UserDefinedMessageSubscriptionList {
+        return $this->proxy()->userDefinedMessageSubscriptions;
+    }
+
+    /**
+     * Access the userDefinedMessages
+     */
+    protected function getUserDefinedMessages(): UserDefinedMessageList {
+        return $this->proxy()->userDefinedMessages;
+    }
+
+    /**
+>>>>>>> sahil
      * Magic getter to access properties
      *
      * @param string $name Property to access

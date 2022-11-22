@@ -206,9 +206,15 @@ class BinaryFileResponse extends Response
      */
     public function prepare(Request $request)
     {
+<<<<<<< HEAD
         parent::prepare($request);
 
         if ($this->isInformational() || $this->isEmpty()) {
+=======
+        if ($this->isInformational() || $this->isEmpty()) {
+            parent::prepare($request);
+
+>>>>>>> sahil
             $this->maxlen = 0;
 
             return $this;
@@ -218,6 +224,11 @@ class BinaryFileResponse extends Response
             $this->headers->set('Content-Type', $this->file->getMimeType() ?: 'application/octet-stream');
         }
 
+<<<<<<< HEAD
+=======
+        parent::prepare($request);
+
+>>>>>>> sahil
         $this->offset = 0;
         $this->maxlen = -1;
 

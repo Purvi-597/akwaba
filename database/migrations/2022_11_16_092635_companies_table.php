@@ -22,7 +22,10 @@ class CompaniesTable extends Migration
             $table->text('area_of_activity')->nullable();
             $table->string('address');
             $table->string('phone_number');
+<<<<<<< HEAD
             $table->string('country_code');
+=======
+>>>>>>> sahil
             $table->string('phone_number_comment');
             $table->string('website');
             $table->string('opening_hours');
@@ -44,6 +47,9 @@ class CompaniesTable extends Migration
     public function down()
     {
         //
+<<<<<<< HEAD
         Schema::dropIfExists('company');  
+=======
+>>>>>>> sahil
     }
 }

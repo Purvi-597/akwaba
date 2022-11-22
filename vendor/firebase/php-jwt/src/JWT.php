@@ -76,7 +76,11 @@ class JWT
      *
      * @return stdClass The JWT's payload as a PHP object
      *
+<<<<<<< HEAD
      * @throws InvalidArgumentException     Provided key/key-array was empty
+=======
+     * @throws InvalidArgumentException     Provided key/key-array was empty or malformed
+>>>>>>> sahil
      * @throws DomainException              Provided JWT is malformed
      * @throws UnexpectedValueException     Provided JWT was invalid
      * @throws SignatureInvalidException    Provided JWT was invalid because the signature verification failed
@@ -136,7 +140,11 @@ class JWT
             // OpenSSL expects an ASN.1 DER sequence for ES256/ES384 signatures
             $sig = self::signatureToDER($sig);
         }
+<<<<<<< HEAD
         if (!self::verify("${headb64}.${bodyb64}", $sig, $key->getKeyMaterial(), $header->alg)) {
+=======
+        if (!self::verify("{$headb64}.{$bodyb64}", $sig, $key->getKeyMaterial(), $header->alg)) {
+>>>>>>> sahil
             throw new SignatureInvalidException('Signature verification failed');
         }
 
@@ -166,7 +174,7 @@ class JWT
     }
 
     /**
-     * Converts and signs a PHP object or array into a JWT string.
+     * Converts and signs a PHP array into a JWT string.
      *
      * @param array<mixed>          $payload PHP array
      * @param string|resource|OpenSSLAsymmetricKey|OpenSSLCertificate $key The secret key.

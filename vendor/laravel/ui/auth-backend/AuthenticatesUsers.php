@@ -73,6 +73,7 @@ trait AuthenticatesUsers
             $this->username() => 'required|string',
             'password' => 'required|string',
 <<<<<<< HEAD
+<<<<<<< HEAD
         ]);
 =======
             /// 'g-recaptcha-response' =>['required'],
@@ -81,6 +82,9 @@ trait AuthenticatesUsers
        ]
     );
 >>>>>>> purvi
+=======
+        ]);
+>>>>>>> sahil
     }
 
     /**
@@ -185,7 +189,7 @@ trait AuthenticatesUsers
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/login');
+            : redirect('/');
     }
 
     /**

@@ -319,6 +319,7 @@ final class TestRunner extends BaseTestRunner
             $this->printer->setShowProgressAnimation(!$arguments['noInteraction']);
         }
 
+<<<<<<< HEAD
         if ($arguments['colors'] !== ResultPrinter::COLOR_NEVER) {
             $this->write(
                 'PHPUnit ' .
@@ -331,6 +332,9 @@ final class TestRunner extends BaseTestRunner
         } else {
             $this->write(Version::getVersionString() . "\n");
         }
+=======
+        $this->write(Version::getVersionString() . "\n");
+>>>>>>> sahil
 
         if ($arguments['verbose']) {
             $this->writeMessage('Runtime', $this->runtime->getNameWithVersionAndCodeCoverageDriver());

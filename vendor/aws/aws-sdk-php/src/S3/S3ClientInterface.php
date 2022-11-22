@@ -97,7 +97,11 @@ interface S3ClientInterface extends AwsClientInterface
      * @return bool
      * @throws S3Exception|Exception if there is an unhandled exception
      */
+<<<<<<< HEAD
     public function doesObjectExistV2($bucket, $key, $includeDeleteMarkers, array $options = []);
+=======
+    public function doesObjectExistV2($bucket, $key, $includeDeleteMarkers = false, array $options = []);
+>>>>>>> sahil
 
     /**
      * Register the Amazon S3 stream wrapper with this client instance.
