@@ -314,7 +314,8 @@ $(document).on('click','#catCloseBtn', function(){
 	$(".catDataDiv").css('display','none');
 	$('.getEatoutDetail').attr('id');
 	$('.icon-'+id).attr('data-id', 'Yes');
-	$(".leaflet-marker-icon").css('display','none');
+	// $(".leaflet-marker-icon").css('display','none');
+	$(".leaflet-marker-icon").remove();
 	//window.location.reload();
 });
 

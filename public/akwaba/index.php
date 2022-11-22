@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(0);
 session_start();
 include('layout/head.php');
@@ -139,7 +139,7 @@ if($advertisement_result->num_rows > 0) {
               <div class="detail-list-name">
                 <a href="javascript:void(0);" id="interesting_places" class="interesting_places">
                 <p class="detail-list-btn">Interesting places</p>
-              </a>    
+              </a>
               </div>
             </li>
 
@@ -185,7 +185,7 @@ if($advertisement_result->num_rows > 0) {
             </li>
             <li class="details-list pl-76">
               <div class="detail-list-name">
-                <p class="detail-list-btn">Advertising</p>
+               <a href="javascript:void(0);" class="detail-list-btn" id="add_advertising" data-toggle="modal" data-target="#addAdvertisingModel">Advertising</p>
               </div>
             </li>
             <li class="details-list pl-76">
@@ -247,7 +247,7 @@ if($advertisement_result->num_rows > 0) {
       </div>
 
     </div>
-  
+
   <!-- Home Sidebar Section-->
   <section>
     <div class="left-panel left-scroll indexDiv" id="style-2">
@@ -272,7 +272,7 @@ if($advertisement_result->num_rows > 0) {
           <div class="info-card categories-icons-section">
             <h4 class="fs-18 left-panal-heading"></h4>
             <div class="row">
-			<?php 
+			<?php
 			if(count($categoryData) > 0){
         $s=1;
 			foreach($categoryData as $rows){ ?>
@@ -301,22 +301,22 @@ if($advertisement_result->num_rows > 0) {
                   <p class="categories-name">Favorite</p>
                 </a>
               </div>
-      <?php }else{ ?>  
+      <?php }else{ ?>
 			<span style="color: red;">Data is not found!</span>
-			<?php } ?>  
+			<?php } ?>
             </div>
           </div>
           <div class="brend-image" id="advertisement_images">
-		  <?php if(!empty($advertisementData)){ 
+		  <?php if(!empty($advertisementData)){
         $i=0;
-		  foreach($advertisementData as $Arows){ 
+		  foreach($advertisementData as $Arows){
         $class = '';
         $style = 'none';
-        if($i == 0){$class = 'active';$style = 'block';} 
+        if($i == 0){$class = 'active';$style = 'block';}
 		  ?>
       <a href="<?= $Arows['link'] ?>" target="_blank">
             <img src="../uploads/advertisement/<?=$Arows['image']?>" class="img-fluid <?=$class;?>" alt="" style="display:<?=$style?>"></a>
-		  <?php $i++; }} ?>	
+		  <?php $i++; }} ?>
           </div>
           <div class="info-card featured-places-section">
           <h4 class="fs-18 left-panal-heading mb-3">Featured Places</h4>
@@ -340,7 +340,7 @@ if($advertisement_result->num_rows > 0) {
       <div class="closeiconleftpanel closeleftpanel2 closeleftpanel">
         <img src="assets/img/icons/left-arrow.png">
       </div>
-	 
+
       <div class="scrollbar left-scroll-2">
          <div class="img-top">
           <div class="input-group  search-bar">
@@ -356,7 +356,7 @@ if($advertisement_result->num_rows > 0) {
           <div class="info-card categories-icons-section">
             <h4 class="fs-18 left-panal-heading">Categories</h4>
             <div class="row">
-			<?php 
+			<?php
 			if(count($morecategoryData) > 0){
 			foreach($morecategoryData as $mrows){ ?>
               <div class="col-md-3 text-center iconcol">
@@ -367,10 +367,10 @@ if($advertisement_result->num_rows > 0) {
                   <p class="categories-name"><?=$mrows['display_name']?></p>
                 </a>
               </div>
-			<?php }}else{ ?>  
+			<?php }}else{ ?>
 			<span style="color: red;">Data is not found!</span>
-			<?php } ?>  
-            
+			<?php } ?>
+
             </div>
           </div>
       </div>
@@ -405,7 +405,7 @@ if($advertisement_result->num_rows > 0) {
         <div class="info-card categories-icons-section" data-simplebar>
           <h4 class="fs-18 left-panal-heading"></h4>
           <div class="row">
-		  <?php 
+		  <?php
 			if(!empty($morecategoryData)){
 			foreach($morecategoryData as $mrows){ ?>
             <div class="col-md-3 text-center iconcol col-6 ">
@@ -416,9 +416,9 @@ if($advertisement_result->num_rows > 0) {
                 <p class="categories-name"><?=$mrows['display_name']?></p>
               </a>
             </div>
-            <?php }}else{ ?>  
+            <?php }}else{ ?>
 			<span style="color: red;">Data is not found!</span>
-			<?php } ?>  
+			<?php } ?>
             <div class="col-md-3 text-center iconcol col-6 ">
               <a href="#" class="iconATag">
                 <div class="categories-icon icon-8">
@@ -429,11 +429,11 @@ if($advertisement_result->num_rows > 0) {
             </div>
           </div>
         </div>
-        
+
       </div>
       <div class="extrapart extrapartfeature subcatSubsidebar" style="display: none;" data-simplebar ></div>
     </div>
-	
+
 	<div class="left-panel left-feature-panel extralarge featuredDiv" id="style-2" style="display: none;">
       <div class="closeiconleftpanel" id="featureCloseBtn">
        <a href="javascript:void(0);"  id="interesting_close"><img src="assets/img/icons/left-cross.png"></a>
@@ -455,7 +455,7 @@ if($advertisement_result->num_rows > 0) {
           </div>
         </div>
         <div class="info-card categories-icons-section" data-simplebar>
-		<?php 
+		<?php
 		if(!empty($featureData)){
 		foreach($featureData as $frows) { ?>
 		   <div class="row">
@@ -469,27 +469,27 @@ if($advertisement_result->num_rows > 0) {
               <a class="btn p-0 toggle-btn" >
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
               </a>
-            <div class="features-overflow"> 
+            <div class="features-overflow">
               <p class="feature-p"><?= strip_tags($frows['description']) ; ?></p>
             </div>
             </div>
           </div>
-			<?php }}else{ ?> 
-			<span style="color: red;">Data is not found!</span>		
-			<?php } ?>  
+			<?php }}else{ ?>
+			<span style="color: red;">Data is not found!</span>
+			<?php } ?>
         </div>
       </div>
 	  <div class="extrapart extrapartfeature featureSubsidebar" data-simplebar style="display: none;"></div>
       </div>
 
     <div class="left-panel left-list-panel extralarge catDataDiv"  id="style-2" style="display: none;"></div>
-	
+
 	<!-- Eatout sidebar dynamic -->
 	<div class="left-panel left-list-panel extralarge eatoutdynamicDiv"  id="style-2" style="display: none;">
     </div>
-	
-	
-	
+
+
+
 		<div class="overlayIconInIframe">
 		  <a class="routeicon" href="#">
 			<img src="assets/img/icons/route.png">
@@ -504,7 +504,7 @@ if($advertisement_result->num_rows > 0) {
 			</a>
 			<!--<a href="logout.php" style="background-color: #fff;" class="btn btn-outline-default"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp; Logout</a>-->
 		  </div>
-		  <?php }else{ 
+		  <?php }else{
 			  $firstName = substr($_SESSION['users']['firstname'], 0, 1);
 			  $lastName = substr($_SESSION['users']['lastname'], 0, 1);
 			  $name = strtoupper($firstName.''.$lastName);
@@ -542,7 +542,7 @@ if($advertisement_result->num_rows > 0) {
                     <img src="assets/img/icons/route.png">
                   </div>
                   <div role="tab" data-toggle="tab" href="#tab3" class="menu-list-name">Achievements</div>
-                  
+
                 </li>
 
                 <li class="menu-list">
@@ -550,7 +550,7 @@ if($advertisement_result->num_rows > 0) {
                     <img src="assets/img/icons/route.png">
                   </div>
                   <div role="tab" data-toggle="tab" href="#tab4" class="menu-list-name">Reviews</div>
-                  
+
                 </li>
 
                 <li class="menu-list">
@@ -559,7 +559,7 @@ if($advertisement_result->num_rows > 0) {
                   </div>
                   <div role="tab" data-toggle="tab" href="#tab5" class="menu-list-name">Photos</div>
 
-                  
+
                 </li>
 
                 <li class="menu-list">
@@ -568,7 +568,7 @@ if($advertisement_result->num_rows > 0) {
                   </div>
                   <div role="tab" data-toggle="tab" href="#tab6" class="menu-list-name">Corrections</div>
 
-                  
+
                 </li>
 
 
@@ -603,7 +603,7 @@ if($advertisement_result->num_rows > 0) {
 			<img src="assets/img/icons/menu.png">
 		  </a>
 		</div>
-	  
+
 		<div class="multipleIconList">
 			<a class="shareIcon" href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo">
 			  <img src="assets/img/icons/share.png">
@@ -621,13 +621,13 @@ if($advertisement_result->num_rows > 0) {
 			  <img src="assets/img/icons/ic_feedback.png">
 			</a>-->
 		</div>
-		
-    
+
+
   </section>
 
   <!---- Add Company Main Model ---->
 <div class="modal fade Edit-modal addcompany-modal" id="addcompanyModalCenter" tabindex="-1" role="dialog"
-     aria-labelledby="addcompanyCenterTitle" aria-hidden="true">
+     aria-labelledby="addcompanyCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
      <div class="modal-dialog modal-dialog-centered" role="document">
        <div class="modal-content">
          <div class="modal-header">
@@ -867,7 +867,7 @@ if($advertisement_result->num_rows > 0) {
 </div>
 <!---- Add Company EMail Model --->
 <div class="modal fade Edit-modal addcompany-modal" id="addcompanyModal2Center" tabindex="-1" role="dialog"
-     aria-labelledby="addcompanyCenterTitle" aria-hidden="true">
+     aria-labelledby="addcompanyCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
      <div class="modal-dialog modal-dialog-centered" role="document">
        <div class="modal-content">
          <div class="modal-header">
@@ -906,10 +906,127 @@ if($advertisement_result->num_rows > 0) {
           <!-- <div class="d-lg-flex d-block d-md-flex img_top_username">
           </div> -->
           <a href="javascript:void(0);" class="addcompanyModal2Center_close">
-          <button type="button" class="btn " data-dismiss="modal">Close</button>
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
           </a>
            <a href="javascript:void(0);" id="final_save" name="final_save" class="btn btn-primary">Save</a>
 
+         </div>
+         </form>
+     </div>
+   </div>
+
+</div>
+
+<div class="modal fade Edit-modal addcompany-modal" id="addAdvertisingModel" tabindex="-1" role="dialog"
+     aria-labelledby="addcompanyCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false" >
+     <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <p class="modal-title">Advertising</p>
+           <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button> -->
+         </div>
+         <form method="post" name="frm3" id="frm3" enctype="multipart/form-data">
+         <div class="modal-body" data-simplebar>
+           <div class="addcompany-profile">
+
+              <div class="input-company">
+                  <div class="fields">
+                    <div class="input-field">
+                      <label for="formrow-quest_name-input">Place title</label>
+                      <input type="text" id="place_title" name="place_title" class="field-input" placeholder="Enter place title">
+                    </div>
+                    <span id="place_title_error" style="color:red;font-size: 12px;"></span>
+                  </div>
+             </div>
+            <div class="input-company">
+
+              <div class="fields">
+                <div class="input-field">
+                    <label for="formrow-quest_name-input">Image</label>
+                  <input type="file" id="images_0" name="place_image" class="field-input" >
+
+                </div>
+                <img id="image_main0" name="image_main0" class="image_main0" height="30" width="30" style="display:none;margin-top:2px;" >
+                <span id="image0_error" style="color:red;font-size: 12px;"></span>
+              </div>
+             </div>
+
+
+             <div class="input-company">
+
+            <div class="fields">
+
+            <label for="formrow-quest_name-input">Type</label>
+            <div class="input-field" style="display:flex;margin-left: 17px;">
+
+            <input class="form-check-input place_type" type="radio" name="place_type" id="External" value="External">
+            <label class="form-check-label" for="External">External</label>
+
+            </div>
+            <div class="input-field" style="display:flex;margin-left: 17px;">
+            <input class="form-check-input place_type" type="radio" name="place_type" id="POI" value="POI">
+            <label class="form-check-label" for="POI">POI</label>
+            </div>
+
+            <span id="place_type_error" style="color:red;font-size: 12px;"></span>
+            </div>
+            </div>
+            <div class="input-company" id="link_div" style="display:none;">
+            <div class="fields">
+            <label for="formrow-quest_name-input">Link</label>
+            <input type="text" class="form-control" name="place_link" id="place_link" placeholder="Enter Link">
+            <span id="place_link_error" style="color:red;font-size: 12px;"></span>
+            </div>
+
+            </div>
+            <?php
+            $Place_names = pg_query($db,"select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, name, osm_id from planet_osm_point where name != ''");
+            $place_name_result= [];
+            while($row = pg_fetch_row($Place_names)) {
+                array_push($place_name_result,$row, true);
+            }
+            ?>
+
+            <div class="input-company" id="place_name_div" style="display:none;">
+
+            <div class="fields">
+            <label for="formrow-quest_name-input">Place Name</label>
+            <!-- <input type="text" class="form-control" name="place_name" id="place_name" placeholder="Enter place Name"> -->
+            <select class="js-example-basic-single form-control" name="place_name" id="place_name">
+                <option value="" selected>Select</option>
+            <?php if(!empty($place_name_result)){
+               foreach($place_name_result as $row){
+                $latitude = json_decode($row[0])->coordinates[0];
+                $longtitude = json_decode($row[0])->coordinates[1];
+                ?>
+
+            <option value="<?php echo $row[2]; ?>" data-latitude="<?php echo $latitude; ?>" data-longtitude="<?php echo $longtitude; ?>"><?php echo $row[1]; ?></option>
+                <?php } } ?>
+            </select>
+            <span id="place_name_error" style="color:red;font-size: 12px;"></span>
+            </div>
+
+            </div>
+
+            <div class="input-company">
+            <div class="fields">
+            <label for="formrow-quest_name-input">Other Images</label>
+            <input type="file" name="multiple_photos[]" id="multiple_photos" multiple >
+             <span id="image_multiple_error" style="color:red;margin-left:10px;"></span>
+            <div class="img_section1" id="img_section1">
+           </div>
+            </div>
+            </div>
+
+        </div>
+         </div>
+        <div class="modal-footer">
+            <a href="javascript:void(0);" class="AdvertisigModalCenter_close">
+                <button type="button" class="btn ">Close</button>
+            </a>
+           <a href="javascript:void(0);" id="save_advertising" name="save_advertising" class="btn btn-primary">Save</a>
          </div>
          </form>
      </div>
@@ -930,7 +1047,7 @@ if($advertisement_result->num_rows > 0) {
 	<?php if(isset($_SESSION['users'])) { ?>
     <input type="hidden" value="<?= $_SESSION['users']['id']?>" id="sessionid" name="sessionid" />
 	<?php } ?>
-	
+
 <script type="text/javascript">
         var metroLatLng = JSON.parse('<?php echo json_encode($metroData); ?>');
         var tourismLatLng = JSON.parse('<?php echo json_encode($tourismData); ?>');
@@ -938,17 +1055,17 @@ if($advertisement_result->num_rows > 0) {
         var restaurantLatLng = JSON.parse('<?php echo json_encode($restaurantData); ?>');
         var groceryLatLng = JSON.parse('<?php echo json_encode($groceryData); ?>');
         var mallLatLng = JSON.parse('<?php echo json_encode($mallData); ?>');
-        var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');	
-        var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');	
-        var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');	
-        var grocerynameData = JSON.parse('<?php echo json_encode($grocerynameData); ?>');	
-        var mallnameData = JSON.parse('<?php echo json_encode($mallnameData); ?>');	
-        var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');	
-        var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');	
-		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');	
+        var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');
+        var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');
+        var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');
+        var grocerynameData = JSON.parse('<?php echo json_encode($grocerynameData); ?>');
+        var mallnameData = JSON.parse('<?php echo json_encode($mallnameData); ?>');
+        var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');
+        var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');
+		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');
     var base_url = 'http://127.0.0.1:8000/akwaba/';
-</script> 
-<!-- Signup Model -->	
+</script>
+<!-- Signup Model -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -994,7 +1111,7 @@ if($advertisement_result->num_rows > 0) {
       </div>
     </div>
   </div>
-</div>	
+</div>
 <!-- Login Model -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -1026,7 +1143,7 @@ if($advertisement_result->num_rows > 0) {
       </div>
     </div>
   </div>
-</div>	
+</div>
 <!-- Send link Model -->
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -1059,7 +1176,7 @@ if($advertisement_result->num_rows > 0) {
       </div>
     </div>
   </div>
-</div>	
+</div>
 <!-- Feedback Model -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -1103,12 +1220,21 @@ if($advertisement_result->num_rows > 0) {
     </div>
   </div>
 </div>
-<?php 
+
+
+
+<!--
+add_advertising
+addAdvertisingModel
+ -->
+
+
+<?php
 include('layout/footer.php');
 ?>
 <script>
 		$(document).ready(function (){
-
+            // $("#place_name").select2();
       if($("#advertisement_images img").length > 1){
         setTimeout(changeImage, 5000);
       }
@@ -1152,7 +1278,7 @@ include('layout/footer.php');
 			$(".printIcon").click(function(){
 				$('#map').print();
 			});
-			
+
 			map.on("moveend", function () {
 				var freshLatLan = map.getCenter().toString();
 				var removeFirst = freshLatLan.replace('LatLng', '');
@@ -1180,419 +1306,27 @@ include('layout/footer.php');
 				  lat = e.latlng.lat;
 				  lng = e.latlng.lng;
 				  let eiffelMarker = L.marker([lat, lng]).addTo(map);
-				  eiffelMarker.bindPopup("You clicked the map at -<br>" + 
-				"<b>lat:</b> " + lat + "<br>" + 
+				  eiffelMarker.bindPopup("You clicked the map at -<br>" +
+				"<b>lat:</b> " + lat + "<br>" +
 				"<b>lang:</b> " + lng).openPopup();
-				}); 
+				});
 		});
 
     function changeImage(){
       $curr = $("#advertisement_images .active");
       $next = $("#advertisement_images .active").next();
-      
+
       if($next[0] === undefined)
           $next = $("#advertisement_images img").eq(0);
-      
+
       $curr.fadeOut(500, function(){
           $next.fadeIn(500, function(){
               $curr.removeClass("active");
               $next.addClass("active");
               setTimeout(changeImage, 5000);
-          });   
-      });                 
+          });
+      });
     }
-
-          $(document).ready(function (){
-
-
-             $("#interesting_places").click(function(){
-             $(".indexDiv").css('display','none');
-             $(".morecategoryDiv").css('display','none');
-             $(".featuredDiv").removeClass('extralarge');
-             $(".featuredDiv").css('display','flex');
-            });
-            $(document).on('click','#interesting_close',function(){
-                $(".indexDiv").css('display','block');
-                $(".featuredDiv").css('display','none');
-                $(".morecategoryDiv").css('display','none');
-                $(".eatoutDiv").css('display','none');
-            });
-            $(document).on("click",'#add_phone_number',function(){
-
-                var length = $(".leftinputdiv").length;
-
-                var i = length + 1;
-                if(length < 2){
-                var html ='<div class="leftinput leftinputdiv leftinputdiv_'+i+'"><div class="phone_number_div" id="phone_number_div">';
-                    html += '<div class="fields phone1"><div class="input-field"><input type="text" id="phone_number_'+i+'"name="phone_number[]" class="field-input" placeholder="Phone number">';
-                    html += '</div></div>';
-                    html += '<div class="fields phone2">';
-                    html += '<div class="input-field phone_number_comment_div" id="phone_number_comment_div">';
-                    html += '<input type="text" name="phone_number_comment[]" id="phone_number_comment_'+i+'"class="field-input" placeholder="Comment on phone number">';
-                    html += '</div> </div></div> </div>';
-                    html += '<div class="icon-cross remove_leftinputdiv_'+i+'">';
-                    html += '<a href="javascript:void(0);" class="cancel_phonenumber" data-id="'+i+'" ><i class="fa fa-times" aria-hidden="true"></i></a>';
-                    html += '</div>';
-                $(".phonedives").append(html)
-                }
-            });
-            $(document).on("click",'.cancel_phonenumber',function(){
-                var id = $(this).attr('data-id');
-                if(id > 1){
-                $(".leftinputdiv_"+id).remove();
-                $(".remove_leftinputdiv_"+id).remove();
-                }
-            });
-            $(document).on("click",'#add_website',function(){
-                var length = $(".websitedivs").length;
-
-              var i = length + 1;
-              if(length < 2){
-                var html =  '<div class="leftinput websitedivs website_'+i+'">';
-                    html +=  '<div class="fields">';
-                    html +=  '<div class="input-field">';
-                    html +=  ' <input type="text" name="website[]" class="field-input" placeholder="Website or page in social networks">';
-                    html +=  '</div>';
-                    html +=  '</div>';
-                    html +=  '</div>';
-                    html +=  '<div class="icon-cross remove_website_'+i+'">';
-                    html +=  '<a href="javascript:void(0);" class="cancel_website" data-id="'+i+'" id="cancel_website_'+i+'">';
-                    html +=  '  <i class="fa fa-times" aria-hidden="true"></i>';
-                    html +=  '</a>';
-                    html +=  '</div>';
-                    $(".websites").append(html);
-              }
-            });
-            $(document).on("click",'.cancel_website',function(){
-                var id = $(this).attr('data-id');
-                $(".website_"+id).remove();
-                $(".remove_website_"+id).remove();
-            });
-
-
-     if (window.File && window.FileList && window.FileReader) {
-        $("#uploadimg").change(function(e) {
-
-
-        if($(".pip").length > 1){
-          $(".pip").remove("");
-        }
-
-        if ($("#uploadimg")[0].files.length > 5) {
-             $("#uploadimg").val(null);
-        $("#image_other_error").html("You can only upload 3 images");
-    }
-    else{
-    for (var i = 0; i < this.files.length; i++){
-                let name = e.target.files[i].name;
-                    $("#image_other_error").html("");
-                    var files = e.target.files,
-                        filesLength = files.length;
-
-                var ext = name.split('.').pop().toLowerCase();
-                if($.inArray(ext, ['png','jpg','jpeg','jfif']) == -1) {
-                    $(".o-img").remove();
-                $("#image_other_error").html("Please upload images of following formats(*png,jpeg,jpg,jfif).");
-                    var html = '<input type="file" class="o-img oim" name="image[]" id="image" multiple  accept=".gif,.jpg,.jpeg,.png" onchange="get_other_image(this);"/>';
-                    $(".other-img").append(html);
-
-                }else{
-                    $("#image_other_error").html("");
-                        var f = files[i];
-                        var fileReader = new FileReader();
-                        fileReader.onload = (function(ev) {
-                            var html =   $("<span class=\"pip\">" +
-                            "<img class=\"imageThumb\" height=\"100px\" width=\"100px\" src=\"" + ev.target.result + "\" title=\"" + name + "\"/>" +
-                            "<a href=\"javascript:void(0)\" id=\"deleteBtn\" style=\"display: block;\" data-id=\"${Files.length}\" onclick=\"removefiles('"+ name +"')\">"+
-                            "<span class=\"close_imge\"><i class=\"fa fa-window-close\" aria-hidden=\"true\"></i></span>"+
-                                                "</a>" +
-                            "</span>");
-                            $(".img_section").append(html);
-
-                            $(document).on('click','#deleteBtn',function(){
-
-                            $(this).parent(".pip").remove();
-                            });
-
-
-                        });
-                    fileReader.readAsDataURL(f);
-                    }
-                }
-
-                }
-                    });
-                } else {
-
-                }
-                $(document).on("change","#company_name",function(){
-                    if($(this).val() == ""){
-                        $("#company_name_error").text("Please provide a company");
-                    }else{
-                        $("#company_name_error").text("");
-                    }
-                });
-                $(document).on("change","#area_of_activity",function(){
-                    if($(this).val() == ""){
-                        $("#area_of_activity_error").text("Please provide a company");
-                    }else{
-                        $("#area_of_activity_error").text("");
-                    }
-                });
-                $(document).on("change","#company_address",function(){
-                    if($(this).val() == ""){
-                        $("#company_address_error").text("Please provide a company");
-                    }else{
-                        $("#company_address_error").text("");
-                    }
-                });
-                $(document).on("change","#add_company_email",function(){
-                    if($(this).val() == ""){
-                        $("#error_add_company_email").text("Please provide a email address");
-                    }else{
-                        $("#error_add_company_email").text("");
-                    }
-                });
-
-                $(document).on("click","#save_company",function(){
-                    var company_name  = $("#company_name").val();
-                    var area_of_activity = $("#area_of_activity").val();
-                    var company_address = $("#company_address").val();
-
-                    if(company_name == "" || company_name == undefined){
-                        $("#company_name_error").text("Please provide a company");
-
-                    }
-                    if(area_of_activity == "" || area_of_activity == undefined){
-                        $("#area_of_activity_error").text("Please provide a area of activity");
-
-
-                    }
-                    if(company_address == "" || company_address == undefined){
-                        $("#company_address_error").text("Please provide a address");
-
-                    }
-                    if(company_address == "" || area_of_activity == "" || company_name == ""){
-                        return false;
-                    }
-                    var form = $('#frm1')[0];
-                    var data = new FormData(form);
-                    $.each($("input[type='file']")[0].files, function(i, file) {
-                    data.append('file', file);
-                    });
-
-                    $.ajax({
-                    url:"add_company.php",
-                    type: "POST",
-                    enctype: 'multipart/form-data',
-                    data:data,
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                    dataType: 'text',
-                    success: function(data){
-                        if($.trim(data) == 'success'){
-                            $("#addcompanyModalCenter").modal('hide');
-                            $('#frm1').trigger("reset");
-                            $(".pip").remove();
-                            Swal.fire({
-                                       title: "New company",
-                                       icon:"success",
-                                       text: "we will make changes after verify your details",
-                                       type: "success"
-                                });
-
-
-                        }else{
-
-                            Swal.fire({
-                                       title: "New company",
-                                       icon:"success",
-                                       text: "New company not added.please try again.",
-                                       type: "error"
-                                });
-
-
-                        }
-
-
-                     }
-                   });
-                });
-                    $(document).on("click","#save_company_without_login",function(){
-                        var company_name  = $("#company_name").val();
-                    var area_of_activity = $("#area_of_activity").val();
-                    var company_address = $("#company_address").val();
-
-                    if(company_name == "" || company_name == undefined){
-                        $("#company_name_error").text("Please provide a company");
-
-                    }
-                    if(area_of_activity == "" || area_of_activity == undefined){
-                        $("#area_of_activity_error").text("Please provide a area of activity");
-
-
-                    }
-                    if(company_address == "" || company_address == undefined){
-                        $("#company_address_error").text("Please provide a address");
-
-                    }
-                    if(company_address == "" || area_of_activity == "" || company_name == ""){
-                        return false;
-                    }
-                    $("#addcompanyModalCenter").modal('hide')
-                    $("#addcompanyModal2Center").modal('show');
-                    });
-                    $("#final_save").click(function(){
-                        var add_company_email = $("#add_company_email").val();
-                        if(add_company_email == "" || add_company_email == undefined){
-                        $("#error_add_company_email").text("Please provide a email address");
-
-                            return false;
-                    }
-                    var check = validateEmail(add_company_email);
-                    if(check == false){
-                        $("#error_add_company_email").text("Please provide a valid email address");
-                        return false;
-                    }else{
-                        $("#error_add_company_email").text("");
-                    }
-                    var form = $('#frm1')[0];
-                    var data1 = new FormData(form);
-                    $.each($("input[type='file']")[0].files, function(i, file) {
-                    data1.append('file', file);
-                    });
-                    data1.append('email',add_company_email);
-
-                    $.ajax({
-                    url:"add_company.php",
-                    type: "POST",
-                    enctype: 'multipart/form-data',
-                    data:data1,
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                     dataType: 'text',
-                     success: function(data){
-                        console.log(data)
-
-
-                            if($.trim(data) == 'success'){
-                            $("#addcompanyModal2Center").modal('hide');
-                            $('#frm1').trigger("reset");
-                            $(".pip").remove();
-                            Swal.fire({
-                                       title: "New company",
-                                       icon:"success",
-                                       text: "we will make changes after verify your details",
-                                       type: "success"
-                                });
-
-
-                        }else{
-
-                            Swal.fire({
-                                       title: "New company",
-                                       icon:"success",
-                                       text: "New company not added.please try again.",
-                                       type: "error"
-                                });
-
-
-                        }
-
-
-                     }
-                    });
-                    });
-                    $("#signInbutton2").click(function(){
-                        $("#addcompanyModal2Center").modal('hide');
-                        $("#addcompanyModalCenter").modal('hide');
-                        $("#exampleModal1").modal('show');
-                    });
-                    $(".addcompanyModalCenter_close").click(function(){
-
-                        if (confirm('Close the window? Your changes will not be saved')) {
-                            $("#addcompanyModalCenter").modal('hide');
-
-                            $('#frm1').trigger("reset");
-                        } else {
-
-                         }
-                    });
-                    $(".addcompanyModal2Center_close").click(function(){
-
-                       if (confirm('Close the window? Your changes will not be saved')) {
-                           $("#addcompanyModal2Center").modal('hide');
-
-                           $('#frm1').trigger("reset");
-                           $("#addcompanyModal2Center").remove();
-                           $("#add_company_email").val();
-                       } else {
-
-                        }
-                   });
-
-                   $("#company_address").keyup(function(){
-                    var search = $(this).val();
-                    if(search != ""){
-                      $("#searchResult").css('display','block')
-                    var xmlhttp = new XMLHttpRequest();
-                      var url = "https://nominatim.openstreetmap.org/search?country=uae&format=json&q=" + search;
-                      xmlhttp.onreadystatechange = function()
-                      {
-                      if (this.readyState == 4 && this.status == 200)
-                      {
-                          var myArr = JSON.parse(this.responseText);
-                          myFunction(myArr);
-                      }
-                      };
-                      xmlhttp.open("GET", url, true);
-                      xmlhttp.send();
-                    }
-                   });
-                    function myFunction(arr)
-                    {
-                    var out = "";
-                    var i;
-
-                    if(arr.length > 0)
-                    {
-                    for(i = 0; i < arr.length; i++)
-                    {
-                     //Jainil
-
-                        // arr[i].lat arr[i].lon <img src="assets/img/icons/signin.png">
-                    out +='<div class="img_top_username autodiv">';
-                    out +='<div class="signinbtn1 address" data-latitude="'+arr[i].lat+'" data-longtitude="'+arr[i].lon+'">';
-                    out +='<p>'+arr[i].display_name+'</p></div>';
-                    // out += "<li class='address' data-latitude='"+arr[i].lat+"' data-longtitude='"+arr[i].lon+"'>"+ arr[i].display_name + "</li>";
-                    }
-                    document.getElementById('searchResult').innerHTML = out;
-                    }
-                    // else
-                    // {
-                    // document.getElementById('searchResult').innerHTML = "Sorry, no results...";
-                    // }
-
-                    }
-                    // $(".address").on("click", function(){
-                        $(document).on('click','.address',function(){
-                        var latitude = $(this).attr('data-latitude');
-                        var longtitude = $(this).attr('data-longtitude');
-                        console.log(latitude,longtitude)
-                        $("#company_address").val($(this).text());
-                        $("#company_latitude").val(latitude);
-                        $("#company_longtitude").val(longtitude);
-                        $(".autodiv").remove();
-                        $("#searchResult").hide();
-                    });
-
-                    });
-                    function validateEmail(email) {
-                            var re = /\S+@\S+\.\S+/;
-                            return re.test(email);
-                     }
 
 
    </script>

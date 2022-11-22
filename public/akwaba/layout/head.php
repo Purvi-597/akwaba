@@ -36,6 +36,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/tomik23/autocomplete@1.8.5/dist/js/autocomplete.min.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	 <link rel="stylesheet" href="../assets/libs/sweetalert2/sweetalert2.min.css">
+     <link href='../assets/css/select2.min.css'  rel="stylesheet" type="text/css" />
 	<!--<link rel="stylesheet" href="global.css" />-->
 	
 	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
@@ -651,7 +652,30 @@ border-radius: 100%;
     color: black;
 }
 
-
+/* Advertisement multiple image */
+.pip_multiple {
+   margin-bottom: 8px;
+    display:inline-flex;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #444;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.remove:hover {
+  background: white;
+  color: black;
+}
+.close_imge{
+    position: absolute;
+    margin-left: -18px;
+    cursor: pointer;
+    margin-top:7px;
+}
 
   </style>
 </head>

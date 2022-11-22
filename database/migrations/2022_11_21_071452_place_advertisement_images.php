@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CompaniesImagesTable extends Migration
+class PlaceAdvertisementImages extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CompaniesImagesTable extends Migration
     public function up()
     {
         //
-        Schema::create('company_images', function (Blueprint $table) {
+          Schema::create('place_advertisement_images', function (Blueprint $table) {
             $table->id();
-            $table->integer('company_id')->nullable();
+            $table->integer('place_advertisement_id')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -31,6 +31,6 @@ class CompaniesImagesTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('company_images');
+        Schema::dropIfExists('place_advertisement_images');
     }
 }
