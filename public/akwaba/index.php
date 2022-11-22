@@ -737,7 +737,7 @@ if($advertisement_result->num_rows > 0) {
         var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');	
         var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');	
 		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');	
-    var base_url = 'http://127.0.0.1:8000/akwaba/';
+    var base_url = 'http://10.10.1.133:8000/akwaba/';
 </script> 
 <!-- Signup Model -->	
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

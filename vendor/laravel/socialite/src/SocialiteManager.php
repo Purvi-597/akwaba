@@ -116,11 +116,29 @@ class SocialiteManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
+     * @return \Laravel\Socialite\One\AbstractProvider|\Laravel\Socialite\Two\AbstractProvider
+     */
+    protected function createTwitterDriver()
+    {
+        $config = $this->config->get('services.twitter');
+
+        if (($config['oauth'] ?? null) === 2) {
+            return $this->createTwitterOAuth2Driver();
+        }
+
+        return new TwitterProvider(
+            $this->container->make('request'), new TwitterServer($this->formatConfig($config))
+        );
+    }
+
+    /**
+     * Create an instance of the specified driver.
+     *
      * @return \Laravel\Socialite\Two\AbstractProvider
      */
     protected function createTwitterOAuth2Driver()
     {
-        $config = $this->config->get('services.twitter');
+        $config = $this->config->get('services.twitter') ?? $this->config->get('services.twitter-oauth-2');
 
         return $this->buildProvider(
             TwitterOAuth2Provider::class, $config
@@ -140,20 +158,6 @@ class SocialiteManager extends Manager implements Contracts\Factory
             $this->container->make('request'), $config['client_id'],
             $config['client_secret'], $this->formatRedirectUrl($config),
             Arr::get($config, 'guzzle', [])
-        );
-    }
-
-    /**
-     * Create an instance of the specified driver.
-     *
-     * @return \Laravel\Socialite\One\AbstractProvider
-     */
-    protected function createTwitterDriver()
-    {
-        $config = $this->config->get('services.twitter');
-
-        return new TwitterProvider(
-            $this->container->make('request'), new TwitterServer($this->formatConfig($config))
         );
     }
 
