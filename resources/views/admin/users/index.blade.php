@@ -48,7 +48,7 @@
                                 <th  width="15%">@lang('language.Last_Name')</th>
                                 <th  width="15%">@lang('language.Email')</th>
                                 <th  width="15%">@lang('language.Phone_No')</th>
-                                <th  width="15%">@lang('language.Profile_Image')</th>
+                                {{-- <th  width="15%">@lang('language.Profile_Image')</th> --}}
                                 <th  width="10%">@lang('language.Status')</th>
                                 <th  width="20%">Action</th>
                             </tr>
@@ -76,9 +76,9 @@
                                         <td >{{$usr->last_name}}</td>
                                         <td>{{$usr->email}}</td>
                                         <td>{{$usr->contact_no}}</td>
-                                        <td>@if ($usr->profile_pic != '')
+                                        {{-- <td>@if ($usr->profile_pic != '')
                                             <img src="{{$profilepicturePath}}{{$usr->profile_pic}}" alt="" style="width: auto;height:auto;">
-                                        @endif</td>
+                                        @endif</td> --}}
                                         <?php if($usr->status == 1){ ?>
                                         <td id="{{$usr->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$usr->id}}" data-status = "{{$usr->status}}" onclick="updatestatus({{$usr->id}},{{$usr->status}})">@lang('language.Active')</span></td><?php } else { ?>
                                     
@@ -154,7 +154,7 @@
                 var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
 
                  Swal.fire(
-                    '@lang("language.Status")',
+                                '@lang("language.Status")',
                                 '@lang('language.Status_Changed')',
                                 'success'
                                 )   

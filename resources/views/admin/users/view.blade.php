@@ -81,7 +81,7 @@
 						</div>
 					</div> --}}
 
-					<div class="row">
+					{{-- <div class="row">
 						<div class="form-group col-md-6">
 							 <label for="formrow-quest_name-input"><b>@lang('language.Profile_Image'):</b></label> <br>
 							 	@if(!empty($users->profile_pic))
@@ -91,7 +91,7 @@
 									@endif
 
 						</div>
-					</div>
+					</div> --}}
 				  <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">

@@ -17,7 +17,7 @@ class NotesController extends Controller
     public function index()
     {
 
-        $data['notes'] = Notes::orderBy('id','desc')->get();
+        $data['notes'] = Notes::leftjoin('users','users.id','=','notes.user_id')->orderBy('id','desc')->get();
         return view('admin.notes',$data);
     }
 

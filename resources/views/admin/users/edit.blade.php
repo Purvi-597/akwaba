@@ -86,7 +86,7 @@ input::-webkit-inner-spin-button {
                     </div>
                     
                         
-                    <div class="row">
+                    {{-- <div class="row">
                         <div id="req_input" class="form-group col-md-12">
                         <label for="formrow-quest_name-input">@lang('language.Profile_Image') <span style="color:red;">*</span></label>
                             
@@ -98,13 +98,13 @@ input::-webkit-inner-spin-button {
                                     <img  id="image_main1" name="image_main1" class="image_main1" height="200" width="250" style="display:none;">
                                 <input type="hidden" name="old_image0" value="<?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?>">
                                 
-                                    {{-- @if(!empty($users->profile_pic))
+                                     @if(!empty($users->profile_pic))
                                     <br><br>
                                     &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $users->id }}">Remove</a>
-                                    @endif --}}
+                                    @endif 
                             <span id="image0_error"  style="color:red"></span>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Home_Address')</label>

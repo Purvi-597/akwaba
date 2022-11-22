@@ -48,7 +48,7 @@ input::-webkit-inner-spin-button {
                     </div>
                     <div id="req_input" class="form-group">
                         <label for="formrow-quest_name-input">Image</label>
-                        <input type="file"  class="form-control images" name="image" id="images_0" required >
+                        <input type="file"  class="form-control images" name="image" id="images_0" required multiple>
                             <div class="invalid-feedback">
                                    @lang('language.Please select Image')
                             </div><br>
