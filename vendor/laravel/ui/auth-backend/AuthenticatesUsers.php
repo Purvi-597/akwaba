@@ -72,11 +72,19 @@ trait AuthenticatesUsers
         $request->validate([
             $this->username() => 'required|string',
             'password' => 'required|string',
+<<<<<<< HEAD
+<<<<<<< HEAD
+        ]);
+=======
             /// 'g-recaptcha-response' =>['required'],
         ], [
            // 'g-recaptcha-response.required' => 'Captcha is required.'
        ]
     );
+>>>>>>> purvi
+=======
+        ]);
+>>>>>>> sahil
     }
 
     /**
@@ -88,7 +96,7 @@ trait AuthenticatesUsers
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
+            $this->credentials($request), $request->boolean('remember')
         );
     }
 
@@ -181,7 +189,7 @@ trait AuthenticatesUsers
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/login');
+            : redirect('/');
     }
 
     /**

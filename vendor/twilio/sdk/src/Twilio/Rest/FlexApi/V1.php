@@ -15,6 +15,13 @@ use Twilio\InstanceContext;
 use Twilio\Rest\FlexApi\V1\ChannelList;
 use Twilio\Rest\FlexApi\V1\ConfigurationList;
 use Twilio\Rest\FlexApi\V1\FlexFlowList;
+<<<<<<< HEAD
+use Twilio\Rest\FlexApi\V1\InteractionList;
+=======
+use Twilio\Rest\FlexApi\V1\GoodDataList;
+use Twilio\Rest\FlexApi\V1\InteractionList;
+use Twilio\Rest\FlexApi\V1\UserRolesList;
+>>>>>>> sahil
 use Twilio\Rest\FlexApi\V1\WebChannelList;
 use Twilio\Version;
 
@@ -22,15 +29,30 @@ use Twilio\Version;
  * @property ChannelList $channel
  * @property ConfigurationList $configuration
  * @property FlexFlowList $flexFlow
+<<<<<<< HEAD
+ * @property InteractionList $interaction
+=======
+ * @property GoodDataList $goodData
+ * @property InteractionList $interaction
+ * @property UserRolesList $userRoles
+>>>>>>> sahil
  * @property WebChannelList $webChannel
  * @method \Twilio\Rest\FlexApi\V1\ChannelContext channel(string $sid)
  * @method \Twilio\Rest\FlexApi\V1\FlexFlowContext flexFlow(string $sid)
+ * @method \Twilio\Rest\FlexApi\V1\InteractionContext interaction(string $sid)
  * @method \Twilio\Rest\FlexApi\V1\WebChannelContext webChannel(string $sid)
  */
 class V1 extends Version {
     protected $_channel;
     protected $_configuration;
     protected $_flexFlow;
+<<<<<<< HEAD
+    protected $_interaction;
+=======
+    protected $_goodData;
+    protected $_interaction;
+    protected $_userRoles;
+>>>>>>> sahil
     protected $_webChannel;
 
     /**
@@ -64,6 +86,33 @@ class V1 extends Version {
         return $this->_flexFlow;
     }
 
+<<<<<<< HEAD
+=======
+    protected function getGoodData(): GoodDataList {
+        if (!$this->_goodData) {
+            $this->_goodData = new GoodDataList($this);
+        }
+        return $this->_goodData;
+    }
+
+>>>>>>> sahil
+    protected function getInteraction(): InteractionList {
+        if (!$this->_interaction) {
+            $this->_interaction = new InteractionList($this);
+        }
+        return $this->_interaction;
+    }
+
+<<<<<<< HEAD
+=======
+    protected function getUserRoles(): UserRolesList {
+        if (!$this->_userRoles) {
+            $this->_userRoles = new UserRolesList($this);
+        }
+        return $this->_userRoles;
+    }
+
+>>>>>>> sahil
     protected function getWebChannel(): WebChannelList {
         if (!$this->_webChannel) {
             $this->_webChannel = new WebChannelList($this);

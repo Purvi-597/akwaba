@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -19,7 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('country_code');
+<<<<<<< HEAD
+=======
+            $table->string('dial_code');
+>>>>>>> sahil
             $table->string('contact_no');
+            $table->string('otp');
             $table->enum('role', ['Admin', 'User']);
             $table->text('home_address')->nullable();
             $table->text('work_address')->nullable();
@@ -41,6 +48,7 @@ class CreateUsersTable extends Migration
                 'email' => 'purvi.trivedi@sapphiresolutions.net',
                 'password' => '$2y$10$LSOjPL2S9ZlFsP8Jda7qre5CchV56tqSvAve5eyRczjfwAUb9nTHC',
                 'contact_no' => '1234567890',
+                'country_code'=>'+91',
                 'role' => 'Admin',
                 'status' => '1',
             )

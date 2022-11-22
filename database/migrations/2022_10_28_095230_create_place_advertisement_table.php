@@ -15,7 +15,8 @@ class CreatePlaceAdvertisementTable extends Migration
     {
         Schema::create('place_advertisement', function (Blueprint $table) {
             $table->id();
-            $table->string('place_name');
+            $table->string('place_name_en');
+            $table->string('place_name_fr');
             $table->text('image')->nullable();
             $table->enum('type', ['POI', 'External']);
             $table->text('external_link')->nullable();
