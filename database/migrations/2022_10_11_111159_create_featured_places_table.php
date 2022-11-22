@@ -16,10 +16,13 @@ class CreateFeaturedPlacesTable extends Migration
         Schema::create('featured_places', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_fr');
             $table->text('image')->nullable();
             $table->text('description')->nullable();
+            $table->text('description_fr')->nullable();
             $table->enum('status', ['1', '0']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

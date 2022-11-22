@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use DataTables;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
-use App\Http\Model\UsersModel;
+use App\Http\Model\Users;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Facades\Mail;
@@ -11,6 +11,7 @@ use App\Mail\TestEmail;
 use App\Mail\DemoEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
+use Lang;
 
 
 
@@ -21,7 +22,7 @@ class UserController extends Controller
 	public function index()
     {
     
-		$data['users'] = UsersModel::where('role','!=','Admin')->orderBy('id','desc')->get();
+		$data['users'] = Users::where('role','!=','Admin')->orderBy('id','desc')->get();
         return view('admin.users.index',$data);
 	}
 	public function create()
@@ -31,38 +32,34 @@ class UserController extends Controller
     }
 	public function store(Request $request)
     {
-
-
         $verifyemail = Hash::make($request->input('email'));
-        $users = new UsersModel();
-		$users->name = $request->input('name');
+        $users = new Users();
+		$users->first_name = $request->input('first_name');
+        $users->last_name = $request->input('last_name');
 		$users->email = $request->input('email');
 		$users->password = Hash::make($request->input('confirmpassword'));
-		$users->phone_no = $request->input('phoneno');
+		$users->contact_no = $request->input('contact_no');
+        $users->home_address = $request->input('home_address');
+        $users->work_address = $request->input('work_address');
+        $users->role = 'User';
 
-
-
-        $profile_image = '';
-        if ($files = $request->file('images0')) {
+        $profile_pic = '';
+        if ($files = $request->file('profile_pic')) {
                 $userPath = public_path().'/uploads/users/';
-                if ($userPicture = $request->file('images0')) {
-                    $profile_image = md5(time().'_'.$userPicture->getClientOriginalName()).'.'.$userPicture->getClientOriginalExtension();
-                    $userPicture->move($userPath, $profile_image);
+                if ($userPicture = $request->file('profile_pic')) {
+                    $profile_pic = $request->input('first_name').'_'.time().'.'.$userPicture->getClientOriginalExtension();
+                    $userPicture->move($userPath, $profile_pic);
 
-                        $users->profile_image = $profile_image;
                 }
         }
-
-
-	
-         $users->verification_code = $verifyemail;
+        
         $to_email = $request->input('email');
        
         $user_email = base64_encode($request->input('email'));
 
         $url = URL::to('/').'/verifyemail?token='.$verifyemail.'&email='.$user_email;
 
-         $usercheck = UsersModel::where('email', '=',$request->input('email'))->first();
+         $usercheck = Users::where('email', '=',$request->input('email'))->first();
 
          if($usercheck == null){
             
@@ -72,29 +69,28 @@ class UserController extends Controller
         $details = array('email' => $users->email, 'password' => $request->input('password'), 'verification_code' => $verifyemail,'url' => $url);
 
         $mail = Mail::to($to_email)->send(new TestEmail(($details)));
-        return redirect()->action('UserController@index')->with('success','Email Sent Successfully');
+        return redirect()->action('UserController@index')->with('success',Lang::get('language.email_send'));
 
     }else{
-          return redirect()->action('UserController@create')->with('error','Email Already Exist');
+          return redirect()->action('UserController@create')->with('error',Lang::get('language.email_exist'));
        
     }
 
     }
+
 	public function edit($id)
     {
-        $row['users'] = UsersModel::where('id',$id)->first();
+        $row['users'] = Users::where('id',$id)->first();
   
         return view('admin.users.edit',$row);
     }
+
 	public function update(Request $request, $id)
     {
-
-        
-        
-		if(!empty($request->file('images0'))){
+        if(!empty($request->file('profile_pic'))){
 				$destinationPath = public_path().'/uploads/users/';
-				if ($cover_detail_image = $request->file('images0')) {
-					$cover_detail = md5(time().'_'.$cover_detail_image->getClientOriginalName()).'.'.$cover_detail_image->getClientOriginalExtension();
+				if ($cover_detail_image = $request->file('profile_pic')) {
+					$cover_detail = $request->input('first_name').'_'.time().'_'.$cover_detail_image->getClientOriginalExtension();
 					$cover_detail_image->move($destinationPath, $cover_detail);
 				}
 		}else{
@@ -105,40 +101,44 @@ class UserController extends Controller
          }else{
             $status = 0;
         }
-
-
-        	$create = UsersModel::where('id',$id)->update([
-                "name" => $request->input('name'),
+        
+        $create = Users::where('id',$id)->update([
+                "first_name" => $request->input('first_name'),
+                "last_name" => $request->input('last_name'),
                 "email"=>$request->input('email'),
-                "phone_no"=>$request->input('phoneno'),
-				"profile_image"=>$cover_detail,
+                "contact_no"=>$request->input('contact_no'),
+                "home_address" => $request->input('home_address'),
+                "work_address" => $request->input('work_address'),
+				"profile_pic"=>$cover_detail,
                 "status" => $status
             ]);
 			
-			 return redirect()->action('UserController@index')->with('success','User Updated Successfully');
+			 return redirect()->action('UserController@index')->with('success',Lang::get('language.user_update'));
 	}
+    
     public function userimagedelete(Request $request){
             $id = $request->input('id');
-            $update = UsersModel::where('id',$id)->update(['profile_image' => '']);
+            $update = Users::where('id',$id)->update(['profile_pic' => '']);
             if($update){
                 echo "delete";
             }else{
                 echo "nodelete";
             }
     }
-	/*public function delete(Request  $request){
-            $id = $request->input('id');
-            $delete = UsersModel::where('id',$id)->update(['is_deleted' => '1']);
-            if($delete)
-            {
-                echo "delete";
-            }
-            else
-            {
-                echo "notdelete";
-            }
-        
-    }*/
+
+	public function delete(Request  $request){
+        $id = $request->input('id');
+        $delete = Users::where('id',$id)->delete();
+        if($delete)
+        {
+            echo "delete";
+        }
+        else
+        {
+            echo "notdelete";
+        }
+    
+}
 
     public function users_status(Request $request)
     {
@@ -188,11 +188,11 @@ class UserController extends Controller
            // dd(DB::getQueryLog()); die;
             if($update)
             {
-                return redirect('login')->with('success','Email Verified Successfully'); 
+                return redirect('login')->with('success',Lang::get('language.email_verify')); 
             }
             else
             {
-                 return redirect('login')->with('error','Email Verification Failed!');
+                 return redirect('login')->with('error',Lang::get('language.email_failed'));
             }
         }
       }
@@ -217,7 +217,7 @@ class UserController extends Controller
     return redirect()->back()->with('success','Email Sent Successfully');
         
         }else{
-             return redirect()->back()->with('error','Email is not registered or deleted.please contact to admin.');
+             return redirect()->back()->with('error',Lang::get('language.warning'));
         }
         
     }
@@ -239,30 +239,30 @@ class UserController extends Controller
         $update = DB::table('users')->where('email',$email)->update(['password' => $confirmpassword,'updated_at' => NOW()]);
         if($update)
         {
-             return redirect('login')->with('success','Login with new password');
+             return redirect('login')->with('success',Lang::get('language.login_password'));
         }
         else
         {
-            return redirect()->back()->with('error','Unable to reset password');
+            return redirect()->back()->with('error',Lang::get('language.reset'));
         }
     }
 
     public function checkuseremail(Request $request){
        $email =  $request->input('email');
 
-          $users = new UsersModel();
- $usercheck = UsersModel::where('email', '=',$request->input('email'))->first();
-         if($usercheck == null){
+        $users = new UsersModel();
+        $usercheck = UsersModel::where('email', '=',$request->input('email'))->first();
+        if($usercheck == null){
           return 0;
-         }else{
+        }else{
            return 1;
-         }
+        }
 
     }
 
-       public function view($id)
+    public function view($id)
     {
-        $data['users'] = UsersModel::where('id',$id)->first();
+        $data['users'] = Users::where('id',$id)->first();
         return view('admin.users.view',$data);
     }
 

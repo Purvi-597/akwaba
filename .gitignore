@@ -6,7 +6,8 @@
 # Node artifact files
 node_modules/
 dist/
-
+/vendor/
+/bootstrap/
 # Compiled Java class files
 *.class
 
