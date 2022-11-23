@@ -243,10 +243,7 @@ class AwsClient implements AwsClientInterface
         $this->loadAliases();
         $this->addStreamRequestPayload();
         $this->addRecursionDetection();
-<<<<<<< HEAD
-=======
         $this->addRequestBuilder();
->>>>>>> sahil
 
         if (isset($args['with_resolved'])) {
             $args['with_resolved']($config);
@@ -444,11 +441,6 @@ class AwsClient implements AwsClientInterface
                 $region = isset($endpointAuthSchemes['region']) ?
                     $endpointAuthSchemes['region'] : $region;
             }
-            if (isset($c['@context']['signature_version'])) {
-                if ($c['@context']['signature_version'] == 'v4a') {
-                    $version = 'v4a';
-                }
-            }
             return SignatureProvider::resolve($provider, $version, $name, $region);
         };
         $this->handlerList->appendSign(
@@ -499,8 +491,6 @@ class AwsClient implements AwsClientInterface
         );
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Adds the `builder` middleware such that a client's endpoint
      * provider and endpoint resolution arguments can be passed.
@@ -605,7 +595,6 @@ class AwsClient implements AwsClientInterface
         return $this->endpointProvider instanceof EndpointProviderV2;
     }
 
->>>>>>> sahil
     /**
      * Returns a service model and doc model with any necessary changes
      * applied.

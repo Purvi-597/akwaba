@@ -2595,16 +2595,9 @@ class SFTP extends SSH2
         $i = 0;
         $entries = $this->readlist($path, true);
 
-<<<<<<< HEAD
-        // normally $entries would have at least . and .. but it might not if the directories
-        // permissions didn't allow reading
-        if (empty($entries)) {
-            $entries = [];
-=======
         // The folder does not exist at all, so we cannot delete it.
         if ($entries === NET_SFTP_STATUS_NO_SUCH_FILE) {
             return false;
->>>>>>> sahil
         }
 
         // Normally $entries would have at least . and .. but it might not if the directories

@@ -72,19 +72,7 @@ trait AuthenticatesUsers
         $request->validate([
             $this->username() => 'required|string',
             'password' => 'required|string',
-<<<<<<< HEAD
-<<<<<<< HEAD
         ]);
-=======
-            /// 'g-recaptcha-response' =>['required'],
-        ], [
-           // 'g-recaptcha-response.required' => 'Captcha is required.'
-       ]
-    );
->>>>>>> purvi
-=======
-        ]);
->>>>>>> sahil
     }
 
     /**

@@ -96,9 +96,6 @@ trait Rounding
                 $delta = $maximum + 1 - $minimum;
                 $factor /= $delta;
                 $fraction *= $delta;
-<<<<<<< HEAD
-                $arguments[0] += ($this->$unit - $minimum) * $factor;
-=======
                 $inc = ($this->$unit - $minimum) * $factor;
 
                 if ($inc !== 0.0) {
@@ -116,7 +113,6 @@ trait Rounding
                     }
                 }
 
->>>>>>> sahil
                 $changes[$unit] = round(
                     $minimum + ($fraction ? $fraction * $function(($this->$unit - $minimum) / $fraction) : 0)
                 );

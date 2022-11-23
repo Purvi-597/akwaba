@@ -140,7 +140,7 @@ $(this).addClass('active');
 });
 
 $(document).on('click','#iconBtn', function(){ 
-
+	console.log('hef');
 	var id = $(this).attr('data-index');
 	var flag = $(this).attr('data-id');
 	var add = $(this).attr('data-add');
@@ -172,7 +172,8 @@ $(document).on('click','#iconBtn', function(){
 				url: 'category_detail_ajax.php',
 				data: {'from':'addvertisement','id': id, 'cat_type':'Add'},
 				success: function(response){
-					$(".leaflet-marker-icon").css('display','none');
+					console.log('hef');
+					// $(".leaflet-marker-icon").css('display','none');
 					$(".indexDiv").css('display','none');
 					$(".addsidebar").html(response);
 					var lat = $('.lat').text();
@@ -240,11 +241,7 @@ $(document).on('click','#catCloseBtn', function(){
 	$(".catDataDiv").css('display','none');
 	$('.getEatoutDetail').attr('id');
 	$('.icon-'+id).attr('data-id', 'Yes');
-<<<<<<< HEAD
 	// $(".leaflet-marker-icon").css('display','none');
-=======
-	$(".leaflet-marker-icon").css('display','none');
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
 	$(".leaflet-marker-icon").remove();
 	//window.location.reload();
 });

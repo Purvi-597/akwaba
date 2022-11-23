@@ -23,10 +23,7 @@ class ShellOutput extends ConsoleOutput
     const NUMBER_LINES = 128;
 
     private $paging = 0;
-<<<<<<< HEAD
-=======
 
->>>>>>> sahil
     /** @var OutputPager */
     private $pager;
 
@@ -192,21 +189,6 @@ class ShellOutput extends ConsoleOutput
      */
     private function initFormatters()
     {
-<<<<<<< HEAD
-        $formatter = $this->getFormatter();
-        $errorFormatter = $this->getErrorOutput()->getFormatter();
-
-        $formatter->setStyle('warning', new OutputFormatterStyle('black', 'yellow'));
-        $errorFormatter->setStyle('warning', new OutputFormatterStyle('black', 'yellow'));
-        $formatter->setStyle('error', new OutputFormatterStyle('white', 'red', ['bold']));
-        $errorFormatter->setStyle('error', new OutputFormatterStyle('white', 'red', ['bold']));
-
-        $formatter->setStyle('aside', new OutputFormatterStyle('blue'));
-        $formatter->setStyle('strong', new OutputFormatterStyle(null, null, ['bold']));
-        $formatter->setStyle('return', new OutputFormatterStyle('cyan'));
-        $formatter->setStyle('urgent', new OutputFormatterStyle('red'));
-        $formatter->setStyle('hidden', new OutputFormatterStyle('black'));
-=======
         $useGrayFallback = !$this->grayExists();
         $this->theme->applyStyles($this->getFormatter(), $useGrayFallback);
         $this->theme->applyErrorStyles($this->getErrorOutput()->getFormatter(), $useGrayFallback);
@@ -224,7 +206,6 @@ class ShellOutput extends ConsoleOutput
         } catch (\InvalidArgumentException $e) {
             return false;
         }
->>>>>>> sahil
 
         return true;
     }

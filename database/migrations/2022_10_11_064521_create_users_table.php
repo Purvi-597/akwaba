@@ -21,10 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('country_code');
-<<<<<<< HEAD
-=======
-            $table->string('dial_code');
->>>>>>> sahil
             $table->string('contact_no');
             $table->string('otp');
             $table->enum('role', ['Admin', 'User']);

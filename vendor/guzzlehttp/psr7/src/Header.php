@@ -62,11 +62,7 @@ final class Header
     }
 
     /**
-<<<<<<< HEAD
-     * Splits a HTTP header defined to contain comma-separated list into
-=======
      * Splits a HTTP header defined to contain a comma-separated list into
->>>>>>> sahil
      * each individual value. Empty values will be removed.
      *
      * Example headers include 'accept', 'cache-control' and 'if-none-match'.

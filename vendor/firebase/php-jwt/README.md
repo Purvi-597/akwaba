@@ -201,7 +201,6 @@ $jwks = ['keys' => []];
 // JWK::parseKeySet($jwks) returns an associative array of **kid** to Firebase\JWT\Key
 // objects. Pass this as the second parameter to JWT::decode.
 JWT::decode($payload, JWK::parseKeySet($jwks));
-<<<<<<< HEAD
 ```
 
 Using Cached Key Sets
@@ -209,110 +208,6 @@ Using Cached Key Sets
 
 The `CachedKeySet` class can be used to fetch and cache JWKS (JSON Web Key Sets) from a public URI.
 This has the following advantages:
-
-1. The results are cached for performance.
-2. If an unrecognized key is requested, the cache is refreshed, to accomodate for key rotation.
-3. If rate limiting is enabled, the JWKS URI will not make more than 10 requests a second.
-
-```php
-use Firebase\JWT\CachedKeySet;
-use Firebase\JWT\JWT;
-
-// The URI for the JWKS you wish to cache the results from
-$jwksUri = 'https://www.gstatic.com/iap/verify/public_key-jwk';
-
-// Create an HTTP client (can be any PSR-7 compatible HTTP client)
-$httpClient = new GuzzleHttp\Client();
-
-// Create an HTTP request factory (can be any PSR-17 compatible HTTP request factory)
-$httpFactory = new GuzzleHttp\Psr\HttpFactory();
-
-// Create a cache item pool (can be any PSR-6 compatible cache item pool)
-$cacheItemPool = Phpfastcache\CacheManager::getInstance('files');
-
-$keySet = new CachedKeySet(
-    $jwksUri,
-    $httpClient,
-    $httpFactory,
-    $cacheItemPool,
-    null, // $expiresAfter int seconds to set the JWKS to expire
-    true  // $rateLimit    true to enable rate limit of 10 RPS on lookup of invalid keys
-);
-
-$jwt = 'eyJhbGci...'; // Some JWT signed by a key from the $jwkUri above
-$decoded = JWT::decode($jwt, $keySet);
-```
-
-Miscellaneous
--------------
-
-#### Casting to array
-
-The return value of `JWT::decode` is the generic PHP object `stdClass`. If you'd like to handle with arrays
-instead, you can do the following:
-
-```php
-// return type is stdClass
-$decoded = JWT::decode($payload, $keys);
-
-// cast to array
-$decoded = json_decode(json_encode($decoded), true);
-=======
->>>>>>> sahil
-```
-
-Using Cached Key Sets
----------------------
-
-<<<<<<< HEAD
-#### 6.3.0 / 2022-07-15
-
- - Added ES256 support to JWK parsing ([#399](https://github.com/firebase/php-jwt/pull/399))
- - Fixed potential caching error in `CachedKeySet` by caching jwks as strings ([#435](https://github.com/firebase/php-jwt/pull/435))
-
-#### 6.2.0 / 2022-05-14
-
- - Added `CachedKeySet` ([#397](https://github.com/firebase/php-jwt/pull/397))
- - Added `$defaultAlg` parameter to `JWT::parseKey` and `JWT::parseKeySet` ([#426](https://github.com/firebase/php-jwt/pull/426)). 
-
-#### 6.1.0 / 2022-03-23
-
- - Drop support for PHP 5.3, 5.4, 5.5, 5.6, and 7.0
- - Add parameter typing and return types where possible
-
-#### 6.0.0 / 2022-01-24
-
- - **Backwards-Compatibility Breaking Changes**: See the [Release Notes](https://github.com/firebase/php-jwt/releases/tag/v6.0.0) for more information.
- - New Key object to prevent key/algorithm type confusion (#365)
- - Add JWK support (#273)
- - Add ES256 support (#256)
- - Add ES384 support (#324)
- - Add Ed25519 support (#343)
-
-#### 5.0.0 / 2017-06-26
-- Support RS384 and RS512.
-  See [#117](https://github.com/firebase/php-jwt/pull/117). Thanks [@joostfaassen](https://github.com/joostfaassen)!
-- Add an example for RS256 openssl.
-  See [#125](https://github.com/firebase/php-jwt/pull/125). Thanks [@akeeman](https://github.com/akeeman)!
-- Detect invalid Base64 encoding in signature.
-  See [#162](https://github.com/firebase/php-jwt/pull/162). Thanks [@psignoret](https://github.com/psignoret)!
-- Update `JWT::verify` to handle OpenSSL errors.
-  See [#159](https://github.com/firebase/php-jwt/pull/159). Thanks [@bshaffer](https://github.com/bshaffer)!
-- Add `array` type hinting to `decode` method
-  See [#101](https://github.com/firebase/php-jwt/pull/101). Thanks [@hywak](https://github.com/hywak)!
-- Add all JSON error types.
-  See [#110](https://github.com/firebase/php-jwt/pull/110). Thanks [@gbalduzzi](https://github.com/gbalduzzi)!
-- Bugfix 'kid' not in given key list.
-  See [#129](https://github.com/firebase/php-jwt/pull/129). Thanks [@stampycode](https://github.com/stampycode)!
-- Miscellaneous cleanup, documentation and test fixes.
-  See [#107](https://github.com/firebase/php-jwt/pull/107), [#115](https://github.com/firebase/php-jwt/pull/115),
-  [#160](https://github.com/firebase/php-jwt/pull/160), [#161](https://github.com/firebase/php-jwt/pull/161), and
-  [#165](https://github.com/firebase/php-jwt/pull/165). Thanks [@akeeman](https://github.com/akeeman),
-  [@chinedufn](https://github.com/chinedufn), and [@bshaffer](https://github.com/bshaffer)!
-=======
-The `CachedKeySet` class can be used to fetch and cache JWKS (JSON Web Key Sets) from a public URI.
-This has the following advantages:
->>>>>>> sahil
 
 1. The results are cached for performance.
 2. If an unrecognized key is requested, the cache is refreshed, to accomodate for key rotation.

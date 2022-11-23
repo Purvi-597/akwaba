@@ -17,11 +17,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise createServiceAsync(array $args = [])
  * @method \Aws\Result createVpcConnector(array $args = [])
  * @method \GuzzleHttp\Promise\Promise createVpcConnectorAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result createVpcIngressConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise createVpcIngressConnectionAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result deleteAutoScalingConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteAutoScalingConfigurationAsync(array $args = [])
  * @method \Aws\Result deleteConnection(array $args = [])
@@ -32,11 +29,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise deleteServiceAsync(array $args = [])
  * @method \Aws\Result deleteVpcConnector(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteVpcConnectorAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result deleteVpcIngressConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteVpcIngressConnectionAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result describeAutoScalingConfiguration(array $args = [])
  * @method \GuzzleHttp\Promise\Promise describeAutoScalingConfigurationAsync(array $args = [])
  * @method \Aws\Result describeCustomDomains(array $args = [])
@@ -47,11 +41,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise describeServiceAsync(array $args = [])
  * @method \Aws\Result describeVpcConnector(array $args = [])
  * @method \GuzzleHttp\Promise\Promise describeVpcConnectorAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result describeVpcIngressConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise describeVpcIngressConnectionAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result disassociateCustomDomain(array $args = [])
  * @method \GuzzleHttp\Promise\Promise disassociateCustomDomainAsync(array $args = [])
  * @method \Aws\Result listAutoScalingConfigurations(array $args = [])
@@ -68,11 +59,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
  * @method \Aws\Result listVpcConnectors(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listVpcConnectorsAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result listVpcIngressConnections(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listVpcIngressConnectionsAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result pauseService(array $args = [])
  * @method \GuzzleHttp\Promise\Promise pauseServiceAsync(array $args = [])
  * @method \Aws\Result resumeService(array $args = [])

@@ -1055,7 +1055,6 @@ if($advertisement_result->num_rows > 0) {
         var restaurantLatLng = JSON.parse('<?php echo json_encode($restaurantData); ?>');
         var groceryLatLng = JSON.parse('<?php echo json_encode($groceryData); ?>');
         var mallLatLng = JSON.parse('<?php echo json_encode($mallData); ?>');
-<<<<<<< HEAD
         var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');
         var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');
         var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');
@@ -1064,22 +1063,9 @@ if($advertisement_result->num_rows > 0) {
         var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');
         var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');
 		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');
-    var base_url = 'http://127.0.0.1:8000/akwaba/';
+    var base_url = 'http://10.10.1.133:8000/akwaba/';
 </script>
 <!-- Signup Model -->
-=======
-        var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');	
-        var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');	
-        var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');	
-        var grocerynameData = JSON.parse('<?php echo json_encode($grocerynameData); ?>');	
-        var mallnameData = JSON.parse('<?php echo json_encode($mallnameData); ?>');	
-        var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');	
-        var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');	
-		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');	
-    var base_url = 'http://10.10.1.133:8000/akwaba/';
-</script> 
-<!-- Signup Model -->	
->>>>>>> sahil
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

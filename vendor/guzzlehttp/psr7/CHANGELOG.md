@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-<<<<<<< HEAD
-=======
 ## 2.4.3 - 2022-10-26
 
 ### Changed
@@ -21,7 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed erroneous behaviour when combining host and relative path
 
->>>>>>> sahil
 ## 2.4.1 - 2022-08-28
 
 ### Fixed

@@ -663,8 +663,6 @@ class S3Client extends AwsClient implements S3ClientInterface
         return $this->getConfig('signing_name');
     }
 
-<<<<<<< HEAD
-=======
     /**
      * Modifies API definition to remove `Bucket` from request URIs.
      * This is now handled by the endpoint ruleset.
@@ -723,7 +721,6 @@ class S3Client extends AwsClient implements S3ClientInterface
         $this->clientBuiltIns[$key] = $value;
     }
 
->>>>>>> sahil
     /** @internal */
     public static function _applyRetryConfig($value, $args, HandlerList $list)
     {

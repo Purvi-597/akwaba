@@ -49,11 +49,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise createSecurityProfileAsync(array $args = [])
  * @method \Aws\Result createTaskTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise createTaskTemplateAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result createTrafficDistributionGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise createTrafficDistributionGroupAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result createUseCase(array $args = [])
  * @method \GuzzleHttp\Promise\Promise createUseCaseAsync(array $args = [])
  * @method \Aws\Result createUser(array $args = [])
@@ -78,11 +75,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise deleteSecurityProfileAsync(array $args = [])
  * @method \Aws\Result deleteTaskTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteTaskTemplateAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result deleteTrafficDistributionGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteTrafficDistributionGroupAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result deleteUseCase(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteUseCaseAsync(array $args = [])
  * @method \Aws\Result deleteUser(array $args = [])
@@ -159,11 +153,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise getMetricDataAsync(array $args = [])
  * @method \Aws\Result getTaskTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getTaskTemplateAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result getTrafficDistribution(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getTrafficDistributionAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result listAgentStatuses(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listAgentStatusesAsync(array $args = [])
  * @method \Aws\Result listApprovedOrigins(array $args = [])
@@ -218,31 +209,22 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
  * @method \Aws\Result listTaskTemplates(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listTaskTemplatesAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result listTrafficDistributionGroups(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listTrafficDistributionGroupsAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result listUseCases(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listUseCasesAsync(array $args = [])
  * @method \Aws\Result listUserHierarchyGroups(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listUserHierarchyGroupsAsync(array $args = [])
  * @method \Aws\Result listUsers(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listUsersAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result monitorContact(array $args = [])
  * @method \GuzzleHttp\Promise\Promise monitorContactAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result putUserStatus(array $args = [])
  * @method \GuzzleHttp\Promise\Promise putUserStatusAsync(array $args = [])
  * @method \Aws\Result releasePhoneNumber(array $args = [])
  * @method \GuzzleHttp\Promise\Promise releasePhoneNumberAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result replicateInstance(array $args = [])
  * @method \GuzzleHttp\Promise\Promise replicateInstanceAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result resumeContactRecording(array $args = [])
  * @method \GuzzleHttp\Promise\Promise resumeContactRecordingAsync(array $args = [])
  * @method \Aws\Result searchAvailablePhoneNumbers(array $args = [])
@@ -333,11 +315,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise updateSecurityProfileAsync(array $args = [])
  * @method \Aws\Result updateTaskTemplate(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTaskTemplateAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result updateTrafficDistribution(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateTrafficDistributionAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result updateUserHierarchy(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateUserHierarchyAsync(array $args = [])
  * @method \Aws\Result updateUserHierarchyGroupName(array $args = [])

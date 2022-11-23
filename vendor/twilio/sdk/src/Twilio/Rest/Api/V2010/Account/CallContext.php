@@ -20,11 +20,8 @@ use Twilio\Rest\Api\V2010\Account\Call\PaymentList;
 use Twilio\Rest\Api\V2010\Account\Call\RecordingList;
 use Twilio\Rest\Api\V2010\Account\Call\SiprecList;
 use Twilio\Rest\Api\V2010\Account\Call\StreamList;
-<<<<<<< HEAD
-=======
 use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageList;
 use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageSubscriptionList;
->>>>>>> sahil
 use Twilio\Values;
 use Twilio\Version;
 
@@ -36,21 +33,15 @@ use Twilio\Version;
  * @property PaymentList $payments
  * @property SiprecList $siprec
  * @property StreamList $streams
-<<<<<<< HEAD
-=======
  * @property UserDefinedMessageSubscriptionList $userDefinedMessageSubscriptions
  * @property UserDefinedMessageList $userDefinedMessages
->>>>>>> sahil
  * @method \Twilio\Rest\Api\V2010\Account\Call\RecordingContext recordings(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\NotificationContext notifications(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\FeedbackContext feedback()
  * @method \Twilio\Rest\Api\V2010\Account\Call\PaymentContext payments(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\SiprecContext siprec(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\StreamContext streams(string $sid)
-<<<<<<< HEAD
-=======
  * @method \Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageSubscriptionContext userDefinedMessageSubscriptions(string $sid)
->>>>>>> sahil
  */
 class CallContext extends InstanceContext {
     protected $_recordings;
@@ -60,11 +51,8 @@ class CallContext extends InstanceContext {
     protected $_payments;
     protected $_siprec;
     protected $_streams;
-<<<<<<< HEAD
-=======
     protected $_userDefinedMessageSubscriptions;
     protected $_userDefinedMessages;
->>>>>>> sahil
 
     /**
      * Initialize the CallContext
@@ -248,8 +236,6 @@ class CallContext extends InstanceContext {
     }
 
     /**
-<<<<<<< HEAD
-=======
      * Access the userDefinedMessageSubscriptions
      */
     protected function getUserDefinedMessageSubscriptions(): UserDefinedMessageSubscriptionList {
@@ -280,7 +266,6 @@ class CallContext extends InstanceContext {
     }
 
     /**
->>>>>>> sahil
      * Magic getter to lazy load subresources
      *
      * @param string $name Subresource to return
