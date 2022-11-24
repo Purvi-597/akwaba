@@ -16,7 +16,7 @@ if($result->num_rows > 0) {
 		$futuredLatLong[] = array('type'=>'Point', 'coordinates'=>$coordinates); */
 	}
 	//$latlong = json_encode($futuredLatLong);
-	
+
 }
 
 $image = "assets/img/feature-image.png";
@@ -39,7 +39,7 @@ $html .= '<div class="img-top">
                   <p class="categories-name">'.$res['display_name'].'</p>
                 </a>
               </div>';
-			} 
+			}
         $html .= '</div>
           </div>';
    echo $html;die;

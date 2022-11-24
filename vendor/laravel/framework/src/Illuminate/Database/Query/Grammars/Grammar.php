@@ -19,11 +19,11 @@ class Grammar extends BaseGrammar
     protected $operators = [];
 
     /**
-     * The grammar specific bitwise operators.
+     * The grammar specific bit operators.
      *
      * @var array
      */
-    protected $bitwiseOperators = [];
+    protected $bitOperators = [];
 
     /**
      * The components that make up a select clause.
@@ -263,15 +263,19 @@ class Grammar extends BaseGrammar
     }
 
     /**
-     * Compile a bitwise operator where clause.
+     * Compile a bit operator where clause.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
      * @return string
      */
-    protected function whereBitwise(Builder $query, $where)
+    protected function whereBit(Builder $query, $where)
     {
-        return $this->whereBasic($query, $where);
+        $value = $this->parameter($where['value']);
+
+        $operator = str_replace('?', '??', $where['operator']);
+
+        return '('.$this->wrap($where['column']).' '.$operator.' '.$value.') != 0';
     }
 
     /**
@@ -704,6 +708,8 @@ class Grammar extends BaseGrammar
             return $having['boolean'].' '.$having['sql'];
         } elseif ($having['type'] === 'between') {
             return $this->compileHavingBetween($having);
+        } elseif ($having['type'] === 'bit') {
+            return $this->compileHavingBit($having);
         }
 
         return $this->compileBasicHaving($having);
@@ -741,6 +747,21 @@ class Grammar extends BaseGrammar
         $max = $this->parameter(last($having['values']));
 
         return $having['boolean'].' '.$column.' '.$between.' '.$min.' and '.$max;
+    }
+
+    /**
+     * Compile a having clause involving a bit operator.
+     *
+     * @param  array  $having
+     * @return string
+     */
+    protected function compileHavingBit($having)
+    {
+        $column = $this->wrap($having['column']);
+
+        $parameter = $this->parameter($having['value']);
+
+        return $having['boolean'].' ('.$column.' '.$having['operator'].' '.$parameter.') != 0';
     }
 
     /**
@@ -1320,12 +1341,12 @@ class Grammar extends BaseGrammar
     }
 
     /**
-     * Get the grammar specific bitwise operators.
+     * Get the grammar specific bit operators.
      *
      * @return array
      */
-    public function getBitwiseOperators()
+    public function getBitOperators()
     {
-        return $this->bitwiseOperators;
+        return $this->bitOperators;
     }
 }

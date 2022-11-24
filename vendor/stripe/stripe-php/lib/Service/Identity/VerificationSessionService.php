@@ -14,7 +14,7 @@ class VerificationSessionService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Identity\VerificationSession>
+     * @return \Stripe\Collection
      */
     public function all($params = null, $opts = null)
     {

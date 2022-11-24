@@ -59,9 +59,6 @@ use Twilio\Version;
  * @property array $flexInsightsHr
  * @property bool $flexInsightsDrilldown
  * @property string $flexUrl
- * @property array[] $channelConfigs
- * @property array $debuggerIntegration
- * @property array $flexUiStatusReport
  */
 class ConfigurationInstance extends InstanceResource {
     /**
@@ -117,9 +114,6 @@ class ConfigurationInstance extends InstanceResource {
             'flexInsightsHr' => Values::array_get($payload, 'flex_insights_hr'),
             'flexInsightsDrilldown' => Values::array_get($payload, 'flex_insights_drilldown'),
             'flexUrl' => Values::array_get($payload, 'flex_url'),
-            'channelConfigs' => Values::array_get($payload, 'channel_configs'),
-            'debuggerIntegration' => Values::array_get($payload, 'debugger_integration'),
-            'flexUiStatusReport' => Values::array_get($payload, 'flex_ui_status_report'),
         ];
 
         $this->solution = [];

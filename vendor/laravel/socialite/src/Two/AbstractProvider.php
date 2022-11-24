@@ -3,7 +3,6 @@
 namespace Laravel\Socialite\Two;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\RequestOptions;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -245,8 +244,7 @@ abstract class AbstractProvider implements ProviderContract
 
         return $this->user->setToken($token)
                     ->setRefreshToken(Arr::get($response, 'refresh_token'))
-                    ->setExpiresIn(Arr::get($response, 'expires_in'))
-                    ->setApprovedScopes(explode($this->scopeSeparator, Arr::get($response, 'scope', '')));
+                    ->setExpiresIn(Arr::get($response, 'expires_in'));
     }
 
     /**
@@ -287,22 +285,11 @@ abstract class AbstractProvider implements ProviderContract
     public function getAccessTokenResponse($code)
     {
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
-            RequestOptions::HEADERS => $this->getTokenHeaders($code),
-            RequestOptions::FORM_PARAMS => $this->getTokenFields($code),
+            'headers' => ['Accept' => 'application/json'],
+            'form_params' => $this->getTokenFields($code),
         ]);
 
         return json_decode($response->getBody(), true);
-    }
-
-    /**
-     * Get the headers for the access token request.
-     *
-     * @param  string  $code
-     * @return array
-     */
-    protected function getTokenHeaders($code)
-    {
-        return ['Accept' => 'application/json'];
     }
 
     /**

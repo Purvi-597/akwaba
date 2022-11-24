@@ -1,20 +1,21 @@
 <?php
-error_reporting(0);
+///error_reporting(0);
 session_start();
 include('config/db_pg.php');
+include('config/db_mysql.php');
 if(isset($_REQUEST['id'])){
   $id = $_REQUEST['id'];
   $cat_type = $_REQUEST['cat_type'];
 
   $pg_sql = pg_query($db, "select
   tags->'phone' as phone,
-  tags->'name:en' as en_Name,  
-  tags->'name:hy' as hy_Name,  
-  tags->'name:ru' as ru_Name,  
-  tags->'opening_hours' as opening_hours,  
-  tags->'cuisine' as cuisine,  
-  tags->'website' as website,  
-  tags->'addr:city' as city,  
+  tags->'name:en' as en_Name,
+  tags->'name:hy' as hy_Name,
+  tags->'name:ru' as ru_Name,
+  tags->'opening_hours' as opening_hours,
+  tags->'cuisine' as cuisine,
+  tags->'website' as website,
+  tags->'addr:city' as city,
   tags->'addr:street' as street,
   tags->'internet_access' as internet_access,
   tags->'outdoor_seating' as outdoor_seating,
@@ -65,11 +66,11 @@ if(isset($_REQUEST['id'])){
   osm_id as osmid,
   ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
   name
-  from 
-  public.planet_osm_point 
+  from
+  public.planet_osm_point
   WHERE osm_id=".$id);
   $row = pg_fetch_array($pg_sql,NULL, PGSQL_ASSOC);
-  
+
   if(!empty($row['opening_hours'])){
     $arr = explode(" ",$row['opening_hours']);
     $day = explode("-",$arr[0]);
@@ -77,7 +78,7 @@ if(isset($_REQUEST['id'])){
       $week = $day[0]." to " .$day[1];
       $time = explode("-",$arr[1]);
     }else{
-      $week = "";	
+      $week = "";
       $time = "";
     }
   }else{
@@ -98,11 +99,14 @@ if(isset($_REQUEST['id'])){
       $address .= ", ".$row['country'];
   }
   if(isset($_REQUEST['from']) && $_REQUEST['from'] == 'addvertisement'){
-    $image = "assets/img/feature-image.png";
+
+
+  $image = "assets/img/feature-image.png";
   $html = '';
   $html = '<div class="closeiconleftpanel" id="catCloseBtn"><a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a> </div> <div class="closeiconleftpanel closeleftpanel2 closeleftpanel"> <img src="assets/img/icons/left-arrow.png"> </div> <div class="restaurantdetilsbox" style="background-image: url('.$image.');">
             <div class="imagesandcontain">
               <div class="leftpart">
+
                 <p class="title">'.trim($row['restaurantname'],'"').'</p>
                 <p class="subtitle">'.$cat_type.'</p>
                 <div class="rattinggroup">
@@ -164,11 +168,11 @@ if(isset($_REQUEST['id'])){
                       <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
                     <div class="features-overflow">';
-            if(!empty($row['description'])) { 
+            if(!empty($row['description'])) {
                         $html.='<p class="feature-p">'.$row['description'].'</p>';
             }else{
               $html.='<p class="feature-p">No Description found</p>';
-            }					
+            }
                     $html.='</div>
                   </div>
                   <div class="photoslistmaindiv">
@@ -189,6 +193,8 @@ if(isset($_REQUEST['id'])){
                     </div>
                   </div>
                   <div class="detailslist">';
+
+
           if(!empty($address)){
             $html.='<div class="singledetails">
               <div class="icondiv">
@@ -199,7 +205,7 @@ if(isset($_REQUEST['id'])){
               </div>
               </div>';
           }
-            if(!empty($time[0]) && $time[1]) { 
+            if(!empty($time[0]) && $time[1]) {
                     $html.='<div class="singledetails">
                       <div class="icondiv">
                         <img src="assets/img/icons/star-rating.png">
@@ -217,7 +223,7 @@ if(isset($_REQUEST['id'])){
                       </div>
                     </div>';
             }
-          if(!empty($row['phone'])){  
+          if(!empty($row['phone'])){
           $html.='<div class="singledetails">
                       <div class="icondiv">
                         <img src="assets/img/icons/star-rating.png">
@@ -227,7 +233,7 @@ if(isset($_REQUEST['id'])){
                       </div>
                     </div>';
           }
-          if(!empty($row['email'])){  
+          if(!empty($row['email'])){
                   $html.='<div class="singledetails">
                       <div class="icondiv">
                         <img src="assets/img/icons/star-rating.png">
@@ -243,7 +249,7 @@ if(isset($_REQUEST['id'])){
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="secondtabmaindiv">
                   <div class="">
-                    
+
                   </div>
                 </div>
               </div>
@@ -253,8 +259,23 @@ if(isset($_REQUEST['id'])){
       <p class="d-none lat">'.$latlng[0].'</p>
           <p class="d-none long">'.$latlng[1].'</p>';
   }else{
-    $image = "assets/img/feature-image.png";
+
+
+  $image = "assets/img/feature-image.png";
   $html = '';
+    if(isset($_SESSION['users'])){
+        $user_id = $_SESSION['users']['id'];
+        $query = "SELECT * from notes where user_id = $user_id AND  osm_id = $id";
+        $result = mysqli_query($conn, $query);
+        $note_name = "";
+                while($row = mysqli_fetch_assoc($result)) {
+                    $note_name = $row['notes'];
+                }
+    }else{
+        if(isset($_COOKIE['set_notes'])) {
+            $data = json_decode($_COOKIE['set_notes']);
+        }
+}
   $html = '<div class="restaurantdetilsbox" style="background-image: url('.$image.');">
             <div class="imagesandcontain">
               <div class="leftpart">
@@ -319,11 +340,11 @@ if(isset($_REQUEST['id'])){
                       <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
                     <div class="features-overflow">';
-            if(!empty($row['description'])) { 
+                        if(!empty($row['description'])) {
                         $html.='<p class="feature-p">'.$row['description'].'</p>';
-            }else{
-              $html.='<p class="feature-p">No Description found</p>';
-            }					
+                        }else{
+                        $html.='<p class="feature-p">No Description found</p>';
+                        }
                     $html.='</div>
                   </div>
                   <div class="photoslistmaindiv">
@@ -344,61 +365,152 @@ if(isset($_REQUEST['id'])){
                     </div>
                   </div>
                   <div class="detailslist">';
-          if(!empty($address)){
-            $html.='<div class="singledetails">
-              <div class="icondiv">
-                <img src="assets/img/icons/star-rating.png">
-              </div>
-              <div class="detailsdiv">
-              <p>'.$address.'</p>
-              </div>
-              </div>';
-          }
-            if(!empty($time[0]) && $time[1]) { 
-                    $html.='<div class="singledetails">
-                      <div class="icondiv">
-                        <img src="assets/img/icons/star-rating.png">
+                        if(!empty($address)){
+                            $html.='<div class="singledetails">
+                            <div class="icondiv">
+                                <img src="assets/img/icons/star-rating.png">
+                            </div>
+                            <div class="detailsdiv">
+                            <p>'.$address.'</p>
+                            </div>
+                            </div>';
+                        }
+                        if(!empty($time[0]) && $time[1]) {
+                                $html.='<div class="singledetails">
+                                <div class="icondiv">
+                                    <img src="assets/img/icons/star-rating.png">
+                                </div>
+                                <div class="detailsdiv">
+                                    <p><span>Open Days:</span> '.$week.'</p>
+                                </div>
+                                </div>';
+                        $html.='<div class="singledetails">
+                                <div class="icondiv">
+                                    <img src="assets/img/icons/star-rating.png">
+                                </div>
+                                <div class="detailsdiv">
+                                    <p><span>Open Hours:</span> '.date("g:i A", strtotime($time[0])).' to '.date("g:i A", strtotime($time[1])).'</p>
+                                </div>
+                                </div>';
+                        }
+                        if(!empty($row['phone'])){
+                        $html.='<div class="singledetails">
+                                    <div class="icondiv">
+                                        <img src="assets/img/icons/star-rating.png">
+                                    </div>
+                                    <div class="detailsdiv">
+                                        <p>'.$row['phone'].'</p>
+                                    </div>
+                                    </div>';
+                            }
+                            if(!empty($row['email'])){
+                                    $html.='<div class="singledetails">
+                                        <div class="icondiv">
+                                            <img src="assets/img/icons/star-rating.png">
+                                        </div>
+                                        <div class="detailsdiv">
+                                            <p>'.$row['email'].'</p>
+                                        </div>
+                                        </div>';
+                            }
+                        $html.='</div>
+                        <input type="hidden" class="category_osm_id" id="category_osm_id" value="'.$id.'">';
+                            $osm_ids = array();
+                          if(isset($data)){
+                            foreach($data as $row){
+                            
+                                $osm_ids[] = $row->osm_id;
+                            }
+
+                            if(!in_array($id, $osm_ids)){
+                        $html .='<div class="AddNotes">
+                        <div class="AddNotesBtn">Add note</div>
+                        </div>';
+                            }
+                        }else{
+                            $html .='<div class="AddNotes">
+                            <div class="AddNotesBtn">Add note</div>
+                            </div>';
+                        }
+                        $html .='<div class="AddNotesSection">
+                             <div>
+                              <div class="AddNotesDiv1">
+                                <div class="AddNotesDiv2">
+                                  <div class="AddNotesDiv2_1">
+
+                                  </div>
+                                  <div class="AddNotesDiv3" style="margin-left: 32px;">
+                                    <div data-n="wat-kit-textfield" style="width: 100%;">
+                                      <div class="AddNotesDiv4">
+                                        <div class="AddNotesDiv5">
+                                          <input class="AddNotesDivInput" placeholder="Note text" maxlength="70" type="text"
+                                            value="">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div style="display: block;">
+                              <div class="AddNotesDivBtn">
+                                <div class="AddNotesDivBtn1">
+                                  <a href="javascript:void(0);" id="save_cancel"><button class="FoundErrorBtn AddNotesDivbutton" type="button">Cancel</button></a>
+
+                                </div>
+                                <a href="javascript:void(0);" class="save_note" id="save_note"><button class="FoundErrorBtn AddNotesDivbutton AddNotesDivbuttonBlue "
+                                  type="button">Save</button></a>
+
+                              </div>
+                            </div>
+                        </div>';
+                      if(!empty($data)){
+                        foreach($data as $row){
+                         if($row->osm_id == $id){
+                      $html .= '<div class="AddNotes edit_notes_div cookie_div">
+                      <div class="AddNoteReturn">
+                      <div class="Note edit_note_text" id="edit_note_text">'.$row->notes.'</div>
+                      <div class="EditDeleteIcons">
+                        <div class="EditDeleteIconsDiv">
+                        <a herf="javascript:void(0);" id="edit_note_osm" class="edit_note_osm">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5l-1 1.001 3 3 1.001-1v-1L17 5h-1zM6 15.001l-1 3V19h1l3-.999L17 10l-3-2.999-8 8z"></path></svg>
+                        <a>
+                        </div>
+                        <div class="EditDeleteIconsDiv">
+                        <a herf="javascript:void(0);" id="delete_note_osm" class="delete_note_osm">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.85 18.17a2 2 0 0 0 2 1.83h6.32a2 2 0 0 0 2-1.83L18 8H6zM15 5l-1-1h-4L9 5 5 6v1h14V6l-4-1z"></path></svg>
+                          </a>
+                        </div>
                       </div>
-                      <div class="detailsdiv">
-                        <p><span>Open Days:</span> '.$week.'</p>
+                    </div>
+                  </div>';
+                         }
+                        }
+                    }
+                        $html .= '<div class="AddNotes edit_notes_div js_div" style="display:none;">
+                        <div class="AddNoteReturn">
+                        <div class="Note edit_note_text" id="edit_note_text"></div>
+                        <div class="EditDeleteIcons">
+                          <div class="EditDeleteIconsDiv">
+                          <a herf="javascript:void(0);" id="edit_note_osm" class="edit_note_osm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5l-1 1.001 3 3 1.001-1v-1L17 5h-1zM6 15.001l-1 3V19h1l3-.999L17 10l-3-2.999-8 8z"></path></svg>
+                          <a>
+                          </div>
+                          <div class="EditDeleteIconsDiv">
+                          <a herf="javascript:void(0);" id="delete_note_osm" class="delete_note_osm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.85 18.17a2 2 0 0 0 2 1.83h6.32a2 2 0 0 0 2-1.83L18 8H6zM15 5l-1-1h-4L9 5 5 6v1h14V6l-4-1z"></path></svg>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>';
-            $html.='<div class="singledetails">
-                      <div class="icondiv">
-                        <img src="assets/img/icons/star-rating.png">
-                      </div>
-                      <div class="detailsdiv">
-                        <p><span>Open Hours:</span> '.date("g:i A", strtotime($time[0])).' to '.date("g:i A", strtotime($time[1])).'</p>
-                      </div>
-                    </div>';
-            }
-          if(!empty($row['phone'])){  
-          $html.='<div class="singledetails">
-                      <div class="icondiv">
-                        <img src="assets/img/icons/star-rating.png">
-                      </div>
-                      <div class="detailsdiv">
-                        <p>'.$row['phone'].'</p>
-                      </div>
-                    </div>';
-          }
-          if(!empty($row['email'])){  
-                  $html.='<div class="singledetails">
-                      <div class="icondiv">
-                        <img src="assets/img/icons/star-rating.png">
-                      </div>
-                      <div class="detailsdiv">
-                        <p>'.$row['email'].'</p>
-                      </div>
-                    </div>';
-          }
-                  $html.='</div>
+                    
+                  $html .='</div>
                 </div>
-              </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="secondtabmaindiv">
                   <div class="">
-                    
+
                   </div>
                 </div>
               </div>

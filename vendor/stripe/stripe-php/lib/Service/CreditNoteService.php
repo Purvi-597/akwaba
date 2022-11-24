@@ -14,7 +14,7 @@ class CreditNoteService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\CreditNote>
+     * @return \Stripe\Collection
      */
     public function all($params = null, $opts = null)
     {
@@ -32,7 +32,7 @@ class CreditNoteService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\CreditNoteLineItem>
+     * @return \Stripe\Collection
      */
     public function allLines($parentId, $params = null, $opts = null)
     {
@@ -98,7 +98,7 @@ class CreditNoteService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\CreditNote>
+     * @return \Stripe\Collection
      */
     public function previewLines($params = null, $opts = null)
     {

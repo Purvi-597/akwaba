@@ -63,58 +63,6 @@ use Traversable;
  */
 final class Generator
 {
-    private const MOCKED_CLONE_METHOD_WITH_VOID_RETURN_TYPE_TRAIT = <<<'EOT'
-namespace PHPUnit\Framework\MockObject;
-
-trait MockedCloneMethodWithVoidReturnType
-{
-    public function __clone(): void
-    {
-        $this->__phpunit_invocationMocker = clone $this->__phpunit_getInvocationHandler();
-    }
-}
-EOT;
-
-    private const MOCKED_CLONE_METHOD_WITHOUT_RETURN_TYPE_TRAIT = <<<'EOT'
-namespace PHPUnit\Framework\MockObject;
-
-trait MockedCloneMethodWithoutReturnType
-{
-    public function __clone()
-    {
-        $this->__phpunit_invocationMocker = clone $this->__phpunit_getInvocationHandler();
-    }
-}
-EOT;
-
-    private const UNMOCKED_CLONE_METHOD_WITH_VOID_RETURN_TYPE_TRAIT = <<<'EOT'
-namespace PHPUnit\Framework\MockObject;
-
-trait UnmockedCloneMethodWithVoidReturnType
-{
-    public function __clone(): void
-    {
-        $this->__phpunit_invocationMocker = clone $this->__phpunit_getInvocationHandler();
-
-        parent::__clone();
-    }
-}
-EOT;
-
-    private const UNMOCKED_CLONE_METHOD_WITHOUT_RETURN_TYPE_TRAIT = <<<'EOT'
-namespace PHPUnit\Framework\MockObject;
-
-trait UnmockedCloneMethodWithoutReturnType
-{
-    public function __clone()
-    {
-        $this->__phpunit_invocationMocker = clone $this->__phpunit_getInvocationHandler();
-
-        parent::__clone();
-    }
-}
-EOT;
-
     /**
      * @var array
      */
@@ -284,9 +232,7 @@ EOT;
      * the $mockedMethods parameter.
      *
      * @psalm-template RealInstanceType of object
-     *
      * @psalm-param class-string<RealInstanceType> $originalClassName
-     *
      * @psalm-return MockObject&RealInstanceType
      *
      * @throws RuntimeException
@@ -1008,11 +954,11 @@ EOT;
         $cloneTrait = '';
 
         if ($mockedCloneMethod) {
-            $cloneTrait = $this->mockedCloneMethod();
+            $cloneTrait = PHP_EOL . '    use \PHPUnit\Framework\MockObject\MockedCloneMethod;';
         }
 
         if ($unmockedCloneMethod) {
-            $cloneTrait = $this->unmockedCloneMethod();
+            $cloneTrait = PHP_EOL . '    use \PHPUnit\Framework\MockObject\UnmockedCloneMethod;';
         }
 
         $classTemplate->setVar(
@@ -1152,39 +1098,5 @@ EOT;
         $className = strtolower($method->getDeclaringClass()->getName());
 
         return $methodName === $className;
-    }
-
-    private function mockedCloneMethod(): string
-    {
-        if (PHP_MAJOR_VERSION >= 8) {
-            if (!trait_exists('\PHPUnit\Framework\MockObject\MockedCloneMethodWithVoidReturnType')) {
-                eval(self::MOCKED_CLONE_METHOD_WITH_VOID_RETURN_TYPE_TRAIT);
-            }
-
-            return PHP_EOL . '    use \PHPUnit\Framework\MockObject\MockedCloneMethodWithVoidReturnType;';
-        }
-
-        if (!trait_exists('\PHPUnit\Framework\MockObject\MockedCloneMethodWithoutReturnType')) {
-            eval(self::MOCKED_CLONE_METHOD_WITHOUT_RETURN_TYPE_TRAIT);
-        }
-
-        return PHP_EOL . '    use \PHPUnit\Framework\MockObject\MockedCloneMethodWithoutReturnType;';
-    }
-
-    private function unmockedCloneMethod(): string
-    {
-        if (PHP_MAJOR_VERSION >= 8) {
-            if (!trait_exists('\PHPUnit\Framework\MockObject\UnmockedCloneMethodWithVoidReturnType')) {
-                eval(self::UNMOCKED_CLONE_METHOD_WITH_VOID_RETURN_TYPE_TRAIT);
-            }
-
-            return PHP_EOL . '    use \PHPUnit\Framework\MockObject\UnmockedCloneMethodWithVoidReturnType;';
-        }
-
-        if (!trait_exists('\PHPUnit\Framework\MockObject\UnmockedCloneMethodWithoutReturnType')) {
-            eval(self::UNMOCKED_CLONE_METHOD_WITHOUT_RETURN_TYPE_TRAIT);
-        }
-
-        return PHP_EOL . '    use \PHPUnit\Framework\MockObject\UnmockedCloneMethodWithoutReturnType;';
     }
 }

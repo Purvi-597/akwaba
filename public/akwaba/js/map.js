@@ -3,24 +3,25 @@ var plainMap = L.tileLayer('http://10.10.3.50:5000/hot/{z}/{x}/{y}.png', {
     maxNativeZoom: 22
 });
 
-var burl = window.location.href; 
+var burl = window.location.href;
+
 if(burl == base_url+'index.php'){
-var str1 = 40.36629;	
-var str2 = 49.83335;	
-var url = window.location.href+"#map=13/"+str1+"/"+str2; 
+var str1 = 40.36629;
+var str2 = 49.83335;
+var url = window.location.href+"#map=13/"+str1+"/"+str2;
 $("#urllink").val(url);
 var map = L.map('map', {
     center: [40.36629, 49.83335],
     zoom: 15,
 	zoomControl: false,
     layers: [plainMap],
-    // measureControl:true 
+    // measureControl:true
     // crs: crs
 });
 }else{
 var arrs = burl.split("=");
 var finalArray = arrs[1].split("/");
-var NewLatitude = finalArray[1];	
+var NewLatitude = finalArray[1];
 var NewLongitude = finalArray[2];
 console.log(NewLatitude);
 console.log(NewLongitude);
@@ -29,7 +30,7 @@ var map = L.map('map', {
     zoom: 15,
 	zoomControl: false,
     layers: [plainMap],
-});	
+});
 }
 
 L.control.zoom({
@@ -87,8 +88,8 @@ function createResturantIcon(feature, latlng) {
     })
     return L.marker(latlng, { icon: myIconsss })
 }
- 
-	
+
+
 let myLayerOptions = {
 	pointToLayer: createCustomIcon
 }
@@ -103,7 +104,7 @@ let myLayerOptionssss = {
 	}
 
 //console.log(touristLatLng);
- 
+
 var overlayMaps = {};
 var metroMap = L.geoJSON(metroLatLng,)
 var touristMap = L.geoJSON(tourismLatLng, myLayerOptions)
@@ -134,12 +135,12 @@ var parkingMap = L.geoJSON(parkingLatLng, myLayerOptionss)
 
 //console.log(restaurantnameData[0]['name']);
 
-$(document).on('click','.leaflet-control-container .leaflet-control-layers-overlays label', function(){ 
+$(document).on('click','.leaflet-control-container .leaflet-control-layers-overlays label', function(){
 $('.leaflet-control-container .leaflet-control-layers-overlays label').removeClass('active');
 $(this).addClass('active');
 });
 
-$(document).on('click','#iconBtn', function(){ 
+$(document).on('click','#iconBtn', function(){
 
 	var id = $(this).attr('data-index');
 	var flag = $(this).attr('data-id');
@@ -202,29 +203,29 @@ $(document).on('click','#iconBtn', function(){
 		getCatData(id,'1');
 	}
 
-});	
+});
 
-$(document).on('click','.page_no', function(){ 
+$(document).on('click','.page_no', function(){
 
 	var id = $(this).attr('data-index');
 	var current_page = $(this).find('a').text();
-	
-	getCatData(id,current_page);
-});	
 
-$(document).on('click','.catNamefilter', function(){ 
+	getCatData(id,current_page);
+});
+
+$(document).on('click','.catNamefilter', function(){
 
 	var id = $(this).parents('.filterpart').attr('data-index');
 	var catName = $(this).attr('data-value');
 	getCatData(id,'1',catName);
-});	
+});
 
-$(document).on('click','.hoursFilter', function(){ 
+$(document).on('click','.hoursFilter', function(){
 
 	var id = $(this).parents('.filterpart').attr('data-index');
 	var hoursfilter = $(this).text();
 	getCatData(id,'1','',hoursfilter);
-});	
+});
 
 String.prototype.ucwords = function() {
     return this.toLowerCase().replace(/\b[a-z]/g, function(letter) {
@@ -240,11 +241,7 @@ $(document).on('click','#catCloseBtn', function(){
 	$(".catDataDiv").css('display','none');
 	$('.getEatoutDetail').attr('id');
 	$('.icon-'+id).attr('data-id', 'Yes');
-<<<<<<< HEAD
 	// $(".leaflet-marker-icon").css('display','none');
-=======
-	$(".leaflet-marker-icon").css('display','none');
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
 	$(".leaflet-marker-icon").remove();
 	//window.location.reload();
 });
@@ -259,8 +256,8 @@ $(document).on('click','#catBtn', function(){
 		success: function(response){
 			 $(".subcatSubsidebar").html(response);
 			$(".morecategoryDiv").addClass('extralarge');
-			$(".morecategoryDiv").css('display','flex'); 
-			$(".subcatSubsidebar").css('display','block'); 
+			$(".morecategoryDiv").css('display','flex');
+			$(".subcatSubsidebar").css('display','block');
 			$("#catid").val(id);
 			 $.getScript(bootstrap);
 			$.getScript(popper);
@@ -280,8 +277,8 @@ $(document).on('click', "#subcatBtn", function(){
 		success: function(response){
 			console.log(response);
 			 var arr = response.split("|");
-			var LatLng = JSON.parse(arr[1]); 
-			var Name = JSON.parse(arr[2]); 
+			var LatLng = JSON.parse(arr[1]);
+			var Name = JSON.parse(arr[2]);
 			let customIcon = {
 			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
 			 iconSize:[30,30]
@@ -300,22 +297,22 @@ $(document).on('click', "#subcatBtn", function(){
 						var marker = new L.Marker(markerLocation, iconOptions);
 						map.addLayer(marker);
 						marker.bindPopup(popupText);
-			} 
+			}
 			$(this).attr('data-id', 'No');
 			$(".morecategoryDiv ").css('display','none');
 			$(".eatoutdynamicDiv").removeClass('extralarge');
 			$(".eatoutdynamicDiv").html(arr[0]);
-			$(".eatoutdynamicDiv").css('display','flex');			
+			$(".eatoutdynamicDiv").css('display','flex');
 			/* $(".subcatSubsidebar").html(response);
 			$(".morecategoryDiv").addClass('extralarge');
-			$(".morecategoryDiv").css('display','flex'); 
-			$(".subcatSubsidebar").css('display','flex'); 
+			$(".morecategoryDiv").css('display','flex');
+			$(".subcatSubsidebar").css('display','flex');
 			$.getScript(bootstrap);
 			$.getScript(popper);
 			$.getScript(simplebar);
 			$.getScript(custom); */
 		}
-	 }) 
+	 })
 });
 $(document).on('click','.getEatoutDyanmicDetail', function(){
 	var id = $(this).attr('id');
@@ -347,7 +344,7 @@ $(document).on('click','.getEatoutDyanmicDetail', function(){
 					$(".eatoutdynamicDiv").addClass('extralarge');
 					$(".eatoutdynamicSubsidebar").css('display','block');
 				}
-			 }) 
+			 })
 });
 $(document).on('click','#EatoutdynamicCloseBtn', function(){
 	var id = $("#catid").val();
@@ -357,10 +354,10 @@ $(document).on('click','#EatoutdynamicCloseBtn', function(){
 	$(".leaflet-marker-icon").css('display','none');
 	//window.location.reload();
 });
-var baseMaps = {}; 
+var baseMaps = {};
 
 var overlayMaps = {
-   '<img src="assets/img/icons/train.png" /> </br> ': metroMap,	
+   '<img src="assets/img/icons/train.png" /> </br> ': metroMap,
    '<img src="assets/img/icons/ic_direction.png" /> </br> ': touristMap,
    '<img src="assets/img/icons/image.png">' : photoMap,
    '<img src="assets/img/icons/parking.png" />': parkingMap
@@ -388,8 +385,8 @@ L.control.ruler({
     },
     lengthUnit: {                 // You can use custom length units. Default unit is kilometers.
         display: 'km',              // This is the display value will be shown on the screen. Example: 'meters'
-        decimal: 2,                 // Distance result will be fixed to this value. 
-        factor: null,               // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)  
+        decimal: 2,                 // Distance result will be fixed to this value.
+        factor: null,               // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)
         label: 'Distance:'
     }
 }).addTo(map);
@@ -478,7 +475,7 @@ function snake(fromdata, todata, profile) {
         toMarker = new L.marker(L.marker(json.paths[0].points.coordinates[json.paths[0].points.coordinates.length - 1]));
         map.addLayer(fromMarker);
         map.addLayer(toMarker);
-    
+
         map.addLayer(directionsLayer);
         directionsLayer.snakeIn();
       })
@@ -519,23 +516,23 @@ function deg2rad(deg) {
 function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
   }
-  
+
 function convertMsToHM(milliseconds) {
     let seconds = Math.floor(milliseconds / 1000);
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
-  
+
     seconds = seconds % 60;
     minutes = seconds >= 30 ? minutes + 1 : minutes;
-  
+
     minutes = minutes % 60;
-  
+
     // 👇️ If you don't want to roll hours over, e.g. 24 to 00
     // 👇️ comment (or remove) the line below
     // commenting next line gets you `24:00:00` instead of `00:00:00`
     // or `36:15:31` instead of `12:15:31`, etc.
     // hours = hours % 24;
-  
+
     return `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`;
 }
 function Copy() {
@@ -546,7 +543,7 @@ function Copy() {
   document.execCommand("copy");
   $("#exampleModal2").modal('hide');
   $("#urllink").val('');
-}  
+}
 
 function getCatData(id,current_page,catName='',hoursfilter=''){
 	var cathtml ='';
@@ -587,7 +584,7 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
 			}
 
 			cathtml = '<div class="closeiconleftpanel" id="catCloseBtn"><a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a> </div> <div class="closeiconleftpanel closeleftpanel2 closeleftpanel"> <img src="assets/img/icons/left-arrow.png"> </div> <div class="scrollbar list-page"> <div class="img-top "> <div class="input-group search-bar"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span> </div> <input type="text" class="form-control" placeholder="Eat Out"> <div class="cross-btn"> <button type="button" class="cross-btn2" aria-label="Clear local search field"> <img src="./assets/img/icons/cross-search.png" alt=""> </button> </div> </div> <div class="row mt-3"> <div class="col-md-6"> <button class="No_Filters"> <a href="#"> <span class="Filter-btn"> <img src="./assets/img/icons/filter-btn.png" alt=""> </span> <span class="No_Filters_btn">Filters</span> </a> </button> </div> <div class="col-md-6"> <div class="float-right"> <div class="No_places"> <a href="#" class="No_places-list">Places: <span class="No_places-number">'+tolCnt+'</span> </a> </div> </div> </div> </div> </div> <div class="info-card categories-icons-sections"> <div class="row m-0"><div class="filterpart" data-simplebar data-index="'+id+'"> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <a class="btn p-0 toggle-btn"> <i class="fa fa-angle-down" aria-hidden="true"></i> </a> <ul>';
-			
+
 			var catfilterArr = catfilter[0]['subcateArr'].split(",");
 			for(var c=0;c<catfilterArr.length;c++){
 				var sunCateName = catfilterArr[c].replace('_', " ");
@@ -599,15 +596,15 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
 
 			cathtml +='<li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <ul> <li class="side-list">Wi-Fi</li> <li class="side-list">Amenities</li> <li class="side-list">Brunch</li> <li class="side-list">payment</li> <li class="side-list">Photo available</li> </ul> <div class="input"> <input type="text" class="cafesbar-input" value="" placeholder="Metro station"> </div> </div> </div>';
 
-			cathtml +='<div class="col-md-12 border-bottom"> <div class="cafesbar"><h6 class="list-heading">Opening hours</h6> <ul> <li class="side-list hoursFilter">Open right now</li> <li class="side-list hoursFilter">Open 24 hours</li> <li class="side-list hoursFilter">At the specific time</li> </ul> <div class="input-group"> <div class="input"> <input type="text" class="cafesbar-input w-101" value="" placeholder="06:00 pm"> </div> <div class="input ml-2"> <input type="text" class="cafesbar-input w-64" value="" placeholder="Wed"> </div> </div> </div> </div>'; 
+			cathtml +='<div class="col-md-12 border-bottom"> <div class="cafesbar"><h6 class="list-heading">Opening hours</h6> <ul> <li class="side-list hoursFilter">Open right now</li> <li class="side-list hoursFilter">Open 24 hours</li> <li class="side-list hoursFilter">At the specific time</li> </ul> <div class="input-group"> <div class="input"> <input type="text" class="cafesbar-input w-101" value="" placeholder="06:00 pm"> </div> <div class="input ml-2"> <input type="text" class="cafesbar-input w-64" value="" placeholder="Wed"> </div> </div> </div> </div>';
 
 			cathtml +='<div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Cuisine</h6> <ul> <li class="side-list">Afgan</li> <li class="side-list">African</li> <li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Average bill from 8 to 550 AED</h6> <div class="slidermaindiv"> <div id="slider-range"></div> <div class="row slider-labels"> <div class="col-xs-6 caption"><span id="slider-range-value1"></span> </div> <div class="col-xs-6 text-right caption"><span id="slider-range-value2"></span> </div> </div> <div class="row"> <div class="col-sm-12"> <form> <input type="hidden" name="min-value" value=""> <input type="hidden" name="max-value" value=""> </form> </div> </div> </div> </div> </div> </div>';
-			
+
 			cathtml += '<div class="restaurantslistpart "> <div class="restaurantslistmaindiv" data-simplebar>';
 			$(".leaflet-marker-icon").css('display','none');
 			$(".leaflet-marker-icon").remove();
 			if(catData.length > 0){
-				
+
 				for(var i = 0; i < catData.length; i++) {
 					var lon = catData[i].coordinates[0];
 					var lat = catData[i].coordinates[1];
@@ -617,7 +614,7 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
 					map.addLayer(marker);
 					marker.bindPopup(popupText);
 					$(".leaflet-marker-icon").css('display','block');
-	
+
 					if(catData[i]['cuisine'] != '' && catData[i]['cuisine'] != null){
 						var cuisine = catData[i]['cuisine'].replace(";", ",");
 					}else{
@@ -676,7 +673,7 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
 				for(var p=1;p<=tolPage;p++){
 					var activeClass= '';
 					if(p==current_page){activeClass = 'active';}
-					cathtml +='<li class="page-item page_no '+activeClass+'" data-index="'+id+'"> <a class="page-link" href="javascript:void(0)">'+p+'</a> </li>'; 
+					cathtml +='<li class="page-item page_no '+activeClass+'" data-index="'+id+'"> <a class="page-link" href="javascript:void(0)">'+p+'</a> </li>';
 				}
 				cathtml +='<li class="page-item"> <a class="page-link" href="#"><img src="assets/img/icons/right-arrow.png"></a> </li></ul> </nav> </div> </div> </div> </div> </div> <!-- Hotel sub sidebar --> <div class="extrapart catSubsidebar" style="display: none;"></div> </div>';
 
@@ -688,3 +685,109 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
 		}
 	})
 }
+
+
+    $(document).on('click','.AddNotesBtn',function(){
+
+        $(".AddNotesSection").toggle();
+      });
+
+
+
+
+
+//     $(document).on('click','.add_notes',function(){
+
+//        // var html = '<div class="notes"><input type="text" class="form-control notes_text" id="notes_text" name="notes_text"><a href="javascript:void(0);" id="note_submit" class="note_submit">Save</a></div>';
+
+//         $('.notes_div').html(html);
+// });
+    $(document).on('click','.save_note',function(){
+        var note = $(".AddNotesDivInput").val();
+        var osm_id = $("#category_osm_id").val();
+       
+        var check = 'add';
+        $.ajax({
+            type: "POST",
+            url: 'add_notes.php',
+            data: {'check':check,'note': note,'osm_id':osm_id},
+            success: function(data){
+                if($.trim(data) == 'success'){
+                   $(".js_div").css('display', 'block');
+                   $("#edit_note_text").text(note);
+                   $(".AddNotesSection").toggle();
+                }else if($.trim(data) == 'success_edit_name'){
+                    $(".cookie_div").css('display', 'block');
+                    $("#edit_note_text").text(note);
+                    $(".AddNotesSection").toggle();
+                }else{
+                    alert("error: " + data);
+                }
+            }
+        });
+    });
+
+    $(document).on('click','.edit_note_osm',function(){
+      
+       $(".edit_notes_div").css('display', 'none');
+       $(".AddNotesSection").toggle();
+       var div_note =  $("#edit_note_text").text();
+        $(".AddNotesDivInput").val(div_note);
+    //    var osm_id = $("#category_osm_id").val();
+    
+    //    $.ajax({
+    //     type: "POST",
+    //     url: 'add_notes.php',
+    //     data: {'check':check,'note': note,'osm_id':osm_id},
+    //     success: function(data){
+    //         if($.trim(data) == 'success'){
+    //            $(".edit_notes_div").css('display', 'block');
+    //            $("#edit_note_text").text(note);
+    //            $(".AddNotesSection").toggle();
+    //         }else{
+    //             alert("error: " + data);
+    //         }
+    //     }
+    // });
+
+
+    });
+    // $(document).on('click','#edit_note',function(){
+    //     var note = $("#notes_text").val();
+    //     var id = $(this).attr('data-id');
+    //     var check = 'edit';
+    //     $.ajax({
+    //         type: "POST",
+    //         url: 'add_notes.php',
+    //         data: {'check':check,'note': note,'id':id},
+    //         success: function(data){
+    //             if($.trim(data) == 'success'){
+    //                 alert(data);
+    //             }else{
+    //                 alert("error: " + data);
+    //             }
+    //         }
+    //     });
+
+
+    // });
+    // $(document).on('click','#delete_node',function(){
+
+    //     var id = $(this).attr('data-id');
+    //     var check = 'delete';
+    //     $.ajax({
+    //         type: "POST",
+    //         url: 'add_notes.php',
+    //         data: {'check':check,'id':id},
+    //         success: function(data){
+    //             if($.trim(data) == 'success'){
+    //                 alert(data);
+    //             }else{
+    //                 alert("error: " + data);
+    //             }
+    //         }
+    //     });
+
+
+    // });
+

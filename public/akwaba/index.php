@@ -651,7 +651,6 @@ if($advertisement_result->num_rows > 0) {
               <div class="fields">
                 <div class="input-field">
                   <input type="text" id="company_name" name="company_name" class="field-input" placeholder="Company name">
-
                 </div>
                 <span id="company_name_error" style="color:red;margin-left:10px;font-size: 12px;"></span>
               </div>
@@ -994,16 +993,15 @@ if($advertisement_result->num_rows > 0) {
             <div class="fields">
             <label for="formrow-quest_name-input">Place Name</label>
             <!-- <input type="text" class="form-control" name="place_name" id="place_name" placeholder="Enter place Name"> -->
-            <select class="js-example-basic-single form-control" name="place_name" id="place_name">
+            <select class="form-control" name="place_name" id="place_name">
                 <option value="" selected>Select</option>
-            <?php if(!empty($place_name_result)){
+                <?php
                foreach($place_name_result as $row){
                 $latitude = json_decode($row[0])->coordinates[0];
                 $longtitude = json_decode($row[0])->coordinates[1];
                 ?>
-
-            <option value="<?php echo $row[2]; ?>" data-latitude="<?php echo $latitude; ?>" data-longtitude="<?php echo $longtitude; ?>"><?php echo $row[1]; ?></option>
-                <?php } } ?>
+                <option value="<?php echo $row[2]; ?>" data-latitude="<?php echo $latitude; ?>" data-longtitude="<?php echo $longtitude; ?>"><?php echo $row[1]; ?></option>
+                <?php }  ?>
             </select>
             <span id="place_name_error" style="color:red;font-size: 12px;"></span>
             </div>

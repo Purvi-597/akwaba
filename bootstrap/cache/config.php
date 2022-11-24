@@ -192,15 +192,7 @@
       'file' => 
       array (
         'driver' => 'file',
-<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/cache/data',
-=======
-<<<<<<< HEAD
-        'path' => 'F:\\akwaba\\storage\\framework/cache/data',
-=======
-        'path' => 'C:\\xampp\\htdocs\\akwaba\\storage\\framework/cache/data',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
       ),
       'memcached' => 
       array (
@@ -428,15 +420,7 @@
     ),
     'temporary_files' => 
     array (
-<<<<<<< HEAD
       'local_path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/laravel-excel',
-=======
-<<<<<<< HEAD
-      'local_path' => 'F:\\akwaba\\storage\\framework/laravel-excel',
-=======
-      'local_path' => 'C:\\xampp\\htdocs\\akwaba\\storage\\framework/laravel-excel',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
@@ -451,28 +435,12 @@
       'local' => 
       array (
         'driver' => 'local',
-<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\public\\uploads',
-=======
-<<<<<<< HEAD
-        'root' => 'F:\\akwaba\\public\\uploads',
-=======
-        'root' => 'C:\\xampp\\htdocs\\akwaba\\public\\uploads',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
       ),
       'public' => 
       array (
         'driver' => 'local',
-<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\app/public',
-=======
-<<<<<<< HEAD
-        'root' => 'F:\\akwaba\\storage\\app/public',
-=======
-        'root' => 'C:\\xampp\\htdocs\\akwaba\\storage\\app/public',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
         'url' => 'http://localhost:8000/storage',
         'visibility' => 'public',
       ),
@@ -518,29 +486,13 @@
       'single' => 
       array (
         'driver' => 'single',
-<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\logs/laravel.log',
-=======
-<<<<<<< HEAD
-        'path' => 'F:\\akwaba\\storage\\logs/laravel.log',
-=======
-        'path' => 'C:\\xampp\\htdocs\\akwaba\\storage\\logs/laravel.log',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\logs/laravel.log',
-=======
-<<<<<<< HEAD
-        'path' => 'F:\\akwaba\\storage\\logs/laravel.log',
-=======
-        'path' => 'C:\\xampp\\htdocs\\akwaba\\storage\\logs/laravel.log',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
         'level' => 'debug',
         'days' => 14,
       ),
@@ -609,15 +561,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-<<<<<<< HEAD
         0 => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\resources\\views/vendor/mail',
-=======
-<<<<<<< HEAD
-        0 => 'F:\\akwaba\\resources\\views/vendor/mail',
-=======
-        0 => 'C:\\xampp\\htdocs\\akwaba\\resources\\views/vendor/mail',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
       ),
     ),
     'log_channel' => NULL,
@@ -726,15 +670,7 @@
     'lifetime' => '120',
     'expire_on_close' => true,
     'encrypt' => false,
-<<<<<<< HEAD
     'files' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/sessions',
-=======
-<<<<<<< HEAD
-    'files' => 'F:\\akwaba\\storage\\framework/sessions',
-=======
-    'files' => 'C:\\xampp\\htdocs\\akwaba\\storage\\framework/sessions',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -754,21 +690,9 @@
   array (
     'paths' => 
     array (
-<<<<<<< HEAD
       0 => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework\\views',
-=======
-<<<<<<< HEAD
-      0 => 'F:\\akwaba\\resources\\views',
-    ),
-    'compiled' => 'F:\\akwaba\\storage\\framework\\views',
-=======
-      0 => 'C:\\xampp\\htdocs\\akwaba\\resources\\views',
-    ),
-    'compiled' => 'C:\\xampp\\htdocs\\akwaba\\storage\\framework\\views',
->>>>>>> purvi
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
   ),
   'flare' => 
   array (
@@ -846,11 +770,7 @@
     'timeout' => 3600,
     'enable_logging' => true,
     'set_command_and_error_output_on_exception' => false,
-<<<<<<< HEAD
     'temporary_files_root' => 'C:\\Users\\JAINIL~1.DAR\\AppData\\Local\\Temp',
-=======
-    'temporary_files_root' => 'C:\\Users\\DIVYA~1.VAR\\AppData\\Local\\Temp',
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
   ),
   'datatables' => 
   array (
@@ -914,7 +834,7 @@
   'trustedproxy' => 
   array (
     'proxies' => NULL,
-    'headers' => 30,
+    'headers' => 94,
   ),
   'tinker' => 
   array (

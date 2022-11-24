@@ -6,29 +6,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Latest compiled and minified CSS -->
-  
+
   <link rel="stylesheet" type="text/css"
   href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
     <script src="js/leaflet.js"></script>
-	
+
 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet-src.js"
       integrity="sha512-IkGU/uDhB9u9F8k+2OsA6XXoowIhOuQL1NTgNZHY1nkURnqEGlDZq3GsfmdJdKFe1k1zOc6YU2K7qY+hF9AodA==" crossorigin=""
   ></script>
-	
+
 	 <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-	 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.3.2/leaflet.draw.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.3.2/leaflet.draw.js"></script>
 
     <link rel="stylesheet" href="https://makinacorpus.github.io/Leaflet.MeasureControl/leaflet.measurecontrol.css" />
     <script src="https://makinacorpus.github.io/Leaflet.MeasureControl/leaflet.measurecontrol.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
-	
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tomik23/autocomplete@1.8.5/dist/css/autocomplete.min.css" />
     	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/landing-custom.css">
@@ -38,11 +38,11 @@
 	 <link rel="stylesheet" href="../assets/libs/sweetalert2/sweetalert2.min.css">
      <link href='../assets/css/select2.min.css'  rel="stylesheet" type="text/css" />
 	<!--<link rel="stylesheet" href="global.css" />-->
-	
+
 	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
    <style>
         html,
-        body {height: 100%;padding:0;margin:0;}        
+        body {height: 100%;padding:0;margin:0;}
         #map {width: 100%;height: 100vh;}
         .info-div{font-size: 18px; padding: 5px;}
         .select-profile {border: 1px solid #d7d7d7;font-size: 16px;padding: 12px; width: 100%;}
@@ -131,7 +131,7 @@
       border: 1px solid #B531AF;
       color: #fff;
     }
-    
+
     .cafesbar ul .side-list {
       list-style-type: none;
       display: inline-block;
@@ -190,7 +190,7 @@
   text-align: justify;
 }
 
-	
+
     .left-feature-panel.extralarge {
       max-width: calc(400px + 390px);
     }
@@ -304,7 +304,7 @@
     .extrapartfeature .categories-icons-section .features-overflow {
       padding: 8px 0px 12px;
     }
-	
+
 	.left-panel .featured-places .img-top, .left-panel .extrapart .img-top {
 		height: 150px;
 		background-image: none;
@@ -317,7 +317,7 @@
 		align-items: center;
 		background-color: #ddd !important;
 	}
-	
+
 	.left-panel .extrapart .img-top .topboxheader{
       display: flex;
       flex-wrap: wrap;
@@ -340,7 +340,7 @@
     /* .extrapartfeature {
       box-shadow: -1px 0 0 0 rgb(38 38 38 / 12%);
       max-width: 390px;
-    } */	
+    } */
 
 
 
@@ -676,7 +676,158 @@ border-radius: 100%;
     cursor: pointer;
     margin-top:7px;
 }
+.catNamefilter{
+    cursor: pointer;
+}
+    .AddNotesSection {
+      margin-left: -24px;
+      margin-right: -24px;
+      display: none;
+    }
 
+    .AddNoteReturn {
+    display: flex;
+}
+
+
+.AddNotes .Note {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 48px;
+    width: 100%;
+    padding-top: 4px;
+    margin-right: 4px;
+    color: rgb(38, 38, 38);
+}
+
+.EditDeleteIcons {
+    -webkit-box-pack: justify;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+.EditDeleteIconsDiv:first-child {
+    padding-right: 4px;
+}
+
+.EditDeleteIconsDiv {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+
+    .AddNotesDiv1 {
+      padding-top: 8px;
+      padding-bottom: 12px;
+      margin-left: -8px;
+      margin-right: 24px;
+    }
+
+    .AddNotesDiv2 {
+      position: relative;
+    }
+
+    .AddNotesDiv2_1 {
+      position: absolute;
+    }
+
+    .AddNotesDiv3 {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .AddNotesDiv4 {
+      -webkit-box-pack: justify;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .AddNotesDiv5 {
+      -webkit-box-align: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      color: rgb(146, 146, 146);
+      position: relative;
+      box-sizing: border-box;
+      padding: 12px 0px;
+    }
+
+    .AddNotesDivInput {
+      color: rgb(38, 38, 38);
+      border: none;
+      display: block;
+      width: 100%;
+      outline: none;
+      padding: 0px;
+      resize: vertical;
+      background-color: initial;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      font-family: inherit;
+    }
+
+    .AddNotesDiv5::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      height: 1px;
+      width: 100%;
+      left: 0px;
+      background: rgb(230, 230, 230);
+    }
+
+    .AddNotesDivBtn {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      background: rgb(242, 242, 242);
+      display: flex;
+      padding: 8px 16px;
+      justify-content: flex-end;
+      margin-top: -4px;
+    }
+
+    .AddNotesDivBtn1 {
+      margin-right: 16px;
+    }
+
+    .AddNotesDivbutton {
+      box-shadow: none;
+      background: transparent;
+      width: auto;
+    }
+
+    .AddNotesDivbutton:hover {
+      color: rgb(38, 38, 38);
+    }
+
+    .AddNotesDivbuttonBlue {
+      color: rgb(255, 255, 255);
+      background: rgb(2, 142, 255);
+    }
+      .FoundErrorBtn {
+      border: none;
+      padding: 12px 24px;
+      font-size: 13px;
+      line-height: 16px;
+      position: relative;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #0072ce;
+      box-shadow: inset 0 0 0 1px #e6e6e6;
+      width: 100%;
+    }
   </style>
 </head>
 

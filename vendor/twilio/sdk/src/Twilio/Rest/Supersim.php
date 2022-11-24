@@ -15,6 +15,7 @@ use Twilio\Rest\Supersim\V1;
 
 /**
  * @property \Twilio\Rest\Supersim\V1 $v1
+ * @property \Twilio\Rest\Supersim\V1\CommandList $commands
  * @property \Twilio\Rest\Supersim\V1\EsimProfileList $esimProfiles
  * @property \Twilio\Rest\Supersim\V1\FleetList $fleets
  * @property \Twilio\Rest\Supersim\V1\IpCommandList $ipCommands
@@ -23,6 +24,7 @@ use Twilio\Rest\Supersim\V1;
  * @property \Twilio\Rest\Supersim\V1\SimList $sims
  * @property \Twilio\Rest\Supersim\V1\SmsCommandList $smsCommands
  * @property \Twilio\Rest\Supersim\V1\UsageRecordList $usageRecords
+ * @method \Twilio\Rest\Supersim\V1\CommandContext commands(string $sid)
  * @method \Twilio\Rest\Supersim\V1\EsimProfileContext esimProfiles(string $sid)
  * @method \Twilio\Rest\Supersim\V1\FleetContext fleets(string $sid)
  * @method \Twilio\Rest\Supersim\V1\IpCommandContext ipCommands(string $sid)
@@ -86,6 +88,17 @@ class Supersim extends Domain {
         }
 
         throw new TwilioException('Unknown context ' . $name);
+    }
+
+    protected function getCommands(): \Twilio\Rest\Supersim\V1\CommandList {
+        return $this->v1->commands;
+    }
+
+    /**
+     * @param string $sid The SID that identifies the resource to fetch
+     */
+    protected function contextCommands(string $sid): \Twilio\Rest\Supersim\V1\CommandContext {
+        return $this->v1->commands($sid);
     }
 
     protected function getEsimProfiles(): \Twilio\Rest\Supersim\V1\EsimProfileList {

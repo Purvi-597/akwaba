@@ -110,7 +110,7 @@ class Insights extends Domain {
     }
 
     /**
-     * @param string $conferenceSid Conference SID.
+     * @param string $conferenceSid The conference_sid
      */
     protected function contextConferences(string $conferenceSid): \Twilio\Rest\Insights\V1\ConferenceContext {
         return $this->v1->conferences($conferenceSid);

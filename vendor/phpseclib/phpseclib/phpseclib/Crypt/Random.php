@@ -14,6 +14,8 @@
  * ?>
  * </code>
  *
+ * @category  Crypt
+ * @package   Random
  * @author    Jim Wigginton <terrafrost@php.net>
  * @copyright 2007 Jim Wigginton
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -25,7 +27,9 @@ namespace phpseclib3\Crypt;
 /**
  * Pure-PHP Random Number Generator
  *
+ * @package Random
  * @author  Jim Wigginton <terrafrost@php.net>
+ * @access  public
  */
 abstract class Random
 {
@@ -47,7 +51,7 @@ abstract class Random
         }
 
         try {
-            return random_bytes($length);
+            return \random_bytes($length);
         } catch (\Exception $e) {
             // random_compat will throw an Exception, which in PHP 5 does not implement Throwable
         } catch (\Throwable $e) {
@@ -180,7 +184,7 @@ abstract class Random
             $i = $crypto->encrypt(microtime()); // strlen(microtime()) == 21
             $r = $crypto->encrypt($i ^ $v); // strlen($v) == 20
             $v = $crypto->encrypt($r ^ $i); // strlen($r) == 20
-            $result .= $r;
+            $result.= $r;
         }
 
         return substr($result, 0, $length);

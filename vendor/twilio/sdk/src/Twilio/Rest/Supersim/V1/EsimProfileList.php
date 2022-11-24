@@ -37,17 +37,18 @@ class EsimProfileList extends ListResource {
     /**
      * Create the EsimProfileInstance
      *
+     * @param string $eid Identifier of the eUICC that will claim the eSIM Profile
      * @param array|Options $options Optional Arguments
      * @return EsimProfileInstance Created EsimProfileInstance
      * @throws TwilioException When an HTTP error occurs.
      */
-    public function create(array $options = []): EsimProfileInstance {
+    public function create(string $eid, array $options = []): EsimProfileInstance {
         $options = new Values($options);
 
         $data = Values::of([
+            'Eid' => $eid,
             'CallbackUrl' => $options['callbackUrl'],
             'CallbackMethod' => $options['callbackMethod'],
-            'Eid' => $options['eid'],
         ]);
 
         $payload = $this->version->create('POST', $this->uri, [], $data);
