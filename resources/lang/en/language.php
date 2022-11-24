@@ -74,7 +74,7 @@ return [
     'ad_deleted' => 'Advertisement Deleted Successfully',
 
 
-    /* CAtegorgy */
+    /* Category */
 
     'Name' => 'Name',
     'catName_placeholder' => 'Enter Category Name',
@@ -129,7 +129,7 @@ return [
     'choose_feature' => 'Choose a Feature Places:',
 
 
-    /* Feature TExt */
+    /* Feature Text */
     'add_text' => 'Add feature Text',
     'Add_feature_list' => 'Add Feature List',
     'Feature_list' => 'Feature List',
@@ -237,6 +237,7 @@ return [
 
     'notes' => 'Notes',
 
+    /*Photo */ 
     'add_photo' => 'Add Photo',
     'photo_address' => 'Address',
     'photo_image' => 'Image',
@@ -259,5 +260,38 @@ return [
     'add_photo_success' => 'Photos added successfully.',
     'update_photo' => 'Photos updated successfully.',
 
+
+    /* Feedback */
+    'name' => 'Name',
+    'email' => 'Email',
+    'contact_no' => 'Contact No',
+    'message' => 'Messages',
+    'feedback' => 'Feedback',
+
+    'cms_management' => 'CMS Management',
+
+
+    'Yes' => 'Yes',
+
+    /*Faq */
+    'Question' => 'Question',
+    'FrQuestion' => 'French Question',
+    'Answer' => 'Answer',
+    'FrAnswer' => 'French Answer',    
+    'Question_validation' => 'Please provide a Question.',
+    'frQuestion_validation' => 'Please provide a French Question.',
+    'Answer_validation' => 'Please Provide a Answer',
+    'frAnswer_validation' => 'Please Provise French Answer',
+    'Question_placeholder' => 'Enter Question',
+    'frQuestion_placeholder' => 'Enter French Question',
+    'Answer_placeholder' => 'Enter Answer',
+    'frAnswer_placeholder' => 'Enter French Answer',
+
+    'faq' => 'FAQ',
+    'update_faq' => 'Update FAQ',
+    'add_faq' => 'Add FAQ',
+    'detail_faq' => 'FAQ Details',
+    'delete_faq' => 'You want to delete this FAQ',
+    'faq_Deleted' => 'FAQ Deleted Successfully',
 
 ];

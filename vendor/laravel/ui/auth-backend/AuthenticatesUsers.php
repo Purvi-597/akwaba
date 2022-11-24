@@ -72,11 +72,15 @@ trait AuthenticatesUsers
         $request->validate([
             $this->username() => 'required|string',
             'password' => 'required|string',
+<<<<<<< HEAD
             /// 'g-recaptcha-response' =>['required'],
         ], [
            // 'g-recaptcha-response.required' => 'Captcha is required.'
        ]
     );
+=======
+        ]);
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
     }
 
     /**
@@ -181,7 +185,7 @@ trait AuthenticatesUsers
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/login');
+            : redirect('/');
     }
 
     /**

@@ -189,15 +189,30 @@ class BinaryFileResponse extends Response
      */
     public function prepare(Request $request)
     {
+<<<<<<< HEAD
+=======
+        if ($this->isInformational() || $this->isEmpty()) {
+            parent::prepare($request);
+
+            $this->maxlen = 0;
+
+            return $this;
+        }
+
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
         if (!$this->headers->has('Content-Type')) {
             $this->headers->set('Content-Type', $this->file->getMimeType() ?: 'application/octet-stream');
         }
 
+<<<<<<< HEAD
         if ('HTTP/1.0' !== $request->server->get('SERVER_PROTOCOL')) {
             $this->setProtocolVersion('1.1');
         }
 
         $this->ensureIEOverSSLCompatibility($request);
+=======
+        parent::prepare($request);
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 
         $this->offset = 0;
         $this->maxlen = -1;

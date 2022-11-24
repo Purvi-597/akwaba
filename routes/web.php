@@ -208,10 +208,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	 Route::get('license/edit', 'LicenseController@edit')->name('license.edit');
 	 Route::post('license/update', 'LicenseController@update')->name('license.update');
 
+
+	 /* Rating */ 
 	 Route::get('rating', 'RatingReviewsController@index')->name('rating.index');
 
-
+	/*Notes */ 
 	 Route::get('notes', 'NotesController@index')->name('notes.index');
+
+	/*Feedback */ 
+	 Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
+	 Route::post('feedbackemail', 'FeedbackController@feedbackemail')->name('feedbackemail');
+
 
 
 	Route::get('editpassword', 'EditpasswordController@index')->name('editpassword.index');
@@ -219,6 +226,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	Route::get('checkoldpassword', 'EditpasswordController@checkoldpassword')->name('checkoldpassword');
 	
 
+	/* Photo */
 	Route::get('photos', 'PhotosController@index')->name('photos.index');
 	Route::get('photos/create', 'PhotosController@create')->name('photos.create');
 	Route::post('photos/store', 'PhotosController@store')->name('photos.store');
@@ -227,6 +235,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('photos/view/{id}', 'PhotosController@view')->name('photos.view');
     Route::post('deletephotos', 'PhotosController@delete')->name('deletephotos');
     Route::post('photos_status', 'PhotosController@status')->name('photos_status');
+
+
+	/* Feature Places text*/
+	Route::get('faq', 'FaqController@index')->name('faq.index')->middleware('setLocale');
+	Route::get('faq/create', 'FaqController@create')->name('faq.create')->middleware('setLocale');
+	Route::post('faq/store', 'FaqController@store')->name('faq.store')->middleware('setLocale');
+	Route::get('faq/edit/{id}', 'FaqController@edit')->name('faq.edit')->middleware('setLocale');
+    Route::post('faq/update/{id}', 'FaqController@update')->name('faq.update')->middleware('setLocale');
+    Route::get('faq/view/{id}', 'FaqController@view')->name('faq.view')->middleware('setLocale');
+    Route::post('deletefaq', 'FaqController@delete')->name('deletefaq')->middleware('setLocale');
+    Route::post('faq_status', 'FaqController@faq_status')->name('faq_status')->middleware('setLocale');
 
 	
 });

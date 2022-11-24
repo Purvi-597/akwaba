@@ -4,6 +4,66 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+<<<<<<< HEAD
+=======
+### Changed
+- Cast empty headings to indexed integer
+- Adds `isEmptyWhen` to customize is row empty logic.
+
+### Fixed
+
+- Fix temporary local files not being cleaned up when setting force_resync_remote config to true (#3623)
+- Fix testing for multiple stored files by regex matching (#3631).
+- Allow `required_unless` rule (#3660)
+- Fix output of `WithFormatData` in combination with `SkipsEmptyRows` (#3760)
+
+## [3.1.40] - 2022-05-02
+
+- Fix testing for multiple stored files by regex matching (#3631).
+
+### Changed
+
+- Adds `WithDefaultStyles` concern to allow configuring the workbook default styles.
+- Adds `WithBackgroundColor` concern to allow configuring the workbook default background color.
+- Expose the ability to set custom response headers when exporting collections via Exportable
+
+## [3.1.39] - 2022-04-23
+
+### Fixed
+
+- Fix PHP8.1 return type for Failure class (#3588)
+
+## [3.1.38] - 2022-03-24
+
+### Changed
+
+- Adds concern `WithGroupedHeadingRow` to allow imported sheets to group the values of columns with the same header in an array
+
+### Fixed
+
+- Fix for `prepareForValidation` callback not being called when using `SkipsEmptyRows`
+
+## [3.1.37] - 2022-02-28
+
+### Fixed
+- Add `@mixin` docblock to all macroable classes to allow for IDE autocompletion of delegate classes
+- Fix issue with `Excel::toArray` not allowing nullable reader types for uploaded files
+
+### Changed
+- Change default Csv Import to auto-detect the delimiter when not explicitly defined
+
+## [3.1.36] - 2022-02-03
+
+### Fixed
+- Fix return type of `FromQuery::query()`
+
+## Changed
+- Support Laravel 9
+- Added a config setting to specify DB connection
+- Added a config setting to specify CSV output encoding
+- Added an ability to specify CSV ouput encoding through csvSettings
+
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 ## [3.1.35] - 2022-01-04
 
 ### Fixed

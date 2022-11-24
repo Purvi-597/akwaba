@@ -93,7 +93,7 @@ input::-webkit-inner-spin-button {
                         <span id="passwordcheck" style="color:red;color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
                     </div> 
 
-                         <div id="req_input" class="form-group">
+                         {{-- <div id="req_input" class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Profile_Image')</label>
                         <input type="file"  class="form-control images" name="profile_pic" id="profile_pic" >
                             <div class="invalid-feedback">
@@ -101,7 +101,7 @@ input::-webkit-inner-spin-button {
                             </div><br>
                         <img id="image_main0" name="image_main0" class="image_main0" height="100" width="200" style="display:none" >
                     <span id="image0_error" style="color:#f46a6a;margin-top: 0.25rem;font-size: 80%;"></span>
-                </div>
+                </div> --}}
 
                 <div class="form-group">
                     <label for="formrow-quest_name-input">@lang('language.Home_Address')</label>

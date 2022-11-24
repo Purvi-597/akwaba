@@ -23,16 +23,16 @@
                     </span>
                     <span class="logo-lg">
                         <!-- logo-dark.png -->
-                        {{-- <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" style="cursor: default;" height="17"> --}}
+                        <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" style="cursor: default;" height="17">
                     </span>
                 </a>
                 <a href="javascript:void(0);" class="logo logo-light">
                     <span class="logo-sm">
-                      {{-- <img src="{{ URL::asset('assets/images/img/logo_p1.png')}}" alt="" style="height: 25px;margin-left: -10px;"> --}}
+                      <img src="{{ URL::asset('assets/images/img/admin_app_logo_white.png')}}" alt="" style="height: 25px;margin-left: -10px;">
                     </span>
                     <span class="logo-lg">
                         <!-- logo-dark.png -->
-                       {{-- <img src="{{ URL::asset('assets/images/img/logo_p.png')}}" alt="" > --}}
+                       <img src="{{ URL::asset('assets/images/img/admin_app_logo_white.png')}}" alt="" >
                 </a>
             </div>
             <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">

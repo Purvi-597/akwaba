@@ -192,7 +192,11 @@
       'file' => 
       array (
         'driver' => 'file',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/cache/data',
+=======
+        'path' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\framework/cache/data',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
       ),
       'memcached' => 
       array (
@@ -420,7 +424,11 @@
     ),
     'temporary_files' => 
     array (
+<<<<<<< HEAD
       'local_path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/laravel-excel',
+=======
+      'local_path' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\framework/laravel-excel',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
@@ -435,12 +443,20 @@
       'local' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\public\\uploads',
+=======
+        'root' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\public\\uploads',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
       ),
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\app/public',
+=======
+        'root' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\app/public',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
         'url' => 'http://localhost:8000/storage',
         'visibility' => 'public',
       ),
@@ -486,13 +502,21 @@
       'single' => 
       array (
         'driver' => 'single',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\logs/laravel.log',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+<<<<<<< HEAD
         'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\logs/laravel.log',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
         'level' => 'debug',
         'days' => 14,
       ),
@@ -540,6 +564,11 @@
         'driver' => 'monolog',
         'handler' => 'Monolog\\Handler\\NullHandler',
       ),
+      'deprecations' => 
+      array (
+        'driver' => 'monolog',
+        'handler' => 'Monolog\\Handler\\NullHandler',
+      ),
     ),
   ),
   'mail' => 
@@ -561,7 +590,11 @@
       'theme' => 'default',
       'paths' => 
       array (
+<<<<<<< HEAD
         0 => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\resources\\views/vendor/mail',
+=======
+        0 => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\resources\\views/vendor/mail',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
       ),
     ),
     'log_channel' => NULL,
@@ -670,7 +703,11 @@
     'lifetime' => '120',
     'expire_on_close' => true,
     'encrypt' => false,
+<<<<<<< HEAD
     'files' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/sessions',
+=======
+    'files' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\framework/sessions',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -690,9 +727,15 @@
   array (
     'paths' => 
     array (
+<<<<<<< HEAD
       0 => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\resources\\views',
     ),
     'compiled' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework\\views',
+=======
+      0 => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\resources\\views',
+    ),
+    'compiled' => 'C:\\xampp\\htdocs\\new_project_map\\akwaba\\storage\\framework\\views',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
   ),
   'flare' => 
   array (
@@ -770,7 +813,11 @@
     'timeout' => 3600,
     'enable_logging' => true,
     'set_command_and_error_output_on_exception' => false,
+<<<<<<< HEAD
     'temporary_files_root' => 'C:\\Users\\JAINIL~1.DAR\\AppData\\Local\\Temp',
+=======
+    'temporary_files_root' => 'C:\\Users\\SAHIL~1.SAY\\AppData\\Local\\Temp',
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
   ),
   'datatables' => 
   array (

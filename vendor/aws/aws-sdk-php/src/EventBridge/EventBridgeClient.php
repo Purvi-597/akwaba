@@ -108,4 +108,32 @@ use Aws\AwsClient;
  * @method \Aws\Result updateConnection(array $args = [])
  * @method \GuzzleHttp\Promise\Promise updateConnectionAsync(array $args = [])
  */
+<<<<<<< HEAD
 class EventBridgeClient extends AwsClient {}
+=======
+class EventBridgeClient extends AwsClient {
+    public function __construct(array $args)
+    {
+        parent::__construct($args);
+
+        if ($this->isUseEndpointV2()) {
+            $stack = $this->getHandlerList();
+            $isCustomEndpoint = isset($args['endpoint']);
+            $stack->appendBuild(
+                EventBridgeEndpointMiddleware::wrap(
+                    $this->getRegion(),
+                    [
+                        'use_fips_endpoint' =>
+                            $this->getConfig('use_fips_endpoint')->isUseFipsEndpoint(),
+                        'dual_stack' =>
+                            $this->getConfig('use_dual_stack_endpoint')->isUseDualStackEndpoint(),
+                    ],
+                    $this->getConfig('endpoint_provider'),
+                    $isCustomEndpoint
+                ),
+                'eventbridge.endpoint_middleware'
+            );
+        }
+    }
+}
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b

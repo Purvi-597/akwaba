@@ -158,7 +158,8 @@ $(document).on('click','#deleteplaceadvertisement',function(){
             showCancelButton: true,
             confirmButtonColor: '#34BA8E',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes '
+                      confirmButtonText: '@lang("language.Yes")',
+                      cancelButtonText : '@lang("language.Cancel")'
         }).then((result) => {
             
         if (result.value){

@@ -198,6 +198,7 @@ use Firebase\JWT\JWT;
 // this endpoint: https://www.gstatic.com/iap/verify/public_key-jwk
 $jwks = ['keys' => []];
 
+<<<<<<< HEAD
 // JWK::parseKeySet($jwks) returns an associative array of **kid** to private
 // key. Pass this as the second parameter to JWT::decode.
 // NOTE: The deprecated $supportedAlgorithm must be supplied when parsing from JWK.
@@ -265,6 +266,118 @@ between signing and verifying entities. Thanks to [@lcabral](https://github.com/
   algorithms to use when verifying token signatures.
 
 
+=======
+// JWK::parseKeySet($jwks) returns an associative array of **kid** to Firebase\JWT\Key
+// objects. Pass this as the second parameter to JWT::decode.
+JWT::decode($payload, JWK::parseKeySet($jwks));
+```
+
+Using Cached Key Sets
+---------------------
+
+The `CachedKeySet` class can be used to fetch and cache JWKS (JSON Web Key Sets) from a public URI.
+This has the following advantages:
+
+1. The results are cached for performance.
+2. If an unrecognized key is requested, the cache is refreshed, to accomodate for key rotation.
+3. If rate limiting is enabled, the JWKS URI will not make more than 10 requests a second.
+
+```php
+use Firebase\JWT\CachedKeySet;
+use Firebase\JWT\JWT;
+
+// The URI for the JWKS you wish to cache the results from
+$jwksUri = 'https://www.gstatic.com/iap/verify/public_key-jwk';
+
+// Create an HTTP client (can be any PSR-7 compatible HTTP client)
+$httpClient = new GuzzleHttp\Client();
+
+// Create an HTTP request factory (can be any PSR-17 compatible HTTP request factory)
+$httpFactory = new GuzzleHttp\Psr\HttpFactory();
+
+// Create a cache item pool (can be any PSR-6 compatible cache item pool)
+$cacheItemPool = Phpfastcache\CacheManager::getInstance('files');
+
+$keySet = new CachedKeySet(
+    $jwksUri,
+    $httpClient,
+    $httpFactory,
+    $cacheItemPool,
+    null, // $expiresAfter int seconds to set the JWKS to expire
+    true  // $rateLimit    true to enable rate limit of 10 RPS on lookup of invalid keys
+);
+
+$jwt = 'eyJhbGci...'; // Some JWT signed by a key from the $jwkUri above
+$decoded = JWT::decode($jwt, $keySet);
+```
+
+Miscellaneous
+-------------
+
+#### Exception Handling
+
+When a call to `JWT::decode` is invalid, it will throw one of the following exceptions:
+
+```php
+use Firebase\JWT\JWT;
+use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\BeforeValidException;
+use Firebase\JWT\ExpiredException;
+use DomainException;
+use InvalidArgumentException;
+use UnexpectedValueException;
+
+try {
+    $decoded = JWT::decode($payload, $keys);
+} catch (InvalidArgumentException $e) {
+    // provided key/key-array is empty or malformed.
+} catch (DomainException $e) {
+    // provided algorithm is unsupported OR
+    // provided key is invalid OR
+    // unknown error thrown in openSSL or libsodium OR
+    // libsodium is required but not available.
+} catch (SignatureInvalidException $e) {
+    // provided JWT signature verification failed.
+} catch (BeforeValidException $e) {
+    // provided JWT is trying to be used before "nbf" claim OR
+    // provided JWT is trying to be used before "iat" claim.
+} catch (ExpiredException $e) {
+    // provided JWT is trying to be used after "exp" claim.
+} catch (UnexpectedValueException $e) {
+    // provided JWT is malformed OR
+    // provided JWT is missing an algorithm / using an unsupported algorithm OR
+    // provided JWT algorithm does not match provided key OR
+    // provided key ID in key/key-array is empty or invalid.
+}
+```
+
+All exceptions in the `Firebase\JWT` namespace extend `UnexpectedValueException`, and can be simplified
+like this:
+
+```php
+try {
+    $decoded = JWT::decode($payload, $keys);
+} catch (LogicException $e) {
+    // errors having to do with environmental setup or malformed JWT Keys
+} catch (UnexpectedValueException $e) {
+    // errors having to do with JWT signature and claims
+}
+```
+
+#### Casting to array
+
+The return value of `JWT::decode` is the generic PHP object `stdClass`. If you'd like to handle with arrays
+instead, you can do the following:
+
+```php
+// return type is stdClass
+$decoded = JWT::decode($payload, $keys);
+
+// cast to array
+$decoded = json_decode(json_encode($decoded), true);
+```
+
+>>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 Tests
 -----
 Run the tests using phpunit:

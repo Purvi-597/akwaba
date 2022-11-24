@@ -23,6 +23,7 @@ use Twilio\VersionInfo;
  * @property Api $api
  * @property Autopilot $autopilot
  * @property Chat $chat
+ * @property Content $content
  * @property Conversations $conversations
  * @property Events $events
  * @property Fax $fax
@@ -36,6 +37,7 @@ use Twilio\VersionInfo;
  * @property Monitor $monitor
  * @property Notify $notify
  * @property Numbers $numbers
+ * @property Oauth $oauth
  * @property Preview $preview
  * @property Pricing $pricing
  * @property Proxy $proxy
@@ -116,6 +118,7 @@ class Client {
     protected $_api;
     protected $_autopilot;
     protected $_chat;
+    protected $_content;
     protected $_conversations;
     protected $_events;
     protected $_fax;
@@ -129,6 +132,7 @@ class Client {
     protected $_monitor;
     protected $_notify;
     protected $_numbers;
+    protected $_oauth;
     protected $_preview;
     protected $_pricing;
     protected $_proxy;
@@ -670,6 +674,18 @@ class Client {
     }
 
     /**
+     * Access the Content Twilio Domain
+     *
+     * @return Content Content Twilio Domain
+     */
+    protected function getContent(): Content {
+        if (!$this->_content) {
+            $this->_content = new Content($this);
+        }
+        return $this->_content;
+    }
+
+    /**
      * Access the Conversations Twilio Domain
      *
      * @return Conversations Conversations Twilio Domain
@@ -823,6 +839,18 @@ class Client {
             $this->_numbers = new Numbers($this);
         }
         return $this->_numbers;
+    }
+
+    /**
+     * Access the Oauth Twilio Domain
+     *
+     * @return Oauth Oauth Twilio Domain
+     */
+    protected function getOauth(): Oauth {
+        if (!$this->_oauth) {
+            $this->_oauth = new Oauth($this);
+        }
+        return $this->_oauth;
     }
 
     /**

@@ -232,6 +232,8 @@ trait Units
      */
     public function addUnit($unit, $value = 1, $overflow = null)
     {
+        $originalArgs = \func_get_args();
+
         $date = $this;
 
         if (!is_numeric($value) || !(float) $value) {
@@ -313,7 +315,7 @@ trait Units
         }
 
         if (!$date) {
-            throw new UnitException('Unable to add unit '.var_export(\func_get_args(), true));
+            throw new UnitException('Unable to add unit '.var_export($originalArgs, true));
         }
 
         return $date;
