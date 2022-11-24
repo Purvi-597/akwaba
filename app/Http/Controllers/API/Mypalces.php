@@ -59,11 +59,17 @@ class Mypalces extends Controller
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The userId field is required.']);
         }
+        if (!$request->osmid)
+        {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The osmid field is required.']);
+        }
         $data = array(
             'location_coordinates' => $request->location_coordinates,
             'location_address' => $request->location_address,
             'category' => $request->category,
-            'userId' => $request->userId,   
+            'userId' => $request->userId, 
+            'osmid' => $request->osmid,  
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
 
