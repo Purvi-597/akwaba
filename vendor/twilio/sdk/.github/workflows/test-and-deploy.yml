@@ -23,11 +23,7 @@ jobs:
           - "highest"
     steps:
       - name: Checkout twilio-php
-<<<<<<< HEAD
-        uses: actions/checkout@v2
-=======
         uses: actions/checkout@v3
->>>>>>> sahil
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 

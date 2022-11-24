@@ -1152,12 +1152,8 @@ class Configuration
                 $this->getOutputVerbosity(),
                 null,
                 null,
-<<<<<<< HEAD
-                $this->getPager() ?: null
-=======
                 $this->getPager() ?: null,
                 $this->theme()
->>>>>>> sahil
             ));
 
             // This is racy because `getOutputDecorated` needs access to the

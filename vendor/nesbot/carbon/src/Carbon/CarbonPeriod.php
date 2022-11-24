@@ -1471,17 +1471,11 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
 
         $parts = [];
 
-<<<<<<< HEAD
-        $format = !$this->startDate->isStartOfDay() || ($this->endDate && !$this->endDate->isStartOfDay())
-            ? 'Y-m-d H:i:s'
-            : 'Y-m-d';
-=======
         $format = $format ?? (
             !$this->startDate->isStartOfDay() || ($this->endDate && !$this->endDate->isStartOfDay())
                 ? 'Y-m-d H:i:s'
                 : 'Y-m-d'
         );
->>>>>>> sahil
 
         if ($this->recurrences !== null) {
             $parts[] = $this->translate('period_recurrences', [], $this->recurrences, $translator);

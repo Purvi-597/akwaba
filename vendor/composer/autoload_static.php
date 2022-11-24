@@ -8,49 +8,38 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-<<<<<<< HEAD
-<<<<<<< HEAD
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
-=======
-        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
-=======
-        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
->>>>>>> sahil
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
-        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
-        '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
-        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
-        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
-        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
+        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
+        '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
+        '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '0b47d6d4a00ca9112ba3953b49e7c9a4' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/helper.php',
     );
 
@@ -510,13 +499,8 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         ),
         'League\\Uri\\' => 
         array (
-<<<<<<< HEAD
-            0 => __DIR__ . '/..' . '/league/uri-interfaces/src',
-            1 => __DIR__ . '/..' . '/league/uri/src',
-=======
             0 => __DIR__ . '/..' . '/league/uri/src',
             1 => __DIR__ . '/..' . '/league/uri-interfaces/src',
->>>>>>> sahil
         ),
         'League\\OAuth2\\Server\\' => 
         array (
@@ -2782,6 +2766,7 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'Faker\\Provider\\nl_BE\\Payment' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_BE/Payment.php',
         'Faker\\Provider\\nl_BE\\Person' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_BE/Person.php',
         'Faker\\Provider\\nl_BE\\PhoneNumber' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
+        'Faker\\Provider\\nl_BE\\Text' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_BE/Text.php',
         'Faker\\Provider\\nl_NL\\Address' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_NL/Address.php',
         'Faker\\Provider\\nl_NL\\Color' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_NL/Color.php',
         'Faker\\Provider\\nl_NL\\Company' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/nl_NL/Company.php',
@@ -8744,8 +8729,6 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\StreamList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/StreamList.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\StreamOptions' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/StreamOptions.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\StreamPage' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/StreamPage.php',
-<<<<<<< HEAD
-=======
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\UserDefinedMessageInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/UserDefinedMessageInstance.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\UserDefinedMessageList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/UserDefinedMessageList.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\UserDefinedMessageOptions' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/UserDefinedMessageOptions.php',
@@ -8755,7 +8738,6 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\UserDefinedMessageSubscriptionList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/UserDefinedMessageSubscriptionList.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\UserDefinedMessageSubscriptionOptions' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/UserDefinedMessageSubscriptionOptions.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\Call\\UserDefinedMessageSubscriptionPage' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/Call/UserDefinedMessageSubscriptionPage.php',
->>>>>>> sahil
         'Twilio\\Rest\\Api\\V2010\\Account\\ConferenceContext' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/ConferenceContext.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\ConferenceInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/ConferenceInstance.php',
         'Twilio\\Rest\\Api\\V2010\\Account\\ConferenceList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/Api/V2010/Account/ConferenceList.php',
@@ -9381,14 +9363,11 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'Twilio\\Rest\\FlexApi\\V1\\FlexFlowList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/FlexFlowList.php',
         'Twilio\\Rest\\FlexApi\\V1\\FlexFlowOptions' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/FlexFlowOptions.php',
         'Twilio\\Rest\\FlexApi\\V1\\FlexFlowPage' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/FlexFlowPage.php',
-<<<<<<< HEAD
-=======
         'Twilio\\Rest\\FlexApi\\V1\\GoodDataContext' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/GoodDataContext.php',
         'Twilio\\Rest\\FlexApi\\V1\\GoodDataInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/GoodDataInstance.php',
         'Twilio\\Rest\\FlexApi\\V1\\GoodDataList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/GoodDataList.php',
         'Twilio\\Rest\\FlexApi\\V1\\GoodDataOptions' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/GoodDataOptions.php',
         'Twilio\\Rest\\FlexApi\\V1\\GoodDataPage' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/GoodDataPage.php',
->>>>>>> sahil
         'Twilio\\Rest\\FlexApi\\V1\\InteractionContext' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/InteractionContext.php',
         'Twilio\\Rest\\FlexApi\\V1\\InteractionInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/InteractionInstance.php',
         'Twilio\\Rest\\FlexApi\\V1\\InteractionList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/InteractionList.php',
@@ -9405,14 +9384,11 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'Twilio\\Rest\\FlexApi\\V1\\Interaction\\InteractionChannel\\InteractionChannelParticipantInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/Interaction/InteractionChannel/InteractionChannelParticipantInstance.php',
         'Twilio\\Rest\\FlexApi\\V1\\Interaction\\InteractionChannel\\InteractionChannelParticipantList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/Interaction/InteractionChannel/InteractionChannelParticipantList.php',
         'Twilio\\Rest\\FlexApi\\V1\\Interaction\\InteractionChannel\\InteractionChannelParticipantPage' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/Interaction/InteractionChannel/InteractionChannelParticipantPage.php',
-<<<<<<< HEAD
-=======
         'Twilio\\Rest\\FlexApi\\V1\\UserRolesContext' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/UserRolesContext.php',
         'Twilio\\Rest\\FlexApi\\V1\\UserRolesInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/UserRolesInstance.php',
         'Twilio\\Rest\\FlexApi\\V1\\UserRolesList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/UserRolesList.php',
         'Twilio\\Rest\\FlexApi\\V1\\UserRolesOptions' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/UserRolesOptions.php',
         'Twilio\\Rest\\FlexApi\\V1\\UserRolesPage' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/UserRolesPage.php',
->>>>>>> sahil
         'Twilio\\Rest\\FlexApi\\V1\\WebChannelContext' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/WebChannelContext.php',
         'Twilio\\Rest\\FlexApi\\V1\\WebChannelInstance' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/WebChannelInstance.php',
         'Twilio\\Rest\\FlexApi\\V1\\WebChannelList' => __DIR__ . '/..' . '/twilio/sdk/src/Twilio/Rest/FlexApi/V1/WebChannelList.php',

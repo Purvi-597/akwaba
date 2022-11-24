@@ -9,13 +9,10 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise associateAdminAccountAsync(array $args = [])
  * @method \Aws\Result associateThirdPartyFirewall(array $args = [])
  * @method \GuzzleHttp\Promise\Promise associateThirdPartyFirewallAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result batchAssociateResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise batchAssociateResourceAsync(array $args = [])
  * @method \Aws\Result batchDisassociateResource(array $args = [])
  * @method \GuzzleHttp\Promise\Promise batchDisassociateResourceAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result deleteAppsList(array $args = [])
  * @method \GuzzleHttp\Promise\Promise deleteAppsListAsync(array $args = [])
  * @method \Aws\Result deleteNotificationChannel(array $args = [])
@@ -44,11 +41,8 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise getProtectionStatusAsync(array $args = [])
  * @method \Aws\Result getProtocolsList(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getProtocolsListAsync(array $args = [])
-<<<<<<< HEAD
-=======
  * @method \Aws\Result getResourceSet(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getResourceSetAsync(array $args = [])
->>>>>>> sahil
  * @method \Aws\Result getThirdPartyFirewallAssociationStatus(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getThirdPartyFirewallAssociationStatusAsync(array $args = [])
  * @method \Aws\Result getViolationDetails(array $args = [])

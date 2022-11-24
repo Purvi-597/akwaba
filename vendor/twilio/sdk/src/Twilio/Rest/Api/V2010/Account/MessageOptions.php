@@ -47,14 +47,11 @@ abstract class MessageOptions {
      * @param bool $sendAsMms If set to True, Twilio will deliver the message as a
      *                        single MMS message, regardless of the presence of
      *                        media.
-<<<<<<< HEAD
-=======
      * @param string $contentSid The SID of the preconfigured Content object you
      *                           want to associate with the message.
      * @param string $contentVariables Key-value pairs of variable names to
      *                                 substitution values, used alongside a
      *                                 content_sid.
->>>>>>> sahil
      * @return CreateMessageOptions Options builder
      */
     public static function create(string $from = Values::NONE, string $messagingServiceSid = Values::NONE, string $body = Values::NONE, array $mediaUrl = Values::ARRAY_NONE, string $statusCallback = Values::NONE, string $applicationSid = Values::NONE, string $maxPrice = Values::NONE, bool $provideFeedback = Values::NONE, int $attempt = Values::NONE, int $validityPeriod = Values::NONE, bool $forceDelivery = Values::NONE, string $contentRetention = Values::NONE, string $addressRetention = Values::NONE, bool $smartEncoded = Values::NONE, array $persistentAction = Values::ARRAY_NONE, bool $shortenUrls = Values::NONE, string $scheduleType = Values::NONE, \DateTime $sendAt = Values::NONE, bool $sendAsMms = Values::NONE, string $contentSid = Values::NONE, string $contentVariables = Values::NONE): CreateMessageOptions {
@@ -118,14 +115,11 @@ class CreateMessageOptions extends Options {
      * @param bool $sendAsMms If set to True, Twilio will deliver the message as a
      *                        single MMS message, regardless of the presence of
      *                        media.
-<<<<<<< HEAD
-=======
      * @param string $contentSid The SID of the preconfigured Content object you
      *                           want to associate with the message.
      * @param string $contentVariables Key-value pairs of variable names to
      *                                 substitution values, used alongside a
      *                                 content_sid.
->>>>>>> sahil
      */
     public function __construct(string $from = Values::NONE, string $messagingServiceSid = Values::NONE, string $body = Values::NONE, array $mediaUrl = Values::ARRAY_NONE, string $statusCallback = Values::NONE, string $applicationSid = Values::NONE, string $maxPrice = Values::NONE, bool $provideFeedback = Values::NONE, int $attempt = Values::NONE, int $validityPeriod = Values::NONE, bool $forceDelivery = Values::NONE, string $contentRetention = Values::NONE, string $addressRetention = Values::NONE, bool $smartEncoded = Values::NONE, array $persistentAction = Values::ARRAY_NONE, bool $shortenUrls = Values::NONE, string $scheduleType = Values::NONE, \DateTime $sendAt = Values::NONE, bool $sendAsMms = Values::NONE, string $contentSid = Values::NONE, string $contentVariables = Values::NONE) {
         $this->options['from'] = $from;

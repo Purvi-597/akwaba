@@ -112,11 +112,7 @@ class CreateVerificationOptions extends Options {
     }
 
     /**
-<<<<<<< HEAD
-     * Locale will automatically resolve based on phone number country code for SMS, WhatsApp and call channel verifications. This parameter will override the automatic locale. [See supported languages and more information here.](https://www.twilio.com/docs/verify/supported-languages).
-=======
      * Locale will automatically resolve based on phone number country code for SMS, WhatsApp and call channel verifications. This parameter will override the automatic locale. [See supported languages and more information here](https://www.twilio.com/docs/verify/supported-languages).
->>>>>>> sahil
      *
      * @param string $locale The override locale to use for the verification SMS,
      *                       WhatsApp or call
