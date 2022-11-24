@@ -97,28 +97,29 @@ class UserController extends Controller
             'dial_code' => $request->dial_code,
             'password' => Hash::make($request->password),
             'role' => 'User',
+            'otp' => 1234,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         );
         $insert = Users::insertGetId($data);
         $userdata = Users::Where('id', '=', $insert)->first();
 
-        $userdataarray = array(
-            'id' => $userdata->id,
-            'firstname' => $userdata->first_name,
-            'lastname' => $userdata->last_name,
-            'path' => $this->profile_path,
-            'image' => $userdata->profile_pic,
-            'email' => $userdata->email,
-            'country_code' => $userdata->country_code,
-            'dial_code' => $userdata->dial_code,
-            'contact' => $userdata->contact_no
-        );
+        // $userdataarray = array(
+        //     'id' => $userdata->id,
+        //     'firstname' => $userdata->first_name,
+        //     'lastname' => $userdata->last_name,
+        //     'path' => $this->profile_path,
+        //     'image' => $userdata->profile_pic,
+        //     'email' => $userdata->email,
+        //     'country_code' => $userdata->country_code,
+        //     'dial_code' => $userdata->dial_code,
+        //     'contact' => $userdata->contact_no
+        // );
       
 
         if ($insert) {
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'User Registered successfully', 'user' => $userdataarray]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'User Registered successfully', 'user' => $insert]);
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..user not registered']);
@@ -164,6 +165,10 @@ class UserController extends Controller
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'The country code filed is required.']);
             }
+            if (!$request->dial_code) {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'The dial_code filed is required.']);
+            }
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The Type field is wrong']);
@@ -194,7 +199,7 @@ class UserController extends Controller
                     return response()->json(['statusCode' => 1, 'statusMessage' => 'login Successfully', 'data' => $data]);
                 } else {
                     return response()
-                        ->json(['statusCode' => 0, 'statusMessage' => 'Please enter password']);
+                        ->json(['statusCode' => 0, 'statusMessage' => 'Wrong username or password']);
                 }
             } else {
                 return response()
@@ -219,11 +224,66 @@ class UserController extends Controller
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'The mobile number field is wrong']);
             }
+            
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The type field field is wrong']);
         }
     }
+
+
+    // public function signupotp(Request $request){
+    //     if (!$request->userId) {
+    //         return response()
+    //             ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
+    //     }
+    //     if (!$request->otp) {
+    //         return response()
+    //             ->json(['statusCode' => 0, 'statusMessage' => 'The otp field is required.']);
+    //     }
+    //     if (!$request->device_type) {
+    //         return response()
+    //             ->json(['statusCode' => 0, 'statusMessage' => 'The device type field is required.']);
+    //     }
+    //     if (!$request->device_token) {
+    //         return response()
+    //             ->json(['statusCode' => 0, 'statusMessage' => 'The device token field is required.']);
+    //     }
+    //     $check = Users::where('id', $request->userId)->first();
+    //     if ($check) {
+    //         if ($check->otp == $request->otp) {
+    //             $data = array(
+    //                 'id' => $check->id,
+    //                 'firstname' => $check->first_name,
+    //                 'lastname' => $check->last_name,
+    //                 'email' => $check->email,
+    //                 'dial_code' => $check->dial_code,
+    //                 'path' => $this->profile_path,
+    //                 'image' => $check->profile_pic,
+    //                 'country_code' => $check->country_code,
+    //                 'contact' => $check->contact_no
+    //             );
+    //             $update_user_details = array(
+    //                 'device_type' => $request->device_type,
+    //                 'device_token' => $request->device_token,
+    //                 'updated_at' => Carbon::now()
+    //             );
+    //             $update_user = Users::where('id', $check->id)->update($update_user_details);
+
+    //             return response()
+    //                 ->json(['statusCode' => 1, 'statusMessage' => 'LoggedIn Successfully', 'data' => $data]);
+    //         } else {
+    //             return response()
+    //                 ->json(['statusCode' => 0, 'statusMessage' => 'The otp is wrong.']);
+    //         }
+    //     } else {
+    //         return response()
+    //             ->json(['statusCode' => 0, 'statusMessage' => 'The user is not found.']);
+    //     }
+    // }
+
+
+
     public function verify_otp(Request $request)
     {
         if (!$request->userId) {
@@ -274,6 +334,9 @@ class UserController extends Controller
                 ->json(['statusCode' => 0, 'statusMessage' => 'The user is not found.']);
         }
     }
+
+
+
     public function resend_otp(Request $request)
     {
         if (!$request->userId) {
@@ -340,7 +403,7 @@ class UserController extends Controller
             $data = array('email' => $user_email, 'verification_code' => $email, 'url' => $url);
             $to_email = $request->input('email');
 
-            // $mail = Mail::to($to_email)->send(new UserResetPassword(($data)));
+            $mail = Mail::to($to_email)->send(new UserResetPassword(($data)));
 
             return response()->json(['statusCode' => 1, 'statusMessage' => 'Email Sent Successfully']);
         } else {

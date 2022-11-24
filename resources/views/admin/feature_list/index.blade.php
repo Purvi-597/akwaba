@@ -60,6 +60,7 @@
                                         
                                         
                                         <td >{{$feature->title}}</td>
+
                                         <td >{{$feature->description}}</td>
                                         
                                         <td >{{$feature->ratings}}</td>
@@ -168,7 +169,8 @@
                       showCancelButton: true,
                       confirmButtonColor: '#34BA8E',
                       cancelButtonColor: '#d33',
-                      confirmButtonText: 'Yes '
+                      confirmButtonText: '@lang("language.Yes")',
+                      cancelButtonText : '@lang("language.Cancel")'
                     }).then((result) => {
                       
                       if (result.value){

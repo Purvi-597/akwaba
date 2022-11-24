@@ -17,13 +17,10 @@ class PrivacyPolicyController extends Controller
    
     
     {
-        if(Session::get('locale') == 'fr'){
-            $data['privacy_policy'] = Privacy_Policy::orderBy('id','desc')->first();
-        }else{
+        
 	    $data['privacy_policy'] = Privacy_Policy::orderBy('id','desc')->first();
-        }
-        // echo "<pre>";
-        // print_r($data['privacy_policy']->description);die;
+        
+
         return view('admin.privacy_policy',$data);
        
 	}

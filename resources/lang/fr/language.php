@@ -267,4 +267,41 @@ return [
     'photo_image_format' => 'Veuillez télécharger des images de dimension suivante largeur/hauteur (30*30)',
     'add_photo_success' => 'Photos ajoutées avec succès.',
     'update_photo' => 'Photos mises à jour avec succès.',
-];
+
+
+    /*Feedback */
+    'name' => 'Nom',
+    'email' => 'E-mail',
+    'contact_no' => 'N° de contact',
+    'message' => 'messages',
+    'feedback' => "Retour d'information",
+
+    'cms_management' => 'Gestion CMS',
+
+
+    'Yes' => 'oui',
+
+
+    /* Faq */
+    'Question' => 'Question',
+    'FrAnswer' => 'Réponse française',
+    'Answer' => 'Réponse',
+    'FrQuestion' => 'Questions françaises',
+    'Question_validation' => 'Veuillez fournir une question.',
+    'frQuestion_validation' => 'Veuillez fournir une question en français.',
+    'Answer_validation' => 'Veuillez fournir une réponse',
+    'frAnswer_validation' => 'Veuillez fournir une réponse en français',
+    'Question_placeholder' => 'Saisir la question',
+    'frQuestion_placeholder' => 'Entrez la question française',
+    'Answer_placeholder' => 'Saisir la réponse',
+    'frAnswer_placeholder' => 'Entrez la réponse en français',
+
+    'faq' => 'FAQ',
+    'update_faq' => 'Mettre à jour la FAQ',
+    'add_faq' => 'Ajouter une FAQ',
+    'detail_faq' => 'FAQ Détails',
+    'delete_faq' => 'Vous souhaitez supprimer cette FAQ',
+    'faq_Deleted' => 'FAQ supprimée avec succès',
+
+
+ ];
