@@ -170,7 +170,8 @@
                       showCancelButton: true,
                       confirmButtonColor: '#34BA8E',
                       cancelButtonColor: '#d33',
-                      confirmButtonText: 'Yes '
+                      confirmButtonText: '@lang("language.Yes")',
+                      cancelButtonText : '@lang("language.Cancel")'
                     }).then((result) => {
 
                     if (result.value){
@@ -183,7 +184,7 @@
                                  if(data == "delete"){
 
                                  Swal.fire({
-                                       title: "@lang('language.Confirm_alert')",
+                                       title: "@lang('language.Feature_Text')",
                                        icon:"success",
                                        text: "@lang('language.feature_Deleted')",
                                        type: "success"
@@ -192,7 +193,7 @@
                                      });
                             }else{
                                    Swal.fire({
-                                       title: "@lang('language.Category')",
+                                       title: "@lang('language.Feature_Text')",
                                        icon:"error",
                                         text: "Something went wrong",
                                        type: "error"

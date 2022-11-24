@@ -212,7 +212,6 @@ class UserController extends Controller
         $to_email = $request->input('email');
 
         $mail = Mail::to($to_email)->send(new DemoEmail(($data)));
-            
 
     return redirect()->back()->with('success','Email Sent Successfully');
         

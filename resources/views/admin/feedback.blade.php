@@ -1,15 +1,15 @@
 @extends('layouts.master')
-@section('title')@lang('language.place_advertisement') @endsection
+@section('title')@lang('language.feedback') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
-@slot('title') @lang('language.place_advertisement') @endslot
+@slot('title')@lang('language.feedback') @endslot
 @slot('add_btn') <h4 class="card-title">
-    <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('place_advertisement.create') }}"
-        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_place') </a>
+    {{-- <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('place_advertisement.create') }}"
+        class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_place') </a> --}}
 
     </h4> @endslot
 @endcomponent
@@ -40,43 +40,65 @@
                         <thead class="thead-light">
                             <tr>
                                 <th width="10%">#</th>
-                                <th  width="15%">@lang('language.Place_Name')</th>
-                                <th  width="15%">Image</th>
-                                <th  width="15%">@lang('language.Type')</th>
-                                <th  width="15%">@lang('language.External_Link')</th>
-                                <th  width="15%">@lang('language.Status')</th>
-                                <th  width="20%">Action</th>
+                                <th  width="15%">@lang('language.name')</th>
+                                <th  width="15%">@lang('language.email')</th>
+                                <th  width="15%">@lang('language.contact_no')</th>
+                                <th  width="15%">@lang('language.message')</th>
+                                <th  width="15%">@lang('language.Status')</th> 
+                                <th width ="15%">Reply</th>       
                             </tr>
                         </thead>
                         <tbody>
-                            @php $placeAdvertisementPath = '/uploads/place_advertisement/'; @endphp
-                            @if(count($place_advertisement)>0)
+                            
+                            @if(count($feedback)>0)
                             @php $i = 1; @endphp
-                                @foreach($place_advertisement as $place_advertisement)
+                                @foreach($feedback as $feedback)
                                     <tr>
                                         <td>{{$i}}</td>
+                                        <td >{{$feedback->name}}</td>
+                                        <td >{{$feedback->email}}</td>
+                                        <td >{{$feedback->contact_no}}</td>
+                                        <td >{{$feedback->message}}</td>
                                         
                                         
-                                        <td >{{$place_advertisement->place_name}}</td>
+                                        <?php if($feedback->status == 1){ ?>
+                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Active')</span></td><?php } else { ?>
+    
+                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Inactive')</span></td><?php } ?>
 
-                                        <td>@if ($place_advertisement->image != '')
-                                            <img src="{{$placeAdvertisementPath}}{{$place_advertisement->image}}" alt="" style="width: 100px;height:100px;">@endif
-                                        </td>
+                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status btnreply" data-id = "{{$feedback->id}}" >Reply</span></td> 
 
-                                        <td >{{$place_advertisement->type}}</td>
-                                        <td >{{$place_advertisement->external_link}}</td>
 
-                                        <?php if($place_advertisement->status == 1){ ?>
-                                        <td id="{{$place_advertisement->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$place_advertisement->id}}" data-status = "{{$place_advertisement->status}}" onclick="updatestatus({{$place_advertisement->id}},{{$place_advertisement->status}})">@lang('language.Active')</span></td><?php } else { ?>
-                                    
-                                        <td id="{{$place_advertisement->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$place_advertisement->id}}" data-status = "{{$place_advertisement->status}}" onclick="updatestatus({{$place_advertisement->id}},{{$place_advertisement->status}})">@lang('language.Inactive')</span></td><?php } ?>
+                                            <!-- Button trigger modal -->
+                                            {{-- data-toggle="modal" data-target="#exampleModal"  --}}
+                                                {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                    Launch demo modal
+                                                </button> --}}
+                                                
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Reply</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <input type="hidden" id="reply_id" name="reply_id">
+                                                        <div class="modal-body">
+                                                            <textarea class="form-control" name="message" id="message"></textarea>
+                                                        </div>
 
-                                    <td>
-                                        <a href="{{route('place_advertisement.edit', $place_advertisement->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                        <a href="{{route('place_advertisement.view', $place_advertisement->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
-                                        <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deleteplaceadvertisement" data-id="{{$place_advertisement->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
-
-                                   </td>                                       
+                                                
+                                                        
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" id="reply" class="btn btn-primary">Send</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach
@@ -158,8 +180,7 @@ $(document).on('click','#deleteplaceadvertisement',function(){
             showCancelButton: true,
             confirmButtonColor: '#34BA8E',
             cancelButtonColor: '#d33',
-                      confirmButtonText: '@lang("language.Yes")',
-                      cancelButtonText : '@lang("language.Cancel")'
+            confirmButtonText: 'Yes '
         }).then((result) => {
             
         if (result.value){
@@ -194,5 +215,42 @@ $(document).on('click','#deleteplaceadvertisement',function(){
             }
         })
 })
+</script>
+
+<script>
+    $(".btnreply").click(function(){
+        var id = $(this).attr('data-id');
+        $("#reply_id").val(id)
+        $("#exampleModal").modal('show');
+    
+    $(document).click(function(){
+        $("#reply").click(function() {
+            var reply_id = $('#reply_id ').val();
+            var message = $("#message").val();
+
+            $.ajax({
+            type: "POST",
+            url: '{{route("feedbackemail")}}',
+            data: {'reply_id': reply_id,'message':message,"_token": "{{ csrf_token() }}"},
+            success: function(data){
+                
+               if(data == 1){
+               
+                $(".emailcheckerror").css("display", "block");
+                $("#save").attr("disabled", true);
+
+               }
+               else{
+                $("#save").attr("disabled", false);
+                 $(".emailcheckerror").css("display", "none");
+               }
+            }
+            });     
+        });
+    });
+    });
+    
+
+    
 </script>
 @endsection

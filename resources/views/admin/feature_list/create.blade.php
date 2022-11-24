@@ -45,7 +45,7 @@ input::-webkit-inner-spin-button {
                  @csrf
                  <div class="form-group">
                     <label>@lang('language.choose_feature')</label>
-                    <select id="title" name="featured_places_id" class="form-control" required>
+                    <select id="title" name="featured_places_id" class="form-control" >
                       <option value="">Select Feature Places</option>
                       @foreach($feature as $feature)
                         <option value="{{ $feature->id }}">{{ $feature->title }}</option>

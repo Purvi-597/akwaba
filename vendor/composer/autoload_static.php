@@ -812,9 +812,11 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'App\\Http\\Controllers\\ChangepasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChangepasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EditpasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/EditpasswordController.php',
+        'App\\Http\\Controllers\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/FaqController.php',
         'App\\Http\\Controllers\\FeatureController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeatureController.php',
         'App\\Http\\Controllers\\FeatureplaceController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeatureplaceController.php',
         'App\\Http\\Controllers\\FeaturetextController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeaturetextController.php',
+        'App\\Http\\Controllers\\FeedbackController' => __DIR__ . '/../..' . '/app/Http/Controllers/FeedbackController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LangController' => __DIR__ . '/../..' . '/app/Http/Controllers/LangController.php',
         'App\\Http\\Controllers\\LicenseController' => __DIR__ . '/../..' . '/app/Http/Controllers/LicenseController.php',
@@ -838,12 +840,16 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Model\\Advertisement' => __DIR__ . '/../..' . '/app/Http/Model/Advertisement.php',
         'App\\Http\\Model\\Categories' => __DIR__ . '/../..' . '/app/Http/Model/Categories.php',
+<<<<<<< HEAD
+=======
         'App\\Http\\Model\\Company' => __DIR__ . '/../..' . '/app/Http/Model/Company.php',
         'App\\Http\\Model\\CompanyImages' => __DIR__ . '/../..' . '/app/Http/Model/CompanyImages.php',
+>>>>>>> 8053a124b6dfd0a2d09a95e709065afc938bb916
         'App\\Http\\Model\\Faq' => __DIR__ . '/../..' . '/app/Http/Model/Faq.php',
         'App\\Http\\Model\\Feature' => __DIR__ . '/../..' . '/app/Http/Model/Feature.php',
         'App\\Http\\Model\\Featureplace' => __DIR__ . '/../..' . '/app/Http/Model/Featureplace.php',
         'App\\Http\\Model\\Featuretext' => __DIR__ . '/../..' . '/app/Http/Model/Featuretext.php',
+        'App\\Http\\Model\\Feedback' => __DIR__ . '/../..' . '/app/Http/Model/Feedback.php',
         'App\\Http\\Model\\License' => __DIR__ . '/../..' . '/app/Http/Model/License.php',
         'App\\Http\\Model\\Notes' => __DIR__ . '/../..' . '/app/Http/Model/Notes.php',
         'App\\Http\\Model\\Photos' => __DIR__ . '/../..' . '/app/Http/Model/Photos.php',

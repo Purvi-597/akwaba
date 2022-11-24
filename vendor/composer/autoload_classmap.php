@@ -70,9 +70,11 @@ return array(
     'App\\Http\\Controllers\\ChangepasswordController' => $baseDir . '/app/Http/Controllers/ChangepasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\EditpasswordController' => $baseDir . '/app/Http/Controllers/EditpasswordController.php',
+    'App\\Http\\Controllers\\FaqController' => $baseDir . '/app/Http/Controllers/FaqController.php',
     'App\\Http\\Controllers\\FeatureController' => $baseDir . '/app/Http/Controllers/FeatureController.php',
     'App\\Http\\Controllers\\FeatureplaceController' => $baseDir . '/app/Http/Controllers/FeatureplaceController.php',
     'App\\Http\\Controllers\\FeaturetextController' => $baseDir . '/app/Http/Controllers/FeaturetextController.php',
+    'App\\Http\\Controllers\\FeedbackController' => $baseDir . '/app/Http/Controllers/FeedbackController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\LangController' => $baseDir . '/app/Http/Controllers/LangController.php',
     'App\\Http\\Controllers\\LicenseController' => $baseDir . '/app/Http/Controllers/LicenseController.php',
@@ -96,12 +98,16 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Model\\Advertisement' => $baseDir . '/app/Http/Model/Advertisement.php',
     'App\\Http\\Model\\Categories' => $baseDir . '/app/Http/Model/Categories.php',
+<<<<<<< HEAD
+=======
     'App\\Http\\Model\\Company' => $baseDir . '/app/Http/Model/Company.php',
     'App\\Http\\Model\\CompanyImages' => $baseDir . '/app/Http/Model/CompanyImages.php',
+>>>>>>> 8053a124b6dfd0a2d09a95e709065afc938bb916
     'App\\Http\\Model\\Faq' => $baseDir . '/app/Http/Model/Faq.php',
     'App\\Http\\Model\\Feature' => $baseDir . '/app/Http/Model/Feature.php',
     'App\\Http\\Model\\Featureplace' => $baseDir . '/app/Http/Model/Featureplace.php',
     'App\\Http\\Model\\Featuretext' => $baseDir . '/app/Http/Model/Featuretext.php',
+    'App\\Http\\Model\\Feedback' => $baseDir . '/app/Http/Model/Feedback.php',
     'App\\Http\\Model\\License' => $baseDir . '/app/Http/Model/License.php',
     'App\\Http\\Model\\Notes' => $baseDir . '/app/Http/Model/Notes.php',
     'App\\Http\\Model\\Photos' => $baseDir . '/app/Http/Model/Photos.php',
