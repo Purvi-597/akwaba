@@ -1055,106 +1055,22 @@ if($advertisement_result->num_rows > 0) {
         var restaurantLatLng = JSON.parse('<?php echo json_encode($restaurantData); ?>');
         var groceryLatLng = JSON.parse('<?php echo json_encode($groceryData); ?>');
         var mallLatLng = JSON.parse('<?php echo json_encode($mallData); ?>');
-<<<<<<< HEAD
-        var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');
-        var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');
-        var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');
-        var grocerynameData = JSON.parse('<?php echo json_encode($grocerynameData); ?>');
-        var mallnameData = JSON.parse('<?php echo json_encode($mallnameData); ?>');
         var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');
         var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');
 		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');
     var base_url = 'http://127.0.0.1:8000/akwaba/';
 </script>
 <!-- Signup Model -->
-=======
-        var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');	
-        var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');	
-        var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');	
-        var grocerynameData = JSON.parse('<?php echo json_encode($grocerynameData); ?>');	
-        var mallnameData = JSON.parse('<?php echo json_encode($mallnameData); ?>');	
-        var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');	
-        var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');	
-		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');	
-    var base_url = 'http://10.10.1.133:8000/akwaba/';
-</script> 
-<!-- Signup Model -->	
->>>>>>> sahil
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New User Register Form</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="signupForm" method="post" action="">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">First Name:</label>
-            <input type="text" class="form-control" maxlength="100" id="first_name" name="first_name">
 			<span id="firstname_error_msg" style="color: red;"></span>
-		  </div>
-		  <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Last Name:</label>
-            <input type="text" class="form-control" maxlength="100" id="last_name" name="last_name">
-			<span id="lastname_error_msg" style="color: red;"></span>
-		  </div>
-		   <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" maxlength="100" id="email" name="email">
-           <span id="email_error_msg" style="color: red;"></span>
-		  </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Password:</label>
             <input type="password" class="form-control" maxlength="20" id="password" name="password">
-			<span id="password_error_msg" style="color: red;"></span>
-		  </div>
-		  <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Contact No:</label>
-            <input type="text" class="form-control" maxlength="10" id="contact_no" name="contact_no">
-			<span id="contact_error_msg" style="color: red;"></span>
-		  </div>
-		  <span> If you are existing user then click on <a href="javascript:void(0);" id="login"> login</a></span>
-        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary signupBtn">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Login Model -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="loginForm" method="post" action="">
-           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" maxlength="100" id="useremail" name="useremail">
-           <span id="useremail_error_msg" style="color: red;"></span>
-		  </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" maxlength="20" id="userpassword" name="userpassword">
-			<span id="userpassword_error_msg" style="color: red;"></span>
-		  </div>
-		    <span> If you are new user then click on <a href="javascript:void(0);" id="signup"> signup</a></span>
-        </form>
-      </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-body">
+      </div> -->
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary loginBtn">Submit</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

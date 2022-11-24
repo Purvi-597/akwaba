@@ -2,10 +2,15 @@
 @section('title')  @lang('language.Add_Advertisement') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css')}}">
+
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
 @slot('title')  @lang('language.Add_Advertisement') @endslot
+<link id="bsdp-css" href="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+
 @endcomponent
 <style>
 .form-control{
@@ -80,6 +85,23 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
+                        <label for="formrow-quest_name-input">Date</label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" name="date" id='date' required>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Time: </label>
+                        <input type='text' class="form-control" name="time" id='time' required>
+                    </div>
+                    
+
+
+                    <div class="form-group">
                         <div class="col-md-2" style="padding-top:1%;">
                             <div class="custom-control custom-checkbox">
                                 @php $checked=""; @endphp
@@ -115,6 +137,13 @@ input::-webkit-inner-spin-button {
 <script src="{{ URL::asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/summernote/summernote.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-editor.init.js')}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+           $('#datetimepicker').datetimepicker();
+        });
+    </script>
 
 <script>
     var _URL = window.URL || window.webkitURL;
@@ -161,6 +190,26 @@ input::-webkit-inner-spin-button {
    }
    });
    </script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datepicker({
+            format: "dd/mm/yy", 
+            weekStart: 0,
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true, 
+            orientation: "auto"
+        });
+    });
+</script>
+
+
+</div>
+</div>
+
+<script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
    
    
 @endsection

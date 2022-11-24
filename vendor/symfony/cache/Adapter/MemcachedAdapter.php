@@ -56,7 +56,7 @@ class MemcachedAdapter extends AbstractAdapter
     public function __construct(\Memcached $client, string $namespace = '', int $defaultLifetime = 0, MarshallerInterface $marshaller = null)
     {
         if (!static::isSupported()) {
-            throw new CacheException('Memcached '.(\PHP_VERSION_ID >= 80100 ? '> 3.1.5' : '>= 2.2.0').' is required.');
+            throw new CacheException('Memcached >= 2.2.0 is required.');
         }
         if ('Memcached' === \get_class($client)) {
             $opt = $client->getOption(\Memcached::OPT_SERIALIZER);
@@ -76,7 +76,7 @@ class MemcachedAdapter extends AbstractAdapter
 
     public static function isSupported()
     {
-        return \extension_loaded('memcached') && version_compare(phpversion('memcached'), \PHP_VERSION_ID >= 80100 ? '3.1.6' : '2.2.0', '>=');
+        return \extension_loaded('memcached') && version_compare(phpversion('memcached'), '2.2.0', '>=');
     }
 
     /**
@@ -89,6 +89,7 @@ class MemcachedAdapter extends AbstractAdapter
      * - [['localhost', 11211, 33]]
      *
      * @param array[]|string|string[] $servers An array of servers, a DSN, or an array of DSNs
+     * @param array                   $options An array of options
      *
      * @return \Memcached
      *
@@ -102,7 +103,7 @@ class MemcachedAdapter extends AbstractAdapter
             throw new InvalidArgumentException(sprintf('MemcachedAdapter::createClient() expects array or string as first argument, "%s" given.', get_debug_type($servers)));
         }
         if (!static::isSupported()) {
-            throw new CacheException('Memcached '.(\PHP_VERSION_ID >= 80100 ? '> 3.1.5' : '>= 2.2.0').' is required.');
+            throw new CacheException('Memcached >= 2.2.0 is required.');
         }
         set_error_handler(function ($type, $msg, $file, $line) { throw new \ErrorException($msg, 0, $type, $file, $line); });
         try {
@@ -116,7 +117,7 @@ class MemcachedAdapter extends AbstractAdapter
                 if (\is_array($dsn)) {
                     continue;
                 }
-                if (!str_starts_with($dsn, 'memcached:')) {
+                if (0 !== strpos($dsn, 'memcached:')) {
                     throw new InvalidArgumentException(sprintf('Invalid Memcached DSN: "%s" does not start with "memcached:".', $dsn));
                 }
                 $params = preg_replace_callback('#^memcached:(//)?(?:([^@]*+)@)?#', function ($m) use (&$username, &$password) {
@@ -266,7 +267,7 @@ class MemcachedAdapter extends AbstractAdapter
     protected function doFetch(array $ids)
     {
         try {
-            $encodedIds = array_map([__CLASS__, 'encodeKey'], $ids);
+            $encodedIds = array_map('self::encodeKey', $ids);
 
             $encodedResult = $this->checkResultCode($this->getClient()->getMulti($encodedIds));
 
@@ -295,7 +296,7 @@ class MemcachedAdapter extends AbstractAdapter
     protected function doDelete(array $ids)
     {
         $ok = true;
-        $encodedIds = array_map([__CLASS__, 'encodeKey'], $ids);
+        $encodedIds = array_map('self::encodeKey', $ids);
         foreach ($this->checkResultCode($this->getClient()->deleteMulti($encodedIds)) as $result) {
             if (\Memcached::RES_SUCCESS !== $result && \Memcached::RES_NOTFOUND !== $result) {
                 $ok = false;

@@ -18,10 +18,11 @@ class PhotosController extends Controller
     public function index()
     {
         //
-        if(Session::get('locale') == 'en'){
-        $data['photos'] = Photos::get(['id','title as title','image','address','status','created_at']);
-        }else{
-            $data['photos'] = Photos::get(['id','title_fr as title','image','address','status','created_at']);
+        if(Session::get('locale') == 'fr'){
+        $data['photos'] = Photos::orderBy('id','desc')->get(['id','title_fr as title','image','address','status','created_at']);
+        }
+        else{
+            $data['photos'] = Photos::orderBy('id','desc')->get(['id','title as title','image','address','status','created_at']);
         }
         return view('admin.photos.index',$data);
     }

@@ -14,7 +14,7 @@ class LocationService extends \Stripe\Service\AbstractService
      *
      * @throws \Stripe\Exception\ApiErrorException if the request fails
      *
-     * @return \Stripe\Collection<\Stripe\Terminal\Location>
+     * @return \Stripe\Collection
      */
     public function all($params = null, $opts = null)
     {

@@ -6,7 +6,7 @@ weight: 4
 You can install the package via composer:
 
 ```bash
-composer require spatie/laravel-query-builder "^3.0"
+composer require spatie/laravel-query-builder
 ```
 
 The package will automatically register its service provider.

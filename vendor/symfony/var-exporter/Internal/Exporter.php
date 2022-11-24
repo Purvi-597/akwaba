@@ -106,10 +106,7 @@ class Exporter
                 }
                 $properties = ['SplObjectStorage' => ["\0" => $properties]];
                 $arrayValue = (array) $value;
-            } elseif ($value instanceof \Serializable
-                || $value instanceof \__PHP_Incomplete_Class
-                || \PHP_VERSION_ID < 80200 && $value instanceof \DatePeriod
-            ) {
+            } elseif ($value instanceof \Serializable || $value instanceof \__PHP_Incomplete_Class) {
                 ++$objectsCount;
                 $objectsPool[$value] = [$id = \count($objectsPool), serialize($value), [], 0];
                 $value = new Reference($id);
@@ -133,7 +130,7 @@ class Exporter
                 $i = 0;
                 $n = (string) $name;
                 if ('' === $n || "\0" !== $n[0]) {
-                    $c = \PHP_VERSION_ID >= 80100 && $reflector->hasProperty($n) && ($p = $reflector->getProperty($n))->isReadOnly() ? $p->class : 'stdClass';
+                    $c = 'stdClass';
                 } elseif ('*' === $n[1]) {
                     $n = substr($n, 3);
                     $c = $reflector->getProperty($n)->class;
@@ -188,13 +185,12 @@ class Exporter
     public static function export($value, string $indent = '')
     {
         switch (true) {
-            case \is_int($value) || \is_float($value): return var_export($value, true);
+            case \is_int($value) || \is_float($value) || $value instanceof \UnitEnum: return var_export($value, true);
             case [] === $value: return '[]';
             case false === $value: return 'false';
             case true === $value: return 'true';
             case null === $value: return 'null';
             case '' === $value: return "''";
-            case $value instanceof \UnitEnum: return ltrim(var_export($value, true), '\\');
         }
 
         if ($value instanceof Reference) {

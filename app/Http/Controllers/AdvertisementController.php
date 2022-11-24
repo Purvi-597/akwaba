@@ -18,9 +18,9 @@ class AdvertisementController extends Controller
     
     {
         if(Session::get('locale') == 'fr'){
-            $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title_fr as title','image','link','status','id']);
+            $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title_fr as title','image','link','status','id','date','time']);
         }else{
-	    $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title as title','image','status','link','id']);
+	    $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title as title','image','status','link','id','date','time']);
         }
 		
         return view('admin.advertisement.index',$data);
@@ -39,7 +39,8 @@ class AdvertisementController extends Controller
     }
 	public function store(Request $request)
     {
-      
+    //   echo "<pre>";
+    //   print_r($request->all());die;
         $input = $request->all();
         
         $image = '';
@@ -62,6 +63,10 @@ class AdvertisementController extends Controller
             'title' => $request->input('title'),
             'title_fr' => $request->input('title_fr'),
             'link' => $request->input('link'),
+            'date' => $request->input('date'),
+     
+            'time' => $request->input('time'),
+
             'image' => $image,
             'status' => $status
         );
@@ -101,6 +106,8 @@ class AdvertisementController extends Controller
             "title" => $request->input('title'),
             "title_fr" => $request->input('title_fr'),
             "link" => $request->input('link'),
+            "date" => $request->input('date'),
+            "time" => $request->input('time'),
 			"image"=>$cover_detail,
             "status" => $status
         ]);
@@ -154,9 +161,9 @@ class AdvertisementController extends Controller
     {
 
         if(Session::get('locale') == 'fr'){
-            $data['advertisement'] = Advertisement::where('id',$id)->first(['title_fr as title', 'image', 'status']);
+            $data['advertisement'] = Advertisement::where('id',$id)->first(['title_fr as title', 'image', 'status','date','time']);
         }else{
-            $data['advertisement'] = Advertisement::where('id',$id)->first(['title as title', 'image', 'status']);
+            $data['advertisement'] = Advertisement::where('id',$id)->first(['title as title', 'image', 'status','date','time']);
         }
 
         $data['advertisement'] = Advertisement::where('id',$id)->first();

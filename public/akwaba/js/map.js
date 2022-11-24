@@ -240,11 +240,7 @@ $(document).on('click','#catCloseBtn', function(){
 	$(".catDataDiv").css('display','none');
 	$('.getEatoutDetail').attr('id');
 	$('.icon-'+id).attr('data-id', 'Yes');
-<<<<<<< HEAD
 	// $(".leaflet-marker-icon").css('display','none');
-=======
-	$(".leaflet-marker-icon").css('display','none');
->>>>>>> aaafeba6e8d166cd9a1353b517bcc13129228127
 	$(".leaflet-marker-icon").remove();
 	//window.location.reload();
 });

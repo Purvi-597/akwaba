@@ -204,11 +204,11 @@ class Builder
     ];
 
     /**
-     * All of the available bitwise operators.
+     * All of the available bit operators.
      *
      * @var string[]
      */
-    public $bitwiseOperators = [
+    public $bitOperators = [
         '&', '|', '^', '<<', '>>', '&~',
     ];
 
@@ -763,8 +763,8 @@ class Builder
             }
         }
 
-        if ($this->isBitwiseOperator($operator)) {
-            $type = 'Bitwise';
+        if ($this->isBitOperator($operator)) {
+            $type = 'Bit';
         }
 
         // Now that we are working with just a simple query we can put the elements
@@ -846,20 +846,20 @@ class Builder
      */
     protected function invalidOperator($operator)
     {
-        return ! is_string($operator) || (! in_array(strtolower($operator), $this->operators, true) &&
-               ! in_array(strtolower($operator), $this->grammar->getOperators(), true));
+        return ! in_array(strtolower($operator), $this->operators, true) &&
+               ! in_array(strtolower($operator), $this->grammar->getOperators(), true);
     }
 
     /**
-     * Determine if the operator is a bitwise operator.
+     * Determine if the operator is a bit operator.
      *
      * @param  string  $operator
      * @return bool
      */
-    protected function isBitwiseOperator($operator)
+    protected function isBitOperator($operator)
     {
-        return in_array(strtolower($operator), $this->bitwiseOperators, true) ||
-               in_array(strtolower($operator), $this->grammar->getBitwiseOperators(), true);
+        return in_array(strtolower($operator), $this->bitOperators, true) ||
+               in_array(strtolower($operator), $this->grammar->getBitOperators(), true);
     }
 
     /**
@@ -1940,8 +1940,8 @@ class Builder
             [$value, $operator] = [$operator, '='];
         }
 
-        if ($this->isBitwiseOperator($operator)) {
-            $type = 'Bitwise';
+        if ($this->isBitOperator($operator)) {
+            $type = 'bit';
         }
 
         $this->havings[] = compact('type', 'column', 'operator', 'value', 'boolean');
@@ -2487,15 +2487,15 @@ class Builder
     {
         $this->enforceOrderBy();
 
-        return collect($this->orders ?? $this->unionOrders ?? [])->filter(function ($order) {
-            return Arr::has($order, 'direction');
-        })->when($shouldReverse, function (Collection $orders) {
-            return $orders->map(function ($order) {
+        if ($shouldReverse) {
+            $this->orders = collect($this->orders)->map(function ($order) {
                 $order['direction'] = $order['direction'] === 'asc' ? 'desc' : 'asc';
 
                 return $order;
-            });
-        })->values();
+            })->toArray();
+        }
+
+        return collect($this->orders);
     }
 
     /**

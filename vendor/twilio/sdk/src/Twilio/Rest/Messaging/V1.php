@@ -16,7 +16,6 @@ use Twilio\Rest\Messaging\V1\BrandRegistrationList;
 use Twilio\Rest\Messaging\V1\DeactivationsList;
 use Twilio\Rest\Messaging\V1\ExternalCampaignList;
 use Twilio\Rest\Messaging\V1\ServiceList;
-use Twilio\Rest\Messaging\V1\TollfreeVerificationList;
 use Twilio\Rest\Messaging\V1\UsecaseList;
 use Twilio\Version;
 
@@ -25,18 +24,15 @@ use Twilio\Version;
  * @property DeactivationsList $deactivations
  * @property ExternalCampaignList $externalCampaign
  * @property ServiceList $services
- * @property TollfreeVerificationList $tollfreeVerifications
  * @property UsecaseList $usecases
  * @method \Twilio\Rest\Messaging\V1\BrandRegistrationContext brandRegistrations(string $sid)
  * @method \Twilio\Rest\Messaging\V1\ServiceContext services(string $sid)
- * @method \Twilio\Rest\Messaging\V1\TollfreeVerificationContext tollfreeVerifications(string $sid)
  */
 class V1 extends Version {
     protected $_brandRegistrations;
     protected $_deactivations;
     protected $_externalCampaign;
     protected $_services;
-    protected $_tollfreeVerifications;
     protected $_usecases;
 
     /**
@@ -75,13 +71,6 @@ class V1 extends Version {
             $this->_services = new ServiceList($this);
         }
         return $this->_services;
-    }
-
-    protected function getTollfreeVerifications(): TollfreeVerificationList {
-        if (!$this->_tollfreeVerifications) {
-            $this->_tollfreeVerifications = new TollfreeVerificationList($this);
-        }
-        return $this->_tollfreeVerifications;
     }
 
     protected function getUsecases(): UsecaseList {

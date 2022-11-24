@@ -21,11 +21,10 @@ abstract class EsimProfileOptions {
      *                            the status of the eSIM Profile changes
      * @param string $callbackMethod The HTTP method we should use to call
      *                               callback_url
-     * @param string $eid Identifier of the eUICC that will claim the eSIM Profile
      * @return CreateEsimProfileOptions Options builder
      */
-    public static function create(string $callbackUrl = Values::NONE, string $callbackMethod = Values::NONE, string $eid = Values::NONE): CreateEsimProfileOptions {
-        return new CreateEsimProfileOptions($callbackUrl, $callbackMethod, $eid);
+    public static function create(string $callbackUrl = Values::NONE, string $callbackMethod = Values::NONE): CreateEsimProfileOptions {
+        return new CreateEsimProfileOptions($callbackUrl, $callbackMethod);
     }
 
     /**
@@ -47,12 +46,10 @@ class CreateEsimProfileOptions extends Options {
      *                            the status of the eSIM Profile changes
      * @param string $callbackMethod The HTTP method we should use to call
      *                               callback_url
-     * @param string $eid Identifier of the eUICC that will claim the eSIM Profile
      */
-    public function __construct(string $callbackUrl = Values::NONE, string $callbackMethod = Values::NONE, string $eid = Values::NONE) {
+    public function __construct(string $callbackUrl = Values::NONE, string $callbackMethod = Values::NONE) {
         $this->options['callbackUrl'] = $callbackUrl;
         $this->options['callbackMethod'] = $callbackMethod;
-        $this->options['eid'] = $eid;
     }
 
     /**
@@ -76,17 +73,6 @@ class CreateEsimProfileOptions extends Options {
      */
     public function setCallbackMethod(string $callbackMethod): self {
         $this->options['callbackMethod'] = $callbackMethod;
-        return $this;
-    }
-
-    /**
-     * Identifier of the eUICC that will claim the eSIM Profile.
-     *
-     * @param string $eid Identifier of the eUICC that will claim the eSIM Profile
-     * @return $this Fluent Builder
-     */
-    public function setEid(string $eid): self {
-        $this->options['eid'] = $eid;
         return $this;
     }
 

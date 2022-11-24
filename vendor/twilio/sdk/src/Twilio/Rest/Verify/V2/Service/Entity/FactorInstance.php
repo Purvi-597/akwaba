@@ -17,6 +17,8 @@ use Twilio\Values;
 use Twilio\Version;
 
 /**
+ * PLEASE NOTE that this class contains beta products that are subject to change. Use them with caution.
+ *
  * @property string $sid
  * @property string $accountSid
  * @property string $serviceSid
@@ -28,7 +30,6 @@ use Twilio\Version;
  * @property string $status
  * @property string $factorType
  * @property array $config
- * @property array $metadata
  * @property string $url
  */
 class FactorInstance extends InstanceResource {
@@ -57,7 +58,6 @@ class FactorInstance extends InstanceResource {
             'status' => Values::array_get($payload, 'status'),
             'factorType' => Values::array_get($payload, 'factor_type'),
             'config' => Values::array_get($payload, 'config'),
-            'metadata' => Values::array_get($payload, 'metadata'),
             'url' => Values::array_get($payload, 'url'),
         ];
 

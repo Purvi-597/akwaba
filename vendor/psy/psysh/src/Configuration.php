@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2022 Justin Hileman
+ * (c) 2012-2020 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,6 @@ use Psy\Exception\RuntimeException;
 use Psy\ExecutionLoop\ProcessForker;
 use Psy\Output\OutputPager;
 use Psy\Output\ShellOutput;
-use Psy\Output\Theme;
 use Psy\TabCompletion\AutoCompleter;
 use Psy\VarDumper\Presenter;
 use Psy\VersionUpdater\Checker;
@@ -67,7 +66,6 @@ class Configuration
         'requireSemicolons',
         'runtimeDir',
         'startupMessage',
-        'theme',
         'updateCheck',
         'useBracketedPaste',
         'usePcntl',
@@ -109,12 +107,9 @@ class Configuration
     private $updateCheck;
     private $startupMessage;
     private $forceArrayIndexes = false;
-    /** @deprecated */
     private $formatterStyles = [];
     private $verbosity = self::VERBOSITY_NORMAL;
     private $yolo = false;
-    /** @var Theme */
-    private $theme;
 
     // services
     private $readline;
@@ -200,11 +195,6 @@ class Configuration
             $config->setInteractiveMode(self::INTERACTIVE_MODE_FORCED);
         } elseif (self::getOptionFromInput($input, ['no-interactive', 'no-interaction'], ['-n'])) {
             $config->setInteractiveMode(self::INTERACTIVE_MODE_DISABLED);
-        }
-
-        // Handle --compact
-        if (self::getOptionFromInput($input, ['compact'])) {
-            $config->setTheme('compact');
         }
 
         // Handle --raw-output
@@ -356,15 +346,12 @@ class Configuration
 
             new InputOption('quiet', 'q', InputOption::VALUE_NONE, 'Shhhhhh.'),
             new InputOption('verbose', 'v|vv|vvv', InputOption::VALUE_OPTIONAL, 'Increase the verbosity of messages.', '0'),
-            new InputOption('compact', null, InputOption::VALUE_NONE, 'Run PsySH with compact output.'),
             new InputOption('interactive', 'i|a', InputOption::VALUE_NONE, 'Force PsySH to run in interactive mode.'),
             new InputOption('no-interactive', 'n', InputOption::VALUE_NONE, 'Run PsySH without interactive input. Requires input from stdin.'),
             // --interaction and --no-interaction aliases for compatibility with Symfony, Composer, etc
             new InputOption('interaction', null, InputOption::VALUE_NONE, 'Force PsySH to run in interactive mode.'),
             new InputOption('no-interaction', null, InputOption::VALUE_NONE, 'Run PsySH without interactive input. Requires input from stdin.'),
             new InputOption('raw-output', 'r', InputOption::VALUE_NONE, 'Print var_export-style return values (for non-interactive input)'),
-
-            new InputOption('self-update', 'u', InputOption::VALUE_NONE, 'Update to the latest version'),
 
             new InputOption('yolo', null, InputOption::VALUE_NONE, 'Run PsySH with minimal input validation. You probably don\'t want this.'),
         ];
@@ -829,11 +816,9 @@ class Configuration
                 return Readline\GNUReadline::class;
             } elseif (Readline\Libedit::isSupported()) {
                 return Readline\Libedit::class;
+            } elseif (Readline\HoaConsole::isSupported()) {
+                return Readline\HoaConsole::class;
             }
-        }
-
-        if (Readline\Userland::isSupported()) {
-            return Readline\Userland::class;
         }
 
         return Readline\Transient::class;
@@ -906,17 +891,7 @@ class Configuration
      */
     public function usePcntl(): bool
     {
-        if (!isset($this->usePcntl)) {
-            // Unless pcntl is explicitly *enabled*, don't use it while XDebug is debugging.
-            // See https://github.com/bobthecow/psysh/issues/742
-            if (\function_exists('xdebug_is_debugger_active') && \xdebug_is_debugger_active()) {
-                return false;
-            }
-
-            return $this->hasPcntl;
-        }
-
-        return $this->hasPcntl && $this->usePcntl;
+        return isset($this->usePcntl) ? ($this->hasPcntl && $this->usePcntl) : $this->hasPcntl;
     }
 
     /**
@@ -1126,11 +1101,6 @@ class Configuration
     {
         $this->output = $output;
         $this->pipedOutput = null; // Reset cached pipe info
-
-        if (isset($this->theme)) {
-            $output->setTheme($this->theme);
-        }
-
         $this->applyFormatterStyles();
     }
 
@@ -1152,12 +1122,7 @@ class Configuration
                 $this->getOutputVerbosity(),
                 null,
                 null,
-<<<<<<< HEAD
-                $this->getPager() ?: null
-=======
-                $this->getPager() ?: null,
-                $this->theme()
->>>>>>> sahil
+                $this->getPager()
             ));
 
             // This is racy because `getOutputDecorated` needs access to the
@@ -1180,13 +1145,12 @@ class Configuration
     public function getOutputDecorated()
     {
         switch ($this->colorMode()) {
+            case self::COLOR_MODE_AUTO:
+                return $this->outputIsPiped() ? false : null;
             case self::COLOR_MODE_FORCED:
                 return true;
             case self::COLOR_MODE_DISABLED:
                 return false;
-            case self::COLOR_MODE_AUTO:
-            default:
-                return $this->outputIsPiped() ? false : null;
         }
     }
 
@@ -1198,13 +1162,12 @@ class Configuration
     public function getInputInteractive(): bool
     {
         switch ($this->interactiveMode()) {
+            case self::INTERACTIVE_MODE_AUTO:
+                return !$this->inputIsPiped();
             case self::INTERACTIVE_MODE_FORCED:
                 return true;
             case self::INTERACTIVE_MODE_DISABLED:
                 return false;
-            case self::INTERACTIVE_MODE_AUTO:
-            default:
-                return !$this->inputIsPiped();
         }
     }
 
@@ -1214,19 +1177,13 @@ class Configuration
      * If a string is supplied, a ProcOutputPager will be used which shells out
      * to the specified command.
      *
-     * `cat` is special-cased to use the PassthruPager directly.
-     *
      * @throws \InvalidArgumentException if $pager is not a string or OutputPager instance
      *
-     * @param string|OutputPager|false $pager
+     * @param string|OutputPager $pager
      */
     public function setPager($pager)
     {
-        if ($pager === null || $pager === false || $pager === 'cat') {
-            $pager = false;
-        }
-
-        if ($pager !== false && !\is_string($pager) && !$pager instanceof OutputPager) {
+        if ($pager && !\is_string($pager) && !$pager instanceof OutputPager) {
             throw new \InvalidArgumentException('Unexpected pager instance');
         }
 
@@ -1239,21 +1196,17 @@ class Configuration
      * If no Pager has been explicitly provided, and Pcntl is available, this
      * will default to `cli.pager` ini value, falling back to `which less`.
      *
-     * @return string|OutputPager|false
+     * @return string|OutputPager
      */
     public function getPager()
     {
         if (!isset($this->pager) && $this->usePcntl()) {
-            if (\getenv('TERM') === 'dumb') {
-                return false;
-            }
-
             if ($pager = \ini_get('cli.pager')) {
                 // use the default pager
                 $this->pager = $pager;
-            } elseif ($less = $this->configPaths->which('less')) {
+            } elseif ($less = \exec('which less 2>/dev/null')) {
                 // check for the presence of less...
-                $this->pager = $less.' -R -F -X';
+                $this->pager = $less.' -R -S -F -X';
             }
         }
 
@@ -1420,7 +1373,7 @@ class Configuration
     {
         if (!isset($this->manualDb)) {
             $dbFile = $this->getManualDbFile();
-            if ($dbFile !== null && \is_file($dbFile)) {
+            if (\is_file($dbFile)) {
                 try {
                     $this->manualDb = new \PDO('sqlite:'.$dbFile);
                 } catch (\PDOException $e) {
@@ -1705,37 +1658,6 @@ class Configuration
     }
 
     /**
-     * Set the current output Theme.
-     *
-     * @param Theme|string|array Theme (or Theme config)
-     */
-    public function setTheme($theme)
-    {
-        if (!$theme instanceof Theme) {
-            $theme = new Theme($theme);
-        }
-
-        $this->theme = $theme;
-
-        if (isset($this->output)) {
-            $this->output->setTheme($theme);
-            $this->applyFormatterStyles();
-        }
-    }
-
-    /**
-     * Get the current output Theme.
-     */
-    public function theme(): Theme
-    {
-        if (!isset($this->theme)) {
-            $this->theme = new Theme();
-        }
-
-        return $this->theme;
-    }
-
-    /**
      * Set the shell output formatter styles.
      *
      * Accepts a map from style name to [fg, bg, options], for example:
@@ -1747,14 +1669,15 @@ class Configuration
      *
      * Foreground, background or options can be null, or even omitted entirely.
      *
-     * @deprecated The `formatterStyles` configuration has been replaced by Themes and support will
-     * eventually be removed. In the meantime, styles are applied first by the Theme, then
-     * overridden by any explicitly defined formatter styles.
+     * @see ShellOutput::initFormatters
+     *
+     * @param array $formatterStyles
      */
     public function setFormatterStyles(array $formatterStyles)
     {
         foreach ($formatterStyles as $name => $style) {
-            $this->formatterStyles[$name] = new OutputFormatterStyle(...$style);
+            list($fg, $bg, $opts) = \array_pad($style, 3, null);
+            $this->formatterStyles[$name] = new OutputFormatterStyle($fg ?: null, $bg ?: null, $opts ?: []);
         }
 
         if (isset($this->output)) {
@@ -1767,23 +1690,12 @@ class Configuration
      *
      * This is called on initialization of the shell output, and again if the
      * formatter styles config is updated.
-     *
-     * @deprecated The `formatterStyles` configuration has been replaced by Themes and support will
-     * eventually be removed. In the meantime, styles are applied first by the Theme, then
-     * overridden by any explicitly defined formatter styles.
      */
     private function applyFormatterStyles()
     {
         $formatter = $this->output->getFormatter();
         foreach ($this->formatterStyles as $name => $style) {
             $formatter->setStyle($name, $style);
-        }
-
-        $errorFormatter = $this->output->getErrorOutput()->getFormatter();
-        foreach (Theme::ERROR_STYLES as $name) {
-            if (isset($this->formatterStyles[$name])) {
-                $errorFormatter->setStyle($name, $this->formatterStyles[$name]);
-            }
         }
     }
 

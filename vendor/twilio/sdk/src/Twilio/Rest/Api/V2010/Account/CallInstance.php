@@ -19,12 +19,6 @@ use Twilio\Rest\Api\V2010\Account\Call\NotificationList;
 use Twilio\Rest\Api\V2010\Account\Call\PaymentList;
 use Twilio\Rest\Api\V2010\Account\Call\RecordingList;
 use Twilio\Rest\Api\V2010\Account\Call\SiprecList;
-use Twilio\Rest\Api\V2010\Account\Call\StreamList;
-<<<<<<< HEAD
-=======
-use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageList;
-use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageSubscriptionList;
->>>>>>> sahil
 use Twilio\Values;
 use Twilio\Version;
 
@@ -47,6 +41,7 @@ use Twilio\Version;
  * @property string $priceUnit
  * @property string $direction
  * @property string $answeredBy
+ * @property string $annotation
  * @property string $apiVersion
  * @property string $forwardedFrom
  * @property string $groupSid
@@ -63,12 +58,6 @@ class CallInstance extends InstanceResource {
     protected $_events;
     protected $_payments;
     protected $_siprec;
-    protected $_streams;
-<<<<<<< HEAD
-=======
-    protected $_userDefinedMessageSubscriptions;
-    protected $_userDefinedMessages;
->>>>>>> sahil
 
     /**
      * Initialize the CallInstance
@@ -101,6 +90,7 @@ class CallInstance extends InstanceResource {
             'priceUnit' => Values::array_get($payload, 'price_unit'),
             'direction' => Values::array_get($payload, 'direction'),
             'answeredBy' => Values::array_get($payload, 'answered_by'),
+            'annotation' => Values::array_get($payload, 'annotation'),
             'apiVersion' => Values::array_get($payload, 'api_version'),
             'forwardedFrom' => Values::array_get($payload, 'forwarded_from'),
             'groupSid' => Values::array_get($payload, 'group_sid'),
@@ -206,30 +196,6 @@ class CallInstance extends InstanceResource {
     }
 
     /**
-     * Access the streams
-     */
-    protected function getStreams(): StreamList {
-        return $this->proxy()->streams;
-    }
-
-    /**
-<<<<<<< HEAD
-=======
-     * Access the userDefinedMessageSubscriptions
-     */
-    protected function getUserDefinedMessageSubscriptions(): UserDefinedMessageSubscriptionList {
-        return $this->proxy()->userDefinedMessageSubscriptions;
-    }
-
-    /**
-     * Access the userDefinedMessages
-     */
-    protected function getUserDefinedMessages(): UserDefinedMessageList {
-        return $this->proxy()->userDefinedMessages;
-    }
-
-    /**
->>>>>>> sahil
      * Magic getter to access properties
      *
      * @param string $name Property to access

@@ -14,7 +14,6 @@ namespace Symfony\Component\Cache\Adapter;
 use Predis\Connection\Aggregate\ClusterInterface;
 use Predis\Connection\Aggregate\PredisCluster;
 use Predis\Connection\Aggregate\ReplicationInterface;
-use Predis\Response\ErrorInterface;
 use Predis\Response\Status;
 use Symfony\Component\Cache\CacheItem;
 use Symfony\Component\Cache\Exception\InvalidArgumentException;
@@ -59,7 +58,6 @@ class RedisTagAwareAdapter extends AbstractTagAwareAdapter
      * @var string|null detected eviction policy used on Redis server
      */
     private $redisEvictionPolicy;
-    private $namespace;
 
     /**
      * @param \Redis|\RedisArray|\RedisCluster|\Predis\ClientInterface|RedisProxy|RedisClusterProxy $redis           The redis client
@@ -83,7 +81,6 @@ class RedisTagAwareAdapter extends AbstractTagAwareAdapter
         }
 
         $this->init($redis, $namespace, $defaultLifetime, new TagAwareMarshaller($marshaller));
-        $this->namespace = $namespace;
     }
 
     /**
@@ -167,7 +164,7 @@ EOLUA;
         });
 
         foreach ($results as $id => $result) {
-            if ($result instanceof \RedisException || $result instanceof ErrorInterface) {
+            if ($result instanceof \RedisException) {
                 CacheItem::log($this->logger, 'Failed to delete key "{key}": '.$result->getMessage(), ['key' => substr($id, \strlen($this->namespace)), 'exception' => $result]);
 
                 continue;
@@ -208,7 +205,7 @@ EOLUA;
         // and removes the linked items. When the set is still not empty after
         // the scan, it means we're in cluster mode and that the linked items
         // are on other nodes: we move the links to a temporary set and we
-        // garbage collect that set from the client side.
+        // gargage collect that set from the client side.
 
         $lua = <<<'EOLUA'
             redis.replicate_commands()
@@ -261,7 +258,7 @@ EOLUA;
 
         $success = true;
         foreach ($results as $id => $values) {
-            if ($values instanceof \RedisException || $values instanceof ErrorInterface) {
+            if ($values instanceof \RedisException) {
                 CacheItem::log($this->logger, 'Failed to invalidate key "{key}": '.$values->getMessage(), ['key' => substr($id, \strlen($this->namespace)), 'exception' => $values]);
                 $success = false;
 
@@ -310,11 +307,6 @@ EOLUA;
 
         foreach ($hosts as $host) {
             $info = $host->info('Memory');
-
-            if ($info instanceof ErrorInterface) {
-                continue;
-            }
-
             $info = $info['Memory'] ?? $info;
 
             return $this->redisEvictionPolicy = $info['maxmemory_policy'];

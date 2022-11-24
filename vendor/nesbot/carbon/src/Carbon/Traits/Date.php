@@ -643,7 +643,7 @@ trait Date
      *
      * @return array
      */
-    protected static function getRangesByUnit(int $daysInMonth = 31): array
+    protected static function getRangesByUnit()
     {
         return [
             // @call roundUnit
@@ -651,7 +651,7 @@ trait Date
             // @call roundUnit
             'month' => [1, static::MONTHS_PER_YEAR],
             // @call roundUnit
-            'day' => [1, $daysInMonth],
+            'day' => [1, 31],
             // @call roundUnit
             'hour' => [0, static::HOURS_PER_DAY - 1],
             // @call roundUnit
@@ -940,7 +940,7 @@ trait Date
             case $name === 'millisecond':
             // @property int
             case $name === 'milli':
-                return (int) floor(((int) $this->rawFormat('u')) / 1000);
+                return (int) floor($this->rawFormat('u') / 1000);
 
             // @property int 1 through 53
             case $name === 'week':
@@ -1250,7 +1250,7 @@ trait Date
     protected function getTranslatedFormByRegExp($baseKey, $keySuffix, $context, $subKey, $defaultValue)
     {
         $key = $baseKey.$keySuffix;
-        $standaloneKey = "{$key}_standalone";
+        $standaloneKey = "${key}_standalone";
         $baseTranslation = $this->getTranslationMessage($key);
 
         if ($baseTranslation instanceof Closure) {
@@ -1259,7 +1259,7 @@ trait Date
 
         if (
             $this->getTranslationMessage("$standaloneKey.$subKey") &&
-            (!$context || (($regExp = $this->getTranslationMessage("{$baseKey}_regexp")) && !preg_match($regExp, $context)))
+            (!$context || ($regExp = $this->getTranslationMessage("${baseKey}_regexp")) && !preg_match($regExp, $context))
         ) {
             $key = $standaloneKey;
         }
@@ -1354,14 +1354,9 @@ trait Date
      */
     public function weekday($value = null)
     {
-        if ($value === null) {
-            return $this->dayOfWeek;
-        }
+        $dayOfWeek = ($this->dayOfWeek + 7 - (int) ($this->getTranslationMessage('first_day_of_week') ?? 0)) % 7;
 
-        $firstDay = (int) ($this->getTranslationMessage('first_day_of_week') ?? 0);
-        $dayOfWeek = ($this->dayOfWeek + 7 - $firstDay) % 7;
-
-        return $this->addDays((($value + 7 - $firstDay) % 7) - $dayOfWeek);
+        return $value === null ? $dayOfWeek : $this->addDays($value - $dayOfWeek);
     }
 
     /**
@@ -1853,18 +1848,9 @@ trait Date
             $format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $format); // @codeCoverageIgnore
         }
 
-        $time = strtotime($this->toDateTimeString());
-        $formatted = ($this->localStrictModeEnabled ?? static::isStrictModeEnabled())
-            ? strftime($format, $time)
-            : @strftime($format, $time);
+        $formatted = strftime($format, strtotime($this->toDateTimeString()));
 
-        return static::$utf8
-            ? (
-                \function_exists('mb_convert_encoding')
-                ? mb_convert_encoding($formatted, 'UTF-8', mb_list_encodings())
-                : utf8_encode($formatted)
-            )
-            : $formatted;
+        return static::$utf8 ? utf8_encode($formatted) : $formatted;
     }
 
     /**
@@ -1883,10 +1869,6 @@ trait Date
             'LL' => $this->getTranslationMessage('formats.LL', $locale, 'MMMM D, YYYY'),
             'LLL' => $this->getTranslationMessage('formats.LLL', $locale, 'MMMM D, YYYY h:mm A'),
             'LLLL' => $this->getTranslationMessage('formats.LLLL', $locale, 'dddd, MMMM D, YYYY h:mm A'),
-            'l' => $this->getTranslationMessage('formats.l', $locale),
-            'll' => $this->getTranslationMessage('formats.ll', $locale),
-            'lll' => $this->getTranslationMessage('formats.lll', $locale),
-            'llll' => $this->getTranslationMessage('formats.llll', $locale),
         ];
     }
 
@@ -2170,7 +2152,7 @@ trait Date
 
             $input = mb_substr($format, $i);
 
-            if (preg_match('/^(LTS|LT|l{1,4}|L{1,4})/', $input, $match)) {
+            if (preg_match('/^(LTS|LT|[Ll]{1,4})/', $input, $match)) {
                 if ($formats === null) {
                     $formats = $this->getIsoFormats();
                 }
@@ -2377,7 +2359,7 @@ trait Date
         $symbol = $second < 0 ? '-' : '+';
         $minute = abs($second) / static::SECONDS_PER_MINUTE;
         $hour = str_pad((string) floor($minute / static::MINUTES_PER_HOUR), 2, '0', STR_PAD_LEFT);
-        $minute = str_pad((string) (((int) $minute) % static::MINUTES_PER_HOUR), 2, '0', STR_PAD_LEFT);
+        $minute = str_pad((string) ($minute % static::MINUTES_PER_HOUR), 2, '0', STR_PAD_LEFT);
 
         return "$symbol$hour$separator$minute";
     }
@@ -2497,7 +2479,7 @@ trait Date
             return 'millennia';
         }
 
-        return "{$unit}s";
+        return "${unit}s";
     }
 
     protected function executeCallable($macro, ...$parameters)
@@ -2584,7 +2566,7 @@ trait Date
         if (str_starts_with($unit, 'is')) {
             $word = substr($unit, 2);
 
-            if (\in_array($word, static::$days, true)) {
+            if (\in_array($word, static::$days)) {
                 return $this->isDayOfWeek($word);
             }
 
@@ -2612,7 +2594,7 @@ trait Date
             $unit = strtolower(substr($unit, 3));
         }
 
-        if (\in_array($unit, static::$units, true)) {
+        if (\in_array($unit, static::$units)) {
             return $this->setUnit($unit, ...$parameters);
         }
 
@@ -2622,7 +2604,7 @@ trait Date
             if (str_starts_with($unit, 'Real')) {
                 $unit = static::singularUnit(substr($unit, 4));
 
-                return $this->{"{$action}RealUnit"}($unit, ...$parameters);
+                return $this->{"${action}RealUnit"}($unit, ...$parameters);
             }
 
             if (preg_match('/^(Month|Quarter|Year|Decade|Century|Centurie|Millennium|Millennia)s?(No|With|Without|WithNo)Overflow$/', $unit, $match)) {
@@ -2634,7 +2616,7 @@ trait Date
         }
 
         if (static::isModifiableUnit($unit)) {
-            return $this->{"{$action}Unit"}($unit, $parameters[0] ?? 1, $overflow);
+            return $this->{"${action}Unit"}($unit, $parameters[0] ?? 1, $overflow);
         }
 
         $sixFirstLetters = substr($unit, 0, 6);

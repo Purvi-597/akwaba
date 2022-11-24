@@ -50,13 +50,6 @@ abstract class AbstractUser implements ArrayAccess, User
     public $user;
 
     /**
-     * The user's other attributes.
-     *
-     * @var array
-     */
-    public $attributes = [];
-
-    /**
      * Get the unique identifier for the user.
      *
      * @return string
@@ -137,12 +130,8 @@ abstract class AbstractUser implements ArrayAccess, User
      */
     public function map(array $attributes)
     {
-        $this->attributes = $attributes;
-
         foreach ($attributes as $key => $value) {
-            if (property_exists($this, $key)) {
-                $this->{$key} = $value;
-            }
+            $this->{$key} = $value;
         }
 
         return $this;
@@ -195,16 +184,5 @@ abstract class AbstractUser implements ArrayAccess, User
     public function offsetUnset($offset)
     {
         unset($this->user[$offset]);
-    }
-
-    /**
-     * Get a user attribute value dynamically.
-     *
-     * @param  string  $key
-     * @return void
-     */
-    public function __get($key)
-    {
-        return $this->attributes[$key] ?? null;
     }
 }

@@ -31,9 +31,6 @@ class CompaniesImagesTable extends Migration
     public function down()
     {
         //
-<<<<<<< HEAD
         Schema::dropIfExists('company_images');
-=======
->>>>>>> sahil
     }
 }

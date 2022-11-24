@@ -96,7 +96,24 @@ input::-webkit-inner-spin-button {
                             @lang('language.Please provide a Link.')
                         </div>
                     </div>
-               
+                    
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Date</label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" name="date" id="date" value="{{$advertisement->date}}" required >
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Time</label>
+                            <input type='text' class="form-control" name="time" id="time" value="{{$advertisement->time}}" required >
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
                          
                     <div class="form-group ">
                         <div class="custom-control custom-checkbox">
@@ -139,45 +156,42 @@ input::-webkit-inner-spin-button {
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 
 <script>
-        $(document).ready(function () {
-            
-           
-                var _URL = window.URL || window.webkitURL;
-$(document).on('change','#images_0',function(e){
-      $("#image_main0").css('display','none');
-      $("#deleteimage").css('display','none');
+$(document).ready(function () {
+    var _URL = window.URL || window.webkitURL;
+    $(document).on('change','#images_0',function(e){
+    $("#image_main0").css('display','none');
+    $("#deleteimage").css('display','none');
     $("#image_main1").css('display','block');
- var file, img;
+        var file, img;
 
- let name = e.target.files[0].name;
-if ((file = this.files[0])) {
-  var ext = name.split('.').pop().toLowerCase();
+        let name = e.target.files[0].name;
+        if ((file = this.files[0])) {
+        var ext = name.split('.').pop().toLowerCase();
 
-  if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
-  $("#image0_error").text("@lang('language.image_format')");
-  $("#images_0").val("");
-  $("#images_0").val(null);
-    $("#image_main1").attr('src','');
-    $("#image_main1").css('display','none');
-  }else{
-      $("#lbl1").css('display','none');
- img = new Image();
- img.onload = function() {
-  $("#image0_error").text("");
-  $("#image_main1").css("display", "block");
-  $('#image_main1').attr('src', img.src).height(150);
-    }
- };
- img.src = _URL.createObjectURL(file);
-}
-
-
-             $("#profile_picture").change(function(){
-         //submit the form here
-         $("#presrciptionpreview").css('display','block');
-          $("#deleteBtn").css("display", "block");
+            if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
+            $("#image0_error").text("@lang('language.image_format')");
+            $("#images_0").val("");
+            $("#images_0").val(null);
+                $("#image_main1").attr('src','');
+                $("#image_main1").css('display','none');
+            }else{
+                $("#lbl1").css('display','none');
+            img = new Image();
+            img.onload = function() {
+            $("#image0_error").text("");
+            $("#image_main1").css("display", "block");
+            $('#image_main1').attr('src', img.src).height(150);
+            }
+            };
+        img.src = _URL.createObjectURL(file);
+        }
+ $("#profile_picture").change(function(){
+     //submit the form here
+     $("#presrciptionpreview").css('display','block');
+     $("#deleteBtn").css("display", "block");
          
  });
+});
             
     $("#deleteBtn").click(function(){
    $("#presrciptionpreview").css("display", "none");
@@ -188,7 +202,8 @@ if ((file = this.files[0])) {
 
    });
 
-$(document).on('click','#deleteimage',function(){
+
+ $(document).on('click','#deleteimage',function(){
                 var id = $(this).attr('data-id');
                
                  Swal.fire({
@@ -291,4 +306,20 @@ $(document).on('click','#deleteimage',function(){
    });
    </script>
 
+   <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datepicker({
+            format: "dd/mm/yy",
+            weekStart: 0,
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true, 
+            orientation: "auto"
+        });
+    });
+</script>
+</div>
+</div>
+
+<script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 @endsection

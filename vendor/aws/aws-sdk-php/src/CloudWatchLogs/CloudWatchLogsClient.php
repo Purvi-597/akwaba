@@ -62,8 +62,6 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise getLogRecordAsync(array $args = [])
  * @method \Aws\Result getQueryResults(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getQueryResultsAsync(array $args = [])
- * @method \Aws\Result listTagsForResource(array $args = [])
- * @method \GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
  * @method \Aws\Result listTagsLogGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listTagsLogGroupAsync(array $args = [])
  * @method \Aws\Result putDestination(array $args = [])
@@ -88,13 +86,9 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise stopQueryAsync(array $args = [])
  * @method \Aws\Result tagLogGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise tagLogGroupAsync(array $args = [])
- * @method \Aws\Result tagResource(array $args = [])
- * @method \GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
  * @method \Aws\Result testMetricFilter(array $args = [])
  * @method \GuzzleHttp\Promise\Promise testMetricFilterAsync(array $args = [])
  * @method \Aws\Result untagLogGroup(array $args = [])
  * @method \GuzzleHttp\Promise\Promise untagLogGroupAsync(array $args = [])
- * @method \Aws\Result untagResource(array $args = [])
- * @method \GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
  */
 class CloudWatchLogsClient extends AwsClient {}

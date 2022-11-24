@@ -52,10 +52,6 @@ class TinkerCommand extends Command
             $this->getCasters()
         );
 
-        if ($this->option('execute')) {
-            $config->setRawOutput(true);
-        }
-
         $shell = new Shell($config);
         $shell->addCommands($this->getCommands());
         $shell->setIncludes($this->argument('include'));
@@ -106,9 +102,7 @@ class TinkerCommand extends Command
         $config = $this->getLaravel()->make('config');
 
         foreach ($config->get('tinker.commands', []) as $command) {
-            $commands[] = $this->getApplication()->add(
-                $this->getLaravel()->make($command)
-            );
+            $commands[] = $this->getApplication()->resolve($command);
         }
 
         return $commands;

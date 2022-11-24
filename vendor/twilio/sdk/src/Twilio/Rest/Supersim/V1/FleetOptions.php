@@ -22,13 +22,16 @@ abstract class FleetOptions {
      * @param bool $dataEnabled Defines whether SIMs in the Fleet are capable of
      *                          using data connectivity
      * @param int $dataLimit The total data usage (download and upload combined) in
-     *                       Megabytes that each Super SIM resource assigned to the
-     *                       Fleet can consume
-     * @param string $ipCommandsUrl The URL that will receive a webhook when a
-     *                              Super SIM in the Fleet is used to send an IP
-     *                              Command from your device
-     * @param string $ipCommandsMethod A string representing the HTTP method to use
-     *                                 when making a request to `ip_commands_url`
+     *                       Megabytes that each Sim resource assigned to the Fleet
+     *                       resource can consume
+     * @param bool $commandsEnabled Defines whether SIMs in the Fleet are capable
+     *                              of sending and receiving machine-to-machine SMS
+     *                              via Commands
+     * @param string $commandsUrl The URL that will receive a webhook when a Super
+     *                            SIM in the Fleet is used to send an SMS from your
+     *                            device to the Commands number
+     * @param string $commandsMethod A string representing the HTTP method to use
+     *                               when making a request to `commands_url`
      * @param bool $smsCommandsEnabled Defines whether SIMs in the Fleet are
      *                                 capable of sending and receiving
      *                                 machine-to-machine SMS via Commands
@@ -40,8 +43,8 @@ abstract class FleetOptions {
      *                                  `sms_commands_url`
      * @return CreateFleetOptions Options builder
      */
-    public static function create(string $uniqueName = Values::NONE, bool $dataEnabled = Values::NONE, int $dataLimit = Values::NONE, string $ipCommandsUrl = Values::NONE, string $ipCommandsMethod = Values::NONE, bool $smsCommandsEnabled = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE): CreateFleetOptions {
-        return new CreateFleetOptions($uniqueName, $dataEnabled, $dataLimit, $ipCommandsUrl, $ipCommandsMethod, $smsCommandsEnabled, $smsCommandsUrl, $smsCommandsMethod);
+    public static function create(string $uniqueName = Values::NONE, bool $dataEnabled = Values::NONE, int $dataLimit = Values::NONE, bool $commandsEnabled = Values::NONE, string $commandsUrl = Values::NONE, string $commandsMethod = Values::NONE, bool $smsCommandsEnabled = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE): CreateFleetOptions {
+        return new CreateFleetOptions($uniqueName, $dataEnabled, $dataLimit, $commandsEnabled, $commandsUrl, $commandsMethod, $smsCommandsEnabled, $smsCommandsUrl, $smsCommandsMethod);
     }
 
     /**
@@ -58,24 +61,21 @@ abstract class FleetOptions {
      *                           identifies the resource
      * @param string $networkAccessProfile The SID or unique name of the Network
      *                                     Access Profile of the Fleet
-     * @param string $ipCommandsUrl The URL that will receive a webhook when a
-     *                              Super SIM in the Fleet is used to send an IP
-     *                              Command from your device
-     * @param string $ipCommandsMethod A string representing the HTTP method to use
-     *                                 when making a request to `ip_commands_url`
+     * @param string $commandsUrl The URL that will receive a webhook when a Super
+     *                            SIM in the Fleet is used to send an SMS from your
+     *                            device to the Commands number
+     * @param string $commandsMethod A string representing the HTTP method to use
+     *                               when making a request to `commands_url`
      * @param string $smsCommandsUrl The URL that will receive a webhook when a
      *                               Super SIM in the Fleet is used to send an SMS
      *                               from your device to the SMS Commands number
      * @param string $smsCommandsMethod A string representing the HTTP method to
      *                                  use when making a request to
      *                                  `sms_commands_url`
-     * @param int $dataLimit The total data usage (download and upload combined) in
-     *                       Megabytes that each Super SIM assigned to the Fleet
-     *                       can consume
      * @return UpdateFleetOptions Options builder
      */
-    public static function update(string $uniqueName = Values::NONE, string $networkAccessProfile = Values::NONE, string $ipCommandsUrl = Values::NONE, string $ipCommandsMethod = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE, int $dataLimit = Values::NONE): UpdateFleetOptions {
-        return new UpdateFleetOptions($uniqueName, $networkAccessProfile, $ipCommandsUrl, $ipCommandsMethod, $smsCommandsUrl, $smsCommandsMethod, $dataLimit);
+    public static function update(string $uniqueName = Values::NONE, string $networkAccessProfile = Values::NONE, string $commandsUrl = Values::NONE, string $commandsMethod = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE): UpdateFleetOptions {
+        return new UpdateFleetOptions($uniqueName, $networkAccessProfile, $commandsUrl, $commandsMethod, $smsCommandsUrl, $smsCommandsMethod);
     }
 }
 
@@ -86,13 +86,16 @@ class CreateFleetOptions extends Options {
      * @param bool $dataEnabled Defines whether SIMs in the Fleet are capable of
      *                          using data connectivity
      * @param int $dataLimit The total data usage (download and upload combined) in
-     *                       Megabytes that each Super SIM resource assigned to the
-     *                       Fleet can consume
-     * @param string $ipCommandsUrl The URL that will receive a webhook when a
-     *                              Super SIM in the Fleet is used to send an IP
-     *                              Command from your device
-     * @param string $ipCommandsMethod A string representing the HTTP method to use
-     *                                 when making a request to `ip_commands_url`
+     *                       Megabytes that each Sim resource assigned to the Fleet
+     *                       resource can consume
+     * @param bool $commandsEnabled Defines whether SIMs in the Fleet are capable
+     *                              of sending and receiving machine-to-machine SMS
+     *                              via Commands
+     * @param string $commandsUrl The URL that will receive a webhook when a Super
+     *                            SIM in the Fleet is used to send an SMS from your
+     *                            device to the Commands number
+     * @param string $commandsMethod A string representing the HTTP method to use
+     *                               when making a request to `commands_url`
      * @param bool $smsCommandsEnabled Defines whether SIMs in the Fleet are
      *                                 capable of sending and receiving
      *                                 machine-to-machine SMS via Commands
@@ -103,12 +106,13 @@ class CreateFleetOptions extends Options {
      *                                  use when making a request to
      *                                  `sms_commands_url`
      */
-    public function __construct(string $uniqueName = Values::NONE, bool $dataEnabled = Values::NONE, int $dataLimit = Values::NONE, string $ipCommandsUrl = Values::NONE, string $ipCommandsMethod = Values::NONE, bool $smsCommandsEnabled = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE) {
+    public function __construct(string $uniqueName = Values::NONE, bool $dataEnabled = Values::NONE, int $dataLimit = Values::NONE, bool $commandsEnabled = Values::NONE, string $commandsUrl = Values::NONE, string $commandsMethod = Values::NONE, bool $smsCommandsEnabled = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE) {
         $this->options['uniqueName'] = $uniqueName;
         $this->options['dataEnabled'] = $dataEnabled;
         $this->options['dataLimit'] = $dataLimit;
-        $this->options['ipCommandsUrl'] = $ipCommandsUrl;
-        $this->options['ipCommandsMethod'] = $ipCommandsMethod;
+        $this->options['commandsEnabled'] = $commandsEnabled;
+        $this->options['commandsUrl'] = $commandsUrl;
+        $this->options['commandsMethod'] = $commandsMethod;
         $this->options['smsCommandsEnabled'] = $smsCommandsEnabled;
         $this->options['smsCommandsUrl'] = $smsCommandsUrl;
         $this->options['smsCommandsMethod'] = $smsCommandsMethod;
@@ -139,11 +143,11 @@ class CreateFleetOptions extends Options {
     }
 
     /**
-     * The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000).
+     * The total data usage (download and upload combined) in Megabytes that each Sim resource assigned to the Fleet resource can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000).
      *
      * @param int $dataLimit The total data usage (download and upload combined) in
-     *                       Megabytes that each Super SIM resource assigned to the
-     *                       Fleet can consume
+     *                       Megabytes that each Sim resource assigned to the Fleet
+     *                       resource can consume
      * @return $this Fluent Builder
      */
     public function setDataLimit(int $dataLimit): self {
@@ -152,27 +156,40 @@ class CreateFleetOptions extends Options {
     }
 
     /**
-     * The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
+     * Defines whether SIMs in the Fleet are capable of sending and receiving machine-to-machine SMS via Commands. Defaults to `true`.
      *
-     * @param string $ipCommandsUrl The URL that will receive a webhook when a
-     *                              Super SIM in the Fleet is used to send an IP
-     *                              Command from your device
+     * @param bool $commandsEnabled Defines whether SIMs in the Fleet are capable
+     *                              of sending and receiving machine-to-machine SMS
+     *                              via Commands
      * @return $this Fluent Builder
      */
-    public function setIpCommandsUrl(string $ipCommandsUrl): self {
-        $this->options['ipCommandsUrl'] = $ipCommandsUrl;
+    public function setCommandsEnabled(bool $commandsEnabled): self {
+        $this->options['commandsEnabled'] = $commandsEnabled;
         return $this;
     }
 
     /**
-     * A string representing the HTTP method to use when making a request to `ip_commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+     * The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
      *
-     * @param string $ipCommandsMethod A string representing the HTTP method to use
-     *                                 when making a request to `ip_commands_url`
+     * @param string $commandsUrl The URL that will receive a webhook when a Super
+     *                            SIM in the Fleet is used to send an SMS from your
+     *                            device to the Commands number
      * @return $this Fluent Builder
      */
-    public function setIpCommandsMethod(string $ipCommandsMethod): self {
-        $this->options['ipCommandsMethod'] = $ipCommandsMethod;
+    public function setCommandsUrl(string $commandsUrl): self {
+        $this->options['commandsUrl'] = $commandsUrl;
+        return $this;
+    }
+
+    /**
+     * A string representing the HTTP method to use when making a request to `commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+     *
+     * @param string $commandsMethod A string representing the HTTP method to use
+     *                               when making a request to `commands_url`
+     * @return $this Fluent Builder
+     */
+    public function setCommandsMethod(string $commandsMethod): self {
+        $this->options['commandsMethod'] = $commandsMethod;
         return $this;
     }
 
@@ -264,29 +281,25 @@ class UpdateFleetOptions extends Options {
      *                           identifies the resource
      * @param string $networkAccessProfile The SID or unique name of the Network
      *                                     Access Profile of the Fleet
-     * @param string $ipCommandsUrl The URL that will receive a webhook when a
-     *                              Super SIM in the Fleet is used to send an IP
-     *                              Command from your device
-     * @param string $ipCommandsMethod A string representing the HTTP method to use
-     *                                 when making a request to `ip_commands_url`
+     * @param string $commandsUrl The URL that will receive a webhook when a Super
+     *                            SIM in the Fleet is used to send an SMS from your
+     *                            device to the Commands number
+     * @param string $commandsMethod A string representing the HTTP method to use
+     *                               when making a request to `commands_url`
      * @param string $smsCommandsUrl The URL that will receive a webhook when a
      *                               Super SIM in the Fleet is used to send an SMS
      *                               from your device to the SMS Commands number
      * @param string $smsCommandsMethod A string representing the HTTP method to
      *                                  use when making a request to
      *                                  `sms_commands_url`
-     * @param int $dataLimit The total data usage (download and upload combined) in
-     *                       Megabytes that each Super SIM assigned to the Fleet
-     *                       can consume
      */
-    public function __construct(string $uniqueName = Values::NONE, string $networkAccessProfile = Values::NONE, string $ipCommandsUrl = Values::NONE, string $ipCommandsMethod = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE, int $dataLimit = Values::NONE) {
+    public function __construct(string $uniqueName = Values::NONE, string $networkAccessProfile = Values::NONE, string $commandsUrl = Values::NONE, string $commandsMethod = Values::NONE, string $smsCommandsUrl = Values::NONE, string $smsCommandsMethod = Values::NONE) {
         $this->options['uniqueName'] = $uniqueName;
         $this->options['networkAccessProfile'] = $networkAccessProfile;
-        $this->options['ipCommandsUrl'] = $ipCommandsUrl;
-        $this->options['ipCommandsMethod'] = $ipCommandsMethod;
+        $this->options['commandsUrl'] = $commandsUrl;
+        $this->options['commandsMethod'] = $commandsMethod;
         $this->options['smsCommandsUrl'] = $smsCommandsUrl;
         $this->options['smsCommandsMethod'] = $smsCommandsMethod;
-        $this->options['dataLimit'] = $dataLimit;
     }
 
     /**
@@ -314,27 +327,27 @@ class UpdateFleetOptions extends Options {
     }
 
     /**
-     * The URL that will receive a webhook when a Super SIM in the Fleet is used to send an IP Command from your device to a special IP address. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
+     * The URL that will receive a webhook when a Super SIM in the Fleet is used to send an SMS from your device to the Commands number. Your server should respond with an HTTP status code in the 200 range; any response body will be ignored.
      *
-     * @param string $ipCommandsUrl The URL that will receive a webhook when a
-     *                              Super SIM in the Fleet is used to send an IP
-     *                              Command from your device
+     * @param string $commandsUrl The URL that will receive a webhook when a Super
+     *                            SIM in the Fleet is used to send an SMS from your
+     *                            device to the Commands number
      * @return $this Fluent Builder
      */
-    public function setIpCommandsUrl(string $ipCommandsUrl): self {
-        $this->options['ipCommandsUrl'] = $ipCommandsUrl;
+    public function setCommandsUrl(string $commandsUrl): self {
+        $this->options['commandsUrl'] = $commandsUrl;
         return $this;
     }
 
     /**
-     * A string representing the HTTP method to use when making a request to `ip_commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
+     * A string representing the HTTP method to use when making a request to `commands_url`. Can be one of `POST` or `GET`. Defaults to `POST`.
      *
-     * @param string $ipCommandsMethod A string representing the HTTP method to use
-     *                                 when making a request to `ip_commands_url`
+     * @param string $commandsMethod A string representing the HTTP method to use
+     *                               when making a request to `commands_url`
      * @return $this Fluent Builder
      */
-    public function setIpCommandsMethod(string $ipCommandsMethod): self {
-        $this->options['ipCommandsMethod'] = $ipCommandsMethod;
+    public function setCommandsMethod(string $commandsMethod): self {
+        $this->options['commandsMethod'] = $commandsMethod;
         return $this;
     }
 
@@ -361,19 +374,6 @@ class UpdateFleetOptions extends Options {
      */
     public function setSmsCommandsMethod(string $smsCommandsMethod): self {
         $this->options['smsCommandsMethod'] = $smsCommandsMethod;
-        return $this;
-    }
-
-    /**
-     * The total data usage (download and upload combined) in Megabytes that each Super SIM assigned to the Fleet can consume during a billing period (normally one month). Value must be between 1MB (1) and 2TB (2,000,000). Defaults to 1GB (1,000).
-     *
-     * @param int $dataLimit The total data usage (download and upload combined) in
-     *                       Megabytes that each Super SIM assigned to the Fleet
-     *                       can consume
-     * @return $this Fluent Builder
-     */
-    public function setDataLimit(int $dataLimit): self {
-        $this->options['dataLimit'] = $dataLimit;
         return $this;
     }
 
