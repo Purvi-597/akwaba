@@ -9,14 +9,14 @@ use Illuminate\Support\Carbon;
 
 class Addreview extends Controller
 {
-    public $profile_path = 'http://10.10.1.133:8000/uploads/review//';
+    public $profile_path = 'http://10.10.1.133:8000/uploads/review/';
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $reviews_rating = reviews_rating::get();
         if($reviews_rating){

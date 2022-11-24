@@ -70,6 +70,7 @@ Route::get('view_profile',  'API\UserController@view_profile');
 
 //// other routes //////////////////////////////////////////////////
 Route::get('featured_places',  'API\UserController@featured_places');
+Route::post('feature_list',  'API\UserController@feature_list');
 Route::post('add_company',  'API\UserController@add_company');
 Route::get('faq',  'API\UserController@faq');
 Route::get('Privacy_policy',  'API\UserController@Privacy_policy');
@@ -98,4 +99,4 @@ Route::post('addreview/destroy',  'API\Addreview@destroy');
 ///// car details --------------------------------
 Route::get('car_make',  'API\UserController@car_make');
 Route::get('car_model',  'API\UserController@car_model');
-Route::get('carallfetailes',  'API\UserController@carallfetailes');
+Route::get('caralldetailes',  'API\UserController@caralldetailes');
