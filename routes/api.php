@@ -50,11 +50,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', 'API\UserController@register');
 Route::post('login', 'API\UserController@login');
+// Route::post('signupotp', 'API\UserController@signupotp');
 Route::post('verify_otp', 'API\UserController@verify_otp');
 Route::post('logout_user', 'API\UserController@logout_user');
 Route::post('resend_otp', 'API\UserController@resend_otp');
 Route::post('forgot_password',  'API\UserController@forgot_password');
 Route::post('demo',  'API\UserController@demo');
+
+
 
 /// category data //////////////////////////////////////////////////
 Route::post('category_data',  'API\UserController@category_data');

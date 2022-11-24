@@ -13,6 +13,9 @@
 
 
 use App\Http\Controllers\SubcategoriesController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Auth::routes();
 
 //Route::get('lang/home', 'LangController@index');
@@ -43,6 +46,9 @@ Route::post('/save-token', 'UsersController@saveToken')->name('save-token');
 
 
 //Route::post('/save-token', [App\Http\Controllers\UsersController::class, 'saveToken'])->name('save-token');
+Route::get('resetpassword_user',  'API\UserController@resetpassword')->name('resetpassword_user');
+Route::post('forgotpasswordupdate_api',  'API\UserController@forgotpasswordupdate_api')->name('forgotpasswordupdate_api');
+
 
 Route::post('/send-notification', [App\Http\Controllers\UsersController::class, 'sendNotification'])->name('send.notification');
 
