@@ -41,10 +41,9 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th  width="15%">@lang('language.osm_id')</th>
-                                <th  width="15%">@lang('language.user_id')</th>
+                                <th  width="15%">@lang('language.name')</th>
                                 <th  width="15%">@lang('language.notes')</th>
                                 
-                                <th  width="15%">Image</th>
                                 
                             </tr>
                         </thead>
@@ -57,9 +56,9 @@
                                         <td>{{$i}}</td>
                                         
                                         
-                                        <td >{{$reviews_rating->osm_id}}</td>
-                                        <td >{{$reviews_rating->user_id}}</td>
-                                        <td >{{$reviews_rating->notes}}</td>
+                                        <td >{{$notes->osm_id}}</td>
+                                        <td >{{$notes->first_name}} {{$notes->last_name}}</td>
+                                        <td >{{$notes->notes}}</td>
                                         
                                        
                                     </tr>

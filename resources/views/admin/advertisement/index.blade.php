@@ -2,6 +2,8 @@
 @section('title')@lang('language.Advertisement') @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/datatables/datatables.min.css')}}">
+<link  href="https://cdn.datatables.net/rowreorder/1.3.1/css/rowReorder.dataTables.min.css">
+<link href="https://cdn.datatables.net/select/1.5.0/css/select.dataTables.min.css">
 <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
@@ -17,6 +19,10 @@
 .form-control{
     color: #314667 !important;
 }
+
+#UsersList1 tbody td:first-child {
+           cursor: move;
+        }
 </style>
 <div class="row">
     <div class="col-12">
@@ -93,13 +99,19 @@
 <script src="{{ URL::asset('assets/libs/datatables/datatables.min.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/jszip/jszip.min.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/pdfmake/pdfmake.min.js')}}"></script>
+
 <!-- Init js-->
 <script src="{{ URL::asset('assets/js/pages/datatables.init.js')}}"></script>
 
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.3.1/js/dataTables.rowReorder.min.js"></script>
+
+<script src="https://cdn.datatables.net/select/1.5.0/js/dataTables.select.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-            $('#UsersList1').DataTable({
+       $('#UsersList1').DataTable({
+                rowReorder: true,
+              
                 "language": {
                     "search": "@lang('language.search')",
                     "sLengthMenu": "@lang('language.show')",
@@ -107,10 +119,11 @@
                     "paginate": {
                         "previous": "@lang('language.previous')",
                         "next" : "@lang('language.next')",
+                      
     }
                     }
                 });
-        } );
+        });
 </script>
 
         <script>

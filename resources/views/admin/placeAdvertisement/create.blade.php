@@ -75,7 +75,7 @@ input::-webkit-inner-spin-button {
                     </div>
                     <div class="form-group" id="external" style="display:none;">
                         <label for="formrow-quest_name-input">@lang('language.Link')</label>
-						<input type="text" class="form-control" name="link" id="link" placeholder="@lang('language.Enter Link')" value="{{old('link')}}">
+						<input type="text" class="form-control" name="link" id="link" placeholder="@lang('language.Link_placeholder')" value="{{old('link')}}">
                         <div class="invalid-feedback">
                             @lang('language.Please provide a Link.')
                         </div>

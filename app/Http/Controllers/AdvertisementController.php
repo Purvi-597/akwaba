@@ -64,9 +64,7 @@ class AdvertisementController extends Controller
             'title_fr' => $request->input('title_fr'),
             'link' => $request->input('link'),
             'date' => $request->input('date'),
-     
             'time' => $request->input('time'),
-
             'image' => $image,
             'status' => $status
         );

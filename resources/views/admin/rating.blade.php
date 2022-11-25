@@ -41,7 +41,7 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th  width="15%">@lang('language.osm_id')</th>
-                                <th  width="15%">@lang('language.user_id')</th>
+                                <th  width="15%">@lang('language.name')</th>
                                 <th  width="15%">@lang('language.ratings')</th>
                                 <th  width="15%">@lang('language.review')</th>
                                 <th  width="15%">Image</th>
@@ -58,7 +58,7 @@
                                         
                                         
                                         <td >{{$reviews_rating->osm_id}}</td>
-                                        <td >{{$reviews_rating->user_id}}</td>
+                                        <td >{{$reviews_rating->first_name}} {{$reviews_rating->last_name}}</td>
                                         <td >{{$reviews_rating->ratings}}</td>
                                         <td >{{$reviews_rating->reviews}}</td>
                                         <td>@if ($reviews_rating->image != '')

@@ -66,7 +66,7 @@
     
                                             <td id="{{$feedback->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Inactive')</span></td><?php } ?>
 
-                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status btnreply" data-id = "{{$feedback->id}}" >Reply</span></td> 
+                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-primary btn-sm status btnreply" data-id = "{{$feedback->id}}" >Reply</span></td> 
 
 
                                             <!-- Button trigger modal -->
