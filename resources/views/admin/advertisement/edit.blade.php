@@ -89,9 +89,29 @@ input::-webkit-inner-spin-button {
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div id="req_input" class="form-group col-md-12">
+                            <label for="formrow-quest_name-input">  Mobile Ads <span style="color:red;">*</span></label>
+                          
+                                <input type="file"  class="form-control mobile_ads" name="mobile_ads" id="mobile_ads" ><br>
+                                <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($advertisement->mobile_ads)){ echo $advertisement->mobile_ads; } ?></label><br>
+                                    @if(!empty($advertisement->mobile_ads))
+                                        <img src='/uploads/advertisement/{{$advertisement->mobile_ads}}' id="image_main1" name="image_main1" class="image_main1" height="100" width="100">
+                                     @endif
+                                        <img  id="image_main2" name="image_main2" class="image_main2" height="100" width="100" style="display:none;">
+                                <input type="hidden" name="old_image1" value="<?php if(isset($advertisement->mobile_ads)){ echo $advertisement->mobile_ads; } ?>">
+                               
+                                {{-- @if(!empty($advertisement->image))
+                                 <br><br>
+                                &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $advertisement->id }}">Remove</a>
+                                @endif --}}
+                            <span id="image1_error"  style="color:red"></span>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Link')</label>
-                        <input type="text" class="form-control" name="link" id="link" placeholder="Enter  Name" value="{{$advertisement->link}}" required>
+                        <input type="text" class="form-control" name="link" id="link" placeholder="link_placeholder" value="{{$advertisement->link}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a Link.')
                         </div>
@@ -100,7 +120,7 @@ input::-webkit-inner-spin-button {
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Date</label>
                         <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" name="date" id="date" value="{{$advertisement->date}}" required >
+                            <input type='text' class="form-control" name="date" id="date" placeholder="Enter Date" value="{{$advertisement->date}}" required >
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -108,8 +128,8 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">Time</label>
-                            <input type='text' class="form-control" name="time" id="time" value="{{$advertisement->time}}" required >
+                        <label for="formrow-quest_name-input">@lang('language.time')</label>
+                            <input type='text' class="form-control" name="time" id="time"  placeholder="@lang('language.enter_time')"  value="{{$advertisement->time}}" required >
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -192,6 +212,45 @@ $(document).ready(function () {
          
  });
 });
+});
+
+
+$(document).ready(function () {
+    var _URL = window.URL || window.webkitURL;
+    $(document).on('change','#mobile_ads',function(e){
+    $("#image_main1").css('display','none');
+    $("#deleteimage").css('display','none');
+    $("#image_main2").css('display','block');
+        var file, img;
+
+        let name = e.target.files[0].name;
+        if ((file = this.files[0])) {
+        var ext = name.split('.').pop().toLowerCase();
+
+            if($.inArray(ext, ['png','jpg','jpeg','jfif','svg']) == -1) {
+            $("#image1_error").text("@lang('language.image_format')");
+            $("#mobile_ads").val("");
+            $("#mobile_ads").val(null);
+                $("#image_main2").attr('src','');
+                $("#image_main2").css('display','none');
+            }else{
+                $("#lbl1").css('display','none');
+            img = new Image();
+            img.onload = function() {
+            $("#image1_error").text("");
+            $("#image_main2").css("display", "block");
+            $('#image_main2').attr('src', img.src).height(150);
+            }
+            };
+        img.src = _URL.createObjectURL(file);
+        }
+ $("#profile_picture").change(function(){
+     //submit the form here
+     $("#presrciptionpreview").css('display','block');
+     $("#deleteBtn").css("display", "block");
+         
+ });
+});
             
     $("#deleteBtn").click(function(){
    $("#presrciptionpreview").css("display", "none");
@@ -260,7 +319,7 @@ $(document).ready(function () {
                   })
             })
     </script>
-    <script>
+    {{-- <script>
     var _URL = window.URL || window.webkitURL;
    $(document).on('change','#images_0',function(e){
     var file, img;
@@ -304,7 +363,7 @@ $(document).ready(function () {
            img.src = _URL.createObjectURL(file);
    }
    });
-   </script>
+   </script> --}}
 
    <script type="text/javascript">
     $(function () {

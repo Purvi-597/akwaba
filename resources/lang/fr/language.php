@@ -72,6 +72,8 @@ return [
     'ad_success' => 'Annonce créée avec succès',
     'ad_update' => 'annonce mise à jour avec succès',
     'ad_deleted' => 'Annonce supprimée avec succès',
+    'time' => 'Temps',
+    'enter_time' => 'Enter Temps',
 
 
     /* Categoty */
@@ -277,7 +279,8 @@ return [
     'feedback' => "Retour d'information",
 
     'cms_management' => 'Gestion CMS',
-
+    'msg_send' => 'message envoyé avec succès',
+    'msg_placeholder' => 'Entrez le message',
 
     'Yes' => 'oui',
 

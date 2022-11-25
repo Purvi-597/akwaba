@@ -47,8 +47,10 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th  width="15%"> @lang('language.Title')</th>
-                                
+                                <th  width="15%">@lang('language.time')</th>
+                                <th width ='15%'>Date</th>
                                 <th  width="15%">Image</th>
+                                <th  width="15%">Mobile Ads</th>
                                 <th  width="10%">@lang('language.Link')</th>
                                 <th  width="10%">@lang('language.Status')</th>
                                 <th  width="20%">Action</th>
@@ -64,8 +66,14 @@
                                         
                                         
                                         <td >{{$advertisement->title}}</td>
+                                        <td >{{$advertisement->time}}</td>
+                                        <td >{{$advertisement->date}}</td>
                                         <td>@if ($advertisement->image != '')
                                             <img src="{{$advertisementPath}}{{$advertisement->image}}" alt="" style="width: 100px;height:100px;">@endif
+                                        </td>
+
+                                        <td>@if ($advertisement->mobile_ads != '')
+                                            <img src="{{$advertisementPath}}{{$advertisement->mobile_ads}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td>
 
                                         <td >{{$advertisement->link}}</td>

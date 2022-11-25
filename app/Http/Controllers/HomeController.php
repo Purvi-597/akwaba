@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Model\Users;
 use Auth;
-use DB;
 use Carbon\Carbon;
 use Session;
 class HomeController extends Controller
@@ -31,7 +31,7 @@ class HomeController extends Controller
         //     echo "french";
         // }
        
-        $data['users'] = DB::table('users')->where('role','!=','admin')->count();
+        $data['users'] = Users::where('role','!=','admin')->count();
     
         return view('admin.dashboard.index',$data);
     

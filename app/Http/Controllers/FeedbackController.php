@@ -22,38 +22,19 @@ class FeedbackController extends Controller
 
 
     public function feedbackemail(Request $request){
-        
         $reply_id =  $request->input('reply_id');
-
         $checkemail = DB::table('feedback')->where('id',$reply_id)->first();
         $message = $request->input('message');
-
         if($checkemail){
-
-       
         $data = array('messages' => $message);
         $to_email = $checkemail->email;
-       
         $to_name = "Akwabamaps";
         // $mail = Mail::to('$to_email')->send(new DemoEmail(($data)));
         $mail = Mail::send('admin.feedback_mail',$data, function($message) use($to_name,$to_email){
             $message->to($to_email)->subject('Akwabamaps');
-
-
         });
-        if($mail == true){
-        return redirect()->back()->with('success','Email Sent Successfully');
-        
-        }else{
-             return redirect()->back()->with('error',Lang::get('language.warning'));
-        }
- 
+        echo "success";die;
      }
-    }
-
-
-
-	
+    }    
+    
 }    
-
-   

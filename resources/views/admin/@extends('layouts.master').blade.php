@@ -10,6 +10,7 @@
 @slot('add_btn') <h4 class="card-title">
     {{-- <a style="margin-left: -28%;background:#314667;border:1px solid #314667;color:white;" href="{{ route('place_advertisement.create') }}"
         class="btn btn-primary waves-effect btn-label waves-light" ><i class="bx bx-plus label-icon"></i>@lang('language.Add_place') </a> --}}
+
     </h4> @endslot
 @endcomponent
 <style>
@@ -64,7 +65,10 @@
                                             <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Active')</span></td><?php } else { ?>
     
                                             <td id="{{$feedback->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$feedback->id}}" data-status = "{{$feedback->status}}" onclick="updatestatus({{$feedback->id}},{{$feedback->status}})">@lang('language.Inactive')</span></td><?php } ?>
-                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-success btn-sm status btnreply" data-id = "{{$feedback->id}}" >Reply</span></td> 
+
+                                            <td id="{{$feedback->id}}" ><span class="btn btn-block btn-primary btn-sm status btnreply" data-id = "{{$feedback->id}}" >Reply</span></td> 
+
+
                                             <!-- Button trigger modal -->
                                             {{-- data-toggle="modal" data-target="#exampleModal"  --}}
                                                 {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -83,8 +87,9 @@
                                                         </div>
                                                         <input type="hidden" id="reply_id" name="reply_id">
                                                         <div class="modal-body">
-                                                            <textarea class="form-control" name="message" id="message" placeholder="@lang('language.msg_placeholder')"></textarea>
+                                                            <textarea class="form-control" name="message" id="message"></textarea>
                                                         </div>
+
                                                 
                                                         
                                                         <div class="modal-footer">
@@ -113,6 +118,7 @@
 <script src="{{ URL::asset('assets/libs/pdfmake/pdfmake.min.js')}}"></script>
 <!-- Init js-->
 <script src="{{ URL::asset('assets/js/pages/datatables.init.js')}}"></script>
+
 <script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -151,6 +157,7 @@ function updatestatus(id,status)
             {
             status = 0;
             var html = '<span class="btn btn-block btn-danger btn-sm status" data-id = "'+id+'" data-status = "'+status+'" onclick="updatestatus('+id+','+status+')">@lang('language.Inactive')</span>';
+
                 Swal.fire(
                                 '@lang("language.Status")',
                                 '@lang("language.Status_Changed")',
@@ -184,7 +191,7 @@ $(document).on('click','#deleteplaceadvertisement',function(){
                 success: function(data){
                     if(data == "delete"){
                         Swal.fire({
-                            title: "@lang('language.feedback')",
+                            title: "@lang('language.place_advertisement')",
                             icon:"@lang('language.success')",
                             text: "@lang('language.place_ad_Deleted')",
                             type: "success"
@@ -201,6 +208,7 @@ $(document).on('click','#deleteplaceadvertisement',function(){
                         });
                     }
                 }
+
             });
         }else{
             
@@ -208,50 +216,41 @@ $(document).on('click','#deleteplaceadvertisement',function(){
         })
 })
 </script>
+
 <script>
     $(".btnreply").click(function(){
         var id = $(this).attr('data-id');
         $("#reply_id").val(id)
         $("#exampleModal").modal('show');
-        });
+    
+    
         $("#reply").click(function() {
             var reply_id = $('#reply_id ').val();
             var message = $("#message").val();
-	    $(".main-content").css('opacity','0.5');
-	    $(".main-content").css('pointer-events','none');
+
             $.ajax({
             type: "POST",
             url: '{{route("feedbackemail")}}',
             data: {'reply_id': reply_id,'message':message,"_token": "{{ csrf_token() }}"},
             success: function(data){
                 
-               if($.trim(data) == "success"){
-  			$(".main-content").css('opacity','1');
-	    		$(".main-content").css('pointer-events','auto');
-               		 $("#exampleModal").modal('hide');
-                	 Swal.fire({
-                            title: "@lang('language.feedback')",
-                            icon:"@lang('language.success')",
-                            text: "@lang('language.msg_send')",
-                            type: "success"
-                        });
+               if(data == 1){
+               
+                $(".emailcheckerror").css("display", "block");
+                $("#save").attr("disabled", true);
+
                }
                else{
-			 $(".main-content").css('opacity','1');
-	    		 $(".main-content").css('pointer-events','auto');
-                
-                	 Swal.fire({
-                            title: "@lang('language.feedback')",
-                            icon:"@lang('language.error')",
-                            text: "@lang('language.error_msg')",
-                            type: "error"
-                        });
+                $("#save").attr("disabled", false);
+                 $(".emailcheckerror").css("display", "none");
                }
             }
             });     
-       
+        });
     });
+   
     
+
     
 </script>
 @endsection

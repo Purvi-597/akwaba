@@ -18,9 +18,9 @@ class AdvertisementController extends Controller
     
     {
         if(Session::get('locale') == 'fr'){
-            $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title_fr as title','image','link','status','id','date','time']);
+            $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title_fr as title','image','link','status','id','date','time','mobile_ads']);
         }else{
-	    $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title as title','image','status','link','id','date','time']);
+	    $data['advertisement'] = Advertisement::orderBy('id','desc')->get(['title as title','image','status','link','id','date','time','mobile_ads']);
         }
 		
         return view('admin.advertisement.index',$data);
@@ -39,9 +39,10 @@ class AdvertisementController extends Controller
     }
 	public function store(Request $request)
     {
-    //   echo "<pre>";
-    //   print_r($request->all());die;
+
         $input = $request->all();
+        // echo"<pre>";
+        // print_r($request->all());die;
         
         $image = '';
         if ($files = $request->file('image')) {
@@ -49,6 +50,16 @@ class AdvertisementController extends Controller
             if ($advertisementPicture = $request->file('image')) {
                 $image = $advertisementPicture->getClientOriginalName();
                 $advertisementPicture->move($advertisementPath, $image);
+            }
+        }
+
+        
+        $mobile_ads = '';
+        if ($files = $request->file('mobile_ads')) {
+            $advertisementPath = public_path().'/uploads/advertisement/';
+            if ($advertisementPicture = $request->file('mobile_ads')) {
+                $mobile_ads = $advertisementPicture->getClientOriginalName();
+                $advertisementPicture->move($advertisementPath, $mobile_ads);
             }
         }
 
@@ -66,8 +77,11 @@ class AdvertisementController extends Controller
             'date' => $request->input('date'),
             'time' => $request->input('time'),
             'image' => $image,
+            'mobile_ads' => $mobile_ads,
             'status' => $status
         );
+        // echo"<pre>";
+        // print_r($data);die;
         
         $insert = Advertisement::create($data);
         if($insert){
@@ -86,15 +100,28 @@ class AdvertisementController extends Controller
     }
 	public function update(Request $request, $id)
     {
+
         if(!empty($request->file('image'))){
+            $destinationPath = public_path().'/uploads/advertisement/';
+            if ($cover_detail_image = $request->file('image')) {
+                $cover_detail = $cover_detail_image->getClientOriginalName();
+                $cover_detail_image->move($destinationPath, $cover_detail);
+            }
+    }else{
+        $cover_detail = $request->input('old_image0');
+    }
+
+        
+        if(!empty($request->file('mobile_ads'))){
 				$destinationPath = public_path().'/uploads/advertisement/';
-				if ($cover_detail_image = $request->file('image')) {
-					$cover_detail = $cover_detail_image->getClientOriginalName();
-					$cover_detail_image->move($destinationPath, $cover_detail);
+				if ($cover_detail_mobile_ads = $request->file('mobile_ads')) {
+					$cover_detail_mobile = $cover_detail_mobile_ads->getClientOriginalName();
+					$cover_detail_mobile_ads->move($destinationPath, $cover_detail_mobile);
 				}
 		}else{
-			$cover_detail = $request->input('old_image0');
+			$cover_detail_mobile = $request->input('old_image1');
 		}
+
         if($request->input('status')){
             $status = 1;
          }else{
@@ -107,8 +134,11 @@ class AdvertisementController extends Controller
             "date" => $request->input('date'),
             "time" => $request->input('time'),
 			"image"=>$cover_detail,
+            "mobile_ads" => $cover_detail_mobile,
             "status" => $status
         ]);
+        // echo"<pre>";
+        // print_r($create);die;
 		return redirect()->action('AdvertisementController@index')->with('success',Lang::get('language.ad_update'));
 	}
     public function advertisementimagedelete(Request $request){

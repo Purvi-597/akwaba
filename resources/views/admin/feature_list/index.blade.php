@@ -45,6 +45,7 @@
                                 <th  width="15%">@lang('language.Title')</th>
                                 <th  width="15%">@lang('language.Description')</th>
                                 <th  width="15%">@lang('language.Rating')</th>
+                               
                                 <th  width="15%">Image</th>
                                 <th  width="15%">@lang('language.Status')</th>
                                 <th  width="15%">Action</th>
@@ -64,6 +65,8 @@
                                         <td >{{$feature->description}}</td>
                                         
                                         <td >{{$feature->ratings}}</td>
+                                        
+
                                         <td>@if($feature->image != '')
                                             <img src="{{$profilepicturePath}}{{$feature->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td>
@@ -183,7 +186,7 @@
                                  if(data == "delete"){
                                
                                  Swal.fire({
-                                       title: "@lang('language.Feature Place')",
+                                       title: "@lang('language.Feature_Place')",
                                        icon:"success",
                                        text: "@lang('language.text_delete')",
                                        type: "success"

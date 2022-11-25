@@ -72,7 +72,8 @@ return [
     'ad_success' => 'Advertisement created Successfully',
     'ad_update' => 'Advertisement Updated Successfully',
     'ad_deleted' => 'Advertisement Deleted Successfully',
-
+    'time' => 'Time',
+    'enter_time' => 'Enter time',
 
     /* Category */
 
@@ -269,6 +270,8 @@ return [
     'feedback' => 'Feedback',
 
     'cms_management' => 'CMS Management',
+    'msg_send' => 'Message sent successfully',
+    'msg_placeholder' => 'Enter the message',
 
 
     'Yes' => 'Yes',
