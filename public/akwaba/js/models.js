@@ -652,15 +652,22 @@ for (var i = 0; i < this.files.length; i++){
                         contentType: false,
                         cache: false,
                         success: function(response){
-                            console.log(response);
+                           
                             $("#frm_review")[0].reset();
                             $(".pip_review").remove();
                             $("#exampleModalCenter").modal('hide');
                             $(".allreviews_in").prepend(response);
+                            scroll($('.allreviews_in'));
                         }
                     });
                 }
             });
 
-
+            var scroll = function(div) {
+                var totalHeight = 0;
+                div.find('.post').each(function(){
+                   totalHeight += $(this).outerHeight();
+                });
+                div.scrollTop(totalHeight);
+              }
 
