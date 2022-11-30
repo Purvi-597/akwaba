@@ -113,25 +113,25 @@ if(isset($_REQUEST['id'])){
 
 
   
-  $query4 = "select review_rating.user_id,review_rating.osm_id,review_rating.title,review_rating.message,review_rating.rating,review_rating.photos,review_rating.status,review_rating.created_at,users.first_name,users.last_name,users.profile_pic from review_rating left join users on review_rating.user_id = users.id where review_rating.status = '1' and osm_id = $id";
-  $result4 = mysqli_query($conn, $query4);
-  $rowcount4=mysqli_num_rows($result4);
-  if($rowcount4 > 0) {
-          while($rows = $result4->fetch_assoc()) {
-              $review[] = $rows;
+  // $query4 = "select review_rating.user_id,review_rating.osm_id,review_rating.title,review_rating.message,review_rating.rating,review_rating.photos,review_rating.status,review_rating.created_at,users.first_name,users.last_name,users.profile_pic from review_rating left join users on review_rating.user_id = users.id where review_rating.status = '1' and osm_id = $id";
+  // $result4 = mysqli_query($conn, $query4);
+  // $rowcount4=mysqli_num_rows($result4);
+  // if($rowcount4 > 0) {
+  //         while($rows = $result4->fetch_assoc()) {
+  //             $review[] = $rows;
 
-          }
-  }
+  //         }
+  // }
 
-  $get_review_count = "select * from review_rating where  status = '1' and osm_id = '".$id."'";
-  $result5 = mysqli_query($conn, $get_review_count);
-  $rowcount5 = mysqli_num_rows($result5);
-  $allcount = $rowcount5 * 5;
-  if($rowcount5 > 0){
-      while($row5 = $result5->fetch_assoc()) {
-          $count_main += $row5['rating'];
-      }
-  }
+  // $get_review_count = "select * from review_rating where  status = '1' and osm_id = '".$id."'";
+  // $result5 = mysqli_query($conn, $get_review_count);
+  // $rowcount5 = mysqli_num_rows($result5);
+  // $allcount = $rowcount5 * 5;
+  // if($rowcount5 > 0){
+  //     while($row5 = $result5->fetch_assoc()) {
+  //         $count_main += $row5['rating'];
+  //     }
+  // }
 
   if(isset($_SESSION['users'])){
     $session_user_name = $_SESSION['users']['firstname']."".$_SESSION['users']['lastname'];;
@@ -1112,27 +1112,28 @@ if(isset($_REQUEST['id'])){
   $count_main = 0;
   $allcount  = 0;
 
-  $rowcount4  =0;
+  $rowcount4  = 0;
   
   $query4 = "select review_rating.user_id,review_rating.osm_id,review_rating.title,review_rating.message,review_rating.rating,review_rating.photos,review_rating.status,review_rating.created_at,users.first_name,users.last_name,users.profile_pic from review_rating left join users on review_rating.user_id = users.id where review_rating.status = '1' and osm_id = $id ORDER BY review_rating.id DESC";
   $result4 = mysqli_query($conn, $query4);
-  $rowcount4=mysqli_num_rows($result4);
-  if($rowcount4 > 0) {
-          while($rows = $result4->fetch_assoc()) {
-              $review[] = $rows;
+  //$rowcount4=mysqli_num_rows($result4);
 
-          }
-  }
+  // if($rowcount4 > 0) {
+  //         while($rows = $result4->fetch_assoc()) {
+  //             $review[] = $rows;
 
-  $get_review_count = "select * from review_rating where  status = '1' and osm_id = '".$id."'";
-  $result5 = mysqli_query($conn, $get_review_count);
-  $rowcount5 = mysqli_num_rows($result5);
-  $allcount = $rowcount5 * 5;
-  if($rowcount5 > 0){
-      while($row5 = $result5->fetch_assoc()) {
-          $count_main += $row5['rating'];
-      }
-  }
+  //         }
+  // }
+
+  // $get_review_count = "select * from review_rating where  status = '1' and osm_id = '".$id."'";
+  // $result5 = mysqli_query($conn, $get_review_count);
+  // $rowcount5 = mysqli_num_rows($result5);
+  // $allcount = $rowcount5 * 5;
+  // if($rowcount5 > 0){
+  //     while($row5 = $result5->fetch_assoc()) {
+  //         $count_main += $row5['rating'];
+  //     }
+  // }
 
 
 

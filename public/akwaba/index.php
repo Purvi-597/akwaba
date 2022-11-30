@@ -824,7 +824,7 @@ if($advertisement_result->num_rows > 0) {
 
             <div class="d-lg-flex d-block d-md-flex img_top_username">
             <div class="signinbtn1">
-            <!-- data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo" -->
+            data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo"
       <a class="" href="javascript:void(0);" class="btn btn-outline-default" id="signInbutton2">
         <div>
         <img src="assets/img/icons/signin.png">
