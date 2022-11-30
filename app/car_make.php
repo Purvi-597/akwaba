@@ -9,4 +9,5 @@ class car_make extends Model
 {
     use HasFactory;
    protected $table = 'make';
+   protected $fillable = ['code','title'];
 }

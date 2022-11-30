@@ -14,7 +14,7 @@ class AddTimeToAdvertisementTable extends Migration
     public function up()
     {
         Schema::table('advertisement', function (Blueprint $table) {
-            $table->time('time');
+            $table->integer('time');
         });
     }
 

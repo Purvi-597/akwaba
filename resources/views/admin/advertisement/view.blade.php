@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Categories Detail @endsection
+@section('title')  Advertisement Detail @endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
@@ -23,6 +23,9 @@
 							<label for="formrow-quest_name-input"><b>@lang('language.Title'):</b></label>     
 							{{$advertisement->title}}
 						</div>	
+
+						
+
                     </div>
 					<div class="row">
 						<div class="form-group col-md-6">
@@ -43,7 +46,7 @@
                     
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>Profile Picture:</b></label> <br>
+							<label for="formrow-quest_name-input"><b>Image</b></label> <br>
 							 	@if(!empty($advertisement->image))
 							 		<img src="/uploads/advertisement/{{$advertisement->image}}" id="prescriptionpreview" style="height: 100px; width: 100px;">
 									@else
@@ -51,6 +54,32 @@
 								@endif
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="formrow-quest_name-input"><b>Mobile Image</b></label> <br>
+							 	@if(!empty($advertisement->mobile_ads))
+							 		<img src="/uploads/advertisement/{{$advertisement->mobile_ads}}" id="prescriptionpreview" style="height: 100px; width: 100px;">
+									@else
+										@php echo "No Image uploaded"; @endphp
+								@endif
+						</div>
+					</div>
+
+					<div class="form-group col-md-6">
+						<label for="formrow-quest_name-input"><b>@lang('language.Link'):</b></label>     
+						{{$advertisement->link}}
+					</div>
+
+					<div class="form-group col-md-6">
+						<label for="formrow-quest_name-input"><b>@lang('language.time'):</b></label>     
+						{{$advertisement->time}}
+					</div>	
+
+					<div class="form-group col-md-6">
+						<label for="formrow-quest_name-input"><b>Date:</b></label>     
+						{{$advertisement->date}}
+					</div>	
 				  
 					<div class="row">
                     	<div class="col-md-6">

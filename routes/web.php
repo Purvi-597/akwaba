@@ -108,6 +108,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 	Route::post('users_status', 'UserController@users_status')->name('users_status');
 	Route::post('userimagedelete', 'UserController@userimagedelete')->name('userimagedelete');	
 	Route::post('checkuseremail', 'UserController@checkuseremail')->name('checkuseremail');	
+	Route::post('fetchmodelbymakeid', 'UserController@fetchmodelbymakeid')->name('fetchmodelbymakeid');	
+	
 	/* Users */
 
 	 /* Category */

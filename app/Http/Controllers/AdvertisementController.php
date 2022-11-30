@@ -48,7 +48,7 @@ class AdvertisementController extends Controller
         if ($files = $request->file('image')) {
             $advertisementPath = public_path().'/uploads/advertisement/';
             if ($advertisementPicture = $request->file('image')) {
-                $image = $advertisementPicture->getClientOriginalName();
+                $image =  time().'_'.$advertisementPicture->getClientOriginalName();
                 $advertisementPicture->move($advertisementPath, $image);
             }
         }
@@ -115,7 +115,7 @@ class AdvertisementController extends Controller
         if(!empty($request->file('mobile_ads'))){
 				$destinationPath = public_path().'/uploads/advertisement/';
 				if ($cover_detail_mobile_ads = $request->file('mobile_ads')) {
-					$cover_detail_mobile = $cover_detail_mobile_ads->getClientOriginalName();
+					$cover_detail_mobile =  time().'_'.$cover_detail_mobile_ads->getClientOriginalName();
 					$cover_detail_mobile_ads->move($destinationPath, $cover_detail_mobile);
 				}
 		}else{

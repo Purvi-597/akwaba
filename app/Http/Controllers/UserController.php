@@ -12,6 +12,9 @@ use App\Mail\DemoEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\URL;
 use Lang;
+use App\Cars;
+use App\Car_make;
+use App\Car_model;
 
 
 
@@ -80,13 +83,63 @@ class UserController extends Controller
 
 	public function edit($id)
     {
-        $row['users'] = Users::where('id',$id)->first();
-  
-        return view('admin.users.edit',$row);
+        
+        $row['users'] = Users::leftjoin('cars','cars.userId','=','users.id')->where('users.id',$id)->orderBy('id','desc')
+                            ->leftjoin('make','make.id', '=','cars.car_name')
+                            ->leftjoin('model','model.id', '=','cars.car_model')
+                            ->first(['cars.car_name','cars.car_model','cars.car_year','cars.car_transmission','cars.car_fuel','cars.userId','users.*']);
+        // echo"<pre>";
+        // print_r($row);die;
+
+        $row['car_make'] = Car_make::select('id','code')->get('id');
+        //$row['fuels'] = Cars::select('car_fuel')->where('id')->get('id','name');
+        $Fuels = array(
+            '1' => 'Diesel',
+            '2' => 'CNG',
+            '3' => 'Bio-Diesel',
+            '4' => 'LPG',
+            '5' => 'Ethanol',
+            '6' => 'Methanol',
+            '7' => 'Petrol'
+        );
+        $row['fuels'] = $Fuels;
+       
+        $transmission = array(
+            '1' => 'Manual transmission',
+            '2' => 'Automatic transmission',
+            '3' => 'Continuously variable transmission',
+            '4' => 'Semi-automatic and dual-clutch transmissions'
+        );
+        $row['transmission'] = $transmission;
+
+
+        $currentYear = 2022;
+        $yearFrom = 2000;
+        $yearsRange = range($yearFrom, $currentYear);
+        $row['yearsRange'] = $yearsRange;
+        
+        
+        $row['cars'] = Cars::orderBy('id','desc')->first('id');
+        $row['model'] = "";
+        if(!empty($row['users']['car_name'])){
+        $row['model'] = Car_model::where('make_id', $row['users']['car_name'])->get('code');
+        }
+        // echo "<pre>";
+        // print_r($row['model']);die;
+        return view('admin.users.edit',$row);     
+
     }
 
-	public function update(Request $request, $id)
+    public function fetchmodelbymakeid(Request $request)
     {
+      $data['car_model'] = DB::table('model')->where("make_id",$request->make_id)->get(["id", "title"]);
+
+          return response()->json($data);
+      }
+
+	public function update(Request $request, $id)
+        {
+            
         if(!empty($request->file('profile_pic'))){
 				$destinationPath = public_path().'/uploads/users/';
 				if ($cover_detail_image = $request->file('profile_pic')) {
@@ -102,16 +155,39 @@ class UserController extends Controller
             $status = 0;
         }
         
-        $create = Users::where('id',$id)->update([
-                "first_name" => $request->input('first_name'),
-                "last_name" => $request->input('last_name'),
-                "email"=>$request->input('email'),
-                "contact_no"=>$request->input('contact_no'),
-                "home_address" => $request->input('home_address'),
-                "work_address" => $request->input('work_address'),
-				"profile_pic"=>$cover_detail,
-                "status" => $status
-            ]);
+        // $create = Users::where('id',$id)->update([
+        //         "first_name" => $request->input('first_name'),
+        //         "last_name" => $request->input('last_name'),
+        //         "email"=>$request->input('email'),
+        //         "contact_no"=>$request->input('contact_no'),
+        //         "home_address" => $request->input('home_address'),
+        //         "work_address" => $request->input('work_address'),
+		// 		"profile_pic"=>$cover_detail,
+        //         "status" => $status,
+        //     ]);
+
+
+            $check = Cars::where('userId',$id)->first();
+            if($check){
+              
+                $update_data = array(
+                    'car_name' => $request->input('car_name'),
+                    'car_model' => $request->input('car_model'),
+                    'car_year' => $request->input('car_year'),
+                    'car_transmission' => $request->input('car_transmission'),
+                    'car_fuel' => $request->input('car_fuel'),
+                );
+                $update = Cars::where('userId',$id)->update($update_data);
+
+            }else{
+                $add_data = array(
+
+                );
+
+                $update = Cars::where('userId',$id)->insert($add_data);
+            }
+
+
 			
 			 return redirect()->action('UserController@index')->with('success',Lang::get('language.user_update'));
 	}
@@ -139,7 +215,7 @@ class UserController extends Controller
         }
     
 }
-
+ 
     public function users_status(Request $request)
     {
     	$id = $request->input('id');

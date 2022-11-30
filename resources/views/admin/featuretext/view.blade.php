@@ -27,20 +27,13 @@
 							{{$featuretext->title}}
 						</div>
 
-						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.French_Title'):</b></label>     
-							{{$featuretext->title_fr}}
-						</div>
 
 						<div class="form-group col-md-6">
 							<label for="formrow-quest_name-input"><b>@lang('language.Description'):</b></label>     
 							{{$featuretext->description}}
 						</div>
 
-						<div class="form-group col-md-6">
-							<label for="formrow-quest_name-input"><b>@lang('language.FrDescription'):</b></label>     
-							{{$featuretext->description_fr}}
-						</div>
+						
 						
                     </div>
 					<div class="row">

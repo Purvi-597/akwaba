@@ -250,7 +250,7 @@ input::-webkit-inner-spin-button {
 <script type="text/javascript">
     $(function () {
         $('#datetimepicker1').datepicker({
-            format: "dd/mm/yy", 
+            format: "yy/mm/dd", 
             weekStart: 0,
             calendarWeeks: true,
             autoclose: true,
@@ -269,3 +269,4 @@ input::-webkit-inner-spin-button {
    
    
 @endsection
+

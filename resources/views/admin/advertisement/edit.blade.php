@@ -368,7 +368,7 @@ $(document).ready(function () {
    <script type="text/javascript">
     $(function () {
         $('#datetimepicker1').datepicker({
-            format: "dd/mm/yy",
+            format: "yy/mm/dd", 
             weekStart: 0,
             calendarWeeks: true,
             autoclose: true,
@@ -381,4 +381,5 @@ $(document).ready(function () {
 </div>
 
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 @endsection

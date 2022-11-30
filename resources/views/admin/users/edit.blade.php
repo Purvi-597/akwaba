@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
 <link href="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet"
     type="text/css">
-    <link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
+<link rel="stylesheet" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}">
 @endsection
 @section('content')
 @component('common-components.breadcrumb')
@@ -46,6 +46,11 @@ input::-webkit-inner-spin-button {
             </ul>
         </div>
         @endif
+        <?php 
+        // echo "<pre>";
+        //     print_r($users);die;
+        
+        ?>
              <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('users.update',$users->id)}}" novalidate>
                 @csrf
                 
@@ -53,7 +58,7 @@ input::-webkit-inner-spin-button {
             
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.First_Name')</label>
-                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter  Name" value="{{$users->first_name}}" required>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="@lang('language.fName_placeholder')" value="{{$users->first_name}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a first name.')
                         </div>
@@ -61,7 +66,7 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Last_Name')</label>
-                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter  Name" value="{{$users->last_name}}" required>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="@lang('language.lName_placehoder')" value="{{$users->last_name}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a Last name.')'
                         </div>
@@ -71,7 +76,7 @@ input::-webkit-inner-spin-button {
                     
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Email')</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{$users->email}}" required>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="@lang('language.Email_placeholder')" value="{{$users->email}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a email.')
                         </div>
@@ -79,7 +84,7 @@ input::-webkit-inner-spin-button {
                    
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Phone_No')</label>
-                        <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Phone Number" value="{{$users->contact_no}}" required>
+                        <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="@lang('language.Phone_placeholder')" value="{{$users->contact_no}}" required>
                         <div class="invalid-feedback">
                             @lang('language.Please provide a email.')
                         </div>
@@ -108,22 +113,83 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Home_Address')</label>
-                        <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Enter Email" value="{{$users->home_address}}" >
-                        <div class="invalid-feedback">
+                        <input type="text" class="form-control" name="home_address" id="home_address" placeholder="@lang('language.HAddress_placeholder')" value="{{$users->home_address}}" >
+                        {{-- <div class="invalid-feedback">
                             @lang('language.Please provide a Home Address.')
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Work_Address')</label>
-                        <input type="text" class="form-control" name="work_address" id="work_address" placeholder="Enter Email" value="{{$users->work_address}}">
+                        <input type="text" class="form-control" name="work_address" id="work_address" placeholder="@lang('language.WAddress_placeholder')"value="{{$users->work_address}}">
                         {{-- <div class="invalid-feedback">
                             Please provide a Work Address.
                         </div> --}}
                     </div>
+                    
 
-               
-                         <div class="form-group"></div>
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Car_detail</label>
+
+                      
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Make</label>
+                    {{-- <?php
+                        echo "<pre>";
+                            print_r($cars);
+                            print_r($car_make);
+                    ?> --}}
+                        <select class="form-control" name="id" id= "make_id">
+                                <option >select Make</option>  
+                                @foreach($car_make as $car_make)
+                                    <option value="{{$car_make->id}}" {{$cars->id == $car_make->id ? 'selected': ''}}>{{$car_make->code}}</option>
+                                
+                                @endforeach   
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Model</label>
+                        <select class="form-control" name="model_id" id= "model_id">
+                                 
+                               @foreach ($model as $model)
+                               <option value="{{$model->id}}" {{$cars->id == $model->code ? 'selected': ''}}>{{$model->code}}</option> 
+                               @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Fuel</label>
+                        <select class="form-control" name="id" id= "id">
+                            <option >select Fuel</option>  
+                            @foreach($fuels as $key=> $fuels)
+                                <option value="{{$key}}" {{$key == $users->car_fuel ? 'selected': ''}}>{{$fuels}}</option>
+                            @endforeach   
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Transmission</label>
+                        <select class="form-control" name="id" id= "id">
+                            <option >Select Transmission</option>  
+                            @foreach($transmission as $key=> $transmission)
+                                <option value="{{$key}}" {{$key == $users->car_transmission ? 'selected': ''}}>{{$transmission}}</option>
+                            @endforeach   
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formrow-quest_name-input">Year</label>
+                        <select class="form-control" name="id" id= "id">
+                            <option >Select Year</option>  
+                            @foreach($yearsRange as $yearsRange)
+                                <option value="" {{$users->car_year ? 'selected': ''}}>{{$yearsRange}}</option>
+                            @endforeach   
+                    </select>
+                    </div>
+                </div>
+
+
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
                                   @php $checked=""; @endphp
@@ -132,9 +198,9 @@ input::-webkit-inner-spin-button {
                                 @endif
                                 <input type="checkbox" name="status" class="custom-control-input"  id="invalidCheck" {{$checked}}>
                                 <label class="custom-control-label" for="invalidCheck" >@lang('language.Active')</label>
-                                <div class="invalid-feedback">
+                                {{-- <div class="invalid-feedback">
                                     @lang('language.You must agree before Save.')'
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -168,9 +234,7 @@ input::-webkit-inner-spin-button {
 
 <script>
         $(document).ready(function () {
-            
-           
-                var _URL = window.URL || window.webkitURL;
+        var _URL = window.URL || window.webkitURL;
 $(document).on('change','#images_0',function(e){
       $("#image_main0").css('display','none');
       $("#deleteimage").css('display','none');
@@ -274,5 +338,33 @@ $(document).on('click','#deleteimage',function(){
                   })
             })
     </script>
+
+
+<script>
+    $('#make_id').on('change', function () {
+  
+                var make_id = this.value;
+              
+                $("#model_id").html('');
+                $.ajax({
+                    url: '{{route("fetchmodelbymakeid")}}',
+                    type: "POST",
+                    data: {
+                        "make_id": make_id,
+                       "_token": "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                      
+                        console.log(result)
+                        $('#model_id').html('<option value="">Select Model</option>');
+                        $.each(result.car_model, function (key, value) {
+                            $("#model_id").append('<option value="' + value
+                                .id + '">' + value.title + '</option>');
+                        });
+                    }
+                });
+            });
+</script>
 
 @endsection
