@@ -26,6 +26,7 @@ use App\Http\Model\Feature;
 use App\Http\Model\Privacy_Policy;
 use App\Http\Model\Subcategories;
 use App\Http\Model\Users;
+use App\Placephotos;
 use App\reviews_rating;
 use Hamcrest\FeatureMatcher;
 use Illuminate\Support\Facades\DB;
@@ -38,6 +39,7 @@ class UserController extends Controller
     public $advertisement_path = "http://10.10.1.133:8000/uploads/advertisement/";
     public $featureplace_path = "http://10.10.1.133:8000/uploads/feature/";
     public $profile_path = 'http://10.10.1.133:8000/uploads/users/';
+    public $place_photo = 'http://10.10.1.133:8000/uploads/Placephotos/';
 
     public function register(Request $request)
     {
@@ -115,7 +117,7 @@ class UserController extends Controller
         //     'dial_code' => $userdata->dial_code,
         //     'contact' => $userdata->contact_no
         // );
-      
+
 
         if ($insert) {
             return response()
@@ -224,7 +226,6 @@ class UserController extends Controller
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'The mobile number field is wrong']);
             }
-            
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The type field field is wrong']);
@@ -446,10 +447,10 @@ class UserController extends Controller
             } else {
                 $main_image = '';
             }
-          
-            
+
+
             $checkcar = cars::where('userId', $request->userId)->get();
-            if(count($checkcar) != 0) {
+            if (count($checkcar) != 0) {
                 $cardata = array(
                     'userId' => $request->userId,
                     'car_name' => $request->car_name,
@@ -462,19 +463,19 @@ class UserController extends Controller
                 );
                 cars::where('userId', $request->userId)->update($cardata);
                 $addcar = $checkcar[0]['id'];
-            }else{
-            $cardata = array(
-                'userId' => $request->userId,
-                'car_name' => $request->car_name,
-                'car_model' => $request->car_model,
-                'car_year' => $request->car_year,
-                'car_transmission' => $request->car_transmission,
-                'car_fuel' => $request->car_fuel,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            );
-            $addcar = cars::insertGetId($cardata);
-              }
+            } else {
+                $cardata = array(
+                    'userId' => $request->userId,
+                    'car_name' => $request->car_name,
+                    'car_model' => $request->car_model,
+                    'car_year' => $request->car_year,
+                    'car_transmission' => $request->car_transmission,
+                    'car_fuel' => $request->car_fuel,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                );
+                $addcar = cars::insertGetId($cardata);
+            }
 
             $data = array(
                 'first_name' => $request->firstname,
@@ -487,7 +488,6 @@ class UserController extends Controller
                 'username' => $request->username,
                 'mycar_id' => $addcar,
                 'contact_no' => $request->contact,
-                'password' => Hash::make($request->password),
                 'profile_pic' => $main_image,
                 'role' => 'User',
                 'created_at' => Carbon::now(),
@@ -514,16 +514,16 @@ class UserController extends Controller
             $user = Users::where('id', '=', $request->userId)->first();
             if ($user) {
                 $checkcar = cars::where('userId', $request->userId)->first();
-                if(empty($checkcar)) {
-                   $checkcar = array(
-                    'userId' => $request->userId,
-                    'car_name' => 0,
-                    'car_model' => 0,
-                    'car_year' => 0,
-                    'car_transmission' =>0,
-                    'car_fuel' =>0,
-                );
-                  }
+                if (empty($checkcar)) {
+                    $checkcar = array(
+                        'userId' => $request->userId,
+                        'car_name' => 0,
+                        'car_model' => 0,
+                        'car_year' => 0,
+                        'car_transmission' => 0,
+                        'car_fuel' => 0,
+                    );
+                }
                 $data = array(
                     'first_name' => $user->first_name,
                     'last_name' => $user->last_name,
@@ -545,7 +545,7 @@ class UserController extends Controller
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 );
-       
+
                 return response()
                     ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $data]);
             } else {
@@ -610,7 +610,7 @@ class UserController extends Controller
                 // $categoryData[$i]['type'] = $place_advertisement['type'];
                 // $categoryData[$i]['external_link'] = $place_advertisement['external_link'];
             } else {
-
+                $categoryData[$i]['id'] = $category[$i]['id'];
                 $categoryData[$i]['image'] = $this->category_image_path . $category[$i]['image'];
                 $categoryData[$i]['name'] =   $category[$i]['display_name'];
             }
@@ -632,7 +632,7 @@ class UserController extends Controller
         // $feature = "SELECT * FROM `featured_places` WHERE `status` = '1' and deleted_at IS NULL";
         $feature = Feature::where('status', '1')->get();
         $feature_place = array();
-        foreach($feature as $features){
+        foreach ($feature as $features) {
             $feature_place[] = array(
                 'id' => $features->id,
                 'title' => $features->title,
@@ -640,11 +640,11 @@ class UserController extends Controller
                 'image' => $features->image
             );
             // $feature_place[]['description'] =htmlspecialchars($features['description']);
-            
+
         }
         if ($feature) {
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','path' => $this->featureplace_path, 'data' => $feature_place]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'path' => $this->featureplace_path, 'data' => $feature_place]);
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Unsuccessfully']);
@@ -652,10 +652,11 @@ class UserController extends Controller
     }
 
 
-    public function feature_list(Request $request){
+    public function feature_list(Request $request)
+    {
         $feature = Featureplace::where('featured_places_id', $request->featured_places_id)->where('status', '1')->get();
         $feature_place = array();
-        foreach($feature as $features){
+        foreach ($feature as $features) {
             $feature_place[] = array(
                 'id' => $features->id,
                 'title' => $features->title,
@@ -664,11 +665,11 @@ class UserController extends Controller
                 'ratings' => $features->ratings,
                 'latitude' => $features->latitude,
                 'longitude' => $features->longitude
-            );   
+            );
         }
         if ($feature) {
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','path' => $this->featureplace_path, 'data' => $feature_place]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'path' => $this->featureplace_path, 'data' => $feature_place]);
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Unsuccessfully']);
@@ -730,19 +731,20 @@ class UserController extends Controller
             $values = implode("','", $valuesarr);
             //echo "SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data FROM planet_osm_point WHERE ".$fieldName." IN ('".$values."') and name!=''";
 
-            $categoryResult = DB::connection('pgsql')->select("SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, tags->'phone' as phone,
-            tags->'name:en' as en_Name, 
-            tags->'opening_hours' as opening_hours,  
-            tags->'cuisine' as cuisine,  
-            tags->'addr:city' as city,  
-            tags->'addr:street' as street,
-            tags->'description' as description,
-            tags->'addr:postcode' as postcode,
-            tags->'addr:country' as country,
-            tags->'addr:district' as district,
-            tags->'image' as image,
-            $fieldName as cat_type
-            FROM planet_osm_point WHERE " . $fieldName . " IN ('" . $values . "') and name!=''");
+            $categoryResult = DB::connection('pgsql')->select("SELECT *,osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, tags->'phone' as phone,
+                tags->'name:en' as en_Name, 
+                tags->'opening_hours' as opening_hours,  
+                tags->'cuisine' as cuisine,  
+                tags->'addr:city' as city,  
+                tags->'addr:street' as street,
+                tags->'description' as description,
+                tags->'addr:postcode' as postcode,
+                tags->'addr:country' as country,
+                tags->'addr:district' as district,
+                tags->'internet_access' as internet_access,
+                tags->'image' as image,
+                $fieldName as cat_type
+                FROM planet_osm_point WHERE " . $fieldName . " IN ('" . $values . "') and name!=''");
             // print_r($categoryResult);
 
             // $categoryResult = pg_query($db, "SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, tags->'phone' as phone,
@@ -795,7 +797,7 @@ class UserController extends Controller
                 ->json(['statusCode' => 0, 'statusMessage' => 'The country code field is required.']);
         }
 
-        if (!$request->phone_number_comment) {
+        if (!$request->add_comment) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The comment field is required.']);
         }
@@ -807,6 +809,9 @@ class UserController extends Controller
         if (!$request->opening_hours) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The opening hours is required.']);
+        }
+        if (!$request->company_url) {
+            $request->company_url = 'null';
         }
 
 
@@ -821,7 +826,9 @@ class UserController extends Controller
             'latitude' => $request->latitude,
             'longtitude' => $request->longtitude,
             'opening_hours' => $request->opening_hours,
-            'phone_number_comment' => $request->phone_number_comment,
+            'dail_code' => $request->dail_code,
+            'company_url' => $request->company_url,
+            'phone_number_comment' => $request->add_comment,
             'status' => 0,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -867,6 +874,7 @@ class UserController extends Controller
         // }
         // print_r($insert);die;
         if ($insert) {
+
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Company added successfully']);
         } else {
@@ -881,7 +889,7 @@ class UserController extends Controller
         $faq = Faq::get();
         if ($faq) {
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'successfully', $faq]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'successfully', 'data' => $faq]);
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
@@ -909,146 +917,195 @@ class UserController extends Controller
         if (isset($request['id'])) {
             $id = $request['id'];
             $pg_sql = DB::connection('pgsql')->select("select
-            tags->'phone' as phone,
-            tags->'name:en' as en_Name,  
-            tags->'name:hy' as hy_Name,  
-            tags->'name:ru' as ru_Name,  
-            tags->'opening_hours' as opening_hours,  
-            tags->'cuisine' as cuisine,  
-            tags->'website' as website,  
-            tags->'addr:city' as city,  
-            tags->'addr:street' as street,
-            tags->'internet_access' as internet_access,
-            tags->'outdoor_seating' as outdoor_seating,
-            tags->'internet_access:fee' as internet_access_fee,
-            tags->'description' as description,
-            tags->'smoking' as smoking,
-            tags->'delivery' as delivery,
-            tags->'email' as email,
-            tags->'cuisine:ja' as cuisine_ja,
-            tags->'name:az' as az_name,
-            tags->'addr:postcode' as postcode,
-            tags->'facebook' as facebook,
-            tags->'addr:country' as country,
-            tags->'addr:district' as district,
-            tags->'contact:phone' as contact_phone,
-            tags->'contact:instagram' as instagram,
-            tags->'operator' as operator,
-            tags->'diet:vegetarian' as vegetarian,
-            tags->'name:ar' as ar_name,
-            tags->'townhall:type' as townhall,
-            tags->'designation' as designation,
-            tags->'name:es' as es_name,
-            tags->'capacity' as capacity,
-            tags->'name:tr' as tr_name,
-            tags->'contact:facebook' as contact_facebook,
-            tags->'reservation' as reservation,
-            tags->'instagram' as instagram,
-            tags->'takeaway' as takeaway,
-            tags->'url' as url,
-            tags->'level' as level,
-            tags->'toilets' as toilets,
-            tags->'cuisine_1' as cuisine_1,
-            tags->'cuisine_2' as cuisine_2,
-            tags->'brand' as brand,
-            tags->'contact:email' as contact_email,
-            tags->'brand:wikidata' as wikidata,
-            tags->'brand:wikipedia' as wikipedia,
-            tags->'drive_in' as drive_in,
-            tags->'wheelchair' as wheelchair,
-            tags->'microbrewery' as microbrewery,
-            tags->'opening_hours:covid19' as opening_hours_covid19,
-            tags->'diet:vegan' as diet_vegan,
-            tags->'image' as image,
-            tags->'diet:meat' as meat,
-            tags->'ref:vatin' as vatin,
-            tags->'phone_1' as phone_1,
-            name as restaurantname,
-            osm_id as osmid,
-            ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
-            name
-            from 
-            public.planet_osm_point 
-            WHERE osm_id=" . $id);
-             $osmid =  $pg_sql[0]->osmid;
-             $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('ratings');
-             $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
+            *,
+        osm_id as osmid,
+        ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
+        name
+        from 
+        public.planet_osm_point 
+        WHERE osm_id=" . $id);
+            $osmid =  $pg_sql[0]->osmid;
+            $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('ratings');
+            $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
+            $photos = Placephotos::where('osm_id', $osmid)->get();
+            $placephotos = array();
+            foreach ($photos as $image) {
+                $placephotos[] = array(
+                    'path' => $this->place_photo,
+                    'image' => $image['image_name']
+                );
+            }
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','avg'=>$avg, 'count' => $count, 'data' => $pg_sql]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'avg' => $avg, 'count' => $count, 'photos' => $placephotos, 'data' => $pg_sql]);
+        }
+    }
+
+    public function Add_photo_place(Request $request)
+    {
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
+        }
+        if (!$request->osmids) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The osmids field is required.']);
+        }
+        $UID = $request->userId;
+        $osm = $request->osmids;
+        if ($request->file('placephoto')) {
+            for ($i = 0; $i < count($request->file('placephoto')); $i++) {
+                $main_image = md5(time() . '_' . $request->file('placephoto')[$i]->getClientOriginalName()) . '.' . $request->file('placephoto')[$i]->getClientOriginalExtension();
+                $target_path = "uploads/placephoto/" . $main_image;
+                // $array_images[] = $main_image;
+                move_uploaded_file($request->file('placephoto')[$i], $target_path);
+                $data = array(
+                    'userId' => $request->userId,
+                    'osm_id' => $request->osmids,
+                    'image_name' => $main_image
+                );
+
+                $sql = Placephotos::insertGetId($data);
+            }
+            // $array_name = implode(",",$array_images);
+        }
+
+
+        if ($sql) {
+            $photos = Placephotos::where('osm_id', $osm)->get();
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'updated Successfully', 'path' => $this->place_photo, 'photos' => $photos]);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
         }
     }
 
 
     public function nearbyLocation(Request $request)
     {
-        $nearby = DB::connection('pgsql')->select("select
-     *,
+        $nearby = DB::connection('pgsql')->select("select *,
+        tags->'phone' as phone,
+        tags->'name:en' as en_Name,  
+        tags->'name:hy' as hy_Name,  
+        tags->'name:ru' as ru_Name,  
+        tags->'opening_hours' as opening_hours,  
+        tags->'cuisine' as cuisine,  
+        tags->'website' as website,  
+        tags->'addr:city' as city,  
+        tags->'addr:street' as street,
+        tags->'internet_access' as internet_access,
+        tags->'outdoor_seating' as outdoor_seating,
+        tags->'internet_access:fee' as internet_access_fee,
+        tags->'description' as description,
+        tags->'smoking' as smoking,
+        tags->'delivery' as delivery,
+        tags->'email' as email,
+        tags->'cuisine:ja' as cuisine_ja,
+        tags->'name:az' as az_name,
+        tags->'addr:postcode' as postcode,
+        tags->'facebook' as facebook,
+        tags->'addr:country' as country,
+        tags->'addr:district' as district,
+        tags->'contact:phone' as contact_phone,
+        tags->'contact:instagram' as instagram,
+        tags->'operator' as operator,
+        tags->'diet:vegetarian' as vegetarian,
+        tags->'name:ar' as ar_name,
+        tags->'townhall:type' as townhall,
+        tags->'designation' as designation,
+        tags->'name:es' as es_name,
+        tags->'capacity' as capacity,
+        tags->'name:tr' as tr_name,
+        tags->'contact:facebook' as contact_facebook,
+        tags->'reservation' as reservation,
+        tags->'instagram' as instagram,
+        tags->'takeaway' as takeaway,
+        tags->'url' as url,
+        tags->'level' as level,
+        tags->'toilets' as toilets,
+        tags->'cuisine_1' as cuisine_1,
+        tags->'cuisine_2' as cuisine_2,
+        tags->'brand' as brand,
+        tags->'contact:email' as contact_email,
+        tags->'brand:wikidata' as wikidata,
+        tags->'brand:wikipedia' as wikipedia,
+        tags->'drive_in' as drive_in,
+        tags->'wheelchair' as wheelchair,
+        tags->'microbrewery' as microbrewery,
+        tags->'opening_hours:covid19' as opening_hours_covid19,
+        tags->'diet:vegan' as diet_vegan,
+        tags->'image' as image,
+        tags->'diet:meat' as meat,
+        tags->'ref:vatin' as vatin,
+        tags->'phone_1' as phone_1,
         ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
         osm_id as osmid
         from  public.planet_osm_point 
-        where amenity = 'cafe' and name != 'null'
-        order by way <-> ST_Transform(ST_SetSRID(ST_Point(40.36936540421674,49.83307515078185), 4326), 3857)
+        where amenity = 'pub'
+        order by way <-> ST_Transform(ST_SetSRID(ST_Point(49.84496533870698,40.37147089250506), 4326), 3857)
         limit 15");
-        
-        $osmid =123;
+
+        $osmid = 123;
         $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('ratings');
         $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
         return response()
-        ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','avg'=>$avg,'count'=>$count, 'data' => $nearby]);
+            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'avg' => $avg, 'count' => $count, 'data' => $nearby]);
     }
 
 
 
     public function car_make()
     {
-        $carmake = car_make::select('id','code')->get();
+        $carmake = car_make::select('id', 'code')->get();
         return response()
-        ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $carmake]);
+            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $carmake]);
     }
 
-    public function car_model(Request $request){
-        $carmodel = car_model::select('id','code')->where('make_id', $request->makeid)->get();
+    public function car_model(Request $request)
+    {
+        $carmodel = car_model::select('id', 'code')->where('make_id', $request->makeid)->get();
         return response()
-        ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $carmodel]);
+            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $carmodel]);
     }
 
-    public function caralldetailes(){
+    public function caralldetailes()
+    {
         $Fuels = array(
-        '1' => 'Diesel',
-        '2' => 'CNG',
-        '3' => 'Bio-Diesel',
-        '4' => 'LPG',
-        '5' => 'Ethanol',
-        '6' => 'Methanol',
-        '7' => 'Petrol'
-    );
-       $fuels = array();
-        for ($i=1; $i <= count($Fuels) ; $i++) { 
+            '1' => 'Diesel',
+            '2' => 'CNG',
+            '3' => 'Bio-Diesel',
+            '4' => 'LPG',
+            '5' => 'Ethanol',
+            '6' => 'Methanol',
+            '7' => 'Petrol'
+        );
+        $fuels = array();
+        for ($i = 1; $i <= count($Fuels); $i++) {
             $new[] = array(
                 'id' => $i,
                 'fule' => $Fuels[$i]
             );
         }
         /*$Fuels = array(
-           'Petrol' ,
-            'Diesel',
-            'CNG',
-            'Bio-Diesel',
-           'LPG',
-            'Ethanol',
-            'Methanol',
-        ); */
-     
+    'Petrol' ,
+        'Diesel',
+        'CNG',
+        'Bio-Diesel',
+    'LPG',
+        'Ethanol',
+        'Methanol',
+    ); */
+
 
         $transmission = array(
-           '1' =>'Manual transmission',
-           '2' => 'Automatic transmission',
-           '3' => 'Continuously variable transmission',
-           '4' => 'Semi-automatic and dual-clutch transmissions'
+            '1' => 'Manual transmission',
+            '2' => 'Automatic transmission',
+            '3' => 'Continuously variable transmission',
+            '4' => 'Semi-automatic and dual-clutch transmissions'
         );
 
         $Transmission = array();
-        for ($i=1; $i <= count($transmission) ; $i++) { 
+        for ($i = 1; $i <= count($transmission); $i++) {
             $Transmission[] = array(
                 'id' => $i,
                 'Transmission' => $transmission[$i]
@@ -1058,9 +1115,39 @@ class UserController extends Controller
         $currentYear = 2022;
         $yearFrom = 2000;
         $yearsRange = range($yearFrom, $currentYear);
-  
+
         return response()
-        ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'Fuels' => $new, 'transmission' => $Transmission, 'Year' => $yearsRange]);
+            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'Fuels' => $new, 'transmission' => $Transmission, 'Year' => $yearsRange]);
+    }
+
+    public function mobileads()
+    {
+        $mobileds = Advertisement::select('mobile_ads')->get();
+        $mobile = array();
+        foreach ($mobileds as $mobi) {
+            $mobile[] = array(
+                'path' => $this->advertisement_path,
+                'image' => $mobi['mobile_ads']
+            );
+        }
+        return response()
+            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'image' => $mobile]);
+    }
+
+    public function delete_account(Request $request){
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
+        }
+        $delete = Users::where('id', $request->userId)->where('status', 1)->delete();
+        // print_r($delete);die;
+        if ($delete) {
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'User deleted successfully']);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..user not registered']);
+        }
     }
 
 }

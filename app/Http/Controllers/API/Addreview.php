@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Likes_review;
+use App\report_review;
 use App\reviews_rating;
+use App\table_review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -18,14 +21,76 @@ class Addreview extends Controller
      */
     public function index(Request $request)
     {
-        $reviews_rating = reviews_rating::get();
-        if($reviews_rating){
-        return response()
-        ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','data' => $reviews_rating]);
-    }else{
-        return response()
-            ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-    }
+        if ($request->filter_id == 0) {
+            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->get();
+
+            // print_r($request->osmid);die;
+            if ($reviews_rating) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } elseif ($request->filter_id == 1) {
+            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 1)->get();
+
+            // print_r($request->osmid);die;
+            if ($reviews_rating) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } elseif ($request->filter_id == 2) {
+            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 2)->get();
+
+            // print_r($request->osmid);die;
+            if ($reviews_rating) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } elseif ($request->filter_id == 3) {
+            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 3)->get();
+
+            // print_r($request->osmid);die;
+            if ($reviews_rating) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } elseif ($request->filter_id == 4) {
+            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 4)->get();
+
+            // print_r($request->osmid);die;
+            if ($reviews_rating) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } elseif ($request->filter_id == 5) {
+            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 5)->get();
+
+            // print_r($request->osmid);die;
+            if ($reviews_rating) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
     }
 
     /**
@@ -52,7 +117,7 @@ class Addreview extends Controller
         $rating = $request['rating'];
         $firstname = $request['firstname'];
         $lastname =  $request['lastname'];
-        $name = trim($request['restaurantname'],'"');
+        $name = trim($request['restaurantname'], '"');
         $photos = "index.png";
         // $latitude = $request->coordinates[0];
         // $longitude = $request->coordinates[1];
@@ -61,21 +126,16 @@ class Addreview extends Controller
         $array_images = array();
         $request->file('review_image');
         $array_name = " ";
-        if($request->file('review_image')){
-        for ($i = 0; $i < count($request->file('review_image')); $i++) {
-          $newfilename = "image_". rand();
-          $extension   = pathinfo($request->file('review_image')[$i], PATHINFO_EXTENSION);
-          $basename    = $newfilename . "." . $extension;
-          $file1       = $request->file('review_image')[$i];
-          $target_path = "uploads/review/" . $basename;
-          $array_images[] = $basename;
-          move_uploaded_file($request->file('review_image')[$i], $target_path);
-         
+        if ($request->file('review_image')) {
+            for ($i = 0; $i < count($request->file('review_image')); $i++) {
+                $main_image = md5(time() . '_' . $request->file('review_image')[$i]->getClientOriginalName()) . '.' . $request->file('review_image')[$i]->getClientOriginalExtension();
+                $target_path = "uploads/review/" . $main_image;
+                $array_images[] = $main_image;
+                move_uploaded_file($request->file('review_image')[$i], $target_path);
+            }
+            $array_name = implode(",", $array_images);
         }
-        $array_name = implode(",",$array_images);
-        }
-        // echo "<pre>"; print_r($array_images);die;
-
+        // echo "<pre>"; print_r($array_images);die
 
 
         $data = array(
@@ -92,14 +152,14 @@ class Addreview extends Controller
         // $sql = "INSERT INTO review_rating (user_id, osm_id, title, message, rating, photos, status, created_at, updated_at)
         //  VALUES ('".$userid."', '".$id."', '".$name."', '".$message."', '".$rating."', '".$array_name."', '1', '".$created_at."', '".$updated_at."')";
         $sql = reviews_rating::insert($data);
-              //$last_insert_id = $conn->insert_id;
-              if($sql){
-                return response()
+        //$last_insert_id = $conn->insert_id;
+        if ($sql) {
+            return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
-            }else{
-                return response()
-                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-            }
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
     }
 
     /**
@@ -110,7 +170,7 @@ class Addreview extends Controller
      */
     public function show(Request $request)
     {
-        
+
         if (!$request->userId) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
@@ -120,15 +180,23 @@ class Addreview extends Controller
                 ->json(['statusCode' => 0, 'statusMessage' => 'The osmids field is required.']);
         }
 
-        $exites = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->where('is_deleted',0)->first();
-        if($exites){
+
+        $exites = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->where('is_deleted', 0)->first();
+        $PHOTOS = table_review::where('userId', $request->userId)->where('osm_id', $request->osmids)->get();
+        $Transmission = array();
+        for ($i = 0; $i < count($PHOTOS); $i++) {
+            $Transmission[] = array(
+                'id' => $PHOTOS[$i]['id'],
+                'images' => $PHOTOS[$i]['image_name']
+            );
+        }
+        if ($exites) {
             return response()
-            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $exites]);
-        }else{
+                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'path' => $this->profile_path, 'data' => $exites, 'images' => $Transmission]);
+        } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Review not add yet']);
         }
-
     }
 
     /**
@@ -155,21 +223,18 @@ class Addreview extends Controller
         $userid = $request['userId'];
         $message = $request['message'];
         $rating = $request['rating'];
-        $name = trim($request['restaurantname'],'"');
+        $name = trim($request['restaurantname'], '"');
         $array_images = array();
         $request->file('review_image');
-        if($request->file('review_image')){
-        for ($i = 0; $i < count($request->file('review_image')); $i++) {
-          $newfilename = "image_". rand();
-          $extension   = pathinfo($request->file('review_image')[$i], PATHINFO_EXTENSION);
-          $basename    = $newfilename . "." . $extension;
-          $file1       = $request->file('review_image')[$i];
-          $target_path = "uploads/review/" . $basename;
-          $array_images[] = $basename;
-          move_uploaded_file($request->file('review_image')[$i], $target_path);
-        }
-        $array_name = implode(",",$array_images);
-        }else{
+        if ($request->file('review_image')) {
+            for ($i = 0; $i < count($request->file('review_image')); $i++) {
+                $main_image = md5(time() . '_' . $request->file('review_image')[$i]->getClientOriginalName()) . '.' . $request->file('review_image')[$i]->getClientOriginalExtension();
+                $target_path = "uploads/review/" . $main_image;
+                $array_images[] = $main_image;
+                move_uploaded_file($request->file('review_image')[$i], $target_path);
+            }
+            $array_name = implode(",", $array_images);
+        } else {
             $exites = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->first();
             $array_name = $exites->image;
         }
@@ -187,14 +252,14 @@ class Addreview extends Controller
         // $sql = "INSERT INTO review_rating (user_id, osm_id, title, message, rating, photos, status, created_at, updated_at)
         //  VALUES ('".$userid."', '".$id."', '".$name."', '".$message."', '".$rating."', '".$array_name."', '1', '".$created_at."', '".$updated_at."')";
         $sql = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->update($data);
-              //$last_insert_id = $conn->insert_id;
-              if($sql){
-                return response()
+        //$last_insert_id = $conn->insert_id;
+        if ($sql) {
+            return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Updated Successfully']);
-            }else{
-                return response()
-                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-            }
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
     }
 
     /**
@@ -208,16 +273,228 @@ class Addreview extends Controller
         $id = $request['osmids'];
         $userid = $request['userId'];
         $data = array(
-            'is_deleted' =>1
+            'is_deleted' => 1
         );
         $sql = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->update($data);
         //$last_insert_id = $conn->insert_id;
-        if($sql){
-          return response()
-          ->json(['statusCode' => 1, 'statusMessage' => 'deleted Successfully']);
-      }else{
-          return response()
-              ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-      }
+        if ($sql) {
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'deleted Successfully']);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
+    }
+
+    public function addreviewphotos(Request $request)
+    {
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
+        }
+        if (!$request->osmids) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The osmids field is required.']);
+        }
+        $UID = $request->userId;
+        $osm = $request->osmids;
+        if ($request->file('review_image')) {
+            for ($i = 0; $i < count($request->file('review_image')); $i++) {
+                $main_image = md5(time() . '_' . $request->file('review_image')[$i]->getClientOriginalName()) . '.' . $request->file('review_image')[$i]->getClientOriginalExtension();
+                $target_path = "uploads/review/" . $main_image;
+                // $array_images[] = $main_image;
+                move_uploaded_file($request->file('review_image')[$i], $target_path);
+                $data = array(
+                    'userId' => $request->userId,
+                    'osm_id' => $request->osmids,
+                    'image_name' => $main_image
+                );
+
+                $sql = table_review::insertGetId($data);
+            }
+            // $array_name = implode(",",$array_images);
+        }
+
+
+        if ($sql) {
+            $photos = table_review::where('userId', $UID)->where('osm_id', $osm)->get();
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'updated Successfully', 'path' => $this->profile_path, 'photos' => $photos]);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
+    }
+
+
+    public function delete_review_photos(Request $request)
+    {
+        $id = $request->Id;
+        $delete = table_review::where('id', $id)->delete();
+        if ($delete) {
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'deleted Successfully']);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
+    }
+
+
+    public function Report_review(Request $request)
+    {
+
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
+        }
+        if (!$request->osmids) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The osmids field is required.']);
+        }
+        if (!$request->review_id) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The review_id field is required.']);
+        }
+        if (!$request->report_msg) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The message field is required.']);
+        }
+        $data = array(
+            'userId' => $request->userId,
+            'osm_id' => $request->osmids,
+            'review_id' => $request->review_id,
+            'report_msg' => $request->report_msg,
+            'status' => 0,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        );
+
+        $sql = report_review::insertGetId($data);
+        if ($sql) {
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'Reported Successfully']);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
+    }
+
+    public function like_review(Request $request)
+    {
+
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The user id field is required.']);
+        }
+        if (!$request->osmids) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The osmids field is required.']);
+        }
+        if (!$request->review_id) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The review_id field is required.']);
+        }
+        // if ($request->like == 1)
+        // {
+        //     $check = Likes_review::where('user_id', $request->userId)
+        //         ->where('osm_id', $request->osmids)
+        //         ->first();
+        //     if (empty($check))
+        //     {
+        //         $data = array(
+        //             'user_id' => $request->userId,
+        //             'feed_id' => $request->feedId,
+        //             'created_at' =>  Carbon::now() ,
+        //             'updated_at' =>  Carbon::now()
+        //         );
+        //         $add = Likes_review::insert($data);
+        //         if ($add)
+        //         {
+        //             $getcount = Likes_review::where('feed_id', $request->feedId)
+        //                 ->count();
+        //                 $data2 = array(
+        //                 'status' => (int)$request->status,
+        //                 'like_count' => $getcount,
+        //                 'is_like_user'=>$this->userlike($request->feedId,$request->userId)
+        //                 );
+        //             return response()
+        //                 ->json(['statusCode' => 1, 'statusMessage' => 'Post Liked Successfully','data' => $data2]);
+        //         }
+        //         else
+        //         {
+        //             return response()
+        //                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong']);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         return response()
+        //             ->json(['statusCode' => 0, 'statusMessage' => 'Post already Liked']);
+        //     }
+        // }
+        // else
+        // {
+        //     $check = Likes::where('user_id', $request->userId)
+        //         ->where('feed_id', $request->feedId)
+        //         ->first();
+        //     if (empty($check))
+        //     {
+        //         return response()->json(['statusCode' => 0, 'statusMessage' => 'Post Like required']);
+        //     }
+        //     else
+        //     {
+        //         $remove = Likes::where('user_id', $request->userId)
+        //             ->where('feed_id', $request->feedId)
+        //             ->delete();
+        //         if ($remove)
+        //         {
+        //             $getcount = Likes::where('feed_id', $request->feedId)
+        //                 ->count();
+        //              $data2 = array(
+        //                 'status' =>(int)$request->status,
+        //                 'like_count' => $getcount,
+        //                 'is_like_user'=>
+        //                 );
+        //             return response()->json(['statusCode' => 1, 'statusMessage' => 'Post Disliked Successfully','data' => $data2]);
+        //         }
+        //         else
+        //         {
+        //             return response()
+        //                 ->json(['statusCode' => 0, 'statusMessage' => 'Soemthing went wrong']);
+        //         }
+        //     }
+        // }
+
+        $like = $request->like;
+        if ($like == 1) {
+            $UNlike = Likes_review::where('userId', $request->userId)->where('review_id', $request->review_id)->where('osm_id', $request->osmids)->delete();
+            //    print_r($UNlike);die;
+            if ($UNlike) {
+                return response()
+                    ->json(['statusCode' => 1, 'Like' => 0, 'statusMessage' => 'Unlike']);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        } else {
+            $data = array(
+                'userId' => $request->userId,
+                'osm_id' => $request->osmids,
+                'review_id' => $request->review_id,
+                'like' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            );
+
+            $sql = Likes_review::insertGetId($data);
+            if ($sql) {
+                return response()
+                    ->json(['statusCode' => 1, 'Like' => 1, 'statusMessage' => 'Like']);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
+        }
     }
 }
