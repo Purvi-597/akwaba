@@ -48,12 +48,12 @@ input::-webkit-inner-spin-button {
         @endif
              <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('faq.update',$faq->id)}}" novalidate>
                 @csrf
-                
+
                 <input type="hidden" value="{{ $faq->id }}" name="id" id="id">
-            
-                 
-                        
-                  
+
+
+
+
                 <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Question')</label>
                         <input type="text" class="form-control" name="question" id="question" placeholder="@lang('language.Question_placeholder')" value="{{$faq->question}}" required>
@@ -63,14 +63,14 @@ input::-webkit-inner-spin-button {
                 </div>
 
                 <div class="form-group">
-                    <label for="formrow-quest_name-input">@lang('language.French_Question')</label>
+                    <label for="formrow-quest_name-input">@lang('language.FrQuestion')</label>
                     <input type="text" class="form-control" name="question_fr" id="question_fr" placeholder="@lang('language.frQuestion_placeholder')" value="{{$faq->question_fr}}" required>
                     <div class="invalid-feedback">
                         @lang('language.Question_validation')
                     </div>
             </div>
- 
-                
+
+
                 <div class="form-group">
                     <label for="formrow-quest_name-input">@lang('language.Answer')</label>
                     <input type="text" class="form-control" name="answer" id="answer" placeholder="@lang('language.Answer_placeholder')" value ="{{$faq->answer}}" required>
@@ -80,12 +80,12 @@ input::-webkit-inner-spin-button {
                     <label for="formrow-quest_name-input">@lang('language.FrAnswer')</label>
                     <input type="text" class="form-control" name="answer_fr" id="answer_fr" placeholder="@lang('language.frAnswer_placeholder')" value="{{$faq->answer_fr}}" required>
                 </div>
-                        
+
 
                 {{-- <div class="row">
                      <div id="req_input" class="form-group col-md-12">
                        <label for="formrow-quest_name-input"> Image <span style="color:red;">*</span></label>
-                          
+
                              <input type="file"  class="form-control images_0" name="image" id="images_0" ><br>
                                 <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($feature->image)){ echo $feature->image; } ?></label><br>
                                        @if(!empty($feature->image))
@@ -93,7 +93,7 @@ input::-webkit-inner-spin-button {
                                 @endif
                                 <img  id="image_main1" name="image_main1" class="image_main1" height="100" width="100" style="display:none;">
                             <input type="hidden" name="old_image0" value="<?php if(isset($feature->image)){ echo $feature->image; } ?>">
-                               
+
                                 @if(!empty($feature->image))
                                  <br><br>
                                 &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $feature->id }}">Remove</a>
@@ -101,7 +101,7 @@ input::-webkit-inner-spin-button {
                           <span id="image0_error"  style="color:red"></span>
                     </div>
                 </div> --}}
-               
+
                          <div class="form-group"></div>
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
@@ -117,8 +117,8 @@ input::-webkit-inner-spin-button {
                             </div>
 
                         </div>
-                    
-                        
+
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
@@ -137,7 +137,7 @@ input::-webkit-inner-spin-button {
 <!-- end row -->
 @endsection
 @section('script')
-<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script> 
+<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/select2/select2.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-validation.init.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
@@ -203,11 +203,11 @@ input::-webkit-inner-spin-button {
  contextmenu: "link image imagetools table",
 });
 
-</script> 
+</script>
 <script>
         $(document).ready(function () {
-            
-           
+
+
                 var _URL = window.URL || window.webkitURL;
 $(document).on('change','#images_0',function(e){
       $("#image_main0").css('display','none');
@@ -243,9 +243,9 @@ if ((file = this.files[0])) {
          //submit the form here
          $("#presrciptionpreview").css('display','block');
           $("#deleteBtn").css("display", "block");
-         
+
  });
-            
+
     $("#deleteBtn").click(function(){
    $("#presrciptionpreview").css("display", "none");
    $("#deleteBtn").css("display", "none");
@@ -257,7 +257,7 @@ if ((file = this.files[0])) {
 
 $(document).on('click','#deleteimage',function(){
                 var id = $(this).attr('data-id');
-               
+
                  Swal.fire({
                       title: 'Are You sure',
                       text: "You want to delete this profile picture",
@@ -268,16 +268,16 @@ $(document).on('click','#deleteimage',function(){
                       cancelButtonColor: '#d33',
                       confirmButtonText: 'Yes '
                     }).then((result) => {
-                      
+
                       if (result.value){
-                        
+
                           $.ajax({
                              type: "POST",
                              url: '{{route("userimagedelete")}}',
                              data: {'id': id, "_token": "{{ csrf_token() }}"},
                              success: function(data){
                                  if(data == "delete"){
-                               
+
                                  Swal.fire({
                                        title: "User",
                                        icon:"success",
@@ -306,7 +306,7 @@ $(document).on('click','#deleteimage',function(){
                     });
 
                       }else{
-                       
+
 
                       }
                   })
@@ -317,11 +317,11 @@ $(document).on('click','#deleteimage',function(){
     function CheckDimension() {
         //Get reference of File.
         var fileUpload = document.getElementById("file");
-     
+
         //Check whether the file is valid Image.
         var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
         if (regex.test(fileUpload.value.toLowerCase())) {
-     
+
             //Check whether HTML5 is supported.
             if (typeof (fileUpload.files) != "undefined") {
                 //Initiate the FileReader object.
@@ -331,16 +331,16 @@ $(document).on('click','#deleteimage',function(){
                 reader.onload = function (e) {
                     //Initiate the JavaScript Image object.
                     var image = new Image();
-     
+
                     //Set the Base64 string return from FileReader as source.
                     image.src = e.target.result;
-                           
+
                     //Validate the File Height and Width.
                     image.onload = function () {
                         var height = this.height;
                         var width = this.width;
                         if (height < 38 || width < 29) {
-     
+
                            //show width and height to user
                             document.getElementById("width").innerHTML=width;
                             document.getElementById("height").innerHTML=height;
@@ -350,7 +350,7 @@ $(document).on('click','#deleteimage',function(){
                         alert("Uploaded image has valid Height and Width.");
                         return true;
                     };
-     
+
                 }
             } else {
                 alert("This browser does not support HTML5.");

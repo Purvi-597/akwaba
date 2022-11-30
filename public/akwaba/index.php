@@ -110,9 +110,11 @@ if($advertisement_result->num_rows > 0) {
 
 ?>
 
-<body>
+<body class="body_demo">
   <!-- Map Display Section-->
+ 
   <section>
+  <div class="loader1" style="display:none"></div>
     <div class="map-screen">
 	 <div id="map"></div>
     </div>
@@ -376,12 +378,15 @@ if($advertisement_result->num_rows > 0) {
       </div>
 	  <div class="extrapart extrapartfeature subcatSubsidebar" data-simplebar style="display: none;"></div>
       </div>-->
-      <div class="left-panel left-feature-panel addsidebar" style="display: none;"><div class="closeiconleftpanel" id="closeBtn">
+      <div class="left-panel contect-list-panel addsidebar" style="display:none;">
+      <div class="closeiconleftpanel" id="closeBtn">
        <a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a>
       </div>
       <div class="closeiconleftpanel closeleftpanel2 closeleftpanel">
         <img src="assets/img/icons/left-arrow.png">
-      </div></div>
+      </div>
+                                
+    </div>
 	  <div class="left-panel left-feature-panel extralarge morecategoryDiv" id="style-2" style="display: none;">
       <div class="closeiconleftpanel" id="closeBtn">
        <a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a>
@@ -636,6 +641,7 @@ if($advertisement_result->num_rows > 0) {
              <span aria-hidden="true">&times;</span>
            </button> -->
          </div>
+
          <form method="post" name="frm1" id="frm1"  enctype="multipart/form-data">
          <div class="modal-body" data-simplebar>
            <div class="addcompany-profile">
@@ -984,8 +990,9 @@ if($advertisement_result->num_rows > 0) {
             $Place_names = pg_query($db,"select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, name, osm_id from planet_osm_point where name != ''");
             $place_name_result= [];
             while($row = pg_fetch_row($Place_names)) {
-                array_push($place_name_result,$row, true);
+                array_push($place_name_result,$row);
             }
+
             ?>
 
             <div class="input-company" id="place_name_div" style="display:none;">
@@ -1000,7 +1007,7 @@ if($advertisement_result->num_rows > 0) {
                 $latitude = json_decode($row[0])->coordinates[0];
                 $longtitude = json_decode($row[0])->coordinates[1];
                 ?>
-                <option value="<?php echo $row[2]; ?>" data-latitude="<?php echo $latitude; ?>" data-longtitude="<?php echo $longtitude; ?>"><?php echo $row[1]; ?></option>
+             <option value="<?php echo $row[2]; ?>" data-latitude="<?php echo $latitude; ?>" data-longtitude="<?php echo $longtitude; ?>"><?php echo $row[1]; ?></option>
                 <?php }  ?>
             </select>
             <span id="place_name_error" style="color:red;font-size: 12px;"></span>
@@ -1061,7 +1068,7 @@ if($advertisement_result->num_rows > 0) {
         var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');
         var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');
 		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');
-    var base_url = 'http://10.10.1.133:8000/akwaba/';
+    var base_url = 'http://127.0.0.1:8000/akwaba/';
 </script>
 <!-- Signup Model -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1219,13 +1226,114 @@ if($advertisement_result->num_rows > 0) {
   </div>
 </div>
 
-
-
 <!--
 add_advertising
 addAdvertisingModel
  -->
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+	  <form method="post" name="frm_review" id="frm_review"  enctype="multipart/form-data">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="d-lg-flex d-block d-md-flex align-items-lg-center">
+              <img src="assets/img/left-brand-image.png" alt="..." class="user-profile-image-modal rounded-circle ">
+              <div class="lh-1">
+                <span class="code-profile modal-profile" id="profilename"></span> <br>
+                <span class="code-deatils modal-deatils">Quartier France, Grand Bassam, Ivory Coast</span>
+              </div>
+            </div>
+          </div>
+		  
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="rating-stars">Rating</h3>
+                <div class="star-rating star-rating-modal ">
+                  <input id="star-31" type="radio" name="rating" value="5">
+                  <label for="star-31" title="5 stars">
+                    <i class="active fa fa-star" aria-hidden="true"></i>
+                  </label>
+                  <input id="star-32" type="radio" name="rating" value="4">
+                  <label for="star-32" title="4 stars">
+                    <i class="active fa fa-star" aria-hidden="true"></i>
+                  </label>
+                  <input id="star-33" type="radio" name="rating" value="3">
+                  <label for="star-33" title="3 stars">
+                    <i class="active fa fa-star" aria-hidden="true"></i>
+                  </label>
+                  <input id="star-34" type="radio" name="rating" value="2">
+                  <label for="star-34" title="2 star">
+                    <i class="active fa fa-star" aria-hidden="true"></i>
+                  </label>
+				  <input id="star-35" type="radio" name="rating" value="1">
+                  <label for="star-35" title="1 star">
+                    <i class="active fa fa-star" aria-hidden="true"></i>
+                  </label>
+                </div>
+                <span id="r1_error" style="color: red;"></span>
+              </div>
 
+
+              <div class="col-md-12 mt-3">
+                <h3 class="rating-stars">Review</h3>
+                <textarea name="message" id="message" cols="30" rows="3" class="review-text"></textarea>
+                <span id="m1_error" style="color: red;"></span>
+              </div>
+                <div class="col-md-12  mt-3 photoslistmaindiv">
+                <h3 class="rating-stars">Photos <span>(you can upload up to 10 photos)</span></h3>
+                <div class="imageslist">
+                  <div class="lable-input singleimg">
+				<label for="uploadimgreview">
+				  <img src="assets/img/left-brand-image.png"> 
+				  <div class="overlaycount">
+					<p>07 Photos</p>
+				  </div>
+                  <input name="file_review[]" multiple type="file" id="uploadimgreview" multiple class="review_photos" style="display:none;">
+				</label>
+				
+			  </div>
+              
+                </div>
+              </div>
+             
+              <span id="image_review_error" style="color:red;margin-left:10px;"></span>
+			  <div class="img_section_review" id="img_section3">
+
+
+				</div>
+            </div>
+          </div>
+		  <?php 
+			  $firstName = substr($_SESSION['users']['firstname'], 0, 1);
+			  $lastName = substr($_SESSION['users']['lastname'], 0, 1);
+			  $name = strtoupper($firstName.''.$lastName);
+			?>
+		   <div class="modal-header">
+		   <div class="d-lg-flex d-block d-md-flex align-items-lg-center">
+              <?php if(empty($_SESSION['users']['profile_pic'])){ ?>
+			  <p class="user-profile-image-modal rounded-circle"><?=$name?></p>
+			  <?php }else{ ?>
+			  <img src="./uploads/users/<?= isset($_SESSION['users']['profile_pic'])?$_SESSION['users']['profile_pic']:"" ?>" alt="..." class="user-profile-image-modal rounded-circle ">
+              <?php } ?>
+			  <div class="lh-1">
+                <span class="code-profile modal-profile" id="username"><?= isset($_SESSION['users']['firstname'])?$_SESSION['users']['firstname']:""?> <?= isset($_SESSION['users']['firstname'])?$_SESSION['users']['lastname']:""?></span> <br>
+                <span class="code-deatils modal-deatils"></span>
+              </div>
+            </div>
+		  </div>
+		  <input type="hidden" id="osmids" name="osmids" value=""/>
+		  <?php if(isset($_SESSION['users'])) { ?>
+				<input type="hidden" value="<?= $_SESSION['users']['id']?>" id="session_id" name="session_id" />
+			<?php } ?>
+          <div class="modal-footer review-footer-btn">
+            <button type="button" class="btn btn-post postratingBtn" >Post</button>
+            <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+	</form>	
+      </div>
+    </div>
 
 <?php
 include('layout/footer.php');

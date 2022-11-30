@@ -47,38 +47,8 @@ final class Header
      */
     public static function normalize($header): array
     {
-<<<<<<< HEAD
         if (!is_array($header)) {
             return array_map('trim', explode(',', $header));
-=======
-        $result = [];
-        foreach ((array) $header as $value) {
-            foreach (self::splitList($value) as $parsed) {
-                $result[] = $parsed;
-            }
-        }
-
-        return $result;
-    }
-
-    /**
-     * Splits a HTTP header defined to contain a comma-separated list into
-     * each individual value. Empty values will be removed.
-     *
-     * Example headers include 'accept', 'cache-control' and 'if-none-match'.
-     *
-     * This method must not be used to parse headers that are not defined as
-     * a list, such as 'user-agent' or 'set-cookie'.
-     *
-     * @param string|string[] $values Header value as returned by MessageInterface::getHeader()
-     *
-     * @return string[]
-     */
-    public static function splitList($values): array
-    {
-        if (!\is_array($values)) {
-            $values = [$values];
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
         }
 
         $result = [];

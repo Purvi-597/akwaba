@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFavoritesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id');
+            $table->integer('osm_id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('cat_type');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->enum('status', ['1', '0']);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('favorites');
+    }
+}

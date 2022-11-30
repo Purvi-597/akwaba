@@ -323,15 +323,11 @@ final class TestRunner extends BaseTestRunner
             $this->printer->setShowProgressAnimation(!$arguments['noInteraction']);
         }
 
-<<<<<<< HEAD
         $this->printer->write(
             Version::getVersionString() . "\n"
         );
 
         self::$versionStringPrinted = true;
-=======
-        $this->write(Version::getVersionString() . "\n");
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 
         if ($arguments['verbose']) {
             $this->writeMessage('Runtime', $this->runtime->getNameWithVersionAndCodeCoverageDriver());

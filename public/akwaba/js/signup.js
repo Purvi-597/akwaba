@@ -16,7 +16,7 @@ $(document).on('click', '.signupBtn', function(){
 			$("#lastname_error_msg").text("Last Name is required");
 		}
 		if(email == ""){
-			$("#email_error_msg").text('Please enter valid email.');	
+			$("#email_error_msg").text('Please enter valid email.');
 		}else{
 			var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 			var email = $("#email").val();
@@ -33,16 +33,31 @@ $(document).on('click', '.signupBtn', function(){
 			$("#contact_error_msg").text("Contact no is required");
 		}
 		if($('#first_name').val().length != 0 && $('#last_name').val().length != 0 && $('#email').val().length != 0 && $('#password').val().length != 0 && $('#contact_no').val().length != 0 && regex.test(email)){
+
+
+            $(".loader1").show();
+            $(".body_demo").css('pointer-events','none');
+            $(".body_demo").css('opacity','0.5');
 			 $.ajax({
                     type: "POST",
                     url: 'signup_ajax.php',
 					data: {'signup':'signupForm','firstname': firstname,'lastname': lastname,'email': email,'psd': psd,'contactno': contactno},
                     success: function(response){
 						//alert(response);
+
+
+
 						if(response == 'true'){
+                            setTimeout(function () {
+                            $(".loader1").hide();
+                            $(".body_demo").css('pointer-events','auto');
+                            $(".body_demo").css('opacity','1');
 						  $('#exampleModal').modal('hide');
+                        }, 2500);
 					      window.location.href = "index.php";
 						}
+
+
 					}
 			 })
 		}
@@ -90,30 +105,43 @@ $(document).on('click', '.loginBtn', function(){
 			$("#userpassword_error_msg").text("Password is required");
 		}
 		if($('#useremail').val().length != 0 && $('#userpassword').val().length != 0){
+            $(".loader1").show();
+
+            $(".body_demo").css('pointer-events','none');
+            $(".body_demo").css('opacity','0.5');
+
+
 			 $.ajax({
                     type: "POST",
                     url: 'login_ajax.php',
 					data: {'login':'loginForm','email': email,'psd': psd},
                     success: function(response){
 						if(response == 'true'){
+                            // setTimeout(function () {
+                            // }, 2500);
+                            $(".loader1").hide();
+                            $(".body_demo").css('pointer-events','auto');
+                            $(".body_demo").css('opacity','1');
 						  $('#exampleModal1').modal('hide');
 					      window.location.href = "index.php";
+
+
 						}
 					}
 			 })
-			
-			
-			
+
+
+
 		}
 	}
 });
 $(document).on('click','.featuredBtn', function(){
-	
+
 	$(".indexDiv").css('display','none');
 	$(".morecategoryDiv").css('display','none');
 	$(".featuredDiv").removeClass('extralarge');
 	$(".featuredDiv").css('display','flex');
-	
+
 });
 $(document).on('click','#closeBtn', function(){
 	$(".indexDiv").css('display','block');
@@ -224,18 +252,18 @@ $(document).on('click', '.feedbackBtn', function(){
 							   $("#username").val('');
 							   $("#useremails").val('');
 							   $("#usercontact").val('');
-							   $('textarea#usermessage').val(''); 
-							} , 2000);	
+							   $('textarea#usermessage').val('');
+							} , 2000);
 						}else{
 							 $("#error_message").text("Something went wrong!");
 							 setTimeout(function () {
 							   $("#feedback_flag").val('No');
-							   $('#error_message').text(''); 
-							} , 2000);	
-							
+							   $('#error_message').text('');
+							} , 2000);
+
 						}
 					}
-			 }) 
+			 })
 		}
 	}
 });
@@ -466,7 +494,7 @@ $(document).on('click','.getFuturedlist', function(){
 				url: 'futured_list_ajax.php',
 				data: {'futured':'futuredForm','id': id},
 				success: function(response){
-					
+
 				    $(".featureSubsidebar").html(response);
 					$(".featuredDiv").addClass('extralarge');
 					$(".featureSubsidebar").css('display','block');
@@ -474,7 +502,7 @@ $(document).on('click','.getFuturedlist', function(){
 					$.getScript(popper);
 					$.getScript(simplebar);
 					$.getScript(custom);
-					
+
 				}
 			 })
 });

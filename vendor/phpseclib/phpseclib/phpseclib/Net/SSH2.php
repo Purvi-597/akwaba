@@ -2798,7 +2798,7 @@ class SSH2
 
         $this->channel_status[self::CHANNEL_EXEC] = NET_SSH2_MSG_CHANNEL_DATA;
 
-        if ($this->in_request_pty_exec) {
+        if ($callback === false || $this->in_request_pty_exec) {
             return true;
         }
 

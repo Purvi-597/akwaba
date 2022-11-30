@@ -57,7 +57,7 @@ return [
     'frDescription_validation' => 'Please provide a French Description.',
     'Description_placeholder' => 'Enter Description',
     'frDescription_placeholder' => 'Enter French Description',
-    
+
     'Category Name'=>'Category Name',
     'Subcategory Name' => 'Subcategory Name',
     'Confirm_alert' => 'Are You sure',
@@ -136,7 +136,7 @@ return [
     'text_success' => 'feature text created successfully.',
     'text_update' => 'feature text Updated Successfully',
     'text_delete' => 'feature Deleted Successfully',
-    
+
     /* Feature place adsvertisement */
     'Place_Title' => 'Place Title',
     'Type' => 'Type',
@@ -202,8 +202,8 @@ return [
      'reset' => 'Unable to reset password',
      'user_deleted' => 'User Deleted Successfully',
      'user' => 'User',
-     
-   
+
+
     /* Password */
     'Change_Password' => 'Change Password',
     'old_password' => 'Old Password',
@@ -231,13 +231,13 @@ return [
 
     /* Rating REview */
     'osm_id' => 'Osm ID',
-    'user_id' => 'User ID',
+    'user_id' => 'User Name',
     'ratings' => 'Ratings',
     'review' => 'Reviews',
 
     'notes' => 'Notes',
 
-    /*Photo */ 
+    /*Photo */
     'add_photo' => 'Add Photo',
     'photo_address' => 'Address',
     'photo_image' => 'Image',
@@ -277,7 +277,7 @@ return [
     'Question' => 'Question',
     'FrQuestion' => 'French Question',
     'Answer' => 'Answer',
-    'FrAnswer' => 'French Answer',    
+    'FrAnswer' => 'French Answer',
     'Question_validation' => 'Please provide a Question.',
     'frQuestion_validation' => 'Please provide a French Question.',
     'Answer_validation' => 'Please Provide a Answer',

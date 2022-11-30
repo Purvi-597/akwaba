@@ -25,17 +25,17 @@
             <div class="card-body">
                   @if ($notification = Session::get('error'))
                         <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ $notification }}</strong>
                         </div>
                     @endif
                     @if ($notification = Session::get('success'))
                         <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ $notification }}</strong>
                         </div>
                     @endif
-                    
+
                 <div class="table-responsive">
                     <table id="UsersList1" class="table">
                         <thead class="thead-light">
@@ -43,7 +43,7 @@
                                 <th width="10%">#</th>
                                 <th  width="15%">@lang('language.Question')</th>
                                 <th  width="15%">@lang('language.Answer')</th>
-                                <th  width="15%">@lang('language.Status')</th>
+                                <th  width="10%">@lang('language.Status')</th>
                                 <th  width="15%">Action</th>
                             </tr>
                         </thead>
@@ -54,26 +54,26 @@
                                 @foreach($faq as $faq)
                                     <tr>
                                         <td>{{$i}}</td>
-                                        
-                                        
+
+
                                         <td >{{$faq->question}}</td>
-                                        
+
                                         <td >{{$faq->answer}}</td>
-                                        
+
                                         {{-- <td>@if ($features->image != '')
                                             <img src="{{$profilepicturePath}}{{$features->image}}" alt="" style="width: 100px;height:100px;">@endif
                                         </td> --}}
-                                    
+
                                         <?php if($faq->status == 1){ ?>
                                         <td id="{{$faq->id}}" ><span class="btn btn-block btn-success btn-sm status" data-id = "{{$faq->id}}" data-status = "{{$faq->status}}" onclick="updatestatus({{$faq->id}},{{$faq->status}})"> @lang('language.Active')</span></td><?php } else { ?>
-                                    
+
                                         <td id="{{$faq->id}}" ><span class="btn btn-block btn-danger btn-sm status" data-id = "{{$faq->id}}" data-status = "{{$faq->status}}" onclick="updatestatus({{$faq->id}},{{$faq->status}})"> @lang('language.Inactive')</span></td><?php } ?>
 
                                     <td>
                                         <a href="{{route('faq.edit', $faq->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="{{route('faq.view', $faq->id)}}"  class="btn btn-outline-secondary btn-sm edit" title="View"><i class="fas fa-eye"></i></a>
                                         <a  href="javascript:void(0);"  class="btn btn-outline-secondary btn-sm delete" id="deletefaq" data-id="{{$faq->id}}" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                                    </td>                                       
+                                    </td>
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach
@@ -120,7 +120,7 @@
         <script>
             function updatestatus(id,status)
             {
-               
+
             $.ajax({
             type: "POST",
             url: '{{route("faq_status")}}',
@@ -136,7 +136,7 @@
                                 '@lang("language.Status")',
                                 '@lang("language.Status_Changed")',
                                 'success'
-                                )   
+                                )
 
               }
               else
@@ -148,7 +148,7 @@
                                 '@lang("language.Status")',
                                 '@lang("language.Status_Changed")',
                                 'success'
-                                )   
+                                )
 
 
               }
@@ -214,7 +214,7 @@
         })
 
 
-            
+
 
 
 </script>

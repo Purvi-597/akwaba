@@ -48,7 +48,7 @@ function createCustomIcon(feature, latlng) {
 		shadowSize: [35, 20], // width, height of optional shadow image
 		iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
 		shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
-		popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+		popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
 	})
 	return L.marker(latlng, { icon: myIcon })
 }
@@ -140,13 +140,8 @@ $('.leaflet-control-container .leaflet-control-layers-overlays label').removeCla
 $(this).addClass('active');
 });
 
-<<<<<<< HEAD
 $(document).on('click','#iconBtn', function(){
 
-=======
-$(document).on('click','#iconBtn', function(){ 
-	console.log('hef');
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 	var id = $(this).attr('data-index');
 	var flag = $(this).attr('data-id');
 	var add = $(this).attr('data-add');
@@ -173,6 +168,7 @@ $(document).on('click','#iconBtn', function(){
 			var external_link = $(this).attr('data-link');
 			window.open(external_link);
 		}else{
+
 			$.ajax({
 				type: "POST",
 				url: 'category_detail_ajax.php',
@@ -206,6 +202,7 @@ $(document).on('click','#iconBtn', function(){
 			})
 		}
 	}else{
+
 		getCatData(id,'1');
 	}
 
@@ -694,24 +691,12 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
 
 
     $(document).on('click','.AddNotesBtn',function(){
-
+        $(".Add_notes_link").css('display', 'none');
         $(".AddNotesSection").toggle();
       });
-
-
-
-
-
-//     $(document).on('click','.add_notes',function(){
-
-//        // var html = '<div class="notes"><input type="text" class="form-control notes_text" id="notes_text" name="notes_text"><a href="javascript:void(0);" id="note_submit" class="note_submit">Save</a></div>';
-
-//         $('.notes_div').html(html);
-// });
     $(document).on('click','.save_note',function(){
         var note = $(".AddNotesDivInput").val();
         var osm_id = $("#category_osm_id").val();
-       
         var check = 'add';
         $.ajax({
             type: "POST",
@@ -719,81 +704,195 @@ function getCatData(id,current_page,catName='',hoursfilter=''){
             data: {'check':check,'note': note,'osm_id':osm_id},
             success: function(data){
                 if($.trim(data) == 'success'){
-                   $(".js_div").css('display', 'block');
-                   $("#edit_note_text").text(note);
+                   $(".edit_notes_div").show();
+                   $(".edit_note_text").text(note);
+                   $(".Add_notes_link").hide();
                    $(".AddNotesSection").toggle();
-                }else if($.trim(data) == 'success_edit_name'){
-                    $(".cookie_div").css('display', 'block');
-                    $("#edit_note_text").text(note);
-                    $(".AddNotesSection").toggle();
                 }else{
                     alert("error: " + data);
                 }
             }
         });
     });
-
-    $(document).on('click','.edit_note_osm',function(){
-      
+    $(document).on('click','#edit_note_osm',function(){
        $(".edit_notes_div").css('display', 'none');
-       $(".AddNotesSection").toggle();
-       var div_note =  $("#edit_note_text").text();
-        $(".AddNotesDivInput").val(div_note);
-    //    var osm_id = $("#category_osm_id").val();
-    
-    //    $.ajax({
-    //     type: "POST",
-    //     url: 'add_notes.php',
-    //     data: {'check':check,'note': note,'osm_id':osm_id},
-    //     success: function(data){
-    //         if($.trim(data) == 'success'){
-    //            $(".edit_notes_div").css('display', 'block');
-    //            $("#edit_note_text").text(note);
-    //            $(".AddNotesSection").toggle();
-    //         }else{
-    //             alert("error: " + data);
-    //         }
-    //     }
-    // });
+       $(".EditNotesSection").toggle();
+        var div_note = $(".edit_note_text").text();
+        $(".editNotesDivInput").val(div_note);
+
+    });
+    $(document).on('click','.save_edit_note',function(){
+            var check = 'edit';
+            var note = $(".editNotesDivInput").val();
+            var osm_id = $("#category_osm_id").val();
+            $.ajax({
+                type: "POST",
+                url: 'add_notes.php',
+                data: {'check':check,'note': note,'osm_id':osm_id},
+                success: function(data){
+                    if($.trim(data) == 'success'){
+                        $(".edit_note_text").text(note);
+                        $(".edit_notes_div").css('display', 'block');
+                        $(".EditNotesSection").toggle();
+                    }else{
+                        alert("error: " + data);
+                    }
+                }
+            });
+    });
+
+    $(document).on('click','#delete_note_osm',function(){
+        var check = 'delete';
+        var osm_id = $("#category_osm_id").val();
+        $.ajax({
+            type: "POST",
+            url: 'add_notes.php',
+            data: {'check':check,'osm_id':osm_id},
+            success: function(data){
+                if($.trim(data) == 'success'){
+                    $(".edit_notes_div").css('display', 'none');
+                    $(".Add_notes_link").css('display', 'block');
+                    var note = $(".AddNotesDivInput").val("");
+                    var note = $(".editNotesDivInput").val("");
+
+                }else{
+                    alert("error: " + data);
+                }
+            }
+        });
+    });
+    $(document).on('click','#save_cancel',function(){
+        $(".AddNotesSection").toggle();
+        $(".Add_notes_link").css('display', 'block');
+    });
+    $(document).on('click','#save_edit_cancel',function(){
+        $(".EditNotesSection").toggle();
+        $(".edit_notes_div").css('display', 'block');
+        $(".Add_notes_link").css('display', 'none');
+    });
+
+    $(document).on('click','#advertiseCloseBtn',function(){
+        $(".addsidebar").css('display','none');
+        $(".indexDiv").css('display','block');
+    });
+
+    $(document).on('click','.savebtn_add', function(){
+
+	var userid = $("#sessionid").val();
+	var osmid = $(this).attr('id');
+	var type = $(this).attr('data-index');
+	var message = '<div class="alert success"><span class="closebtn">&times;</span><strong>Success!</strong> Indicates a successful or positive action.</div>';
+	if (typeof userid === "undefined") {
+		$(".catSubsidebar").css('display', 'none');
+		$(".indexDiv").css('display', 'block');
+		$(".catDataDiv").css('display', 'none');
+		$("#exampleModal1").modal('show');
+	}else{
+		//$(".tooltip1").css('display','block');
+		$.ajax({
+				url:"favorite_ajax.php",
+				method:"POST",
+				data: {'favorite':'favoriteForm','userid': userid, 'osmid': osmid, 'type': type},
+				success: function(response){
+
+                 $("#fav_image").attr("src","assets/img/icons/icon-8-filled.png");
+                 $("#fav_status").text("Saved");
+
+				}
+		 })
+
+	}
+
+    });
+    $(document).on('click','.savebtn_remove',function(){
+        var userid = $("#sessionid").val();
+	    var osmid = $(this).attr('id');
+        var check = 'remove';
+        $.ajax({
+            url:"favorite_ajax.php",
+            method:"POST",
+            data: {'check':check,'userid': userid, 'osmid': osmid},
+            success: function(response){
+
+                $("#fav_image").attr("src","assets/img/icons/icon-8.png");
+                $("#fav_status").text("Save");
+
+
+            }
+     })
+
+    });
+
+    $(document).on('click','.addreviewBtn', function(){
+        var osmid = $(this).attr('data-index');
+        var name = $(this).attr('id');
+        var check = $(this).attr('data-check');
+       
+        if(check == "check"){
+           
+            $("#exampleModalCenter").css('z-index','1111111111111111');
+        }
+        $("#profilename").text(name);
+        $("#osmids").val(osmid);
+        $("#exampleModalCenter").modal('show');
 
 
     });
-    // $(document).on('click','#edit_note',function(){
-    //     var note = $("#notes_text").val();
-    //     var id = $(this).attr('data-id');
-    //     var check = 'edit';
-    //     $.ajax({
-    //         type: "POST",
-    //         url: 'add_notes.php',
-    //         data: {'check':check,'note': note,'id':id},
-    //         success: function(data){
-    //             if($.trim(data) == 'success'){
-    //                 alert(data);
-    //             }else{
-    //                 alert("error: " + data);
-    //             }
-    //         }
-    //     });
+
+//if (window.File && window.FileList && window.FileReader) {
+    //$("#").change(function(e) {
+$(document).on('change', '#uploadimgreview', function(e) {
+
+    // if($(".pip_review").length > 1){
+    //  $(".pip_review").remove("");
+    // }
+
+    if ($("#uploadimgreview")[0].files.length > 5) {
+        $("#uploadimgreview").val(null);
+    $("#image_review_error").html("You can only upload 3 images");
+    }
+    else{
+
+    for (var i = 0; i < this.files.length; i++){
+           let name = e.target.files[i].name;
+               $("#image_review_error").html("");
+               var files = e.target.files,
+                   filesLength = files.length;
+
+           var ext = name.split('.').pop().toLowerCase();
+           if($.inArray(ext, ['png','jpg','jpeg','jfif']) == -1) {
+               $(".o-img").remove();
+           $("#image_review_error").html("Please upload images of following formats(*png,jpeg,jpg,jfif).");
+               var html = '<input type="file" class="o-img oim" name="image[]" id="image" multiple  accept=".gif,.jpg,.jpeg,.png" onchange="get_other_image(this);"/>';
+               $(".other-img").append(html);
+
+           }else{
+               $("#image_review_error").html("");
+                   var f = files[i];
+                   var fileReader = new FileReader();
+                   fileReader.onload = (function(ev) {
+                       var html =   $("<span class=\"pip_review\">" +
+                       "<img class=\"imageThumb\" height=\"100px\" width=\"100px\" src=\"" + ev.target.result + "\" title=\"" + name + "\"/>" +
+                       "<a href=\"javascript:void(0)\" id=\"deleteBtn_review\" style=\"display: block;\" data-id=\"${Files.length}\" onclick=\"removefiles('"+ name +"')\">"+
+                       "<span class=\"close_imge\"><i class=\"fa fa-window-close\" aria-hidden=\"true\"></i></span>"+
+                                           "</a>" +
+                       "</span>");
+                       $("#img_section3").append(html);
+
+                       $(document).on('click','#deleteBtn_review',function(){
+
+                       $(this).parent(".pip_review").remove();
+                       });
 
 
-    // });
-    // $(document).on('click','#delete_node',function(){
+                   });
+               fileReader.readAsDataURL(f);
+               }
+           }
 
-    //     var id = $(this).attr('data-id');
-    //     var check = 'delete';
-    //     $.ajax({
-    //         type: "POST",
-    //         url: 'add_notes.php',
-    //         data: {'check':check,'id':id},
-    //         success: function(data){
-    //             if($.trim(data) == 'success'){
-    //                 alert(data);
-    //             }else{
-    //                 alert("error: " + data);
-    //             }
-    //         }
-    //     });
+           }
+               });
+        //    } else {
 
-
-    // });
+        //    }
 

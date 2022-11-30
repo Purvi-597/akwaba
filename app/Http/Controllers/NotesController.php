@@ -11,19 +11,21 @@ use Lang;
 
 
 
-class NotesController extends Controller 
+class NotesController extends Controller
 {
 
     public function index()
     {
 
-        $data['notes'] = Notes::leftjoin('users','users.id','=','notes.user_id')->orderBy('id','desc')->get();
+        $data['notes'] = Notes::leftjoin('users','users.id','=','notes.user_id')->orderBy('notes.id','desc')->get();
+        // echo "<pre>";
+        // print_r($data);die;
         return view('admin.notes',$data);
     }
 
-	
-   
 
-}    
 
-   
+
+}
+
+

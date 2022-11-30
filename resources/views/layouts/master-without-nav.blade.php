@@ -8,7 +8,7 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     <!-- App favicon -->
- <link rel="shortcut icon" href="{{ URL::asset('/images/img/logo_p1.png')}}">
+    <link rel="shortcut icon" href="{{ URL::asset('/images/deafult.png')}}">
     @include('layouts.head')
 </head>
 

@@ -18,7 +18,6 @@ use Twilio\Rest\Supersim\V1\FleetList;
 use Twilio\Rest\Supersim\V1\IpCommandList;
 use Twilio\Rest\Supersim\V1\NetworkAccessProfileList;
 use Twilio\Rest\Supersim\V1\NetworkList;
-use Twilio\Rest\Supersim\V1\SettingsUpdateList;
 use Twilio\Rest\Supersim\V1\SimList;
 use Twilio\Rest\Supersim\V1\SmsCommandList;
 use Twilio\Rest\Supersim\V1\UsageRecordList;
@@ -31,7 +30,6 @@ use Twilio\Version;
  * @property IpCommandList $ipCommands
  * @property NetworkList $networks
  * @property NetworkAccessProfileList $networkAccessProfiles
- * @property SettingsUpdateList $settingsUpdates
  * @property SimList $sims
  * @property SmsCommandList $smsCommands
  * @property UsageRecordList $usageRecords
@@ -51,7 +49,6 @@ class V1 extends Version {
     protected $_ipCommands;
     protected $_networks;
     protected $_networkAccessProfiles;
-    protected $_settingsUpdates;
     protected $_sims;
     protected $_smsCommands;
     protected $_usageRecords;
@@ -106,13 +103,6 @@ class V1 extends Version {
             $this->_networkAccessProfiles = new NetworkAccessProfileList($this);
         }
         return $this->_networkAccessProfiles;
-    }
-
-    protected function getSettingsUpdates(): SettingsUpdateList {
-        if (!$this->_settingsUpdates) {
-            $this->_settingsUpdates = new SettingsUpdateList($this);
-        }
-        return $this->_settingsUpdates;
     }
 
     protected function getSims(): SimList {

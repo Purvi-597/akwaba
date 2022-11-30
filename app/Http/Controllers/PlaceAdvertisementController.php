@@ -32,6 +32,7 @@ class PlaceAdvertisementController extends Controller
     public function create()
     {
         $data['place_name'] =  DB::connection('pgsql')->select("select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, name, osm_id from planet_osm_point where name != ''");
+
         return view('admin.placeAdvertisement.create',$data);
     }
 
@@ -44,7 +45,7 @@ class PlaceAdvertisementController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        
+
         $image = '';
         if ($files = $request->file('image')) {
             $placeAdvertisementPath = public_path().'/uploads/place_advertisement/';

@@ -17,7 +17,8 @@ if(isset($_REQUEST['login']) && ($_REQUEST['login'] == 'loginForm')){
 			     'firstname' =>$row['first_name'],
 			     'lastname' =>$row['last_name'],
 			     'email' =>$row['email'],
-			     'contactno' =>$row['contact_no']
+			     'contactno' =>$row['contact_no'],
+                 'profile_pic' => $row['profile_pic']
 			   );
 			}
 			  $_SESSION['users'] = $users;

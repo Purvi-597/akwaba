@@ -13,6 +13,7 @@ namespace Psy\Output;
 
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
@@ -23,15 +24,7 @@ class ShellOutput extends ConsoleOutput
     const NUMBER_LINES = 128;
 
     private $paging = 0;
-<<<<<<< HEAD
-=======
-
-    /** @var OutputPager */
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
     private $pager;
-
-    /** @var Theme */
-    private $theme;
 
     /**
      * Construct a ShellOutput instance.
@@ -41,11 +34,10 @@ class ShellOutput extends ConsoleOutput
      * @param OutputFormatterInterface|null $formatter (default: null)
      * @param string|OutputPager|null       $pager     (default: null)
      */
-    public function __construct($verbosity = self::VERBOSITY_NORMAL, $decorated = null, OutputFormatterInterface $formatter = null, $pager = null, $theme = null)
+    public function __construct($verbosity = self::VERBOSITY_NORMAL, $decorated = null, OutputFormatterInterface $formatter = null, $pager = null)
     {
         parent::__construct($verbosity, $decorated, $formatter);
 
-        $this->theme = $theme ?? new Theme('modern');
         $this->initFormatters();
 
         if ($pager === null) {
@@ -167,17 +159,6 @@ class ShellOutput extends ConsoleOutput
     }
 
     /**
-     * Set the output Theme.
-     *
-     * @param Theme
-     */
-    public function setTheme(Theme $theme)
-    {
-        $this->theme = $theme;
-        $this->initFormatters();
-    }
-
-    /**
      * Flush and close the output pager.
      */
     private function closePager()
@@ -192,7 +173,6 @@ class ShellOutput extends ConsoleOutput
      */
     private function initFormatters()
     {
-<<<<<<< HEAD
         $formatter = $this->getFormatter();
 
         $formatter->setStyle('warning', new OutputFormatterStyle('black', 'yellow'));
@@ -226,26 +206,5 @@ class ShellOutput extends ConsoleOutput
 
         // Code-specific formatting
         $formatter->setStyle('inline_html', new OutputFormatterStyle('cyan'));
-=======
-        $useGrayFallback = !$this->grayExists();
-        $this->theme->applyStyles($this->getFormatter(), $useGrayFallback);
-        $this->theme->applyErrorStyles($this->getErrorOutput()->getFormatter(), $useGrayFallback);
-    }
-
-    /**
-     * Checks if the "gray" color exists on the output.
-     *
-     * @return bool
-     */
-    private function grayExists(): bool
-    {
-        try {
-            $this->write('<fg=gray></>');
-        } catch (\InvalidArgumentException $e) {
-            return false;
-        }
-
-        return true;
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
     }
 }

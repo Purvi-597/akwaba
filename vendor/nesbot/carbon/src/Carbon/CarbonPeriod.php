@@ -23,7 +23,6 @@ use Carbon\Exceptions\UnreachableException;
 use Carbon\Traits\IntervalRounding;
 use Carbon\Traits\Mixin;
 use Carbon\Traits\Options;
-use Carbon\Traits\ToStringFormat;
 use Closure;
 use Countable;
 use DateInterval;
@@ -172,7 +171,6 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
         Mixin::mixin as baseMixin;
     }
     use Options;
-    use ToStringFormat;
 
     /**
      * Built-in filter for limit by recurrences.
@@ -1457,27 +1455,13 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      */
     public function toString()
     {
-        $format = $this->localToStringFormat ?? static::$toStringFormat;
-
-        if ($format instanceof Closure) {
-            return $format($this);
-        }
-
         $translator = ([$this->dateClass, 'getTranslator'])();
 
         $parts = [];
 
-<<<<<<< HEAD
         $format = !$this->startDate->isStartOfDay() || $this->endDate && !$this->endDate->isStartOfDay()
             ? 'Y-m-d H:i:s'
             : 'Y-m-d';
-=======
-        $format = $format ?? (
-            !$this->startDate->isStartOfDay() || ($this->endDate && !$this->endDate->isStartOfDay())
-                ? 'Y-m-d H:i:s'
-                : 'Y-m-d'
-        );
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 
         if ($this->recurrences !== null) {
             $parts[] = $this->translate('period_recurrences', [], $this->recurrences, $translator);

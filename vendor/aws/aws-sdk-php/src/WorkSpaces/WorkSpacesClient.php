@@ -84,8 +84,6 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise migrateWorkspaceAsync(array $args = [])
  * @method \Aws\Result modifyAccount(array $args = [])
  * @method \GuzzleHttp\Promise\Promise modifyAccountAsync(array $args = [])
- * @method \Aws\Result modifyCertificateBasedAuthProperties(array $args = [])
- * @method \GuzzleHttp\Promise\Promise modifyCertificateBasedAuthPropertiesAsync(array $args = [])
  * @method \Aws\Result modifyClientProperties(array $args = [])
  * @method \GuzzleHttp\Promise\Promise modifyClientPropertiesAsync(array $args = [])
  * @method \Aws\Result modifySelfservicePermissions(array $args = [])

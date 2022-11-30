@@ -300,20 +300,6 @@ class Route
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Flush the cached container instance on the route.
-     *
-     * @return void
-     */
-    public function flushController()
-    {
-        $this->computedMiddleware = null;
-        $this->controller = null;
-    }
-
-    /**
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
      * Determine if the route matches a given request.
      *
      * @param  \Illuminate\Http\Request  $request

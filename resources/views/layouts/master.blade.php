@@ -9,7 +9,7 @@
     <meta content="" name="author" />
     <!-- App favicon -->
     <!-- logo-dark.png -->
- <link rel="shortcut icon" href="{{ URL::asset('assets/images/')}}">
+ <link rel="shortcut icon" href="{{ URL::asset('/images/deafult.png')}}">
     @include('layouts.head')
 </head>
 

@@ -11,19 +11,18 @@ use Lang;
 
 
 
-class RatingReviewsController extends Controller 
+class RatingReviewsController extends Controller
 {
 
     public function index()
     {
-
-        $data['reviews_rating'] = Rating::orderBy('id','desc')->get();
+        $data['reviews_rating'] = Rating::leftjoin('users','users.id','=','reviews_rating.user_id')->orderBy('reviews_rating.id','desc')->get();
         return view('admin.rating',$data);
     }
 
-	
-   
 
-}    
 
-   
+
+}
+
+

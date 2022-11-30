@@ -61,27 +61,6 @@ interface S3ClientInterface extends AwsClientInterface
     public function doesObjectExist($bucket, $key, array $options = []);
 
     /**
-<<<<<<< HEAD
-=======
-     * Determines whether or not an object exists by name. This method uses S3's HeadObject
-     * operation and requires the relevant bucket and object permissions to prevent errors.
-     *
-     * @param string $bucket The name of the bucket
-     * @param string $key The key of the object
-     * @param bool $includeDeleteMarkers Set to true to consider delete markers
-     *                                   existing objects. Using the default value
-     *                                   of false will ignore delete markers and
-     *                                   return false.
-     * @param array $options Additional options available in the HeadObject
-     *                        operation (e.g., VersionId).
-     *
-     * @return bool
-     * @throws S3Exception|Exception if there is an unhandled exception
-     */
-    public function doesObjectExistV2($bucket, $key, $includeDeleteMarkers = false, array $options = []);
-
-    /**
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
      * Register the Amazon S3 stream wrapper with this client instance.
      */
     public function registerStreamWrapper();

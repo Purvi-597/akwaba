@@ -27,8 +27,8 @@ return [
     'Feature Places List' => 'Liste des lieux d intérêt',
     'Settings' => 'Réglages',
     'First Name' => 'Prénom',
-    
-   
+
+
     'Title' => 'Titre',
     'French_Title' => 'Titre français',
     'Image' => 'Image',
@@ -57,13 +57,13 @@ return [
     'frDescription_validation'=> 'Veuillez fournir une description en français.',
     'Description_placeholder' => 'Entrez la description',
     'frDescription_placeholder' => 'Entrez la description',
-    
+
 
     'Category Name'=>'Nom de catégorie',
     'Subcategory Name' => 'Nom de la sous-catégorie',
 
 
-    
+
     /*Advertisement */
     'Add_Advertisement' => 'Ajouter une publicité',
     'delete_advertisement' => 'Vous souhaitez supprimer cette annonce',
@@ -81,7 +81,7 @@ return [
     'Category_validation' => 'Veuillez fournir un nom de catégorie.',
     'image_size' =>" Veuillez télécharger des images de la dimension suivante largeur/hauteur (29*38).",
     'delete_categories' => 'Vous souhaitez supprimer cette catégorie',
-    'Confirm_alert' => 'Êtes-vous sûr', 
+    'Confirm_alert' => 'Êtes-vous sûr',
     'Category' => 'catégorie',
     'Category_Deleted' => 'Catégorie supprimée avec succès',
     'Add_Categories' => 'Ajouter des catégories',
@@ -117,8 +117,8 @@ return [
     'display_name' => 'Afficher un nom',
     'sub_add_Success' => 'Sous-catégorie créée avec succès',
     'sub_update' => 'Sous-catégorie mise à jour avec succès',
-    
-    
+
+
 
     /* Feature  */
 
@@ -144,7 +144,7 @@ return [
     'text_delete' => 'fonctionnalité supprimée avec succès',
 
     /* Featute advertisent */
-    
+
     'Place_Title' => 'Titre du lieu',
     'Type' => 'Taper',
     'select' => 'Veuillez sélectionner le type',
@@ -236,10 +236,10 @@ return [
     'show_text' => "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
     'previous' => 'précédente',
     'next' => 'suivante',
-    
+
     /*Rating REciew */
     'osm_id' => 'Osm ID',
-    'user_id' => "identifiant d'utilisateur",
+    'user_id' => "Nom d'utilisateur",
     'ratings' => 'Notes',
     'review' => 'Examen',
 

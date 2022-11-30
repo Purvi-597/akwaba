@@ -19,12 +19,6 @@ use Twilio\Rest\Api\V2010\Account\Call\NotificationList;
 use Twilio\Rest\Api\V2010\Account\Call\PaymentList;
 use Twilio\Rest\Api\V2010\Account\Call\RecordingList;
 use Twilio\Rest\Api\V2010\Account\Call\SiprecList;
-<<<<<<< HEAD
-=======
-use Twilio\Rest\Api\V2010\Account\Call\StreamList;
-use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageList;
-use Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageSubscriptionList;
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 use Twilio\Values;
 use Twilio\Version;
 
@@ -35,22 +29,11 @@ use Twilio\Version;
  * @property EventList $events
  * @property PaymentList $payments
  * @property SiprecList $siprec
-<<<<<<< HEAD
-=======
- * @property StreamList $streams
- * @property UserDefinedMessageSubscriptionList $userDefinedMessageSubscriptions
- * @property UserDefinedMessageList $userDefinedMessages
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
  * @method \Twilio\Rest\Api\V2010\Account\Call\RecordingContext recordings(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\NotificationContext notifications(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\FeedbackContext feedback()
  * @method \Twilio\Rest\Api\V2010\Account\Call\PaymentContext payments(string $sid)
  * @method \Twilio\Rest\Api\V2010\Account\Call\SiprecContext siprec(string $sid)
-<<<<<<< HEAD
-=======
- * @method \Twilio\Rest\Api\V2010\Account\Call\StreamContext streams(string $sid)
- * @method \Twilio\Rest\Api\V2010\Account\Call\UserDefinedMessageSubscriptionContext userDefinedMessageSubscriptions(string $sid)
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
  */
 class CallContext extends InstanceContext {
     protected $_recordings;
@@ -59,12 +42,6 @@ class CallContext extends InstanceContext {
     protected $_events;
     protected $_payments;
     protected $_siprec;
-<<<<<<< HEAD
-=======
-    protected $_streams;
-    protected $_userDefinedMessageSubscriptions;
-    protected $_userDefinedMessages;
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
 
     /**
      * Initialize the CallContext
@@ -233,54 +210,6 @@ class CallContext extends InstanceContext {
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Access the streams
-     */
-    protected function getStreams(): StreamList {
-        if (!$this->_streams) {
-            $this->_streams = new StreamList(
-                $this->version,
-                $this->solution['accountSid'],
-                $this->solution['sid']
-            );
-        }
-
-        return $this->_streams;
-    }
-
-    /**
-     * Access the userDefinedMessageSubscriptions
-     */
-    protected function getUserDefinedMessageSubscriptions(): UserDefinedMessageSubscriptionList {
-        if (!$this->_userDefinedMessageSubscriptions) {
-            $this->_userDefinedMessageSubscriptions = new UserDefinedMessageSubscriptionList(
-                $this->version,
-                $this->solution['accountSid'],
-                $this->solution['sid']
-            );
-        }
-
-        return $this->_userDefinedMessageSubscriptions;
-    }
-
-    /**
-     * Access the userDefinedMessages
-     */
-    protected function getUserDefinedMessages(): UserDefinedMessageList {
-        if (!$this->_userDefinedMessages) {
-            $this->_userDefinedMessages = new UserDefinedMessageList(
-                $this->version,
-                $this->solution['accountSid'],
-                $this->solution['sid']
-            );
-        }
-
-        return $this->_userDefinedMessages;
-    }
-
-    /**
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
      * Magic getter to lazy load subresources
      *
      * @param string $name Subresource to return

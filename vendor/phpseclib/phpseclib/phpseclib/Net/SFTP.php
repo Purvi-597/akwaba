@@ -437,7 +437,7 @@ class SFTP extends SSH2
             // yields inconsistent behavior depending on how php is compiled.  so we left shift -1 (which, in
             // two's compliment, consists of all 1 bits) by 31.  on 64-bit systems this'll yield 0xFFFFFFFF80000000.
             // that's not a problem, however, and 'anded' and a 32-bit number, as all the leading 1 bits are ignored.
-            (PHP_INT_SIZE == 4 ? -1 : 0xFFFFFFFF) => 'NET_SFTP_ATTR_EXTENDED'
+            (-1 << 31) & 0xFFFFFFFF => 'NET_SFTP_ATTR_EXTENDED'
         ];
         // http://tools.ietf.org/html/draft-ietf-secsh-filexfer-04#section-6.3
         // the flag definitions change somewhat in SFTPv5+.  if SFTPv5+ support is added to this library, maybe name
@@ -973,12 +973,6 @@ class SFTP extends SSH2
     {
         $files = $this->readlist($dir, false);
 
-        // If we get an int back, then that is an "unexpected" status.
-        // We do not have a file list, so return false.
-        if (is_int($files)) {
-            return false;
-        }
-
         if (!$recursive || $files === false) {
             return $files;
         }
@@ -1012,13 +1006,6 @@ class SFTP extends SSH2
     public function rawlist($dir = '.', $recursive = false)
     {
         $files = $this->readlist($dir, true);
-
-        // If we get an int back, then that is an "unexpected" status.
-        // We do not have a file list, so return false.
-        if (is_int($files)) {
-            return false;
-        }
-
         if (!$recursive || $files === false) {
             return $files;
         }
@@ -1085,9 +1072,8 @@ class SFTP extends SSH2
                 break;
             case NET_SFTP_STATUS:
                 // presumably SSH_FX_NO_SUCH_FILE or SSH_FX_PERMISSION_DENIED
-                list($status) = Strings::unpackSSH2('N', $response);
-                $this->logError($response, $status);
-                return $status;
+                $this->logError($response);
+                return false;
             default:
                 throw new \UnexpectedValueException('Expected NET_SFTP_HANDLE or NET_SFTP_STATUS. '
                                                   . 'Got packet type: ' . $this->packet_type);
@@ -1140,7 +1126,7 @@ class SFTP extends SSH2
                     list($status) = Strings::unpackSSH2('N', $response);
                     if ($status != NET_SFTP_STATUS_EOF) {
                         $this->logError($response, $status);
-                        return $status;
+                        return false;
                     }
                     break 2;
                 default:
@@ -1782,7 +1768,7 @@ class SFTP extends SSH2
         $i = 0;
         $entries = $this->readlist($path, true);
 
-        if ($entries === false || is_int($entries)) {
+        if ($entries === false) {
             return $this->setstat($path, $attr, false);
         }
 
@@ -2592,22 +2578,10 @@ class SFTP extends SSH2
         $i = 0;
         $entries = $this->readlist($path, true);
 
-<<<<<<< HEAD
         // normally $entries would have at least . and .. but it might not if the directories
         // permissions didn't allow reading
         if (empty($entries)) {
             return false;
-=======
-        // The folder does not exist at all, so we cannot delete it.
-        if ($entries === NET_SFTP_STATUS_NO_SUCH_FILE) {
-            return false;
-        }
-
-        // Normally $entries would have at least . and .. but it might not if the directories
-        // permissions didn't allow reading. If this happens then default to an empty list of files.
-        if ($entries === false || is_int($entries)) {
-            $entries = [];
->>>>>>> 6128d50ac241a120c5be9bcd073e7acdb0a11f7b
         }
 
         unset($entries['.'], $entries['..']);

@@ -24,17 +24,17 @@
             <div class="card-body">
                   @if ($notification = Session::get('error'))
                         <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ $notification }}</strong>
                         </div>
                     @endif
                     @if ($notification = Session::get('success'))
                         <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ $notification }}</strong>
                         </div>
                     @endif
-                    
+
                 <div class="table-responsive">
                     <table id="UsersList1" class="table">
                         <thead class="thead-light">
@@ -43,25 +43,25 @@
                                 <th  width="15%">@lang('language.osm_id')</th>
                                 <th  width="15%">@lang('language.user_id')</th>
                                 <th  width="15%">@lang('language.notes')</th>
-                                
-                                <th  width="15%">Image</th>
-                                
+{{--
+                                <th  width="15%">Image</th> --}}
+
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                             @if(count($notes)>0)
                             @php $i = 1; @endphp
                                 @foreach($notes as $notes)
                                     <tr>
                                         <td>{{$i}}</td>
-                                        
-                                        
-                                        <td >{{$reviews_rating->osm_id}}</td>
-                                        <td >{{$reviews_rating->user_id}}</td>
-                                        <td >{{$reviews_rating->notes}}</td>
-                                        
-                                       
+
+
+                                        <td >{{$notes->osm_id}}</td>
+                                        <td >{{$notes->first_name}} {{$notes->last_name}}</td>
+                                        <td >{{$notes->notes}}</td>
+
+
                                     </tr>
                                     @php $i++; @endphp
                                 @endforeach
@@ -134,7 +134,7 @@ function updatestatus(id,status)
 }
 $(document).on('click','#deleteplaceadvertisement',function(){
     var id = $(this).attr('data-id');
-    
+
         Swal.fire({
             title: "@lang('language.Confirm_alert')",
             text: "@lang('language.delete_record')",
@@ -145,7 +145,7 @@ $(document).on('click','#deleteplaceadvertisement',function(){
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes '
         }).then((result) => {
-            
+
         if (result.value){
             $.ajax({
                 type: "POST",
@@ -174,7 +174,7 @@ $(document).on('click','#deleteplaceadvertisement',function(){
 
             });
         }else{
-            
+
             }
         })
 })
