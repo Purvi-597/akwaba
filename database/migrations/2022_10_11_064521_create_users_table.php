@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('country_code');
             $table->string('contact_no');
             $table->string('otp');
+            $table->string('username');
+            $table->string('dial_code');
             $table->enum('role', ['Admin', 'User']);
             $table->text('home_address')->nullable();
             $table->text('work_address')->nullable();
@@ -37,6 +39,7 @@ class CreateUsersTable extends Migration
          
         });
 
+        
         DB::table('users')->insert(
             array(
                 'first_name' => 'admin',

@@ -181,7 +181,11 @@ class UserController extends Controller
 
             }else{
                 $add_data = array(
-
+                    'car_name' => $request->input('car_name'),
+                    'car_model' => $request->input('car_model'),
+                    'car_year' => $request->input('car_year'),
+                    'car_transmission' => $request->input('car_transmission'),
+                    'car_fuel' => $request->input('car_fuel'),
                 );
 
                 $update = Cars::where('userId',$id)->insert($add_data);

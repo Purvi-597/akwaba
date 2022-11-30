@@ -172,10 +172,6 @@ for (var i = 0; i < this.files.length; i++){
            }
            var form = $('#frm1')[0];
            var data = new FormData(form);
-           $.each($("#uploadimg")[0].files, function(i, file) {
-           data.append('file', file);
-           });
-
            $.ajax({
            url:"add_company.php",
            type: "POST",
@@ -328,7 +324,7 @@ for (var i = 0; i < this.files.length; i++){
                 $("#company_name_error").text('');
                 $("#company_address_error").text('');
                 $("#area_of_activity_error").text('');
-            
+
               } else {
 
                }
@@ -538,9 +534,9 @@ for (var i = 0; i < this.files.length; i++){
                    if(place_title == "" || place_type_check == false || place_image == ""){
                        return false;
                    }
-                 
+
                    if(place_type == "POI"){
-                 
+
                        if(place_name == ""){
                            $("#place_name_error").text("Please provide a place name");
                            return false;
@@ -599,7 +595,7 @@ for (var i = 0; i < this.files.length; i++){
                               icon:"error",
                               text: "Advertisement not added successfully.please try again",
                               type: "error"
-                           });  
+                           });
                            }
                        }
 
@@ -607,7 +603,7 @@ for (var i = 0; i < this.files.length; i++){
            });
        });
 
-      
+
        $(".AdvertisigModalCenter_close").click(function(){
         $("#addAdvertisingModel").modal('hide');
            $('#frm3').trigger("reset");
@@ -618,3 +614,53 @@ for (var i = 0; i < this.files.length; i++){
                    var re = /\S+@\S+\.\S+/;
                    return re.test(email);
             }
+            $(document).on('click','.postratingBtn', function(){
+
+                var userid = $("#sessionid").val();
+                var osmid = $("#osmids").val();
+                var message = $("#message").val();
+                var rating = $('input[name="rating"]:checked').val();
+
+                if(message == ""){
+                    $("#m1_error").text("message field is required");
+                    return false;
+                }else{
+                    $("#m1_error").text("");
+                }
+                if(rating == "" || rating == undefined){
+                    $("#r1_error").text("rating field is required");
+                    return false;
+                }else{
+                    $("#r1_error").text("");
+                }
+                var form = $('#frm_review')[0];
+                var data1 = new FormData(form);
+                // $.each($(".review_photos")[0].files, function(i, file) {
+                // data1.append('file', file);
+                // });
+                if(typeof userid == 'undefined'){
+                    $("#exampleModalCenter").modal('hide');
+                    $("#exampleModal1").modal('show');
+                }else{
+                    $.ajax({
+                        url:"review_ajax.php",
+                        method:"POST",
+                        enctype: 'multipart/form-data',
+                        data: data1,
+                        dataType: 'text',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function(response){
+                            console.log(response);
+                            $("#frm_review")[0].reset();
+                            $(".pip_review").remove();
+                            $("#exampleModalCenter").modal('hide');
+                            $(".allreviews_in").prepend(response);
+                        }
+                    });
+                }
+            });
+
+
+

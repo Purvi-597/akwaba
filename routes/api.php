@@ -54,18 +54,27 @@ Route::post('verify_otp', 'API\UserController@verify_otp');
 Route::post('logout_user', 'API\UserController@logout_user');
 Route::post('resend_otp', 'API\UserController@resend_otp');
 Route::post('forgot_password',  'API\UserController@forgot_password');
-Route::get('home',  'API\UserController@home');
 Route::post('demo',  'API\UserController@demo');
+
+/// category data //////////////////////////////////////////////////
 Route::post('category_data',  'API\UserController@category_data');
 Route::post('Main_category',  'API\UserController@Main_category');
-Route::post('update_user',  'API\UserController@update_user');
-Route::get('view_profile',  'API\UserController@view_profile');
-Route::get('featured_places',  'API\UserController@featured_places');
+Route::post('category_detail',  'API\UserController@category_detail');
 Route::get('more_category',  'API\UserController@more_category');
 Route::post('sub_categories',  'API\UserController@sub_categories');
+
+/// user profile //////////////////////////////////////////////////
+Route::get('home',  'API\UserController@home');
+Route::post('update_user',  'API\UserController@update_user');
+Route::get('view_profile',  'API\UserController@view_profile');
+
+//// other routes //////////////////////////////////////////////////
+Route::get('featured_places',  'API\UserController@featured_places');
+Route::post('feature_list',  'API\UserController@feature_list');
 Route::post('add_company',  'API\UserController@add_company');
 Route::get('faq',  'API\UserController@faq');
 Route::get('Privacy_policy',  'API\UserController@Privacy_policy');
+Route::get('nearbyLocation',  'API\UserController@nearbyLocation');
 
 
 ///// saved routes --------------------------------
@@ -79,3 +88,15 @@ Route::post('mypalces/store',  'API\Mypalces@store');
 Route::get('mypalces/show',  'API\Mypalces@show');
 Route::post('mypalces/delete',  'API\Mypalces@delete');
 Route::post('mypalces/destroy',  'API\Mypalces@destroy');
+
+///// add review --------------------------------
+Route::get('addreview',  'API\Addreview@index');
+Route::post('addreview/store',  'API\Addreview@store');
+Route::post('addreview/show',  'API\Addreview@show');
+Route::post('addreview/update',  'API\Addreview@update');
+Route::post('addreview/destroy',  'API\Addreview@destroy');
+
+///// car details --------------------------------
+Route::get('car_make',  'API\UserController@car_make');
+Route::get('car_model',  'API\UserController@car_model');
+Route::get('caralldetailes',  'API\UserController@caralldetailes');

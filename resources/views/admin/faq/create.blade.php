@@ -29,13 +29,13 @@ input::-webkit-inner-spin-button {
            <div class="card-body">
                   @if (Session::get('error'))
                         <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ Session::get('error') }}</strong>
                         </div>
                     @endif
                     @if (Session::get('success'))
                         <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong>{{ Session::get('success') }}</strong>
                         </div>
                     @endif
@@ -43,7 +43,7 @@ input::-webkit-inner-spin-button {
 
             <form name="frm1" id="frm1" class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('faq.store')}}"  onclick="return CheckDimension()" novalidate>
                  @csrf
-					
+
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Question')</label>
 						<input type="text" class="form-control" name="question" id="question" placeholder="@lang('language.Question_placeholder')" value="{{old('question')}}" required>
@@ -53,7 +53,7 @@ input::-webkit-inner-spin-button {
                     </div>
 
                     <div class="form-group">
-                        <label for="formrow-quest_name-input">@lang('language.French_Question')</label>
+                        <label for="formrow-quest_name-input">@lang('language.FrQuestion')</label>
 						<input type="text" class="form-control" name="question_fr" id="question_fr" placeholder="@lang('language.frQuestion_placeholder')" value="{{old('question_fr')}}" required>
                         <div class="invalid-feedback">
                             @lang('language.frQuestion_validation')
@@ -99,7 +99,7 @@ input::-webkit-inner-spin-button {
 
                         </div>
                     </div>
-                        
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
@@ -116,7 +116,7 @@ input::-webkit-inner-spin-button {
 <!-- end row -->
 @endsection
 @section('script')
-<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script> 
+<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-validation.init.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-advanced.init.js')}}"></script>
@@ -179,7 +179,7 @@ input::-webkit-inner-spin-button {
   contextmenu: "link image imagetools table",
  });
 
-</script> 
+</script>
 <script>
  var _URL = window.URL || window.webkitURL;
 $(document).on('change','#images_0',function(e){
@@ -210,9 +210,9 @@ if ((file = this.files[0])) {
 
 <script>
         $(document).ready(function () {
-        
+
             $("#profile_image").change(function(){
-       
+
          $('#image1').css('display','block');
         });
         });
@@ -254,11 +254,11 @@ if ((file = this.files[0])) {
     function CheckDimension() {
         //Get reference of File.
         var fileUpload = document.getElementById("files");
-     
+
         //Check whether the file is valid Image.
         var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
         if (regex.test(fileUpload.value.toLowerCase())) {
-     
+
             //Check whether HTML5 is supported.
             if (typeof (fileUpload.files) != "undefined") {
                 //Initiate the FileReader object.
@@ -268,16 +268,16 @@ if ((file = this.files[0])) {
                 reader.onload = function (e) {
                     //Initiate the JavaScript Image object.
                     var image = new Image();
-     
+
                     //Set the Base64 string return from FileReader as source.
                     image.src = e.target.result;
-                           
+
                     //Validate the File Height and Width.
                     image.onload = function () {
                         var height = this.height;
                         var width = this.width;
                         if (height > 200 || width > 200) {
-     
+
                            //show width and height to user
                             document.getElementById("width").innerHTML=width;
                             document.getElementById("height").innerHTML=height;
@@ -287,7 +287,7 @@ if ((file = this.files[0])) {
                         alert("Uploaded image has valid Height and Width.");
                         return true;
                     };
-     
+
                 }
             } else {
                 alert("This browser does not support HTML5.");

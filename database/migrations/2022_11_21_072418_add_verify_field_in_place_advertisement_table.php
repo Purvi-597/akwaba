@@ -15,7 +15,7 @@ class AddVerifyFieldInPlaceAdvertisementTable extends Migration
     {
         Schema::table('place_advertisement', function (Blueprint $table) {
             //'
-            $table->enum('is_verify', ['1', '0'])->after('status');;
+            $table->enum('is_verify', ['1', '0'])->after('status');
 
         });
     }

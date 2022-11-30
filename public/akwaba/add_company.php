@@ -4,8 +4,6 @@
 error_reporting(0);
 session_start();
 include('config/db_mysql.php');
-// echo "<pre>";
-// print_r($_POST);die;
 
 if($_SESSION['users']){
 $email = $_SESSION['users']['email'];

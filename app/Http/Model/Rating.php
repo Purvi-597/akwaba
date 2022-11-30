@@ -11,7 +11,7 @@ class Rating extends Model
     // use HasFactory,SoftDeletes;
     protected $table = 'reviews_rating';
     protected $fillable = [
-        'osm_id','user_id','rating','reviews','image'
+        'osm_id','title','user_id','message','ratings','status','image'
     ];
 
 }

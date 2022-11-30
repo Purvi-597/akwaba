@@ -6,29 +6,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Latest compiled and minified CSS -->
-  
+
   <link rel="stylesheet" type="text/css"
   href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
     <script src="js/leaflet.js"></script>
-	
+
 	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet-src.js"
       integrity="sha512-IkGU/uDhB9u9F8k+2OsA6XXoowIhOuQL1NTgNZHY1nkURnqEGlDZq3GsfmdJdKFe1k1zOc6YU2K7qY+hF9AodA==" crossorigin=""
   ></script>
-	
+
 	 <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-	 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.3.2/leaflet.draw.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.3.2/leaflet.draw.js"></script>
 
     <link rel="stylesheet" href="https://makinacorpus.github.io/Leaflet.MeasureControl/leaflet.measurecontrol.css" />
     <script src="https://makinacorpus.github.io/Leaflet.MeasureControl/leaflet.measurecontrol.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css" integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
-	
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tomik23/autocomplete@1.8.5/dist/css/autocomplete.min.css" />
     	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/landing-custom.css">
@@ -38,11 +38,11 @@
 	 <link rel="stylesheet" href="../assets/libs/sweetalert2/sweetalert2.min.css">
      <link href='../assets/css/select2.min.css'  rel="stylesheet" type="text/css" />
 	<!--<link rel="stylesheet" href="global.css" />-->
-	
+
 	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
    <style>
         html,
-        body {height: 100%;padding:0;margin:0;}        
+        body {height: 100%;padding:0;margin:0;}
         #map {width: 100%;height: 100vh;}
         .info-div{font-size: 18px; padding: 5px;}
         .select-profile {border: 1px solid #d7d7d7;font-size: 16px;padding: 12px; width: 100%;}
@@ -131,7 +131,7 @@
       border: 1px solid #B531AF;
       color: #fff;
     }
-    
+
     .cafesbar ul .side-list {
       list-style-type: none;
       display: inline-block;
@@ -190,7 +190,7 @@
   text-align: justify;
 }
 
-	
+
     .left-feature-panel.extralarge {
       max-width: calc(400px + 390px);
     }
@@ -304,7 +304,7 @@
     .extrapartfeature .categories-icons-section .features-overflow {
       padding: 8px 0px 12px;
     }
-	
+
 	.left-panel .featured-places .img-top, .left-panel .extrapart .img-top {
 		height: 150px;
 		background-image: none;
@@ -317,7 +317,7 @@
 		align-items: center;
 		background-color: #ddd !important;
 	}
-	
+
 	.left-panel .extrapart .img-top .topboxheader{
       display: flex;
       flex-wrap: wrap;
@@ -340,7 +340,7 @@
     /* .extrapartfeature {
       box-shadow: -1px 0 0 0 rgb(38 38 38 / 12%);
       max-width: 390px;
-    } */	
+    } */
 
 
 
@@ -676,9 +676,1289 @@ border-radius: 100%;
     cursor: pointer;
     margin-top:7px;
 }
+.catNamefilter{
+    cursor: pointer;
+}
+    .AddNotesSection {
+      margin-left: -24px;
+      margin-right: -24px;
+      display: none;
+    }
 
+
+    .AddNoteReturn {
+    display: flex;
+}
+
+
+.AddNotes .Note {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 48px;
+    width: 100%;
+    padding-top: 4px;
+    margin-right: 4px;
+    color: rgb(38, 38, 38);
+}
+
+.EditDeleteIcons {
+    -webkit-box-pack: justify;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+.EditDeleteIconsDiv:first-child {
+    padding-right: 4px;
+}
+
+.EditDeleteIconsDiv {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+
+    .AddNotesDiv1 {
+      padding-top: 8px;
+      padding-bottom: 12px;
+      margin-left: -8px;
+      margin-right: 24px;
+    }
+
+    .AddNotesDiv2 {
+      position: relative;
+    }
+
+    .AddNotesDiv2_1 {
+      position: absolute;
+    }
+
+    .AddNotesDiv3 {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .AddNotesDiv4 {
+      -webkit-box-pack: justify;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .AddNotesDiv5 {
+      -webkit-box-align: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      color: rgb(146, 146, 146);
+      position: relative;
+      box-sizing: border-box;
+      padding: 12px 0px;
+    }
+
+    .AddNotesDivInput {
+      color: rgb(38, 38, 38);
+      border: none;
+      display: block;
+      width: 100%;
+      outline: none;
+      padding: 0px;
+      resize: vertical;
+      background-color: initial;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      font-family: inherit;
+    }
+
+    .AddNotesDiv5::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      height: 1px;
+      width: 100%;
+      left: 0px;
+      background: rgb(230, 230, 230);
+    }
+
+    .AddNotesDivBtn {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      background: rgb(242, 242, 242);
+      display: flex;
+      padding: 8px 16px;
+      justify-content: flex-end;
+      margin-top: -4px;
+    }
+
+    .AddNotesDivBtn1 {
+      margin-right: 16px;
+    }
+
+    .AddNotesDivbutton {
+      box-shadow: none;
+      background: transparent;
+      width: auto;
+    }
+
+    .AddNotesDivbutton:hover {
+      color: rgb(38, 38, 38);
+    }
+
+    .AddNotesDivbuttonBlue {
+      color: rgb(255, 255, 255);
+      background: rgb(2, 142, 255);
+    }
+      .FoundErrorBtn {
+      border: none;
+      padding: 12px 24px;
+      font-size: 13px;
+      line-height: 16px;
+      position: relative;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #0072ce;
+      box-shadow: inset 0 0 0 1px #e6e6e6;
+      width: 100%;
+    }
+
+    .EditNotesSection {
+      margin-left: -24px;
+      margin-right: -24px;
+      display: none;
+    }
+
+    .editNotesDivInput {
+      color: rgb(38, 38, 38);
+      border: none;
+      display: block;
+      width: 100%;
+      outline: none;
+      padding: 0px;
+      resize: vertical;
+      background-color: initial;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      font-family: inherit;
+    }
   </style>
+  <!-- for advertisement -->
+
+  <!-- review modal -->
+<style type="text/css">
+    .imageslist .lable-input label {
+      width: 100px !important;
+      height: 100px !important;
+      margin: 0;
+    }
+
+    .multiplebuttons .commonstylebtn.savebtn {
+      position: relative;
+    }
+
+    .tooltip_save {
+      display: flex;
+      padding: 12px 12px 12px 16px;
+      width: max-content;
+      align-items: center;
+      background: rgb(255, 255, 255);
+      border-radius: 4px;
+      box-shadow: rgb(38 38 38 / 50%) 0px 1px 3px 0px;
+    }
+
+    .tooltip_add {
+      margin-right: 12px;
+      font-size: 13px;
+    }
+
+    .tooltip_btn {
+      border: none;
+      appearance: none;
+      font-size: 13px;
+      position: relative;
+      border-radius: 4px;
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      background: #BE2BBB;
+      padding: 4px 8px;
+    }
+
+    .tooltip_btn::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      inset: 0px;
+      background: inherit;
+    }
+  </style>
+  <!-- review modal -->
+
+
+
+  <!-- Review Page Full CSS -->
+  <style>
+    .contect-list-panel .tabmaindiv {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .contect-list-panel .restaurantdetilsbox .imagesandcontain .leftpart .starboxmaindiv {
+      background: rgb(64 64 64 / 40%);
+    }
+
+
+    .contect-list-panel {
+      width: 100%;
+      max-width: 352px;
+    }
+
+    .contect-list-panel .search-bar {
+      width: 100%;
+      margin: 0 auto;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
+      border-radius: 8px;
+      z-index: 2;
+      align-items: center;
+    }
+
+    .contect-list-panel .restaurantdetilsbox .imagesandcontain {
+      margin-top: 16px;
+    }
+
+    .contect-list-panel .restaurantdetilsbox:after {
+      background: rgb(190 43 187 / 58%);
+    }
+
+    .contect-list-panel .restaurantdetilsbox .imagesandcontain .leftpart .title,
+    .contect-list-panel .multiplebuttons .commonstylebtn p,
+    .restaurantdetilsbox .imagesandcontain .leftpart .starboxmaindiv .ratting p,
+    .restaurantdetilsbox .imagesandcontain .leftpart .subtitle {
+      color: #000;
+    }
+
+    .contect-list-panel .restaurantdetilsbox .imagesandcontain .leftpart .subtitle {
+      opacity: 0.7;
+    }
+
+    .contect-list-panel .subtitle {
+      margin-bottom: 10px;
+    }
+
+    .contect-list-panel .subtitle2 {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      max-width: 304px;
+    }
+
+    .contect-list-panel .subtitle2 span {
+      color: #d2d2d2;
+      white-space: nowrap;
+    }
+
+    .contect-list-panel .multiplebuttons .orderonlinebtn a {
+      color: #000;
+      height: 40px;
+    }
+
+    .contect-list-panel .multiplebuttons .commonstylebtn img {
+      filter: brightness(0) invert(0);
+    }
+
+    .contect-list-panel .nav-tabs {
+      background: #f2f2f2;
+      justify-content: flex-start;
+    }
+
+    .contect-list-panel .nav-tabs .nav-link {
+      font-size: 13px;
+    }
+
+    .contect-list-panel .photoslistmaindiv {
+      border-bottom: 0px solid #dee2e6;
+      padding: 0;
+    }
+
+    .contect-list-panel .imageslist .singleimg {
+      border-radius: 0;
+      border-right: 1px solid rgb(255, 255, 255);
+      margin-right: 0px;
+      margin-top: 5px;
+    }
+
+    .contect-list-panel .imageslist {
+      justify-content: center;
+    }
+
+    .contect-list-panel .detailsofrestorant .feature-p {
+      font-size: 13px;
+      font-weight: 550;
+    }
+
+    .contect-list-panel .contacts-tab {
+      padding-top: 8px;
+      padding-bottom: 0px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .contect-list-panel .detailsofrestorant {
+      padding: 12px 0;
+    }
+
+    .contect-list-panel .detailsofrestorant .toggle-btn {
+      right: 4px;
+      top: 5px;
+    }
+
+    /* .contect-list-panel .detailsofrestorant .features-overflow .singledetails {
+      display: flex;
+    } */
+
+    .contect-list-panel .detailsdiv {
+      margin-left: 10px;
+    }
+
+    .contect-list-panel .detailsdiv .detailSpan {
+      margin-left: -12px;
+      padding-left: 12px;
+      margin-right: 12px;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .contect-list-panel .detailsdiv .detailsdiv2 {
+      color: #929292;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .contect-list-panel .entrance {
+      margin-top: 4px;
+      margin-left: 45px;
+    }
+
+    .contect-list-panel .entranceBtnShow {
+      border: none;
+      line-height: 16px;
+      font-weight: 400;
+      position: relative;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #ffffff;
+      background: #299400;
+      padding: 4px 8px;
+    }
+
+    .contect-list-panel .detailsofrestorant .features-overflowAddress {
+      overflow: hidden;
+    }
+
+    .contect-list-panel .features-overflowAddress .main {
+      display: flex !important;
+      overflow: auto !important;
+      min-height: 100% !important;
+    }
+
+    .contect-list-panel .detailsdivOpen {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #929292;
+    }
+
+    .contect-list-panel .icondiv {
+      margin-top: 0;
+      margin-bottom: 8px;
+      margin-left: 0;
+      margin-right: 12px;
+    }
+
+    .weekDays {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      display: flex;
+      position: relative;
+      padding: 8px 0px;
+    }
+
+    .weekDaysName {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      display: flex;
+      width: 16px;
+      align-items: flex-start;
+      margin-right: 16px;
+    }
+
+    .weekDays.open {
+      color: rgb(41, 148, 0);
+    }
+
+    .weekDays.open .weekDaysName {
+      padding-top: 18px;
+    }
+
+    .weekDays.open .OpningClose {
+      display: block;
+    }
+
+    .weekDays+.weekDays {
+      box-shadow: rgb(230 230 230) 0px 1px inset;
+    }
+
+    .weekDayTimes2:first-child {
+      margin-left: 0px;
+    }
+
+    .weekDayTimes2 {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      /* margin-left: 44px; */
+    }
+
+    .OpningClose {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 400;
+      margin-bottom: 2px;
+      color: rgb(146, 146, 146);
+      position: relative;
+      display: none;
+      width: 84px;
+      margin-left: 44px;
+
+    }
+
+    .OpningClose:first-child {
+      margin-left: 0px;
+    }
+
+
+    .feature-p .addressTogggle .singledetails {
+      display: flex;
+    }
+
+    .feature-p .addressTogggle .parkinglotmaindiv {
+      display: none;
+    }
+
+    .feature-p.main .addressTogggle .parkinglotmaindiv {
+      display: flex;
+    }
+
+    .detailsForTime .features-overflow .feature-p .singledetails {
+      display: flex;
+    }
+
+    .detailsForTime .features-overflow .feature-p .singledetails .WeekNames {
+      display: none;
+    }
+
+    .detailsForTime .features-overflow .feature-p.main .singledetails .WeekNames {
+      display: block;
+    }
+
+    .detailsFormobilenum .feature-p .addressTogggle .singledetails {
+      align-items: center;
+    }
+
+    .contect-list-panel .detailsFormobilenum .icondiv {
+      margin-bottom: 0;
+    }
+
+    .SocialMedia {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      padding-left: 32px;
+      flex-wrap: wrap;
+    }
+
+    .SocialMediaTab {
+      width: 50%;
+      word-break: break-word;
+    }
+
+    .SocialMediaLink {
+      color: #0072ce;
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-user-select: -webkit-text;
+      -webkit-user-select: text;
+      -moz-user-select: -webkit-text;
+      -moz-user-select: text;
+      -ms-user-select: -webkit-text;
+      -ms-user-select: text;
+      user-select: -webkit-text;
+      user-select: text;
+      display: inline;
+      text-align: inherit;
+      border: none;
+      padding: 0px;
+      background-color: transparent;
+    }
+
+    .SocialMediaLinkDiv {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .SocialMediaLinkName {
+      color: #262626;
+      margin-left: 4px;
+      margin-right: 0px;
+      font-size: 13px
+    }
+
+    .error-tab {
+      padding-top: 24px;
+      padding-bottom: 20px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .FoundError {
+      margin-bottom: 12px;
+    }
+
+    .FoundErrorBtn {
+      border: none;
+      padding: 12px 24px;
+      font-size: 13px;
+      line-height: 16px;
+      position: relative;
+      border-radius: 4px;
+      background: #ffffff;
+      color: #0072ce;
+      box-shadow: inset 0 0 0 1px #e6e6e6;
+      width: 100%;
+    }
+
+    .useFull {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 16px;
+      color: #0072ce;
+    }
+
+    .useFullLinks {
+      position: relative;
+      margin-left: -12px;
+      padding-left: 12px;
+      margin-right: 12px;
+      display: inline-block;
+    }
+
+    .AddNotes {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      font-size: 13px;
+      line-height: 16px;
+      color: #0072ce;
+      cursor: pointer;
+    }
+
+    .AddNotesSection {
+      margin-left: -24px;
+      margin-right: -24px;
+      display: none;
+    }
+
+    .AddNoteReturn {
+    display: flex;
+}
+
+
+.AddNotes .Note {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 48px;
+    width: 100%;
+    padding-top: 4px;
+    margin-right: 4px;
+    color: rgb(38, 38, 38);
+}
+
+.EditDeleteIcons {
+    -webkit-box-pack: justify;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+.EditDeleteIconsDiv:first-child {
+    padding-right: 4px;
+}
+
+.EditDeleteIconsDiv {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: rgb(38, 38, 38);
+}
+
+
+    .AddNotesDiv1 {
+      padding-top: 8px;
+      padding-bottom: 12px;
+      margin-left: -8px;
+      margin-right: 24px;
+    }
+
+    .AddNotesDiv2 {
+      position: relative;
+    }
+
+    .AddNotesDiv2_1 {
+      position: absolute;
+    }
+
+    .AddNotesDiv3 {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .AddNotesDiv4 {
+      -webkit-box-pack: justify;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .AddNotesDiv5 {
+      -webkit-box-align: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      color: rgb(146, 146, 146);
+      position: relative;
+      box-sizing: border-box;
+      padding: 12px 0px;
+    }
+
+    .AddNotesDivInput {
+      color: rgb(38, 38, 38);
+      border: none;
+      display: block;
+      width: 100%;
+      outline: none;
+      padding: 0px;
+      resize: vertical;
+      background-color: initial;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      font-family: inherit;
+    }
+
+    .AddNotesDiv5::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      height: 1px;
+      width: 100%;
+      left: 0px;
+      background: rgb(230, 230, 230);
+    }
+
+    .AddNotesDivBtn {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      background: rgb(242, 242, 242);
+      display: flex;
+      padding: 8px 16px;
+      justify-content: flex-end;
+      margin-top: -4px;
+    }
+
+    .AddNotesDivBtn1 {
+      margin-right: 16px;
+    }
+
+    .AddNotesDivbutton {
+      box-shadow: none;
+      background: transparent;
+      width: auto;
+    }
+
+    .AddNotesDivbutton:hover {
+      color: rgb(38, 38, 38);
+    }
+
+    .AddNotesDivbuttonBlue {
+      color: rgb(255, 255, 255);
+      background: rgb(2, 142, 255);
+    }
+
+    .Info-tab .feature-p .addressTogggle .singledetails {
+      align-items: center;
+    }
+
+    .Info-tab .singledetails .icondiv {
+      margin: 0;
+    }
+
+    .Info-tab .detailSpan {
+      font-weight: 700 !important;
+    }
+
+
+    .AboutCars {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .carDetails {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      line-height: 1.2;
+    }
+
+
+    .carDetailSpan {
+      position: relative;
+      margin-left: -12px;
+      padding-left: 12px;
+      margin-right: 12px;
+      display: inline-block;
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+    .carDetailSpan button {
+      color: #0072ce;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: -webkit-text;
+      user-select: text;
+      display: inline;
+      text-align: inherit;
+      border: none;
+      padding: 0px;
+      background-color: transparent;
+    }
+
+    .mt10 {
+      margin-top: 8px;
+    }
+
+    .CardDetails {
+      display: flex;
+    }
+
+
+    .CardIcon {
+      margin-top: 11px;
+      margin-bottom: 8px;
+      margin-left: -4px;
+      margin-right: 12px;
+    }
+
+    .fs-13 {
+      font-size: 13px;
+
+    }
+
+    .mr-13 {
+      margin-right: 8px;
+    }
+
+    .DirectionDetails {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #929292;
+    }
+
+    .Under_border {
+      border-bottom: 1px solid #dee2e6;
+    }
+
+
+    .Reviews-Tab .Review {
+      padding: 12px 16px 4px;
+      box-shadow: rgb(230 230 230) 0px -1px inset;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .Reviews-Tab .Review .ReviewAnstab {
+      margin: 0px 8px 8px 0px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+
+
+    .ReviewAnslable {
+      font-size: 13px;
+      line-height: 16px;
+      padding: 6px 12px;
+      border-radius: 200px;
+      box-shadow: rgb(230 230 230) 0px 0px 0px 1px inset;
+      display: inline-flex;
+      cursor: pointer;
+      transition: box-shadow 200ms ease 0s, color 200ms ease 0s;
+    }
+
+    .ReviewAnslable:hover {
+      box-shadow: rgb(41 148 0) 0px 0px 0px 1px inset;
+    }
+
+    .ReviewAnsInput {
+      display: none;
+    }
+
+    .ReviewAnstab .nav-tabs {
+      background-color: #fff;
+
+    }
+
+    .ReviewAnstab .nav-tabs .nav-link {
+      padding: 0px;
+      font-weight: 500;
+      padding: 6px 12px;
+    }
+
+
+    .ReviewAnstab .nav-tabs .nav-link.active:after {
+      content: none;
+
+    }
+
+    .Positive-tab .nav-link,
+    .All-tab .nav-link,
+    .Negative-tab .nav-link {
+      line-height: 16px;
+      box-shadow: rgb(230 230 230) 0px 0px 0px 1px inset;
+      display: inline-flex;
+      box-sizing: border-box;
+      max-width: 100%;
+      user-select: none;
+      cursor: pointer;
+      transition: box-shadow 200ms ease 0s, color 200ms ease 0s;
+      border-radius: 0px;
+    }
+
+    .All-tab .nav-link {
+      border-radius: 200px 0px 0px 200px !important;
+    }
+
+    .Negative-tab .nav-link {
+      border-radius: 0px 200px 200px 0px !important;
+    }
+
+
+    .ReviewAnstab .nav-link.active {
+      background-color: rgb(48, 173, 0) !important;
+      color: rgb(255, 255, 255) !important;
+    }
+
+    .Reviews-Tab .reviewRatings {
+      color: rgb(146, 146, 146);
+      padding: 16px 24px 16px 20px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+
+    .Reviews-Tab .starboxmaindiv {
+      background: rgb(255, 255, 255);
+      display: flex;
+    }
+
+    .Reviews-Tab .starboxmaindiv .ratting {
+      width: 20px;
+      margin-left: 10px;
+    }
+
+    .Reviews-Tab .star-rating label {
+      color: #d1d1d1;
+      font-size: 16px;
+    }
+
+    .Reviews-Tab .starboxmaindiv .ratting p {
+      margin-bottom: 0;
+    }
+
+    .tab-content.OverflowTab {
+      /* max-height: 50vh;
+      height: 50vh; */
+      max-height: 30vh;
+      height: 30vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+
+
+    .tab-pane .All-tab-div {
+      padding: 12px 0px;
+      box-shadow: rgb(230 230 230) 0px -1px inset;
+    }
+
+    .reviewHeadRating {
+      padding: 0px 8px;
+    }
+
+    .reviewHeadRatingDiv1 {
+      margin-bottom: 12px;
+      padding: 0px 16px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    .reviewHeadRatingDiv12 {
+      white-space: nowrap;
+
+    }
+
+    .clientImageSmall {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      margin-right: 8px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .clientImageSmall .clientSmallImg {
+      background-blend-mode: multiply;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+    .ClientNameReview {
+      display: inline-block;
+      white-space: normal;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 500;
+      max-width: 216px;
+    }
+
+
+    .ClientNameReviewSpan1 {
+      position: relative;
+      margin-left: -12px;
+      padding-left: 12px;
+      margin-right: 12px;
+      display: inline-block;
+
+    }
+
+    .ClientNameOne {
+      vertical-align: middle;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .ClientNameReviewSpan1::before {
+      position: absolute;
+      display: inline-block;
+      left: 0px;
+      width: 12px;
+      text-align: center;
+      color: rgb(230, 230, 230);
+      content: "•";
+    }
+
+    .ClientNameReviewSpan1:first-child::before {
+      content: none;
+    }
+
+    .ClientReviewOne {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      display: inline;
+      color: rgb(146, 146, 146);
+    }
+
+    .ClientReviewdate {
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 400;
+      color: rgb(146, 146, 146);
+    }
+
+    .reviewHeadRatingDiv1 .star-rating label {
+      color: #d1d1d1;
+      font-size: 10px;
+    }
+
+    .reviewBodyReview {
+      padding: 0px 16px;
+    }
+
+    .reviewBodyReviewOne {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      white-space: pre-line;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .reviewFooter {
+      padding: 8px 16px 4px;
+      box-sizing: border-box;
+    }
+
+    .reviewFooterDiv {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .reviewFooterInnerDivs {
+      display: inline-flex;
+    }
+
+    body:not(._ki) button {
+      outline: 0;
+    }
+
+    .reviewFooterBtn {
+      -webkit-box-align: center;
+      display: inline-flex;
+      align-items: center;
+      color: rgb(146, 146, 146);
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid rgb(230, 230, 230);
+      padding: 0px 8px 0px 4px;
+      box-sizing: border-box;
+    }
+
+    .reviewFooterBTNImg {
+      height: 24px;
+    }
+
+    .reviewFooterBTNtext {
+      -webkit-box-align: center;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 400;
+      color: rgb(38, 38, 38);
+      height: 24px;
+      margin-left: 4px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .reviewFooterBTNCount {
+      -webkit-box-align: center;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 400;
+      color: rgb(146, 146, 146);
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+    }
+
+    .reviewFooterBTNCount::before {
+      -webkit-box-align: center;
+      color: rgb(230, 230, 230);
+      content: "•";
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      margin: 0px 4px;
+    }
+
+
+    .CautionSign {
+      display: inline-flex;
+      margin-right: -8px;
+      margin-left: 4px;
+      cursor: pointer;
+      width: 18px;
+      position: relative;
+      top: 1px;
+    }
+
+
+    .NewReviewDiv {
+      position: relative;
+      z-index: 1;
+    }
+
+    .NewReviewDivBtn {
+      border: none;
+      margin: 0px;
+      padding: 12px 24px;
+      appearance: none;
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 400;
+      position: relative;
+      z-index: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      cursor: pointer;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      background: rgb(2, 142, 255);
+      display: block;
+      width: 100%;
+      border-radius: 0px;
+    }
+
+    .NewReviewDivBtn::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      inset: 0px;
+      background: inherit;
+    }
+
+
+
+    .info-card:hover::-webkit-scrollbar,
+    .tab-content.OverflowTab::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .info-card::-webkit-scrollbar-thumb,
+    .tab-content.OverflowTab::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .info-card::-webkit-scrollbar-track,
+    .tab-content.OverflowTab::-webkit-scrollbar-track {
+      background-color: #f0f0f0 !important;
+    }
+
+
+
+
+    </style>
+
+
+    <style>
+
+    textarea.review-text {
+      width: 100%;
+      margin-top: 7px;
+      border-radius: 5px;
+      height: 62px;
+      border: 1px solid #CBCBCB;
+    }
+
+    .user-profile-image-modal {
+      width: 60px;
+      height: 60px;
+      margin: auto 0;
+    }
+
+    .modal-deatils {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+
+    }
+
+    .positive-input-box {
+      text-align: right;
+    }
+
+    input.positive-input.w-101 {
+      width: 109px;
+      background-color: #fff;
+      color: #BBBBBB;
+    }
+
+    span.code-likes {
+      color: #000;
+      font-weight: 600;
+      font-size: 14px;
+      margin: auto;
+    }
+
+    span.code-likes .like-btn {
+      width: 20px;
+    }
+
+
+    /* .color-yellow .star-rating label,
+    .icon-right .star-rating label {
+      color: #f8b42b;
+    } */
+
+    .star-15 .star-rating label {
+      font-size: 1rem !important;
+    }
+
+
+    .star-rating-modal {
+      float: left;
+    }
+
+    .star-rating-modal label {
+      font-size: 1.5rem;
+    }
+
+    .rating-stars span {
+    font-size: 13px;
+}
+    </style>
+    <style>
+    .pip_review {
+        margin-bottom: 8px;
+        display:inline-flex;
+        margin: 10px 10px 0 0;
+    }
+    .loader1{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('assets/img/loader.gif')
+              50% 50% no-repeat rgb(249,249,249);
+}
+    </style>
+    <style>
+
+/*
+secondtabmaindiv
+reviewRatings */
+    </style>
+
 </head>
-
-
-

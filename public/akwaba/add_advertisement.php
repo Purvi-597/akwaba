@@ -29,7 +29,7 @@ if($place_type == "External"){
                                   `updated_at`)
                      VALUES ('$place_title','$basename','$place_type','$place_link',
                      '0','0','$today','$today')";
-                     echo $query;die;
+                  
 }
 $result = mysqli_query($conn, $query);
 

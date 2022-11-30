@@ -53,9 +53,9 @@ input::-webkit-inner-spin-button {
         ?>
              <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('users.update',$users->id)}}" novalidate>
                 @csrf
-                
+
                 <input type="hidden" value="{{ $users->id }}" name="id" id="id">
-            
+
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.First_Name')</label>
                         <input type="text" class="form-control" name="first_name" id="first_name" placeholder="@lang('language.fName_placeholder')" value="{{$users->first_name}}" required>
@@ -72,8 +72,8 @@ input::-webkit-inner-spin-button {
                         </div>
                     </div>
 
-                    
-                    
+
+
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Email')</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="@lang('language.Email_placeholder')" value="{{$users->email}}" required>
@@ -81,7 +81,7 @@ input::-webkit-inner-spin-button {
                             @lang('language.Please provide a email.')
                         </div>
                     </div>
-                   
+
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Phone_No')</label>
                         <input type="number" class="form-control" name="contact_no" id="contact_no" placeholder="@lang('language.Phone_placeholder')" value="{{$users->contact_no}}" required>
@@ -89,12 +89,12 @@ input::-webkit-inner-spin-button {
                             @lang('language.Please provide a email.')
                         </div>
                     </div>
-                    
-                        
+
+
                     {{-- <div class="row">
                         <div id="req_input" class="form-group col-md-12">
                         <label for="formrow-quest_name-input">@lang('language.Profile_Image') <span style="color:red;">*</span></label>
-                            
+
                                 <input type="file"  class="form-control images_0" name="profile_pic" id="profile_pic" ><br>
                                     <label id="lbl1" for="formrow-quest_name-input"><?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?></label><br>
                                         @if(!empty($users->profile_pic))
@@ -102,26 +102,35 @@ input::-webkit-inner-spin-button {
                                     @endif
                                     <img  id="image_main1" name="image_main1" class="image_main1" height="200" width="250" style="display:none;">
                                 <input type="hidden" name="old_image0" value="<?php if(isset($users->profile_pic)){ echo $users->profile_pic; } ?>">
-                                
+
                                      @if(!empty($users->profile_pic))
                                     <br><br>
                                     &nbsp;&nbsp;<a href="javascript:void(0);" id="deleteimage" class="btn btn-danger" data-id="{{ $users->id }}">Remove</a>
-                                    @endif 
+                                    @endif
                             <span id="image0_error"  style="color:red"></span>
                         </div>
                     </div> --}}
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Home_Address')</label>
+<<<<<<< HEAD
                         <input type="text" class="form-control" name="home_address" id="home_address" placeholder="@lang('language.HAddress_placeholder')" value="{{$users->home_address}}" >
                         {{-- <div class="invalid-feedback">
+=======
+                        <input type="text" class="form-control" name="home_address" id="home_address" placeholder=" @lang('language.HAddress_placeholder')" value="{{$users->home_address}}" >
+                        <div class="invalid-feedback">
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
                             @lang('language.Please provide a Home Address.')
                         </div> --}}
                     </div>
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Work_Address')</label>
+<<<<<<< HEAD
                         <input type="text" class="form-control" name="work_address" id="work_address" placeholder="@lang('language.WAddress_placeholder')"value="{{$users->work_address}}">
+=======
+                        <input type="text" class="form-control" name="work_address" id="work_address" placeholder=" @lang('language.WAddress_placeholder')" value="{{$users->work_address}}">
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
                         {{-- <div class="invalid-feedback">
                             Please provide a Work Address.
                         </div> --}}
@@ -190,6 +199,12 @@ input::-webkit-inner-spin-button {
                 </div>
 
 
+<<<<<<< HEAD
+=======
+
+
+                         <div class="form-group"></div>
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
                                   @php $checked=""; @endphp
@@ -204,8 +219,8 @@ input::-webkit-inner-spin-button {
                             </div>
 
                         </div>
-                    
-                        
+
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group ">
@@ -224,7 +239,7 @@ input::-webkit-inner-spin-button {
 <!-- end row -->
 @endsection
 @section('script')
-<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script> 
+<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/select2/select2.min.js')}}"></script>
 <script src="{{ URL::asset('assets/js/pages/form-validation.init.js')}}"></script>
 <script src="{{ URL::asset('assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
@@ -234,7 +249,13 @@ input::-webkit-inner-spin-button {
 
 <script>
         $(document).ready(function () {
+<<<<<<< HEAD
         var _URL = window.URL || window.webkitURL;
+=======
+
+
+                var _URL = window.URL || window.webkitURL;
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
 $(document).on('change','#images_0',function(e){
       $("#image_main0").css('display','none');
       $("#deleteimage").css('display','none');
@@ -269,9 +290,9 @@ if ((file = this.files[0])) {
          //submit the form here
          $("#presrciptionpreview").css('display','block');
           $("#deleteBtn").css("display", "block");
-         
+
  });
-            
+
     $("#deleteBtn").click(function(){
    $("#presrciptionpreview").css("display", "none");
    $("#deleteBtn").css("display", "none");
@@ -283,7 +304,7 @@ if ((file = this.files[0])) {
 
 $(document).on('click','#deleteimage',function(){
                 var id = $(this).attr('data-id');
-               
+
                  Swal.fire({
                       title: '@lang('language.Are You sure')',
                       text: "@lang('language.You want to delete this profile picture')",
@@ -294,16 +315,16 @@ $(document).on('click','#deleteimage',function(){
                       cancelButtonColor: '#d33',
                       confirmButtonText: 'Yes '
                     }).then((result) => {
-                      
+
                       if (result.value){
-                        
+
                           $.ajax({
                              type: "POST",
                              url: '{{route("userimagedelete")}}',
                              data: {'id': id, "_token": "{{ csrf_token() }}"},
                              success: function(data){
                                  if(data == "delete"){
-                               
+
                                  Swal.fire({
                                        title: "User",
                                        icon:"success",
@@ -332,13 +353,14 @@ $(document).on('click','#deleteimage',function(){
                     });
 
                       }else{
-                       
+
 
                       }
                   })
             })
     </script>
 
+<<<<<<< HEAD
 
 <script>
     $('#make_id').on('change', function () {
@@ -368,3 +390,6 @@ $(document).on('click','#deleteimage',function(){
 </script>
 
 @endsection
+=======
+@endsection
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2

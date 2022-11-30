@@ -125,13 +125,6 @@
       0 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
     ),
   ),
-  'theanik/laravel-more-command' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Theanik\\LaravelMoreCommand\\LaravelMoreCommandProvider',
-    ),
-  ),
   'yajra/laravel-datatables-oracle' => 
   array (
     'providers' => 

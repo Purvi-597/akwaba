@@ -8,12 +8,18 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+<<<<<<< HEAD
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+=======
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
@@ -70,7 +76,6 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         array (
             'Twilio\\' => 7,
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
-            'Theanik\\LaravelMoreCommand\\' => 27,
             'Tests\\' => 6,
         ),
         'S' => 
@@ -270,10 +275,6 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
             0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
-        ),
-        'Theanik\\LaravelMoreCommand\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/theanik/laravel-more-command/src',
         ),
         'Tests\\' => 
         array (
@@ -801,6 +802,13 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+<<<<<<< HEAD
+=======
+        'App\\Http\\Controllers\\API\\Addreview' => __DIR__ . '/../..' . '/app/Http/Controllers/API/Addreview.php',
+        'App\\Http\\Controllers\\API\\Mypalces' => __DIR__ . '/../..' . '/app/Http/Controllers/API/Mypalces.php',
+        'App\\Http\\Controllers\\API\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserController.php',
+        'App\\Http\\Controllers\\API\\savedroutes' => __DIR__ . '/../..' . '/app/Http/Controllers/API/savedroutes.php',
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         'App\\Http\\Controllers\\AdvertisementController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdvertisementController.php',
         'App\\Http\\Controllers\\Auth' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth.php',
         'App\\Http\\Controllers\\Auth\\ApiAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ApiAuthController.php',
@@ -842,6 +850,11 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Model\\Advertisement' => __DIR__ . '/../..' . '/app/Http/Model/Advertisement.php',
         'App\\Http\\Model\\Categories' => __DIR__ . '/../..' . '/app/Http/Model/Categories.php',
+<<<<<<< HEAD
+=======
+        'App\\Http\\Model\\Company' => __DIR__ . '/../..' . '/app/Http/Model/Company.php',
+        'App\\Http\\Model\\CompanyImages' => __DIR__ . '/../..' . '/app/Http/Model/CompanyImages.php',
+>>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         'App\\Http\\Model\\Faq' => __DIR__ . '/../..' . '/app/Http/Model/Faq.php',
         'App\\Http\\Model\\Feature' => __DIR__ . '/../..' . '/app/Http/Model/Feature.php',
         'App\\Http\\Model\\Featureplace' => __DIR__ . '/../..' . '/app/Http/Model/Featureplace.php',
@@ -864,6 +877,11 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\car_make' => __DIR__ . '/../..' . '/app/car_make.php',
+        'App\\car_model' => __DIR__ . '/../..' . '/app/car_model.php',
+        'App\\cars' => __DIR__ . '/../..' . '/app/cars.php',
+        'App\\myplaces' => __DIR__ . '/../..' . '/app/myplaces.php',
+        'App\\reviews_rating' => __DIR__ . '/../..' . '/app/reviews_rating.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Aws\\ACMPCA\\ACMPCAClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ACMPCA/ACMPCAClient.php',
         'Aws\\ACMPCA\\Exception\\ACMPCAException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ACMPCA/Exception/ACMPCAException.php',
@@ -8388,19 +8406,6 @@ class ComposerStaticInite09be40f74f1d229b1b47d4613bf800b
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\ClearLogCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/ClearLogCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CommandGenerator' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CommandGenerator.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateBladeCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateBladeCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateModuleBladeCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateModuleBladeCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateModuleRepositoryCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateModuleRepositoryCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateModuleServiceCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateModuleServiceCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateModuleTraitCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateModuleTraitCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateRepositoryCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateRepositoryCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateServiceCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateServiceCommand.php',
-        'Theanik\\LaravelMoreCommand\\Commands\\CreateTraitCommand' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Commands/CreateTraitCommand.php',
-        'Theanik\\LaravelMoreCommand\\LaravelMoreCommandProvider' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/LaravelMoreCommandProvider.php',
-        'Theanik\\LaravelMoreCommand\\Support\\FileGenerator' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Support/FileGenerator.php',
-        'Theanik\\LaravelMoreCommand\\Support\\GenerateFile' => __DIR__ . '/..' . '/theanik/laravel-more-command/src/Support/GenerateFile.php',
         'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php',
