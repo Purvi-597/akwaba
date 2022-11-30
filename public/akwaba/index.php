@@ -36,14 +36,14 @@ while($row = pg_fetch_row($parkingResult)) {
 }
 
 /* Photos fixed */
-$photos = "SELECT id,photo_image as image,photo_name as name,photo_address as address, latitude, longitude FROM `tourist_place` WHERE `status` = '1'";
+$photos = "SELECT image, latitude, longtitude FROM `photos` WHERE `status` = '1'";
 $result = $conn->query($photos);
 if($result->num_rows > 0) {
 	$touristplaceData = [];
 	$touristLatLong = [];
 	while($row = $result->fetch_assoc()) {
 		$touristplaceData[] = $row;
-		$coordinates = array('0'=>(float)$row['latitude'], '1'=>(float)$row['longitude']);
+		$coordinates = array('0'=>(float)$row['longtitude'], '1'=>(float)$row['latitude'], '2'=>(string)$row['image']);
 		$touristLatLong[] = array('type'=>'Point', 'coordinates'=>$coordinates);
 	}
 }

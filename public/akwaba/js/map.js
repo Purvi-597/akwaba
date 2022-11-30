@@ -3,6 +3,7 @@ var plainMap = L.tileLayer('http://10.10.3.50:5000/hot/{z}/{x}/{y}.png', {
     maxNativeZoom: 22
 });
 
+
 var burl = window.location.href; 
 if(burl == base_url+'index.php'){
 var str1 = 40.36629;	
@@ -39,6 +40,41 @@ var baseMaps = {
     "Plain View": plainMap,
 };
 
+$(document).on('click','.photos', function(){ 
+	// alert(12);
+	for (var index = 0; index < touristLatLong.length; index++) {
+
+		let customIcon = {
+			iconUrl:base_url+'uploads/tourist/'+touristLatLong[index]['coordinates'][2],
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:'company name',
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(touristLatLong[index]['coordinates'][1], touristLatLong[index]['coordinates'][0]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+
+
+		// console.log(latlng);
+		// myIconss = L.icon({
+		// 	iconUrl: base_url+'uploads/tourist/'+touristLatLong[index]['coordinates'][2],
+		// 	iconSize: [25, 25], // width and height of the image in pixels
+		// 	shadowSize: [35, 20], // width, height of optional shadow image
+		// 	iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+		// 	shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
+		// 	popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+		// })
+		// L.marker(latlng, { icon: myIconss })
+	}
+
+	// return L.marker(latlng, { icon: myIconss })
+}
+)
+
 function createCustomIcon(feature, latlng) {
 	let myIcon = L.icon({
 		iconUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
@@ -65,8 +101,7 @@ function createParkingIcon(feature, latlng) {
 }
 function createPhotoIcon(feature, latlng) {
     let myIconss = L.icon({
-        iconUrl: base_url+'uploads/tourist/captions.jpg',
-        shadowUrl: base_url+'uploads/tourist/captions.jpg',
+        iconUrl: '',
         iconSize: [25, 25], // width and height of the image in pixels
         shadowSize: [35, 20], // width, height of optional shadow image
         iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
@@ -359,13 +394,13 @@ var baseMaps = {};
 var overlayMaps = {
    '<img src="assets/img/icons/train.png" /> </br> ': metroMap,	
    '<img src="assets/img/icons/ic_direction.png" /> </br> ': touristMap,
-   '<img src="assets/img/icons/image.png">' : photoMap,
+   '<img src="assets/img/icons/image.png" class="photos">' : photoMap,
    '<img src="assets/img/icons/parking.png" />': parkingMap
 };
 var overlayFlag = {
 	'<img src="assets/img/icons/train.png"></a>' : metroMap,
 	'<img src="assets/img/icons/ic_direction.png"></a>' : touristMap,
-	'<img src="assets/img/icons/image.png">' : photoMap,
+	'<img src="assets/img/icons/image.png" class="photos">' : 	photoMap,
 	'<img src="assets/img/icons/parking.png">' : parkingMap
 };
 

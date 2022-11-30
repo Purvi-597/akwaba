@@ -16,7 +16,6 @@ class savedroutes extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -26,7 +25,6 @@ class savedroutes extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -37,29 +35,24 @@ class savedroutes extends Controller
      */
     public function store(Request $request)
     {
-        if (!$request->start_coordinates)
-        {
+        if (!$request->start_coordinates) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The start_coordinates field is required.']);
         }
 
-        if (!$request->end_coordinates)
-        {
+        if (!$request->end_coordinates) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The end_coordinates field is required.']);
         }
-        if (!$request->start_address)
-        {
+        if (!$request->start_address) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The start_address field is required.']);
         }
-        if (!$request->end_address)
-        {
+        if (!$request->end_address) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The end_address field is required.']);
         }
-        if (!$request->userId)
-        {
+        if (!$request->userId) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The userId field is required.']);
         }
@@ -74,10 +67,10 @@ class savedroutes extends Controller
 
         );
         $insert = Saveroute::insert($data);
-        if($insert){
+        if ($insert) {
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Route saved successfully']);
-        }else{
+        } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
         }
@@ -91,31 +84,31 @@ class savedroutes extends Controller
      */
     public function show(Request $request)
     {
-        if($request->userId){
-            $user = Saveroute::where('userId', '=', $request->userId)->where('is_deleted','=', 0)->get();
-            if($user){
-            // $data = array(
-            //     'first_name' => $user->first_name,
-            //     'last_name' => $user->last_name,
-            //     'email' => $user->email,
-            //     'country_code' => $user->country_code,
-            //     'contact' => $user->contact_no,
-            //     'role' => 'User',
-            //     'profile_image' => $user->profile_pic,
-            //     'profile_path' => $this->profile_path,
-            //     'created_at' => Carbon::now(),
-            //     'updated_at' => Carbon::now()
-            // );
+        if ($request->userId) {
+            $user = Saveroute::where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
+            if ($user) {
+                // $data = array(
+                //     'first_name' => $user->first_name,
+                //     'last_name' => $user->last_name,
+                //     'email' => $user->email,
+                //     'country_code' => $user->country_code,
+                //     'contact' => $user->contact_no,
+                //     'role' => 'User',
+                //     'profile_image' => $user->profile_pic,
+                //     'profile_path' => $this->profile_path,
+                //     'created_at' => Carbon::now(),
+                //     'updated_at' => Carbon::now()
+                // );
                 return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','data' => $user]);
-            }else{
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $user]);
+            } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
-            }else{
-                return response()
+        } else {
+            return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-            }
+        }
     }
 
     /**
@@ -126,29 +119,28 @@ class savedroutes extends Controller
      */
     public function delete(request $request)
     {
-        if($request->userId){
-            if (!$request->routeid)
-            {
+        if ($request->userId) {
+            if (!$request->routeid) {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'The routeid field is required.']);
             }
 
-            $user = Saveroute::where('id', '=', $request->routeid)->where('userId','=', $request->userId)->get();
-            if($user){
+            $user = Saveroute::where('id', '=', $request->routeid)->where('userId', '=', $request->userId)->get();
+            if ($user) {
                 $data = array(
                     'is_deleted' => $request->userId
                 );
                 $insert = Saveroute::where('id', '=', $request->routeid)->update($data);
                 return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
-            }else{
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
+            } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
-            }else{
-                return response()
+        } else {
+            return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-            }  
+        }
     }
 
     /**
@@ -172,22 +164,22 @@ class savedroutes extends Controller
     public function destroy(Request $request)
     {
         //
-        if($request->userId){
-             $user = Saveroute::where('userId','=', $request->userId)->get();
-            if($user){
-                foreach($user as $delete){
-                    $data = array('is_deleted' =>$request->userId);
+        if ($request->userId) {
+            $user = Saveroute::where('userId', '=', $request->userId)->get();
+            if ($user) {
+                foreach ($user as $delete) {
+                    $data = array('is_deleted' => $request->userId);
                     $insert = Saveroute::where('id', '=', $delete->id)->update($data);
                 }
                 return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
-            }else{
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
+            } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
-            }else{
-                return response()
+        } else {
+            return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
-            }  
+        }
     }
 }

@@ -56,7 +56,7 @@ Route::post('logout_user', 'API\UserController@logout_user');
 Route::post('resend_otp', 'API\UserController@resend_otp');
 Route::post('forgot_password',  'API\UserController@forgot_password');
 Route::post('demo',  'API\UserController@demo');
-
+Route::get('delete_account',  'API\UserController@delete_account');
 
 
 /// category data //////////////////////////////////////////////////
@@ -78,6 +78,8 @@ Route::post('add_company',  'API\UserController@add_company');
 Route::get('faq',  'API\UserController@faq');
 Route::get('Privacy_policy',  'API\UserController@Privacy_policy');
 Route::get('nearbyLocation',  'API\UserController@nearbyLocation');
+Route::post('Add_photo_place',  'API\UserController@Add_photo_place');
+Route::get('mobileads',  'API\UserController@mobileads');
 
 
 ///// saved routes --------------------------------
@@ -98,8 +100,33 @@ Route::post('addreview/store',  'API\Addreview@store');
 Route::post('addreview/show',  'API\Addreview@show');
 Route::post('addreview/update',  'API\Addreview@update');
 Route::post('addreview/destroy',  'API\Addreview@destroy');
+Route::post('addreview/addreviewphotos',  'API\Addreview@addreviewphotos');
+Route::get('addreview/delete_review_photos',  'API\Addreview@delete_review_photos');
+Route::post('addreview/Report_review',  'API\Addreview@Report_review');
+Route::post('addreview/like_review',  'API\Addreview@like_review');
 
 ///// car details --------------------------------
 Route::get('car_make',  'API\UserController@car_make');
 Route::get('car_model',  'API\UserController@car_model');
 Route::get('caralldetailes',  'API\UserController@caralldetailes');
+
+
+/// SearchApi //////////////////////////////////////////////////////////
+Route::post('search/index',  'API\SearchApi@index');
+Route::post('search/simplefileter',  'API\SearchApi@simplefileter');
+Route::get('search/Category',  'API\SearchApi@Category');
+Route::post('search/Subcategories',  'API\SearchApi@Subcategories');
+Route::post('search/facilities',  'API\SearchApi@facilities');
+Route::post('search/nearbysearch',  'API\SearchApi@nearbysearch');
+Route::post('search/simplesearch',  'API\SearchApi@simplesearch');
+
+
+//// Layes api //////////////////////////////////////////////////////////
+Route::get('Places/Metro',  'API\Places@Metro');
+Route::get('Places/Tourism',  'API\Places@Tourism');
+Route::get('Places/Parking',  'API\Places@Parking');
+Route::get('Places/Photos',  'API\Places@Photos');
+
+///////////////////// Feedback //////////////////////////////////////////////////////////
+Route::get('feedback',  'API\Addfeedback@index');
+Route::post('feedback/store',  'API\Addfeedback@store');
