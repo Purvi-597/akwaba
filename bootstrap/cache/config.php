@@ -192,11 +192,7 @@
       'file' => 
       array (
         'driver' => 'file',
-<<<<<<< HEAD
         'path' => 'F:\\akwaba\\storage\\framework/cache/data',
-=======
-        'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/cache/data',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
       ),
       'memcached' => 
       array (
@@ -424,11 +420,7 @@
     ),
     'temporary_files' => 
     array (
-<<<<<<< HEAD
       'local_path' => 'F:\\akwaba\\storage\\framework/laravel-excel',
-=======
-      'local_path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/laravel-excel',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
@@ -443,20 +435,12 @@
       'local' => 
       array (
         'driver' => 'local',
-<<<<<<< HEAD
         'root' => 'F:\\akwaba\\public\\uploads',
-=======
-        'root' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\public\\uploads',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
       ),
       'public' => 
       array (
         'driver' => 'local',
-<<<<<<< HEAD
         'root' => 'F:\\akwaba\\storage\\app/public',
-=======
-        'root' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\app/public',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         'url' => 'http://localhost:8000/storage',
         'visibility' => 'public',
       ),
@@ -502,21 +486,13 @@
       'single' => 
       array (
         'driver' => 'single',
-<<<<<<< HEAD
         'path' => 'F:\\akwaba\\storage\\logs/laravel.log',
-=======
-        'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\logs/laravel.log',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-<<<<<<< HEAD
         'path' => 'F:\\akwaba\\storage\\logs/laravel.log',
-=======
-        'path' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\logs/laravel.log',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         'level' => 'debug',
         'days' => 14,
       ),
@@ -585,11 +561,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-<<<<<<< HEAD
         0 => 'F:\\akwaba\\resources\\views/vendor/mail',
-=======
-        0 => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\resources\\views/vendor/mail',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
       ),
     ),
     'log_channel' => NULL,
@@ -698,11 +670,7 @@
     'lifetime' => '120',
     'expire_on_close' => true,
     'encrypt' => false,
-<<<<<<< HEAD
     'files' => 'F:\\akwaba\\storage\\framework/sessions',
-=======
-    'files' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework/sessions',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -722,15 +690,9 @@
   array (
     'paths' => 
     array (
-<<<<<<< HEAD
       0 => 'F:\\akwaba\\resources\\views',
     ),
     'compiled' => 'F:\\akwaba\\storage\\framework\\views',
-=======
-      0 => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\resources\\views',
-    ),
-    'compiled' => 'C:\\xampp\\htdocs\\mapproject\\akwaba\\storage\\framework\\views',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
   ),
   'flare' => 
   array (
@@ -808,11 +770,7 @@
     'timeout' => 3600,
     'enable_logging' => true,
     'set_command_and_error_output_on_exception' => false,
-<<<<<<< HEAD
     'temporary_files_root' => 'C:\\Users\\DIVYA~1.VAR\\AppData\\Local\\Temp',
-=======
-    'temporary_files_root' => 'C:\\Users\\JAINIL~1.DAR\\AppData\\Local\\Temp',
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
   ),
   'datatables' => 
   array (

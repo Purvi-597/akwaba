@@ -113,24 +113,15 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Home_Address')</label>
-<<<<<<< HEAD
                         <input type="text" class="form-control" name="home_address" id="home_address" placeholder="@lang('language.HAddress_placeholder')" value="{{$users->home_address}}" >
                         {{-- <div class="invalid-feedback">
-=======
-                        <input type="text" class="form-control" name="home_address" id="home_address" placeholder=" @lang('language.HAddress_placeholder')" value="{{$users->home_address}}" >
-                        <div class="invalid-feedback">
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
                             @lang('language.Please provide a Home Address.')
                         </div> --}}
                     </div>
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Work_Address')</label>
-<<<<<<< HEAD
                         <input type="text" class="form-control" name="work_address" id="work_address" placeholder="@lang('language.WAddress_placeholder')"value="{{$users->work_address}}">
-=======
-                        <input type="text" class="form-control" name="work_address" id="work_address" placeholder=" @lang('language.WAddress_placeholder')" value="{{$users->work_address}}">
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
                         {{-- <div class="invalid-feedback">
                             Please provide a Work Address.
                         </div> --}}
@@ -159,8 +150,7 @@ input::-webkit-inner-spin-button {
 
                     <div class="form-group">
                         <label for="formrow-quest_name-input">Model</label>
-                        <select class="form-control" name="model_id" id= "model_id">
-                                 
+                        <select class="form-control" name="model_id" id= "model_id">        
                                @foreach ($model as $model)
                                <option value="{{$model->id}}" {{$cars->id == $model->code ? 'selected': ''}}>{{$model->code}}</option> 
                                @endforeach
@@ -199,12 +189,6 @@ input::-webkit-inner-spin-button {
                 </div>
 
 
-<<<<<<< HEAD
-=======
-
-
-                         <div class="form-group"></div>
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
                         <div class="form-group ">
                             <div class="custom-control custom-checkbox">
                                   @php $checked=""; @endphp
@@ -249,13 +233,7 @@ input::-webkit-inner-spin-button {
 
 <script>
         $(document).ready(function () {
-<<<<<<< HEAD
         var _URL = window.URL || window.webkitURL;
-=======
-
-
-                var _URL = window.URL || window.webkitURL;
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
 $(document).on('change','#images_0',function(e){
       $("#image_main0").css('display','none');
       $("#deleteimage").css('display','none');
@@ -360,7 +338,6 @@ $(document).on('click','#deleteimage',function(){
             })
     </script>
 
-<<<<<<< HEAD
 
 <script>
     $('#make_id').on('change', function () {
@@ -390,6 +367,3 @@ $(document).on('click','#deleteimage',function(){
 </script>
 
 @endsection
-=======
-@endsection
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2

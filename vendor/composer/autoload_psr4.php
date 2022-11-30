@@ -15,6 +15,7 @@ return array(
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Twilio\\' => array($vendorDir . '/twilio/sdk/src/Twilio'),
     'TijsVerkoyen\\CssToInlineStyles\\' => array($vendorDir . '/tijsverkoyen/css-to-inline-styles/src'),
+    'Theanik\\LaravelMoreCommand\\' => array($vendorDir . '/theanik/laravel-more-command/src'),
     'Tests\\' => array($baseDir . '/tests'),
     'Symfony\\Polyfill\\Php81\\' => array($vendorDir . '/symfony/polyfill-php81'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),

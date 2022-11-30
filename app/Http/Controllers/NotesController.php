@@ -18,13 +18,8 @@ class NotesController extends Controller
     {
 
         $data['notes'] = Notes::leftjoin('users','users.id','=','notes.user_id')->orderBy('notes.id','desc')->get();
-<<<<<<< HEAD
 
         
-=======
-        // echo "<pre>";
-        // print_r($data);die;
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         return view('admin.notes',$data);
     }
 

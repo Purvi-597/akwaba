@@ -155,16 +155,16 @@ class UserController extends Controller
             $status = 0;
         }
         
-        // $create = Users::where('id',$id)->update([
-        //         "first_name" => $request->input('first_name'),
-        //         "last_name" => $request->input('last_name'),
-        //         "email"=>$request->input('email'),
-        //         "contact_no"=>$request->input('contact_no'),
-        //         "home_address" => $request->input('home_address'),
-        //         "work_address" => $request->input('work_address'),
-		// 		"profile_pic"=>$cover_detail,
-        //         "status" => $status,
-        //     ]);
+        $create = Users::where('id',$id)->update([
+                "first_name" => $request->input('first_name'),
+                "last_name" => $request->input('last_name'),
+                "email"=>$request->input('email'),
+                "contact_no"=>$request->input('contact_no'),
+                "home_address" => $request->input('home_address'),
+                "work_address" => $request->input('work_address'),
+				"profile_pic"=>$cover_detail,
+                "status" => $status,
+            ]);
 
 
             $check = Cars::where('userId',$id)->first();
@@ -174,8 +174,8 @@ class UserController extends Controller
                     'car_name' => $request->input('car_name'),
                     'car_model' => $request->input('car_model'),
                     'car_year' => $request->input('car_year'),
-                    'car_transmission' => $request->input('car_transmission'),
-                    'car_fuel' => $request->input('car_fuel'),
+                    // 'car_transmission' => $request->input('car_transmission'),
+                    // 'car_fuel' => $request->input('car_fuel'),
                 );
                 $update = Cars::where('userId',$id)->update($update_data);
 
@@ -184,8 +184,8 @@ class UserController extends Controller
                     'car_name' => $request->input('car_name'),
                     'car_model' => $request->input('car_model'),
                     'car_year' => $request->input('car_year'),
-                    'car_transmission' => $request->input('car_transmission'),
-                    'car_fuel' => $request->input('car_fuel'),
+                    // 'car_transmission' => $request->input('car_transmission'),
+                    // 'car_fuel' => $request->input('car_fuel'),
                 );
 
                 $update = Cars::where('userId',$id)->insert($add_data);

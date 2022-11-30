@@ -1060,14 +1060,6 @@ if($advertisement_result->num_rows > 0) {
         var restaurantLatLng = JSON.parse('<?php echo json_encode($restaurantData); ?>');
         var groceryLatLng = JSON.parse('<?php echo json_encode($groceryData); ?>');
         var mallLatLng = JSON.parse('<?php echo json_encode($mallData); ?>');
-<<<<<<< HEAD
-=======
-        var hotelLatLng = JSON.parse('<?php echo json_encode($hotelData); ?>');
-        var touristLatLong = JSON.parse('<?php echo json_encode($touristLatLong); ?>');
-        var restaurantnameData = JSON.parse('<?php echo json_encode($restaurantnameData); ?>');
-        var grocerynameData = JSON.parse('<?php echo json_encode($grocerynameData); ?>');
-        var mallnameData = JSON.parse('<?php echo json_encode($mallnameData); ?>');
->>>>>>> 39d9f2bb85a4b2f396fe243e601b55b6c5e31db2
         var hotelnameData = JSON.parse('<?php echo json_encode($hotelnameData); ?>');
         var gasDataLatLng = JSON.parse('<?php echo json_encode($gasData); ?>');
 		var gasnameData = JSON.parse('<?php echo json_encode($gasnameData); ?>');

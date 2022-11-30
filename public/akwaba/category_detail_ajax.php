@@ -1112,7 +1112,7 @@ if(isset($_REQUEST['id'])){
   $count_main = 0;
   $allcount  = 0;
 
-
+  $rowcount4  =0;
   
   $query4 = "select review_rating.user_id,review_rating.osm_id,review_rating.title,review_rating.message,review_rating.rating,review_rating.photos,review_rating.status,review_rating.created_at,users.first_name,users.last_name,users.profile_pic from review_rating left join users on review_rating.user_id = users.id where review_rating.status = '1' and osm_id = $id ORDER BY review_rating.id DESC";
   $result4 = mysqli_query($conn, $query4);

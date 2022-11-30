@@ -4,8 +4,8 @@ var plainMap = L.tileLayer('http://10.10.3.50:5000/hot/{z}/{x}/{y}.png', {
 });
 
 var burl = window.location.href;
-
-if(burl == base_url+'index.php'){
+//alert(base_url+'index.php');
+if(burl == 'http://127.0.0.1:8000/akwaba/index.php'){
 var str1 = 40.36629;
 var str2 = 49.83335;
 var url = window.location.href+"#map=13/"+str1+"/"+str2;
@@ -23,8 +23,8 @@ var arrs = burl.split("=");
 var finalArray = arrs[1].split("/");
 var NewLatitude = finalArray[1];
 var NewLongitude = finalArray[2];
-console.log(NewLatitude);
-console.log(NewLongitude);
+// console.log(NewLatitude);
+// console.log(NewLongitude);
 var map = L.map('map', {
     center: [NewLatitude, NewLongitude],
     zoom: 15,
@@ -108,8 +108,8 @@ let myLayerOptionssss = {
 var overlayMaps = {};
 var metroMap = L.geoJSON(metroLatLng,)
 var touristMap = L.geoJSON(tourismLatLng, myLayerOptions)
-var photoMap = L.geoJSON(touristLatLong, myLayerOptionsss)
-var parkingMap = L.geoJSON(parkingLatLng, myLayerOptionss)
+var photoMap = L.geoJSON(tourismLatLng, myLayerOptionsss)
+var parkingMap = L.geoJSON(parkingLatLng, myLayerOptionsss)
 
 
 
