@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
 error_reporting(0);session_start();
+=======
+error_reporting(0);
+session_start();
+>>>>>>> Darshan
 include('config/db_pg.php');
 include('config/db_mysql.php');
 
@@ -111,6 +116,7 @@ $array_images = array();
 $array_name = "";
 
 
+<<<<<<< HEAD
 for ($i = 0; $i < count($_FILES['file_review']['name']); $i++) {
     $newfilename = "image_". rand();
     $extension   = pathinfo($_FILES['file_review']['name'][$i], PATHINFO_EXTENSION);
@@ -143,6 +149,27 @@ $result = mysqli_query($conn, $sql);
                 $background_image = 'background-image: url(./assets/img/user1.png);';
               }
               $html .='<div class="All-tab-div">
+=======
+ if(count($_FILES['file_review']['name']) > 0){
+for ($i = 0; $i < count($_FILES['file_review']['name']); $i++) {
+  $newfilename = "image_". rand();
+  $extension   = pathinfo($_FILES['file_review']['name'][$i], PATHINFO_EXTENSION);
+  $basename    = $newfilename . "." . $extension;
+  $file1       = $_FILES['file_review']['name'][$i];
+  $target_path = "./uploads/review/" . $basename;
+  $array_images[] = $basename;
+  move_uploaded_file($_FILES['file_review']['tmp_name'][$i], $target_path);
+ 
+}
+$array_name = implode(",",$array_images);
+} 
+$sql = "INSERT INTO review_rating (user_id, osm_id, title, message, rating, photos, status, created_at, updated_at) VALUES ('".$userid."', '".$id."', '".$name."', '".$message."', '".$rating."', '".$array_name."', '1', '".$created_at."', '".$updated_at."')";
+if (mysqli_query($conn, $sql)) {
+      //$last_insert_id = $conn->insert_id;
+      
+			  $html = '';
+			   $html .='<div class="All-tab-div">
+>>>>>>> Darshan
               <div class="reviewHeadRating">
                 <div class="reviewHeadRatingDiv1">
                   <div class="reviewHeadRatingDiv12">
@@ -192,14 +219,21 @@ $result = mysqli_query($conn, $sql);
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
 
               </div>
 
+=======
+              </div>
+>>>>>>> Darshan
               <div class="reviewHeadRating">
                 <div class="reviewBodyReview">
                   <a class="reviewBodyReviewOne">'.$message.'</a>
                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> Darshan
                 <div class="reviewFooter">
                   <div class="reviewFooterDiv">
                     <div class="reviewFooterInnerDivs">
@@ -230,6 +264,7 @@ $result = mysqli_query($conn, $sql);
                 </div>
               </div>
             </div>';
+<<<<<<< HEAD
 			//   $html .='<div class="col-lg-12 col-12 inner-padding">
             //               <div class="d-lg-flex d-block d-md-flex align-items-lg-center">';
 			// 			  if(isset($_SESSION['users']['profile_pic'])){
@@ -278,11 +313,16 @@ $result = mysqli_query($conn, $sql);
             //              </a>
             //               </div>
             //             </div>';
+=======
+>>>>>>> Darshan
 			echo $html;die;			
 			  
 		} else {
 			  echo "false";die;
 		}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Darshan
 ?>

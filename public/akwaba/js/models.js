@@ -75,7 +75,11 @@ if($(".pip").length > 1){
 
 if ($("#uploadimg")[0].files.length > 5) {
     $("#uploadimg").val(null);
+<<<<<<< HEAD
 $("#image_other_error").html("You can only upload 3 images");
+=======
+$("#image_other_error").html("You can only upload 5 images");
+>>>>>>> Darshan
 }
 else{
 for (var i = 0; i < this.files.length; i++){
@@ -569,6 +573,10 @@ for (var i = 0; i < this.files.length; i++){
                        processData:false,
                        dataType: 'text',
                        success: function(data){
+<<<<<<< HEAD
+=======
+						   console.log(data);
+>>>>>>> Darshan
                            if($.trim(data) == 'success'){
                                $("#addAdvertisingModel").modal('hide');
                                $(".pip_multiple").remove();
@@ -614,6 +622,7 @@ for (var i = 0; i < this.files.length; i++){
                    var re = /\S+@\S+\.\S+/;
                    return re.test(email);
             }
+<<<<<<< HEAD
             $(document).on('click','.postratingBtn', function(){
 
                 var userid = $("#sessionid").val();
@@ -671,3 +680,108 @@ for (var i = 0; i < this.files.length; i++){
                 div.scrollTop(totalHeight);
               }
 
+=======
+
+
+/* Upload Image Review */
+$(document).on('change', '#uploadimgreview', function(e) {
+    // if($(".pip_review").length > 1){
+    //  $(".pip_review").remove("");
+    // }
+    
+    if ($("#uploadimgreview")[0].files.length > 5) {
+        $("#uploadimgreview").val(null);
+    $("#image_other_error").html("You can only upload 3 images");
+    }
+    else{
+    for (var i = 0; i < this.files.length; i++){
+           let name = e.target.files[i].name;
+               $("#image_review_error").html("");
+               var files = e.target.files,
+                   filesLength = files.length;
+    
+           var ext = name.split('.').pop().toLowerCase();
+           if($.inArray(ext, ['png','jpg','jpeg','jfif']) == -1) {
+               $(".o-img").remove();
+           $("#image_review_error").html("Please upload images of following formats(*png,jpeg,jpg,jfif).");
+               var html = '<input type="file" class="o-img oim" name="image[]" id="image" multiple  accept=".gif,.jpg,.jpeg,.png" onchange="get_other_image(this);"/>';
+               $(".other-img").append(html);
+    
+           }else{
+               $("#image_review_error").html("");
+                   var f = files[i];
+                   var fileReader = new FileReader();
+                   fileReader.onload = (function(ev) {
+                       var html =   $("<span class=\"pip_review\">" +
+                       "<img class=\"imageThumb\" height=\"100px\" width=\"100px\" src=\"" + ev.target.result + "\" title=\"" + name + "\"/>" +
+                       "<a href=\"javascript:void(0)\" id=\"deleteBtn_review\" style=\"display: block;\" data-id=\"${Files.length}\" onclick=\"removefiles('"+ name +"')\">"+
+                       "<span class=\"close_imge\"><i class=\"fa fa-window-close\" aria-hidden=\"true\"></i></span>"+
+                                           "</a>" +
+                       "</span>");
+                       $("#img_section3").append(html);
+    
+                       $(document).on('click','#deleteBtn_review',function(){
+    
+                       $(this).parent(".pip_review").remove();
+                       });
+    
+    
+                   });
+               fileReader.readAsDataURL(f);
+               }
+           }
+    
+           }
+               });
+			   
+/* Upload Image Review */
+$(document).on('change', '#uploadimgreviews', function(e) {
+	var sessionid = $("#sessionid").val();
+	if(typeof sessionid === "undefined"){
+		$("#exampleModal1").modal('show');
+	}else{
+		$(".uploadBtn").css('display','block');
+		if ($("#uploadimgreviews")[0].files.length >= 5) {
+			$("#uploadimgreviews").val(null);
+		$("#images_review_error").html("You can only upload 5 images");
+		}
+		else{
+		for (var i = 0; i < this.files.length; i++){
+           let name = e.target.files[i].name;
+               $("#images_review_error").html("");
+               var files = e.target.files,
+                   filesLength = files.length;
+    
+           var ext = name.split('.').pop().toLowerCase();
+           if($.inArray(ext, ['png','jpg','jpeg','jfif']) == -1) {
+               $(".o-img").remove();
+           $("#images_review_error").html("Please upload images of following formats(*png,jpeg,jpg,jfif).");
+               var html = '<input type="file" class="o-img oim" name="image[]" id="image" multiple  accept=".gif,.jpg,.jpeg,.png" onchange="get_other_image(this);"/>';
+               $(".other-img").append(html);
+    
+           }else{
+               $("#images_review_error").html("");
+                   var f = files[i];
+                   var fileReader = new FileReader();
+                   fileReader.onload = (function(ev) {
+                       var html =   $("<span class=\"pip_review\">" +
+                       "<img class=\"imageThumb\" height=\"100px\" width=\"100px\" src=\"" + ev.target.result + "\" title=\"" + name + "\"/>" +
+                       "<a href=\"javascript:void(0)\" id=\"deleteBtn_review\" style=\"display: block;\" data-id=\"${Files.length}\" onclick=\"removefiles('"+ name +"')\">"+
+                       "<span class=\"close_imge\"><i class=\"fa fa-window-close\" aria-hidden=\"true\"></i></span>"+
+                                           "</a>" +
+                       "</span>");
+                       $("#img_section4").append(html);
+    
+                       $(document).on('click','#deleteBtn_review',function(){
+    
+                       $(this).parent(".pip_review").remove();
+                       });
+                   });
+               fileReader.readAsDataURL(f);
+               }
+           }
+    
+           }
+	}
+               });			   
+>>>>>>> Darshan

@@ -1,7 +1,9 @@
+
 var plainMap = L.tileLayer('http://10.10.3.50:5000/hot/{z}/{x}/{y}.png', {
     maxZoom: 21,
     maxNativeZoom: 22
 });
+var base_url = 'http://127.0.0.1:8000/akwaba/';
 
 var burl = window.location.href;
 //alert(base_url+'index.php');
@@ -40,9 +42,10 @@ var baseMaps = {
     "Plain View": plainMap,
 };
 
-function createCustomIcon(feature, latlng) {
+ function createCustomIcon(feature, latlng) {
 	let myIcon = L.icon({
-		iconUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
+		
+		iconUrl: '',
 		shadowUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
 		iconSize: [25, 25], // width and height of the image in pixels
 		shadowSize: [35, 20], // width, height of optional shadow image
@@ -51,10 +54,10 @@ function createCustomIcon(feature, latlng) {
 		popupAnchor: [0, 0], // point from which the popup should open relative to the iconAnchor
 	})
 	return L.marker(latlng, { icon: myIcon })
-}
+} 
 function createParkingIcon(feature, latlng) {
 	let myIcons = L.icon({
-		iconUrl: base_url+'assets/img/icons/parkings.png',
+		iconUrl: '',
 		shadowUrl: base_url+'assets/img/icons/parkings.png',
 		iconSize: [25, 25], // width and height of the image in pixels
 		shadowSize: [35, 20], // width, height of optional shadow image
@@ -66,7 +69,7 @@ function createParkingIcon(feature, latlng) {
 }
 function createPhotoIcon(feature, latlng) {
     let myIconss = L.icon({
-        iconUrl: base_url+'uploads/tourist/captions.jpg',
+        iconUrl: '',
         shadowUrl: base_url+'uploads/tourist/captions.jpg',
         iconSize: [25, 25], // width and height of the image in pixels
         shadowSize: [35, 20], // width, height of optional shadow image
@@ -88,8 +91,97 @@ function createResturantIcon(feature, latlng) {
     })
     return L.marker(latlng, { icon: myIconsss })
 }
+<<<<<<< HEAD
 
 
+=======
+ 
+ 
+$(document).on('click','.photos', function(){ 
+	// alert(12);
+	for (var index = 0; index < touristLatLong.length; index++) {
+		let customIcon = {
+			iconUrl: '../uploads/photos/'+touristLatLong[index]['coordinates'][2],
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:'company name',
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(touristLatLong[index]['coordinates'][0], touristLatLong[index]['coordinates'][1]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+		// console.log(latlng);
+		// myIconss = L.icon({
+		// 	iconUrl: base_url+'uploads/tourist/'+touristLatLong[index]['coordinates'][2],
+		// 	iconSize: [25, 25], // width and height of the image in pixels
+		// 	shadowSize: [35, 20], // width, height of optional shadow image
+		// 	iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+		// 	shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
+		// 	popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+		// })
+		// L.marker(latlng, { icon: myIconss })
+	}
+	// return L.marker(latlng, { icon: myIconss })
+}) 
+
+$(document).on('click','.tourism', function(){ 
+	
+	for (var index = 0; index < tourismLatLng.length; index++) {
+		let customIcon = {
+			iconUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:tourismID[index]['id']+"|Tourism",
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(tourismLatLng[index]['coordinates'][1], tourismLatLng[index]['coordinates'][0]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+	} 
+	// return L.marker(latlng, { icon: myIconss })
+}) 
+$(document).on('click','.leaflet-interactive', function(){ 
+    var osmid = $(this).attr('title');
+   var arr = osmid.split("|");
+	
+	$.ajax({
+			url:"tourism_detail_ajax.php",
+			method:"POST",
+			data: {'tourismdetail':'tourismdetailForm','id': arr[0], 'type': arr[1]},
+			success: function(response){
+				$(".tourismDiv").html(response);
+				$(".indexDiv").css('display','none');
+				$(".tourismDiv").css('display','block');
+			}
+		});
+		
+});
+$(document).on('click','.parking', function(){ 
+	
+	for (var index = 0; index < parkingLatLng.length; index++) {
+		let customIcon = {
+			iconUrl: base_url+'assets/img/icons/parkings.png',
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:parkingID[index]['id']+"|Parking",
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(parkingLatLng[index]['coordinates'][1], parkingLatLng[index]['coordinates'][0]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+	} 
+	// return L.marker(latlng, { icon: myIconss })
+}) 	 
+>>>>>>> Darshan
 let myLayerOptions = {
 	pointToLayer: createCustomIcon
 }
@@ -140,6 +232,7 @@ $('.leaflet-control-container .leaflet-control-layers-overlays label').removeCla
 $(this).addClass('active');
 });
 
+<<<<<<< HEAD
 $(document).on('click','#iconBtn', function(){
 
 	var id = $(this).attr('data-index');
@@ -184,6 +277,69 @@ $(document).on('click','#iconBtn', function(){
 					let customIcon = {
 						iconUrl:base_url+'assets/img/icons/ic_eat_out_20X20_Green.png',
 						iconSize:[30,30]
+=======
+$(document).on('click','#iconBtn', function(){ 
+
+var id = $(this).attr('data-index');
+var flag = $(this).attr('data-id');
+var type = $(this).attr('data-type');
+
+
+if(flag == "Yes" && id == 'allCategory'){
+	$(".morecategoryDiv").removeClass('extralarge');
+	$(".indexDiv").css('display','none');
+	$(".morecategoryDiv").css('display','block');
+	
+}else if(flag == "Yes" && id == 'favorite'){
+   var sessionid = $("#sessionid").val();
+   if (typeof sessionid === "undefined") {
+	   $("#exampleModal1").modal('show');
+   }
+}else{
+	
+	 $.ajax({
+		type: "POST",
+		url: 'category_data_ajax.php',
+		data: {'id': id},
+		success: function(catData){
+			$(".leaflet-marker-icon").remove();
+			var lat = $('.lat').text();
+			var long = $('.long').text();
+			$(this).attr('data-id', 'No');
+			$(".indexDiv").css('display','none');
+			$(".catDataDiv").css('display','flex');
+			$(".catDataDiv").removeClass('extralarge');
+			let customIcon = {
+			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
+			 iconSize:[30,30]
+			}
+			let myIcon = L.icon(customIcon);
+			let iconOptions = {
+			 title:'company name',
+			 draggable:false,
+			 icon:myIcon
+			}
+
+			var catData = JSON.parse(catData);
+			console.log(catData);
+			var cathtml = '<div class="closeiconleftpanel" id="catCloseBtn"><a href="javascript:void(0);"><img src="assets/img/icons/left-cross.png"></a> </div> <div class="closeiconleftpanel closeleftpanel2 closeleftpanel"> <img src="assets/img/icons/left-arrow.png"> </div> <div class="scrollbar list-page"> <div class="img-top "> <div class="input-group search-bar"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span> </div> <input type="text" class="form-control" placeholder="Eat Out"> <div class="cross-btn"> <button type="button" class="cross-btn2" aria-label="Clear local search field"> <img src="./assets/img/icons/cross-search.png" alt=""> </button> </div> </div> <div class="row mt-3"> <div class="col-md-6"> <button class="No_Filters"> <a href="#"> <span class="Filter-btn"> <img src="./assets/img/icons/filter-btn.png" alt=""> </span> <span class="No_Filters_btn">Filters</span> </a> </button> </div> <div class="col-md-6"> <div class="float-right"> <div class="No_places"> <a href="#" class="No_places-list">Places: <span class="No_places-number">'+catData.length+'</span> </a> </div> </div> </div> </div> </div> <div class="info-card categories-icons-sections"> <div class="row m-0"> <div class="filterpart" data-simplebar> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <a class="btn p-0 toggle-btn"> <i class="fa fa-angle-down" aria-hidden="true"></i> </a> <ul> <li class="side-list">Cafe</li> <li class="side-list">Bars</li> <li class="side-list">Restaurants</li> <li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <ul> <li class="side-list">Wi-Fi</li> <li class="side-list">Amenities</li> <li class="side-list">Brunch</li> <li class="side-list">payment</li> <li class="side-list">Photo available</li> </ul> <div class="input"> <input type="text" class="cafesbar-input" value="" placeholder="Metro station"> </div> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Opening hours</h6> <ul> <li class="side-list active">Open right now</li> <li class="side-list">Open 24 hours</li> <li class="side-list">At the specific time</li> </ul> <div class="input-group"> <div class="input"> <input type="text" class="cafesbar-input w-101" value="" placeholder="06:00 pm"> </div> <div class="input ml-2"> <input type="text" class="cafesbar-input w-64" value="" placeholder="Wed"> </div> </div> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Cuisine</h6> <ul> <li class="side-list">Afgan</li> <li class="side-list">African</li> <li class="morebtn side-list"><img src="./assets/img/icons/more.png" alt=""></li> </ul> </div> </div> <div class="col-md-12 border-bottom"> <div class="cafesbar"> <h6 class="list-heading">Average bill from 8 to 550 AED</h6> <div class="slidermaindiv"> <div id="slider-range"></div> <div class="row slider-labels"> <div class="col-xs-6 caption"><span id="slider-range-value1"></span> </div> <div class="col-xs-6 text-right caption"><span id="slider-range-value2"></span> </div> </div> <div class="row"> <div class="col-sm-12"> <form> <input type="hidden" name="min-value" value=""> <input type="hidden" name="max-value" value=""> </form> </div> </div> </div> </div> </div> </div> <div class="restaurantslistpart "> <div class="restaurantslistmaindiv" data-simplebar>';
+
+			if(catData.length > 0){
+				for(var i = 0; i < catData.length; i++) {
+					var lon = catData[i].coordinates[0];
+					var lat = catData[i].coordinates[1];
+					var popupText =  catData[i]['name'];
+					var markerLocation = new L.LatLng(lat, lon);
+					var marker = new L.Marker(markerLocation, iconOptions);
+					map.addLayer(marker);
+					marker.bindPopup(popupText);
+					$(".leaflet-marker-icon").css('display','block');
+	
+					if(catData[i]['cuisine'] != '' && catData[i]['cuisine'] != null){
+						var cuisine = catData[i]['cuisine'].replace(";", ",");
+					}else{
+						var cuisine = '';
+>>>>>>> Darshan
 					}
 					let myIcon = L.icon(customIcon);
 					let iconOptions = {
@@ -262,10 +418,9 @@ $(document).on('click','#catBtn', function(){
 			$(".morecategoryDiv").css('display','flex');
 			$(".subcatSubsidebar").css('display','block');
 			$("#catid").val(id);
-			 $.getScript(bootstrap);
-			$.getScript(popper);
 			$.getScript(simplebar);
-			$.getScript(custom);
+			var myElement = document.getElementById('simplebars');
+			new SimpleBar(myElement, { autoHide: true });
 		}
 	 })
 });
@@ -280,8 +435,14 @@ $(document).on('click', "#subcatBtn", function(){
 		success: function(response){
 			console.log(response);
 			 var arr = response.split("|");
+<<<<<<< HEAD
 			var LatLng = JSON.parse(arr[1]);
 			var Name = JSON.parse(arr[2]);
+=======
+			
+			var LatLng = JSON.parse(arr[0]); 
+			var Name = JSON.parse(arr[1]); 
+>>>>>>> Darshan
 			let customIcon = {
 			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
 			 iconSize:[30,30]
@@ -304,6 +465,7 @@ $(document).on('click', "#subcatBtn", function(){
 			$(this).attr('data-id', 'No');
 			$(".morecategoryDiv ").css('display','none');
 			$(".eatoutdynamicDiv").removeClass('extralarge');
+<<<<<<< HEAD
 			$(".eatoutdynamicDiv").html(arr[0]);
 			$(".eatoutdynamicDiv").css('display','flex');
 			/* $(".subcatSubsidebar").html(response);
@@ -314,6 +476,15 @@ $(document).on('click', "#subcatBtn", function(){
 			$.getScript(popper);
 			$.getScript(simplebar);
 			$.getScript(custom); */
+=======
+			$(".eatoutdynamicDiv").html(arr[2]);
+			$(".eatoutdynamicDiv").css('display','flex');			
+			/* $(".subcatSubsidebar").html(response);
+			$(".morecategoryDiv").addClass('extralarge');
+			$(".morecategoryDiv").css('display','flex'); 
+			$(".subcatSubsidebar").css('display','flex'); 
+			 */
+>>>>>>> Darshan
 		}
 	 })
 });
@@ -324,6 +495,7 @@ $(document).on('click','.getEatoutDyanmicDetail', function(){
 				url: 'eatout_dynamic_ajax.php',
 				data: {'eatoutdynamic':'eatoutdynamicForm','id': id},
 				success: function(response){
+					
 					$(".leaflet-marker-icon").css('display','none');
 					$(".eatoutdynamicSubsidebar").html(response);
 					var lat = $('.lat').text();
@@ -360,16 +532,23 @@ $(document).on('click','#EatoutdynamicCloseBtn', function(){
 var baseMaps = {};
 
 var overlayMaps = {
+<<<<<<< HEAD
    '<img src="assets/img/icons/train.png" /> </br> ': metroMap,
    '<img src="assets/img/icons/ic_direction.png" /> </br> ': touristMap,
    '<img src="assets/img/icons/image.png">' : photoMap,
    '<img src="assets/img/icons/parking.png" />': parkingMap
+=======
+   '<img src="assets/img/icons/train.png" /> </br> ': metroMap,	
+   '<img src="assets/img/icons/ic_direction.png" class="tourism"/> </br> ': touristMap,
+   '<img src="assets/img/icons/image.png" class="photos">' : photoMap,
+   '<img src="assets/img/icons/parking.png" class="parking" />': parkingMap
+>>>>>>> Darshan
 };
 var overlayFlag = {
 	'<img src="assets/img/icons/train.png"></a>' : metroMap,
-	'<img src="assets/img/icons/ic_direction.png"></a>' : touristMap,
-	'<img src="assets/img/icons/image.png">' : photoMap,
-	'<img src="assets/img/icons/parking.png">' : parkingMap
+	'<a href="javascript:void(0);" id="1"><img src="assets/img/icons/ic_direction.png"></a>' : touristMap,
+	'<img src="assets/img/icons/image.png" class="photos">' : photoMap,
+	'<img src="assets/img/icons/parking.png" class="parking">' : parkingMap
 };
 
 L.control.layers(null, overlayFlag, {collapsed: false}).addTo(map);
@@ -393,7 +572,6 @@ L.control.ruler({
         label: 'Distance:'
     }
 }).addTo(map);
-L.Control.measureControl({ position: 'bottomright', activeColor: '#ABE67E', completedColor: '#C8F2BE' }).addTo(map);
 
 var multiPolyLineOptions = {
     color: "red",

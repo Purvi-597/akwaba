@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-session_start();
+@error_reporting(0);
+@session_start();
 include('config/db_pg.php');
 if(isset($_REQUEST['hotel']) && ($_REQUEST['hotel'] == 'hotelForm')){
 $id = $_REQUEST['id'];

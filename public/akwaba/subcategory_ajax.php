@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-session_start();
+@error_reporting(0);
+@session_start();
 include('config/db_mysql.php');
 if(isset($_REQUEST['subcategory']) && ($_REQUEST['subcategory'] == 'subcategoryForm')){
 $id = $_REQUEST['id'];

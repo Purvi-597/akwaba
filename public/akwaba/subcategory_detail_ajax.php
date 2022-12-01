@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-session_start();
+@error_reporting(0);
+@session_start();
 include('config/db_pg.php');
 if(isset($_REQUEST['subcategorydetail']) && ($_REQUEST['subcategorydetail'] == 'subcategorydetailForm')){
 $Array = explode("-",$_REQUEST['name']);
@@ -10,6 +10,7 @@ $sqlData= [];
 while($row = pg_fetch_row($sql)) {
     array_push($sqlData, json_decode($row[0], true));
 }
+
 $sqlnameResult = pg_query($db, "SELECT osm_id,name FROM public.planet_osm_point WHERE ".$Array[0]."='".$Array[1]."' and name!=''");
 while($rows = pg_fetch_row($sqlnameResult)) {
     $nameData[] = array('name'=>base64_encode($rows[1]));
@@ -338,7 +339,7 @@ $html = '<div class="closeiconleftpanel" id="EatoutdynamicCloseBtn">
 
 $name = json_encode($nameData);
 $data = json_encode($sqlData);
-echo $html."|".$data."|".$name;die;
+echo $data."|".$name."|".$html;die;
 
 
 }
