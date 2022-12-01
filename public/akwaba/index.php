@@ -164,6 +164,48 @@ if(isset($_SESSION['users'])){
 	
 }
 
+if(isset($_SESSION['users'])){
+	$cars = "SELECT * from model where 1=1";
+	$car_result = $conn->query($cars);
+	if($car_result->num_rows > 0) {
+		$carcount = $car_result->num_rows;
+		$model = [];
+		while($Crows = $car_result->fetch_assoc()) {
+			$model[] = $Crows;
+		}
+	}else{
+		$carcount = 0;
+		$model  = array(); 
+	}
+	
+}
+
+
+  $fuels = array(
+    '1' => 'Diesel',
+    '2' => 'CNG',
+    '3' => 'Bio-Diesel',
+    '4' => 'LPG',
+    '5' => 'Ethanol',
+    '6' => 'Methanol',
+    '7' => 'Petrol'
+);
+
+
+
+  $transmission = array(
+    '1' => 'Manual transmission',
+    '2' => 'Automatic transmission',
+    '3' => 'Continuously variable transmission',
+    '4' => 'Semi-automatic and dual-clutch transmissions'
+);
+
+
+$currentYear = 2022;
+$yearFrom = 2000;
+$yearsRange = range($yearFrom, $currentYear);
+$row['yearsRange'] = $yearsRange;
+
 ?>
 
 <body>
@@ -1121,6 +1163,7 @@ if(isset($_SESSION['users'])){
               </ul>
             </nav>
           </div>
+          
 
         </div>
 		  <?php } ?>
@@ -1439,7 +1482,7 @@ if(isset($_SESSION['users'])){
           </div>
 		  <div class="form-group">
 		    <label for="recipient-name" class="col-form-label">Car:</label>
-			<select id="make" name="make" class="form-control">
+			<select id="make" name="make" class="form-control make">
 			<option value="">select car</option>
 		    <?php foreach($carData as $res){ ?>
 			<option value="<?=$res['id']?>"><?=$res['code']?></option>
@@ -1448,11 +1491,40 @@ if(isset($_SESSION['users'])){
 		  </div>
 		  <div class="form-group">
 		    <label for="recipient-name" class="col-form-label">Model:</label>
-			<select id="model" name="model" class="form-control">
-			
+			<select id="model" name="model" class="form-control" id= "model">
+      <?php foreach($model as $res){ ?>
+			<option value="<?=$res['make_id']?>"><?=$res['code']?></option>
+			<?php } ?>
 		    
 		    </select>
 		  </div>
+      <div class="form-group">
+		    <label for="recipient-name" class="col-form-label">Transmission:</label>
+              <select id="model" name="model" class="form-control" id= "model_id">
+                    <?php foreach($transmission as $key=> $transmission){ ?>
+                    <option value="<?php echo $key;?>"><?=$key['users.key']?><?= $transmission ?></option> 
+                    <?php } ?>
+                
+                </select>
+		  </div>
+      <div class="form-group">
+		    <label for="recipient-name" class="col-form-label">Fuel:</label>
+			<select id="model" name="model" class="form-control">
+                  <?php foreach($fuels as $key=> $fuels){ ?>
+                    <option value="<?php echo $key;?>"><?=$key['users.key']?><?= $fuels ?></option> 
+                    <?php } ?>
+		    </select>
+		  </div> <div class="form-group">
+		    <label for="recipient-name" class="col-form-label">Year:</label>
+			<select id="model" name="model" class="form-control">
+      <?php foreach($yearsRange as $yearsRange){?>
+                                <option value=""selected:><?=$yearsRange?></option>
+                            <?php } ?> 
+
+		    
+		    </select>
+		  </div>
+
 		  
 		  <div class="form-group" id="fileDiv">
 		  <?php if(empty($_SESSION['users']['profile_pic'])) { ?>
@@ -2319,13 +2391,63 @@ $(document).ready(function() {
     $(this).closest(".scrollbar").removeClass('OnClickSearch');
   });
 });
+</script>
+<!-- <script>
+    $('#make_id').on('change',function () {
+  
+                var make_id = this.value;
+              
+                $("#model_id").html('');
+                $.ajax({
+                    url: 'allsearchdata_ajax.php',
+                    type: "POST",
+                    data: {
+                        "make_id": make_id,
+                       "_token": "{{ csrf_token() }}"
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                      
+                        console.log(result)
+                        $('#model_id').html('<option value="">Select Model</option>');
+                        $.each(result.car_model, function (key, value) {
+                            $("#model_id").append('<option value="' + value
+                                .id + '">' + value.title + '</option>');
+                        });
+                    }
+                });
+            });
+</script> -->
+
+<script type="text/javascript">
 
 
-  </script>
-<!--<script type="text/javascript">
-    $(document).on('click', '.closeleftpanel', function () {
-      $('.left-panel').toggleClass('hideleftpanel');
-      $('.overlayIconInIframe').toggleClass('w-100');
-    });
-  </script>-->
- 
+      $(document).on('change','.make',function(){
+
+      
+        var make_id = $(this).find('option:selected').val();
+        var model = "model";
+        $.ajax({
+            url: "get_select_data.php",
+            type: "POST",
+            data: {"make_id":make_id,"model":model},
+            dataType: 'json',
+            success: function (response) {
+             
+    
+              console.log(newData)
+
+             
+               // console.log(obj[0])
+                    // $("#model_id").append('<option value="' + value
+                    //             .id + '">' + value.title + '</option>');
+                        
+                // $("#model_id").html(response);
+            },
+          
+        });
+    }); 
+
+
+
+</script>

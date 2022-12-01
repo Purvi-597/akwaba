@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Model\Users;
+use App\Http\Model\Feedback;
 use Auth;
 use Carbon\Carbon;
 use Session;
@@ -32,6 +33,8 @@ class HomeController extends Controller
         // }
        
         $data['users'] = Users::where('role','!=','admin')->count();
+
+        $data['feedback'] = Feedback::count();
     
         return view('admin.dashboard.index',$data);
     

@@ -26,7 +26,17 @@ if (! empty($_POST["keyword"])) {
 			} // end for
 			?>
 	</ul>
+	<?php 
+$make_id = $_POST['make_id'];
+echo "<option>Select Category</option>";
+$res= "select * from ".model." WHERE make_id = $make_id order by id asc"; 
+        while($data=($res))
+        {
+        echo "<option value='".$data['id']."'>."['code']."</option>";
+        }
+?>
 	<?php
 		} // end if not empty
+		
 }
 ?>

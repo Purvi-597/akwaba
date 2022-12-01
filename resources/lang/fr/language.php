@@ -281,7 +281,7 @@ return [
     'cms_management' => 'Gestion CMS',
     'msg_send' => 'message envoyé avec succès',
     'msg_placeholder' => 'Entrez le message',
-
+    'total_message' => 'Message total',
     'Yes' => 'oui',
 
 

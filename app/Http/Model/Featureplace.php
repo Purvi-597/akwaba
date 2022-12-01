@@ -11,7 +11,7 @@ class Featureplace extends Model
     use HasFactory,SoftDeletes;
     protected $table = 'featured_places_list';
     protected $fillable = [
-        'title','title_fr', 'status', 'image', 'description','description_fr','featured_places_id', 'ratings'
+        'title','title_fr', 'status', 'image', 'description','description_fr','featured_places_id', 'ratings','osm_id'
         ];
 
         protected $dates = ['deleted_at'];

@@ -22,6 +22,7 @@ class CreateFeaturedPlacesListTable extends Migration
             $table->text('description_fr')->nullable();
             $table->integer('ratings')->nullable();
             $table->foreignId('featured_places_id');
+            $table->string('osm_id')->nullable();
             $table->string('latitude');
             $table->string('longitude');
             $table->enum('status', ['1', '0']);

@@ -63,17 +63,17 @@ input::-webkit-inner-spin-button {
                   </div>
 
 
-                  {{-- <div class="form-group">
-                    <label>@lang('language.select'):</label>
-                    <select id="cat_id" name="cat_id" class="form-control">
-                      <option value="">@lang('language.select_cat')</option>
-                      @foreach($categories as $categories)
-                        <option value="{{ $categories->id }}" {{$categories->id == $subcategories->cat_id ? 'selected':''}}>{{ $categories->display_name}} </option>
-                      @endforeach
-
+                  <div class="form-group">
+                    <label for="formrow-quest_name-input">@lang('language.Place_Name')</label>
+                    <select class="js-example-basic-single form-control" name="place_name" id="place_name">
+                    @foreach($places as $row)
+                        <option value="{{$row->osm_id}}" @if($feature_list->osm_id == $row->osm_id) selected @endif>{{$row->name}}</option>
+                    @endforeach
                     </select>
-                </div> --}}
-                        
+                    <div class="invalid-feedback">
+                        @lang('language.Please provide a place name.')'
+                    </div>
+                </div>  
                   
                 <div class="form-group">
                         <label for="formrow-quest_name-input">@lang('language.Title')</label>

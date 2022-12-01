@@ -54,17 +54,39 @@ input::-webkit-inner-spin-button {
                   </div>
 
                   {{-- <div class="form-group">
-                    <label>@lang('language.select'):</label>
-                    <select id="name" name="cat_id" class="form-control" required>
-                      <option value="" selected disabled>@lang('language.select_cat')</option>
-                      @foreach($categories as $categories)
-                        <option value="{{ $categories->id }}">{{ $categories->name }}</option>
-                      @endforeach
-                    </select> 
-                    <div class="invalid-feedback">
-                        @lang('language.subcat_validation')
+                    <label for="formrow-quest_name-input" required>@lang('language.Type')</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="POI" value="POI">
+                        <label class="form-check-label" for="POI">
+                           @lang('language.POI')
+                        </label>
                     </div>
+                    <div class="invalid-feedback">
+                        @lang('language.select')
+                    </div>
+                </div> --}}
+
+                {{-- <div class="form-group">
+                    <label>@lang('language.choose_feature')</label>
+                    <select id="title" name="featured_places_id" class="form-control" >
+                      <option value="">Select Feature Places</option>
+                      @foreach($feature as $feature)
+                        <option value="{{ $feature->id }}">{{ $feature->title }}</option>
+                      @endforeach
+                    </select>
                   </div> --}}
+               
+                <div class="form-group">
+                    <label for="formrow-quest_name-input">@lang('language.Place_Name')</label>
+                    <select class="js-example-basic-single form-control" name="places" id="places">
+                    @foreach($places as $row)
+                        <option value="{{$row->osm_id}}">{{$row->name}}</option>
+                    @endforeach
+                    </select>
+                    <div class="invalid-feedback">
+                        @lang('language.Please provide a place name.')'
+                    </div>
+                </div>
 
 
 
@@ -260,4 +282,22 @@ input::-webkit-inner-spin-button {
    }
    });
    </script>
+
+{{-- <script>
+    $(document).ready(function () {
+        $("#place_name").select2();
+        $("#profile_image").change(function(){
+            $('#image1').css('display','block');
+        });
+        $('input[type=radio][name=type]').change(function() {
+            if (this.value == 'POI') {
+                $('#place_name_div').show();  
+            }
+            else if (this.value == 'External') {
+                $('#place_name_div').hide();
+                $('#external').show();
+            }
+        });
+    });
+</script>    --}}
 @endsection

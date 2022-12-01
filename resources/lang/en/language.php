@@ -272,7 +272,7 @@ return [
     'cms_management' => 'CMS Management',
     'msg_send' => 'Message sent successfully',
     'msg_placeholder' => 'Enter the message',
-
+    'total_message' => 'Total Messages',
 
     'Yes' => 'Yes',
 

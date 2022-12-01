@@ -26,6 +26,18 @@
                                     
                                 </div>
                             </div>
+						
+							<div class="col-lg-4">
+                                <div class="card border border-secondary">
+                                    <div class="card-header bg-transparent border-primary">
+                                        <a href="{{url('admin/feedback')}}"><h5 class="my-0 text-grey" style="font-size: x-large; color: grey;"> @lang('language.total_message')</h5></a>
+										  <a href="{{url('admin/feedback')}}"><p class="card-text" style="font-size: x-large; color: lightgrey;">
+										  	{{isset($feedback)?$feedback:"0"}}
+										  </p></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         
 					    </div>
 						

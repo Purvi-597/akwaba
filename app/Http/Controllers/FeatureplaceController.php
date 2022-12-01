@@ -23,12 +23,15 @@ class FeatureplaceController extends Controller
 	        $data['feature_list'] = Featureplace::orderBy('id','desc')->get(['title as title','description as description','image','ratings','featured_places_id','status','id']);
         }
 
+        
 		// $data['feature_list'] = Featureplace::orderBy('id','desc')->get();
         return view('admin.feature_list.index',$data);
 	}
 	public function create()
     {
     	$data['feature'] = Feature::orderBy('id','desc')->get(['id','title']);
+        $data['places'] =  DB::connection('pgsql')->select("select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, name, osm_id from planet_osm_point where name != ''");
+        
         return view('admin.feature_list.create',$data);
     }
 	public function store(Request $request)
@@ -52,7 +55,7 @@ class FeatureplaceController extends Controller
         }
 
         $data = array(
-
+            'osm_id' => $request->input('places'),
             'title' => $request->input('title'),
             'title_fr' => $request->input('title_fr'),
             'description' => $request->input('description'),
@@ -74,6 +77,7 @@ class FeatureplaceController extends Controller
     {
         $row['feature'] = Feature::orderBy('id','desc')->get(['id','title']);
         $row['feature_list'] = Featureplace::where('id',$id)->first();
+        $row['places'] =  DB::connection('pgsql')->select("select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, name, osm_id from planet_osm_point where name != ''");
         return view('admin.feature_list.edit',$row);
     }
 	public function update(Request $request, $id)
@@ -95,6 +99,7 @@ class FeatureplaceController extends Controller
         $create = Featureplace::where('id',$id)->update([
 
             "title" => $request->input('title'),
+            'osm_id' => $request->input('places'),
             "title_fr" => $request->input('title_fr'),
             "description" => $request->input('description'),
             "description_fr" => $request->input('description_fr'),
