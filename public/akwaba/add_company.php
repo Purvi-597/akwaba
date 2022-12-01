@@ -1,17 +1,9 @@
 <?php
-<<<<<<< HEAD
-
-
-error_reporting(0);
-session_start();
-include('config/db_mysql.php');
-=======
 error_reporting(0);
 session_start();
 include('config/db_mysql.php');
 // echo "<pre>";
 // print_r($_POST);die;
->>>>>>> Darshan
 
 if($_SESSION['users']){
 $email = $_SESSION['users']['email'];
@@ -78,20 +70,13 @@ $result = mysqli_query($conn, $query);
 
 if($result){
 $last_id = $conn->insert_id;
-<<<<<<< HEAD
-=======
 
->>>>>>> Darshan
 for ($i = 0; $i < count($_FILES['photos']['name']); $i++) {
     $newfilename = "image_". rand();
     $extension   = pathinfo($_FILES['photos']['name'][$i], PATHINFO_EXTENSION);
     $basename    = $newfilename . "." . $extension;
     $file1       = $_FILES['photos']['name'][$i];
-<<<<<<< HEAD
-    $target_path = ".../uploads/company/" . $basename;
-=======
     $target_path = "./uploads/company/" . $basename;
->>>>>>> Darshan
     move_uploaded_file($_FILES['photos']['tmp_name'][$i], $target_path);
     $query2 = "INSERT INTO `company_images`(`company_id`, `image`, `created_at`,
                                              `updated_at`)

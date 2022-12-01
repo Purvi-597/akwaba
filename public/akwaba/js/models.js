@@ -75,11 +75,7 @@ if($(".pip").length > 1){
 
 if ($("#uploadimg")[0].files.length > 5) {
     $("#uploadimg").val(null);
-<<<<<<< HEAD
-$("#image_other_error").html("You can only upload 3 images");
-=======
 $("#image_other_error").html("You can only upload 5 images");
->>>>>>> Darshan
 }
 else{
 for (var i = 0; i < this.files.length; i++){
@@ -573,10 +569,7 @@ for (var i = 0; i < this.files.length; i++){
                        processData:false,
                        dataType: 'text',
                        success: function(data){
-<<<<<<< HEAD
-=======
 						   console.log(data);
->>>>>>> Darshan
                            if($.trim(data) == 'success'){
                                $("#addAdvertisingModel").modal('hide');
                                $(".pip_multiple").remove();
@@ -622,65 +615,6 @@ for (var i = 0; i < this.files.length; i++){
                    var re = /\S+@\S+\.\S+/;
                    return re.test(email);
             }
-<<<<<<< HEAD
-            $(document).on('click','.postratingBtn', function(){
-
-                var userid = $("#sessionid").val();
-                var osmid = $("#osmids").val();
-                var message = $("#message").val();
-                var rating = $('input[name="rating"]:checked').val();
-
-                if(message == ""){
-                    $("#m1_error").text("message field is required");
-                    return false;
-                }else{
-                    $("#m1_error").text("");
-                }
-                if(rating == "" || rating == undefined){
-                    $("#r1_error").text("rating field is required");
-                    return false;
-                }else{
-                    $("#r1_error").text("");
-                }
-                var form = $('#frm_review')[0];
-                var data1 = new FormData(form);
-                // $.each($(".review_photos")[0].files, function(i, file) {
-                // data1.append('file', file);
-                // });
-                if(typeof userid == 'undefined'){
-                    $("#exampleModalCenter").modal('hide');
-                    $("#exampleModal1").modal('show');
-                }else{
-                    $.ajax({
-                        url:"review_ajax.php",
-                        method:"POST",
-                        enctype: 'multipart/form-data',
-                        data: data1,
-                        dataType: 'text',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function(response){
-                           
-                            $("#frm_review")[0].reset();
-                            $(".pip_review").remove();
-                            $("#exampleModalCenter").modal('hide');
-                            $(".allreviews_in").prepend(response);
-                            scroll($('.allreviews_in'));
-                        }
-                    });
-                }
-            });
-
-            var scroll = function(div) {
-                var totalHeight = 0;
-                div.find('.post').each(function(){
-                   totalHeight += $(this).outerHeight();
-                });
-                div.scrollTop(totalHeight);
-              }
-
-=======
 
 
 /* Upload Image Review */
@@ -784,4 +718,3 @@ $(document).on('change', '#uploadimgreviews', function(e) {
            }
 	}
                });			   
->>>>>>> Darshan

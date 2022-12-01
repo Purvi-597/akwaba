@@ -13,16 +13,10 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
  <script src="assets/js/custom.js"></script>
 <script src="js/map.js"></script>
-<<<<<<< HEAD
-<script src="js/models.js"></script>
-<script src="../assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<script src="../assets/js/select2.min.js"></script>
-=======
 <script src="js/signup.js"></script>
 <script src="js/models.js"></script>
 
   
 
->>>>>>> Darshan
 </body>
 </html>

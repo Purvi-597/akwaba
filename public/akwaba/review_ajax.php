@@ -1,10 +1,6 @@
 <?php
-<<<<<<< HEAD
-error_reporting(0);session_start();
-=======
 error_reporting(0);
 session_start();
->>>>>>> Darshan
 include('config/db_pg.php');
 include('config/db_mysql.php');
 
@@ -116,40 +112,6 @@ $array_images = array();
 $array_name = "";
 
 
-<<<<<<< HEAD
-for ($i = 0; $i < count($_FILES['file_review']['name']); $i++) {
-    $newfilename = "image_". rand();
-    $extension   = pathinfo($_FILES['file_review']['name'][$i], PATHINFO_EXTENSION);
-    $basename    = $newfilename . "." . $extension;
-    $file1       = $_FILES['file_review']['name'][$i];
-    $target_path = "../uploads/review/". $basename;
-    $array_images[] = $basename;
-    move_uploaded_file($_FILES['file_review']['tmp_name'][$i], $target_path);
-
-}
-$array_name = implode(",",$array_images);
-// echo "<pre>"; print_r($array_images);die;
-
-$sql = "INSERT INTO review_rating (user_id, osm_id, title, message, rating, photos, status, created_at, updated_at) VALUES ('".$userid."', '".$id."', '".$name."', '".$message."', '".$rating."', '".$array_name."', '1', '".$created_at."', '".$updated_at."')";
-
-$result = mysqli_query($conn, $sql);
-
-		if ($result) {
-      //$last_insert_id = $conn->insert_id;
-      
-			  $html = '';
-              if($_SESSION['users']){
-                if(!empty($_SESSION['users']['profile_pic'])){
-                    $background_image = '../public/uploads/users/'.$_SESSION['users']['profile_pic'];
-                }else{
-                    $background_image = 'background-image: url(./assets/img/user1.png);';
-                }
-               
-              }else{
-                $background_image = 'background-image: url(./assets/img/user1.png);';
-              }
-              $html .='<div class="All-tab-div">
-=======
  if(count($_FILES['file_review']['name']) > 0){
 for ($i = 0; $i < count($_FILES['file_review']['name']); $i++) {
   $newfilename = "image_". rand();
@@ -169,7 +131,6 @@ if (mysqli_query($conn, $sql)) {
       
 			  $html = '';
 			   $html .='<div class="All-tab-div">
->>>>>>> Darshan
               <div class="reviewHeadRating">
                 <div class="reviewHeadRatingDiv1">
                   <div class="reviewHeadRatingDiv12">
@@ -219,21 +180,11 @@ if (mysqli_query($conn, $sql)) {
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
-
               </div>
-
-=======
-              </div>
->>>>>>> Darshan
               <div class="reviewHeadRating">
                 <div class="reviewBodyReview">
                   <a class="reviewBodyReviewOne">'.$message.'</a>
                 </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> Darshan
                 <div class="reviewFooter">
                   <div class="reviewFooterDiv">
                     <div class="reviewFooterInnerDivs">
@@ -264,65 +215,9 @@ if (mysqli_query($conn, $sql)) {
                 </div>
               </div>
             </div>';
-<<<<<<< HEAD
-			//   $html .='<div class="col-lg-12 col-12 inner-padding">
-            //               <div class="d-lg-flex d-block d-md-flex align-items-lg-center">';
-			// 			  if(isset($_SESSION['users']['profile_pic'])){
-            //                 $html.='<img src="../public/uploads/users/'.$_SESSION['users']['profile_pic'].'" alt="..." class="user-profile-image rounded-circle ">';
-			// 			  }else{
-			// 				$html.='<img src="./assets/img/user1.png" alt="..." class="user-profile-image rounded-circle ">';
-			// 			  }  
-            //                $html.='<div class="lh-1">
-            //                 <div class="lh-1">
-            //                   <span class="code-profile">'.$firstname.' '.$lastname.'</span> <br>
-            //                    <span class="code-deatils">'.date("D M Y H:i:s").'</span>
-            //                 </div>
-            //                 <div class="icon-right">
-            //                   <div class="star-rating">
-            //                     <input id="star-25" type="radio" name="rating-25" value="star-25" />
-            //                     <label for="star-25" title="4 stars">
-            //                       <i class="active fa fa-star" aria-hidden="true"></i>
-            //                     </label>
-            //                     <input id="star-26" type="radio" name="rating-26" value="star-26" />
-            //                     <label for="star-26" title="3 stars">
-            //                       <i class="active fa fa-star" aria-hidden="true"></i>
-            //                     </label>
-            //                     <input id="star-27" type="radio" name="rating-27" value="star-27" />
-            //                     <label for="star-27" title="2 stars">
-            //                       <i class="active fa fa-star" aria-hidden="true"></i>
-            //                     </label>
-            //                     <input id="star-28" type="radio" name="rating-28" value="star-28" />
-            //                     <label for="star-28" title="1 star">
-            //                       <i class="active fa fa-star" aria-hidden="true"></i>
-            //                     </label>
-            //                   </div>
-            //                 </div>
-            //               </div>
-            //               <p class="code-data mb-0">'.$message.'</p>
-			// 			<div class="lh-2">
-            //              <a href="#">
-            //               <span class="code-likes">
-            //                 <img src="./assets/img/icons/like.svg" class="img-fluid like-btn" alt="">
-            //                 Like
-            //               </span>
-            //              </a>
-            //              <a href="#">
-            //                 <span class="code-likes pl-2 float-right">
-            //                   <img src="./assets/img/icons/flag.svg" class="img-fluid" alt="">
-            //                 </span>
-            //              </a>
-            //               </div>
-            //             </div>';
-=======
->>>>>>> Darshan
 			echo $html;die;			
 			  
 		} else {
 			  echo "false";die;
 		}
-<<<<<<< HEAD
-
-
-=======
->>>>>>> Darshan
 ?>

@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-//error_reporting(0);
-=======
 error_reporting(0);
->>>>>>> Darshan
 session_start();
 include('config/db_pg.php');
 include('config/db_mysql.php');
@@ -108,33 +104,11 @@ $longitude = $latlng->coordinates[1];
 $created_at = date("Y-m-d H:i:s");
 $updated_at = date("Y-m-d H:i:s");
 $sql = "INSERT INTO favorites (user_id, osm_id, name, address, cat_type, latitude, longitude, status, created_at, updated_at) VALUES ('".$userid."', '".$id."', '".$name."', '".$address."', '".$cat_type."', '".$latitude."', '".$longitude."', '1', '".$created_at."', '".$updated_at."')";
-<<<<<<< HEAD
-		$result = mysqli_query($conn, $sql);
-		if ($result) {
-=======
 		if (mysqli_query($conn, $sql)) {
->>>>>>> Darshan
 			  echo "true";die;
 		} else {
 			  echo "false";die;
 		}
-<<<<<<< HEAD
-}else if(isset($_POST['check']) == "remove" ){
-    $user_id = $_POST['userid'];
-    $osm_id = $_POST['osmid'];    
-
-$sql = "DELETE FROM `favorites` WHERE `user_id` = $user_id AND `osm_id` = $osm_id";
-$result = mysqli_query($conn, $sql);
-
-if ($result) {
-      echo "true";die;
-} else {
-      echo "false";die;
-}
-}else{
-
-=======
->>>>>>> Darshan
 }
 
 ?>
