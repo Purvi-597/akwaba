@@ -4,6 +4,40 @@ $(document).on('click', '.closeleftpanel', function () {
 });
 
 
+// owl-carousel
+$(document).ready(function ($) {
+  $(".owl-carousel").owlCarousel({
+    loop: false,
+    margin: 10,
+    dots: false,
+    nav: true,
+    items: 3
+  });
+  var owl = $(".owl-carousel");
+  owl.owlCarousel();
+  $(".next-btn").click(function () {
+    owl.trigger("next.owl.carousel");
+  });
+  $(".prev-btn").click(function () {
+    owl.trigger("prev.owl.carousel");
+  });
+  $(".prev-btn").addClass("disabled");
+  $(owl).on("translated.owl.carousel", function (event) {
+    if ($(".owl-prev").hasClass("disabled")) {
+      $(".prev-btn").addClass("disabled");
+    } else {
+      $(".prev-btn").removeClass("disabled");
+    }
+    if ($(".owl-next").hasClass("disabled")) {
+      $(".next-btn").addClass("disabled");
+    } else {
+      $(".next-btn").removeClass("disabled");
+    }
+  });
+});
+// owl-carousel
+
+
 
 // features page 
 $(document).ready(function(){
@@ -16,6 +50,48 @@ $(document).ready(function(){
 $(document).on('click', '.sidebarmenu, .closerightpanel', function(){
   $('.right-panel').toggle();
 });
+
+// after-login page Tabs
+(function () {
+  'use strict';
+  $(activate);
+  function activate() {
+    $('.nav-tabs')
+      .scrollingTabs()
+      .on('ready.scrtabs', function () {
+        $('.tab-content').show();
+      });
+  }
+}());
+// after-login page Tabs
+
+
+// popup Image
+$(document).ready(function () {
+  $('.image-popup-vertical-fit').magnificPopup({
+    type: 'image',
+    mainClass: 'mfp-with-zoom',
+    gallery: {
+      enabled: true
+    },
+
+    zoom: {
+      enabled: true,
+
+      duration: 300, // duration of the effect, in milliseconds
+      easing: 'ease-in-out', // CSS transition easing function
+
+      opener: function (openerElement) {
+
+        return openerElement.is('img') ? openerElement : openerElement.find('img');
+      }
+    }
+
+  });
+
+});
+// popup Image
+
 
 
 
@@ -37,8 +113,8 @@ $(document).ready(function() {
     start: [500000, 1000000],
     step: 1,
     range: {
-      'min': [100000],
-      'max': [1000000]
+      'min': [0],
+      'max': [1000]
     },
     format: moneyFormat,
     connect: true

@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-session_start();
+@error_reporting(0);
+@session_start();
 include('config/db_mysql.php');
 if(isset($_REQUEST['futured']) && ($_REQUEST['futured'] == 'futuredForm')){
 $id = $_REQUEST['id'];
@@ -9,7 +9,7 @@ $results = $conn->query($featuresql);
 
 if($results->num_rows > 0) {
 	$rows = $results->fetch_assoc();
-	$image = 'akwaba/uploads/featured/'.$rows['image'];
+	$image = '../uploads/featured/'.$rows['image'];
 	$title = $rows['title'];
 	$description = $rows['description'];
 }
@@ -43,12 +43,12 @@ $html .= '<div class="restaurantdetilsbox" style="background-image: url('.$image
 		foreach($Data as $res) {
 	$html .= '<div class="row padding-section">
               <div class="col-md-12">
-                <img src="../akwaba/uploads/featuredlist/'.$res['image'].'" class="img-fluid" alt="">
+                <img src="../public/uploads/feature_list/'.$res['image'].'" class="img-fluid" alt="">
               </div>
               <div class="col-md-12 single-feature">
                 <div class="d-lg-flex d-block d-md-flex ">
                   <div class="lh-1">
-                    <a href="#" class="feature-h4">'.$res['title'].'</span>
+                    <a href="javascript:void(0);" data-index="'.$res['osm_id'].'" id="'.trim($res['title'],'"').'" class="feature-h4 getfutureplaceDetail">'.$res['title'].'</span>
                     </a>
                     <br>
                     <span class="feature-span">
@@ -101,7 +101,8 @@ $html .= '<div class="restaurantdetilsbox" style="background-image: url('.$image
             </div>';
 		}
 		$html.='</div>';
-   echo $html."|".$latlong;die;
+   echo $html;die;
+   
 
 }
 

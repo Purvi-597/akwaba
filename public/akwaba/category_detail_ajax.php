@@ -2,6 +2,7 @@
 error_reporting(0);
 session_start();
 include('config/db_pg.php');
+include('config/db_mysql.php');
 if(isset($_REQUEST['id'])){
 $id = $_REQUEST['id'];
 $cat_type = $_REQUEST['cat_type'];
@@ -62,7 +63,7 @@ tags->'ref:vatin' as vatin,
 tags->'phone_1' as phone_1,
 name as restaurantname,
 osm_id as osmid,
-ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,name
+ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data
 from 
 public.planet_osm_point 
 WHERE osm_id=".$id);
@@ -83,7 +84,7 @@ if(!empty($row['opening_hours'])){
 	$week = "";
 	$time = "";
 }
-$latlng = json_decode($row['geoJSON_data'])->coordinates;
+$latlng = json_decode($row['geojson_data']);
 
 $address='';
 if($row['street'] != '' && $row['street']!= null){
@@ -95,7 +96,43 @@ if($row['street'] != '' && $row['street']!= null){
 }else if($row['country'] != '' && $row['country']!= null){
     $address .= ", ".$row['country'];
 }
+if(isset($_SESSION['users']['id'])){
+	$sql = "select * from review_rating where osm_id = '".$id."' and status = '1' and deleted_at IS NULL";
+}else{
+	$sql = "select * from review_rating where osm_id = '".$id."' and status = '1' and deleted_at IS NULL";	
+}
+$result = $conn->query($sql);
+if($result->num_rows > 0) {
+		while($rowss = $result->fetch_assoc()) {
+			$rows[] = $rowss;
+			//$photos[] = $rowss['photos'];
+			$reviewPhoto[] = explode(",",$rowss['photos']);
+		}
+		
+}
+if(isset($_SESSION['users']['id'])){
+	$photosql = "select * from contact_photos where osm_id = '".$id."' and status = '1' and deleted_at IS NULL";
+}else{
+	$photosql = "select * from contact_photos where osm_id = '".$id."' and status = '1' and deleted_at IS NULL";	
+}
+$photoresult = $conn->query($photosql);
+if($photoresult->num_rows > 0) {
+		while($photorows = $photoresult->fetch_assoc()) {
+			$prows[] = $photorows;
+			//$photos[] = $rowss['photos'];
+			$userPhoto[] = explode(",",$photorows['images']);
+		}
+}
+$fav = "select * from favorites where user_id = '".$_SESSION['users']['id']."' and osm_id = '".$id."' and status = '1' and deleted_at IS NULL";
+$favresult = $conn->query($fav);
+if($favresult->num_rows > 0) {
+		while($frow = $favresult->fetch_assoc()) {
+			$favouritesData[] = $frow;
+		}
+}
 
+$firstname = isset($_SESSION['users']['firstname'])?$_SESSION['users']['firstname']:"";
+$lastname = isset($_SESSION['users']['lastname'])?$_SESSION['users']['lastname']:"";
 
 $image = "assets/img/feature-image.png";
 $html = '';
@@ -128,12 +165,22 @@ $html = '<div class="restaurantdetilsbox" style="background-image: url('.$image.
           <div class="multiplebuttons">
             <div class="orderonlinebtn">
               <a href="#">Order Online</a>
-            </div>
-            <div class="commonstylebtn savebtn">
+            </div>';
+			if(empty($favouritesData)) { 
+            $html.='<div class="commonstylebtn savebtn" id="'.$row['osmid'].'" data-index="'.$cat_type.'">
               <img src="assets/img/icons/icon-8.png">
               <p>save</p>
-            </div>
-            <div class="commonstylebtn sendbtn">
+			 <div class="tooltip1" style="position: absolute; top: 25px; left: 0px; display: none;"> <div class="tooltip_save"> <span class="tooltip_add">Added to "Favorites"</span> <button class="tooltip_btn" type="button">Change</button> </div> </div> 
+            </div>';
+			}else{
+			$html.='<div class="commonstylebtn unsaveBtn" id="'.$row['osmid'].'" data-index="'.$cat_type.'">
+              <img src="assets/img/icons/icon-8-filled.png">
+              <p>save</p>
+			 <div class="tooltip1" style="position: absolute; top: 25px; left: 0px; display: none;"> <div class="tooltip_save"> <span class="tooltip_add">Added to "Favorites"</span> <button class="tooltip_btn" type="button">Change</button> </div> </div> 
+			 <div class="tooltip2" style="position: absolute; top: 25px; left: 0px; display: none;"> <div class="tooltip_save"> <span class="tooltip_add">Added to "Unfavorites"</span> <button class="tooltip_btn" type="button">Change</button> </div> </div> 
+            </div>';	
+			}
+			$html.='<div class="commonstylebtn sendbtn">
               <img src="assets/img/icons/share.png">
               <p>send</p>
             </div>
@@ -170,23 +217,34 @@ $html = '<div class="restaurantdetilsbox" style="background-image: url('.$image.
 					}					
                   $html.='</div>
                 </div>
-                <div class="photoslistmaindiv">
-                  <p class="maintitle">Photos</p>
-                  <div class="imageslist">
-                    <div class="singleimg">
-                      <img src="assets/img/left-brand-image.png">
-                    </div>
-                    <div class="singleimg">
-                      <img src="assets/img/left-brand-image.png">
-                    </div>
-                    <div class="singleimg">
-                      <img src="assets/img/left-brand-image.png">
-                      <div class="overlaycount">
-                        <p>07 Photos</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div class="col-md-12  mt-3 photoslistmaindiv">
+				 <div class="imageslist bindPhotos">';
+				 if(!empty($prows)) {
+				 for($i=0;$i<count($userPhoto);$i++){ 
+						for($j=0;$j<count($userPhoto[$i]);$j++){
+				    $html.=' <div class="magnific-img col-md-3">
+                      <a class="image-popup-vertical-fit" target="_blank" href="./uploads/review/'.$userPhoto[$i][$j].'" title="'.$userPhoto[$i][$j].'">
+                        <img src="./uploads/review/'.$userPhoto[$i][$j].'" alt="'.$userPhoto[$i][$j].'" style="width: 150%;" />
+                      </a>
+                    </div>';
+				 }}}
+					$html.='<h3 class="rating-stars">Photos <span>(you can upload up to 5 photos)</span></h3>
+					<div class="imageslist">
+						<div class="lable-input singleimg">
+							<a href="javascript:void(0)" class="uploadBtn" style="display: inline;" data-index="'.$row['osmid'].'" id="'.trim($row['restaurantname'],'"').'">
+							<label for="">
+								<img src="assets/img/left-brand-image.png"> 
+							  <div class="overlaycount" >
+								<p>Photos</p>
+							  </div>
+							</label>
+							</a>
+						</div>
+					</div>
+				</div>
+			  </div>
+			  <span id="images_review_error" style="color:red;margin-left:10px;"></span>
+			  <div id="img_section3"></div>
                 <div class="detailslist">';
 				if(!empty($address)){
 					$html.='<div class="singledetails">
@@ -239,18 +297,129 @@ $html = '<div class="restaurantdetilsbox" style="background-image: url('.$image.
                 $html.='</div>
               </div>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+             <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="secondtabmaindiv">
-                <div class="">
-                  
+                <div class="top-review-positive">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="starboxmaindiv star-15 color-yellow">
+                        <div class="star-rating">
+                          <input id="star-21" type="radio" name="rating-21" value="star-21" />
+                          <label for="star-21" title="4 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                          </label>
+                          <input id="star-22" type="radio" name="rating-22" value="star-22" />
+                          <label for="star-22" title="3 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                          </label>
+                          <input id="star-23" type="radio" name="rating-23" value="star-23" />
+                          <label for="star-23" title="2 stars">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                          </label>
+                          <input id="star-24" type="radio" name="rating-24" value="star-24" />
+                          <label for="star-24" title="1 star">
+                            <i class="active fa fa-star" aria-hidden="true"></i>
+                          </label>
+                        </div>
+                        <div class="ratting">
+                          <p class="ratting-p"><span class="ratting-span">4.0</span>/4</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5 my-auto">
+                      <div class="positive-input-box">
+                        <!-- <a class="btn p-0 toggle-btn2 toggle-btn4">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          </a> -->
+                        <input type="text" class="cafesbar-input positive-input  w-101" value="" placeholder="Positive">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="top-review-tabs">
+                  <div class="row">
+                    <div class="col-lg-12 px-3">
+                      <ul class="nav nav-tabs branch-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="thisbranch-tab" data-toggle="tab" href="#thisbranch" role="tab"
+                            aria-controls="thisbranch" aria-selected="false">This branch</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link  " id="allbranch-tab" data-toggle="tab" href="#allbranch" role="tab"
+                            aria-controls="allbranch" aria-selected="true">All branches</a>
+                        </li>
+                      </ul>
+					<div class="tab-pane fade show active" id="thisbranch" role="tabpanel"
+                        aria-labelledby="thisbranch-tab">';
+                       if(isset($rows)){ 
+						 $html.='<div class="col-lg-12 col-12 inner-padding">
+                          <div class="d-lg-flex d-block d-md-flex align-items-lg-center">';
+						  if(isset($_SESSION['users']['profile_pic'])){
+                            $html.='<img src="./uploads/users/'.$_SESSION['users']['profile_pic'].'" alt="..." class="user-profile-image rounded-circle ">';
+						  }else{
+							$html.='<img src="./assets/img/user1.png" alt="..." class="user-profile-image rounded-circle ">';
+						  }  
+                           $html.='<div class="lh-1">
+                              <span class="code-profile">'.$firstname.' '.$lastname.'</span> <br>
+                              <span class="code-deatils">'.date('D M Y H:i:s').'</span>
+                            </div>
+                            <div class="icon-right">
+                              <div class="star-rating">
+                                <input id="star-25" type="radio" name="rating-25" value="star-25" />
+                                <label for="star-25" title="4 stars">
+                                  <i class="active fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input id="star-26" type="radio" name="rating-26" value="star-26" />
+                                <label for="star-26" title="3 stars">
+                                  <i class="active fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input id="star-27" type="radio" name="rating-27" value="star-27" />
+                                <label for="star-27" title="2 stars">
+                                  <i class="active fa fa-star" aria-hidden="true"></i>
+                                </label>
+                                <input id="star-28" type="radio" name="rating-28" value="star-28" />
+                                <label for="star-28" title="1 star">
+                                  <i class="active fa fa-star" aria-hidden="true"></i>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="code-data mb-0">'.$rows[0]['message'].'</p>
+						<div class="lh-2">
+                         <a href="#">
+                          <span class="code-likes">
+                            <img src="./assets/img/icons/like.svg" class="img-fluid like-btn" alt="">
+                            Like
+                          </span>
+                         </a>
+                         <a href="#">
+                            <span class="code-likes pl-2 float-right">
+                              <img src="./assets/img/icons/flag.svg" class="img-fluid" alt="">
+                            </span>
+                         </a>
+                          </div>
+                        </div>';
+					   }
+				$html.='</div>
+					  <div class="review-div-btn  multiplebuttons">
+							<div class="reviewonlinebtn orderonlinebtn">';
+						  if($result->num_rows == 0) {
+							$html.='<a href="javascript:void(0)" class="addreviewBtn" style="display: inline;" data-index="'.$row['osmid'].'" id="'.trim($row['restaurantname'],'"').'">Write a new review</a>';
+						  }else{
+							$html.='<a href="javascript:void(0)" class="editreviewBtn" style="display: inline;" data-index="'.$row['osmid'].'" id="'.trim($row['restaurantname'],'"').'">Edit review</a>';
+						  }
+							$html.='</div>
+						</div>
+						</div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
           </div>
         </div>
-		<p class="d-none lat">'.$latlng[0].'</p>
-        <p class="d-none long">'.$latlng[1].'</p>';
+		<p class="d-none lat">'.$latlng->coordinates[0].'</p>
+        <p class="d-none long">'.$latlng->coordinates[1].'</p>';
 		echo $html;die;
 }
 

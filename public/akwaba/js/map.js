@@ -1,7 +1,9 @@
+
 var plainMap = L.tileLayer('http://10.10.3.50:5000/hot/{z}/{x}/{y}.png', {
     maxZoom: 21,
     maxNativeZoom: 22
 });
+var base_url = 'http://127.0.0.1:8000/akwaba/';
 
 var burl = window.location.href; 
 if(burl == base_url+'index.php'){
@@ -39,9 +41,10 @@ var baseMaps = {
     "Plain View": plainMap,
 };
 
-function createCustomIcon(feature, latlng) {
+ function createCustomIcon(feature, latlng) {
 	let myIcon = L.icon({
-		iconUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
+		
+		iconUrl: '',
 		shadowUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
 		iconSize: [25, 25], // width and height of the image in pixels
 		shadowSize: [35, 20], // width, height of optional shadow image
@@ -50,10 +53,10 @@ function createCustomIcon(feature, latlng) {
 		popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
 	})
 	return L.marker(latlng, { icon: myIcon })
-}
+} 
 function createParkingIcon(feature, latlng) {
 	let myIcons = L.icon({
-		iconUrl: base_url+'assets/img/icons/parkings.png',
+		iconUrl: '',
 		shadowUrl: base_url+'assets/img/icons/parkings.png',
 		iconSize: [25, 25], // width and height of the image in pixels
 		shadowSize: [35, 20], // width, height of optional shadow image
@@ -65,7 +68,7 @@ function createParkingIcon(feature, latlng) {
 }
 function createPhotoIcon(feature, latlng) {
     let myIconss = L.icon({
-        iconUrl: base_url+'uploads/tourist/captions.jpg',
+        iconUrl: '',
         shadowUrl: base_url+'uploads/tourist/captions.jpg',
         iconSize: [25, 25], // width and height of the image in pixels
         shadowSize: [35, 20], // width, height of optional shadow image
@@ -88,7 +91,91 @@ function createResturantIcon(feature, latlng) {
     return L.marker(latlng, { icon: myIconsss })
 }
  
+ 
+$(document).on('click','.photos', function(){ 
+	// alert(12);
+	for (var index = 0; index < touristLatLong.length; index++) {
+		let customIcon = {
+			iconUrl: '../uploads/photos/'+touristLatLong[index]['coordinates'][2],
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:'company name',
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(touristLatLong[index]['coordinates'][0], touristLatLong[index]['coordinates'][1]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+		// console.log(latlng);
+		// myIconss = L.icon({
+		// 	iconUrl: base_url+'uploads/tourist/'+touristLatLong[index]['coordinates'][2],
+		// 	iconSize: [25, 25], // width and height of the image in pixels
+		// 	shadowSize: [35, 20], // width, height of optional shadow image
+		// 	iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
+		// 	shadowAnchor: [12, 6],  // anchor point of the shadow. should be offset
+		// 	popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+		// })
+		// L.marker(latlng, { icon: myIconss })
+	}
+	// return L.marker(latlng, { icon: myIconss })
+}) 
+
+$(document).on('click','.tourism', function(){ 
 	
+	for (var index = 0; index < tourismLatLng.length; index++) {
+		let customIcon = {
+			iconUrl: 'https://raw.githubusercontent.com/shacheeswadia/leaflet-map/main/beach-icon-colorful.svg',
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:tourismID[index]['id']+"|Tourism",
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(tourismLatLng[index]['coordinates'][1], tourismLatLng[index]['coordinates'][0]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+	} 
+	// return L.marker(latlng, { icon: myIconss })
+}) 
+$(document).on('click','.leaflet-interactive', function(){ 
+    var osmid = $(this).attr('title');
+   var arr = osmid.split("|");
+	
+	$.ajax({
+			url:"tourism_detail_ajax.php",
+			method:"POST",
+			data: {'tourismdetail':'tourismdetailForm','id': arr[0], 'type': arr[1]},
+			success: function(response){
+				$(".tourismDiv").html(response);
+				$(".indexDiv").css('display','none');
+				$(".tourismDiv").css('display','block');
+			}
+		});
+		
+});
+$(document).on('click','.parking', function(){ 
+	
+	for (var index = 0; index < parkingLatLng.length; index++) {
+		let customIcon = {
+			iconUrl: base_url+'assets/img/icons/parkings.png',
+			iconSize:[30,30]
+		}
+		let myIcon = L.icon(customIcon);
+		let iconOptions = {
+			title:parkingID[index]['id']+"|Parking",
+			draggable:false,
+			icon:myIcon
+		}
+			var markerLocation = new L.LatLng(parkingLatLng[index]['coordinates'][1], parkingLatLng[index]['coordinates'][0]);
+			var marker = new L.Marker(markerLocation, iconOptions);
+			map.addLayer(marker);
+	} 
+	// return L.marker(latlng, { icon: myIconss })
+}) 	 
 let myLayerOptions = {
 	pointToLayer: createCustomIcon
 }
@@ -139,71 +226,33 @@ $('.leaflet-control-container .leaflet-control-layers-overlays label').removeCla
 $(this).addClass('active');
 });
 
-$(document).on('click','#iconBtn,.pagination', function(){ 
+$(document).on('click','#iconBtn', function(){ 
 
 var id = $(this).attr('data-index');
 var flag = $(this).attr('data-id');
-var add = $(this).attr('data-add');
 var type = $(this).attr('data-type');
-var current_page = $(this).find('.active').find('a').text();
-//$(this).find('.active').removeClass('active')
+
 
 if(flag == "Yes" && id == 'allCategory'){
 	$(".morecategoryDiv").removeClass('extralarge');
 	$(".indexDiv").css('display','none');
 	$(".morecategoryDiv").css('display','block');
-	$.getScript(bootstrap);
-	$.getScript(popper);
-	$.getScript(simplebar);
-	$.getScript(custom);
+	
 }else if(flag == "Yes" && id == 'favorite'){
    var sessionid = $("#sessionid").val();
    if (typeof sessionid === "undefined") {
 	   $("#exampleModal1").modal('show');
    }
-}else if(flag == "Yes" && add == 'true'){
-	if(type == 'External'){
-		var external_link = $(this).attr('data-link');
-		window.open(external_link);
-	}else{
-		$.ajax({
-			type: "POST",
-			url: 'category_detail_ajax.php',
-			data: {'eatout':'eatoutForm','id': id, 'cat_type':'Add'},
-			success: function(response){
-				console.log(response);
-				$(".leaflet-marker-icon").css('display','none');
-				$(".indexDiv").css('display','none');
-				$(".addsidebar").html(response);
-				var lat = $('.lat').text();
-				var long = $('.long').text();
-				var markersLayer = new L.LayerGroup();
-				let customIcon = {
-					iconUrl:base_url+'assets/img/icons/ic_eat_out_20X20_Green.png',
-					iconSize:[30,30]
-				   }
-				   let myIcon = L.icon(customIcon);
-				   let iconOptions = {
-					title:'company name',
-					draggable:false,
-					icon:myIcon
-				   }
-					var markerLocation = new L.LatLng(long, lat);
-					var marker = new L.Marker(markerLocation, iconOptions);
-					map.addLayer(marker);
-					var title = $('.leaflet-marker-icon').attr('title');
-					$(title).css('display','block');
-					//$(".addsidebar").addClass('extralarge');
-					$(".addsidebar").css('display','block');
-			}
-		 })
-	}
- }else{
-	$.ajax({
+}else{
+	
+	 $.ajax({
 		type: "POST",
 		url: 'category_data_ajax.php',
-		data: {'id': id, 'page_no': current_page,},
+		data: {'id': id},
 		success: function(catData){
+			$(".leaflet-marker-icon").remove();
+			var lat = $('.lat').text();
+			var long = $('.long').text();
 			$(this).attr('data-id', 'No');
 			$(".indexDiv").css('display','none');
 			$(".catDataDiv").css('display','flex');
@@ -227,7 +276,7 @@ if(flag == "Yes" && id == 'allCategory'){
 				for(var i = 0; i < catData.length; i++) {
 					var lon = catData[i].coordinates[0];
 					var lat = catData[i].coordinates[1];
-					var popupText =  atob(catData[i]['name']);
+					var popupText =  catData[i]['name'];
 					var markerLocation = new L.LatLng(lat, lon);
 					var marker = new L.Marker(markerLocation, iconOptions);
 					map.addLayer(marker);
@@ -331,10 +380,9 @@ $(document).on('click','#catBtn', function(){
 			$(".morecategoryDiv").css('display','flex'); 
 			$(".subcatSubsidebar").css('display','block'); 
 			$("#catid").val(id);
-			 $.getScript(bootstrap);
-			$.getScript(popper);
 			$.getScript(simplebar);
-			$.getScript(custom);
+			var myElement = document.getElementById('simplebars');
+			new SimpleBar(myElement, { autoHide: true });
 		}
 	 })
 });
@@ -349,8 +397,9 @@ $(document).on('click', "#subcatBtn", function(){
 		success: function(response){
 			console.log(response);
 			 var arr = response.split("|");
-			var LatLng = JSON.parse(arr[1]); 
-			var Name = JSON.parse(arr[2]); 
+			
+			var LatLng = JSON.parse(arr[0]); 
+			var Name = JSON.parse(arr[1]); 
 			let customIcon = {
 			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
 			 iconSize:[30,30]
@@ -373,16 +422,13 @@ $(document).on('click', "#subcatBtn", function(){
 			$(this).attr('data-id', 'No');
 			$(".morecategoryDiv ").css('display','none');
 			$(".eatoutdynamicDiv").removeClass('extralarge');
-			$(".eatoutdynamicDiv").html(arr[0]);
+			$(".eatoutdynamicDiv").html(arr[2]);
 			$(".eatoutdynamicDiv").css('display','flex');			
 			/* $(".subcatSubsidebar").html(response);
 			$(".morecategoryDiv").addClass('extralarge');
 			$(".morecategoryDiv").css('display','flex'); 
 			$(".subcatSubsidebar").css('display','flex'); 
-			$.getScript(bootstrap);
-			$.getScript(popper);
-			$.getScript(simplebar);
-			$.getScript(custom); */
+			 */
 		}
 	 }) 
 });
@@ -393,6 +439,7 @@ $(document).on('click','.getEatoutDyanmicDetail', function(){
 				url: 'eatout_dynamic_ajax.php',
 				data: {'eatoutdynamic':'eatoutdynamicForm','id': id},
 				success: function(response){
+					
 					$(".leaflet-marker-icon").css('display','none');
 					$(".eatoutdynamicSubsidebar").html(response);
 					var lat = $('.lat').text();
@@ -430,15 +477,15 @@ var baseMaps = {};
 
 var overlayMaps = {
    '<img src="assets/img/icons/train.png" /> </br> ': metroMap,	
-   '<img src="assets/img/icons/ic_direction.png" /> </br> ': touristMap,
-   '<img src="assets/img/icons/image.png">' : photoMap,
-   '<img src="assets/img/icons/parking.png" />': parkingMap
+   '<img src="assets/img/icons/ic_direction.png" class="tourism"/> </br> ': touristMap,
+   '<img src="assets/img/icons/image.png" class="photos">' : photoMap,
+   '<img src="assets/img/icons/parking.png" class="parking" />': parkingMap
 };
 var overlayFlag = {
 	'<img src="assets/img/icons/train.png"></a>' : metroMap,
-	'<img src="assets/img/icons/ic_direction.png"></a>' : touristMap,
-	'<img src="assets/img/icons/image.png">' : photoMap,
-	'<img src="assets/img/icons/parking.png">' : parkingMap
+	'<a href="javascript:void(0);" id="1"><img src="assets/img/icons/ic_direction.png"></a>' : touristMap,
+	'<img src="assets/img/icons/image.png" class="photos">' : photoMap,
+	'<img src="assets/img/icons/parking.png" class="parking">' : parkingMap
 };
 
 L.control.layers(null, overlayFlag, {collapsed: false}).addTo(map);
@@ -462,7 +509,6 @@ L.control.ruler({
         label: 'Distance:'
     }
 }).addTo(map);
-L.Control.measureControl({ position: 'bottomright', activeColor: '#ABE67E', completedColor: '#C8F2BE' }).addTo(map);
 
 var multiPolyLineOptions = {
     color: "red",

@@ -3,10 +3,8 @@ var plainMap = L.tileLayer('http://10.10.3.50:5000/hot/{z}/{x}/{y}.png', {
     maxNativeZoom: 22
 });
 
-var base_url = 'http://127.0.0.1:8000/akwaba/';
-
 var burl = window.location.href; 
-if(burl == base_url+'index.php'){
+if(burl == 'http://localhost/akwaba/index.php'){
 var str1 = 40.36629;	
 var str2 = 49.83335;	
 var url = window.location.href+"#map=13/"+str1+"/"+str2; 
@@ -55,8 +53,8 @@ function createCustomIcon(feature, latlng) {
 }
 function createParkingIcon(feature, latlng) {
 	let myIcons = L.icon({
-		iconUrl: base_url+'assets/img/icons/parkings.png',
-		shadowUrl: base_url+'assets/img/icons/parkings.png',
+		iconUrl: 'http://localhost/openstreetMapDemo/parkings.png',
+		shadowUrl: 'http://localhost/openstreetMapDemo/parkings.png',
 		iconSize: [25, 25], // width and height of the image in pixels
 		shadowSize: [35, 20], // width, height of optional shadow image
 		iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
@@ -66,9 +64,9 @@ function createParkingIcon(feature, latlng) {
 	return L.marker(latlng, { icon: myIcons })
 }
 function createPhotoIcon(feature, latlng) {
-    let myIconss = L.icon({
-        iconUrl: base_url+'uploads/tourist/captions.jpg',
-        shadowUrl: base_url+'uploads/tourist/captions.jpg',
+	let myIconss = L.icon({
+        iconUrl: 'http://localhost/akwaba/uploads/tourist/captions.jpg',
+        shadowUrl: 'http://localhost/akwaba/uploads/tourist/captions.jpg',
         iconSize: [25, 25], // width and height of the image in pixels
         shadowSize: [35, 20], // width, height of optional shadow image
         iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
@@ -79,8 +77,8 @@ function createPhotoIcon(feature, latlng) {
 }
 function createResturantIcon(feature, latlng) {
     let myIconsss = L.icon({
-        iconUrl: base_url+'Parking_icon2.png',
-        shadowUrl: base_url+'Parking_icon2.png',
+        iconUrl: 'http://localhost/akwaba/Parking_icon2.png',
+        shadowUrl: 'http://localhost/akwaba/Parking_icon2.png',
         iconSize: [25, 25], // width and height of the image in pixels
         shadowSize: [35, 20], // width, height of optional shadow image
         iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
@@ -135,7 +133,6 @@ var parkingMap = L.geoJSON(parkingLatLng, myLayerOptionss)
 	} */
 
 //console.log(restaurantnameData[0]['name']);
-
 $(document).on('click','.leaflet-control-container .leaflet-control-layers-overlays label', function(){ 
 $('.leaflet-control-container .leaflet-control-layers-overlays label').removeClass('active');
 $(this).addClass('active');
@@ -151,7 +148,7 @@ if(flag == "Yes" && id == '1'){
 	$(".eatoutDiv").css('display','flex');
 	$(".eatoutDiv").removeClass('extralarge');
 	let customIcon = {
-	 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
+	 iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out.png',
 	 iconSize:[30,30]
 	}
 	let myIcon = L.icon(customIcon);
@@ -176,7 +173,7 @@ if(flag == "Yes" && id == '1'){
 	$(".GroceriesDiv").css('display','flex');
 	$(".GroceriesDiv").removeClass('extralarge');
 	let customIcon = {
-	 iconUrl:base_url+'assets/img/icons/ic_eat_out_2.png',
+	 iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out_2.png',
 	 iconSize:[30,30]
 	}
 	let myIcon = L.icon(customIcon);
@@ -201,7 +198,7 @@ if(flag == "Yes" && id == '1'){
 	$(".MallsDiv").css('display','flex');
 	$(".MallsDiv").removeClass('extralarge');
 	let customIcon = {
-	 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
+	 iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out.png',
 	 iconSize:[30,30]
 	}
 	let myIcon = L.icon(customIcon);
@@ -226,7 +223,7 @@ if(flag == "Yes" && id == '1'){
 	$(".HotelsDiv").css('display','flex');
 	$(".HotelsDiv").removeClass('extralarge');
 	let customIcon = {
-	 iconUrl:base_url+'assets/img/icons/ic_eat_out_2.png',
+	 iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out_2.png',
 	 iconSize:[30,30]
 	}
 	let myIcon = L.icon(customIcon);
@@ -251,7 +248,7 @@ if(flag == "Yes" && id == '1'){
 	$(".GasDiv").css('display','flex');
 	$(".GasDiv").removeClass('extralarge');
 	let customIcon = {
-	 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
+	 iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out.png',
 	 iconSize:[30,30]
 	}
 	let myIcon = L.icon(customIcon);
@@ -272,10 +269,8 @@ if(flag == "Yes" && id == '1'){
 	}
 }else if(flag == "Yes" && id == '7'){
 	$(".morecategoryDiv").removeClass('extralarge');
-	$.getScript(bootstrap);
-	$.getScript(popper);
-	$.getScript(simplebar);
-	$.getScript(custom);
+	var myElement = document.getElementById('simple-bar');
+	new SimpleBar(myElement, { autoHide: true });
 }else if(flag == "Yes" && id == '8'){
    var sessionid = $("#sessionid").val();
    if (typeof sessionid === "undefined") {
@@ -325,19 +320,20 @@ $(document).on('click', "#subcatBtn", function(){
 		success: function(response){
 			console.log(response);
 			 var arr = response.split("|");
-			var LatLng = JSON.parse(arr[1]); 
-			var Name = JSON.parse(arr[2]); 
-			let customIcon = {
-			 iconUrl:base_url+'assets/img/icons/ic_eat_out.png',
-			 iconSize:[30,30]
-			}
-			let myIcon = L.icon(customIcon);
-			let iconOptions = {
-			 title:'company name',
-			 draggable:false,
-			 icon:myIcon
-			}
-			for(var i = 0; i < LatLng.length; i++) {
+			 if(arr[0].length !== '0' && arr[1] !== null){
+				var LatLng = JSON.parse(arr[0]); 
+				var Name = JSON.parse(arr[1]); 
+				let customIcon = {
+				 iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out.png',
+				 iconSize:[30,30]
+				}
+				let myIcon = L.icon(customIcon);
+				let iconOptions = {
+				 title:'company name',
+				 draggable:false,
+				 icon:myIcon
+				}
+				for(var i = 0; i < LatLng.length; i++) {
 						var lon = LatLng[i].coordinates[0];
 						var lat = LatLng[i].coordinates[1];
 						var popupText =  atob(Name[i]['name']);
@@ -345,20 +341,15 @@ $(document).on('click', "#subcatBtn", function(){
 						var marker = new L.Marker(markerLocation, iconOptions);
 						map.addLayer(marker);
 						marker.bindPopup(popupText);
-			} 
-			$(this).attr('data-id', 'No');
-			$(".morecategoryDiv ").css('display','none');
-			$(".eatoutdynamicDiv").removeClass('extralarge');
-			$(".eatoutdynamicDiv").html(arr[0]);
-			$(".eatoutdynamicDiv").css('display','flex');			
-			/* $(".subcatSubsidebar").html(response);
-			$(".morecategoryDiv").addClass('extralarge');
-			$(".morecategoryDiv").css('display','flex'); 
-			$(".subcatSubsidebar").css('display','flex'); 
-			$.getScript(bootstrap);
-			$.getScript(popper);
-			$.getScript(simplebar);
-			$.getScript(custom); */
+				} 
+				$(this).attr('data-id', 'No');
+				$(".morecategoryDiv ").css('display','none');
+				$(".eatoutdynamicDiv").removeClass('extralarge');
+				$(".eatoutdynamicDiv").html(arr[2]);
+				$(".eatoutdynamicDiv").css('display','flex');			
+			 }else{
+				 alert('Data is not found');
+			 }
 		}
 	 }) 
 });
@@ -375,7 +366,7 @@ $(document).on('click','.getEatoutDyanmicDetail', function(){
 					var long = $('.long').text();
 					var markersLayer = new L.LayerGroup();
 					let customIcon = {
-						iconUrl:base_url+'assets/img/icons/ic_eat_out_20X20_Green.png',
+						iconUrl:'http://localhost/akwaba/assets/img/icons/ic_eat_out_20X20_Green.png',
 						iconSize:[30,30]
 					   }
 					   let myIcon = L.icon(customIcon);
@@ -399,7 +390,12 @@ $(document).on('click','#EatoutdynamicCloseBtn', function(){
 	$(".indexDiv").css('display','block');
 	$(".eatoutdynamicDiv").css('display','none');
 	$('.icon-'+id).attr('data-id', 'Yes');
-	$(".leaflet-marker-icon").css('display','none');
+	//$(".leaflet-marker-icon").css('display','none');
+	 $(".leaflet-marker-icon").remove();
+	 var lat = '';
+	$('.lat').empty();
+	var long = '';
+	$('.long').empty();
 	//window.location.reload();
 });
 var baseMaps = {}; 
