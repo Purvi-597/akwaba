@@ -12,8 +12,8 @@ $extension   = pathinfo($_FILES['place_image']['name'], PATHINFO_EXTENSION);
 $basename    = $newfilename . "." . $extension;
 $file1       = $_FILES['place_image']['name'];
 $target_path = "./uploads/place_advertisement/" . $basename;
-$created_at` = date("Y-m-d H:i:s");
-$updated_at` = date("Y-m-d H:i:s");
+$created_at = date("Y-m-d H:i:s");
+$updated_at = date("Y-m-d H:i:s");
 move_uploaded_file($_FILES['place_image']['tmp_name'], $target_path);
 
 if($place_type == "POI"){

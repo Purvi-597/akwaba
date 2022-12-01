@@ -563,14 +563,19 @@ if(isset($_SESSION['users'])){
                 <!-- Photos -->
 				<div role="tabpanel" class="tab-pane" id="tab5">
                   <section class="img-gallery-magnific">
-				  <?php for($i=0;$i<count($reviewPhoto);$i++){ 
+
+             <?php  if(!empty($reviewPhoto)){ ?>			
+                   	  <?php for($i=0;$i<count($reviewPhoto);$i++){ 
 						for($j=0;$j<count($reviewPhoto[$i]);$j++){?>
                     <div class="magnific-img">
                       <a class="image-popup-vertical-fit" href="./uploads/review/<?=$reviewPhoto[$i][$j]?>" title="<?=$reviewPhoto[$i][$j]?>">
                         <img src="./uploads/review/<?=$reviewPhoto[$i][$j]?>" alt="<?=$reviewPhoto[$i][$j]?>" />
                       </a>
                     </div>
-					<?php }} ?>	  
+					<?php }}} ?>	  
+
+
+
                    </section>
                   <div class="clear"></div>
                 </div>
