@@ -19,6 +19,7 @@ class CreateMyplacesTable extends Migration
             $table->string('location_coordinates');
             $table->double('location_address');
             $table->string('category');
+            $table->string('osmid');
             $table->integer('is_deleted');
             $table->timestamps();  
         });

@@ -80,6 +80,7 @@ Route::get('Privacy_policy',  'API\UserController@Privacy_policy');
 Route::get('nearbyLocation',  'API\UserController@nearbyLocation');
 Route::post('Add_photo_place',  'API\UserController@Add_photo_place');
 Route::get('mobileads',  'API\UserController@mobileads');
+Route::get('remove_place_photo',  'API\UserController@remove_place_photo');
 
 
 ///// saved routes --------------------------------
@@ -119,7 +120,8 @@ Route::post('search/Subcategories',  'API\SearchApi@Subcategories');
 Route::post('search/facilities',  'API\SearchApi@facilities');
 Route::post('search/nearbysearch',  'API\SearchApi@nearbysearch');
 Route::post('search/simplesearch',  'API\SearchApi@simplesearch');
-
+Route::get('search/Search',  'API\SearchApi@Search');
+Route::get('search/metrostations',  'API\SearchApi@metrostations');
 
 //// Layes api //////////////////////////////////////////////////////////
 Route::get('Places/Metro',  'API\Places@Metro');

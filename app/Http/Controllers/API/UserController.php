@@ -26,8 +26,10 @@ use App\Http\Model\Feature;
 use App\Http\Model\Privacy_Policy;
 use App\Http\Model\Subcategories;
 use App\Http\Model\Users;
+use App\myplaces;
 use App\Placephotos;
 use App\reviews_rating;
+use App\Saveroute;
 use Hamcrest\FeatureMatcher;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -39,7 +41,7 @@ class UserController extends Controller
     public $advertisement_path = "http://10.10.1.133:8000/uploads/advertisement/";
     public $featureplace_path = "http://10.10.1.133:8000/uploads/feature/";
     public $profile_path = 'http://10.10.1.133:8000/uploads/users/';
-    public $place_photo = 'http://10.10.1.133:8000/uploads/Placephotos/';
+    public $place_photo = 'http://10.10.1.133:8000/uploads/placephoto/';
 
     public function register(Request $request)
     {
@@ -917,26 +919,68 @@ class UserController extends Controller
         if (isset($request['id'])) {
             $id = $request['id'];
             $pg_sql = DB::connection('pgsql')->select("select
-            *,
-        osm_id as osmid,
-        ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
-        name
-        from 
-        public.planet_osm_point 
-        WHERE osm_id=" . $id);
-            $osmid =  $pg_sql[0]->osmid;
+                    *,
+                osm_id as osmid,
+                ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
+                name
+                from 
+                public.planet_osm_point 
+                WHERE osm_id=" . $id);
+                if($pg_sql){
+                    $osmid =  $pg_sql[0]->osmid;
+                }else {
+                    $osmid =  1;
+                }
+           
             $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('ratings');
             $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
             $photos = Placephotos::where('osm_id', $osmid)->get();
+            $myplace = myplaces::where('osmid', '=', $id)->where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
+            $myrout = Saveroute::where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
+             
+            if(count($myplace) == 0){
+      
+                $myplace =0; 
+            }else{
+                $myplace = 1;
+            }
             $placephotos = array();
             foreach ($photos as $image) {
                 $placephotos[] = array(
+                    'id' => $image['id'],
                     'path' => $this->place_photo,
                     'image' => $image['image_name']
                 );
             }
+            $geojson = array();
+            $coordinates = array();
+            for ($i=0; $i <count($pg_sql) ; $i++) { 
+                $geojson[] = json_decode($pg_sql[$i]->geojson_data);
+                for ($x = 0; $x < count($geojson); $x++) {
+                    $coordinates[]= $geojson[$x]->coordinates;
+                }   
+            }
+            $savedroutes = array();
+            foreach($myrout as $route){
+                $savedroutes[] = array('start' => explode(',',$route->start_coordinates), 'end' => explode(',',$route->end_coordinates),'id' => $route->id);
+            }
+
+            /// comparison between two coordinates /////////////////
+            $save = array();
+            for($n= 0; $n < count($savedroutes); $n++){
+                if(round($savedroutes[$n]['start'][0]) == round($coordinates[0][1]) && round($savedroutes[$n]['start'][1]) == round($coordinates[0][0]) )
+                {
+                    $save = $savedroutes[$n]['id'];
+                }
+               else if(round($savedroutes[$n]['end'][0]) == round($coordinates[0][1]) && round($savedroutes[$n]['end'][1]) == round($coordinates[0][0])){
+                    $save =  $savedroutes[$n]['id'];
+                }
+            }
+            if(empty($save)){
+                $save = 0;
+            }
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'avg' => $avg, 'count' => $count, 'photos' => $placephotos, 'data' => $pg_sql]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','myplace' => $myplace,'myroute' => $save, 'avg' => $avg, 'count' => $count, 'photos' => $placephotos, 'data' => $pg_sql]);
         }
     }
 
@@ -974,6 +1018,18 @@ class UserController extends Controller
             $photos = Placephotos::where('osm_id', $osm)->get();
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'updated Successfully', 'path' => $this->place_photo, 'photos' => $photos]);
+        } else {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
+    }
+
+    public function remove_place_photo(Request $request){
+        $id = $request->Id;
+        $delete = Placephotos::where('id', $id)->delete();
+        if ($delete) {
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'deleted Successfully']);
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
@@ -1041,7 +1097,7 @@ class UserController extends Controller
         ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
         osm_id as osmid
         from  public.planet_osm_point 
-        where amenity = 'pub'
+        where amenity != ''
         order by way <-> ST_Transform(ST_SetSRID(ST_Point(49.84496533870698,40.37147089250506), 4326), 3857)
         limit 15");
 
@@ -1122,7 +1178,7 @@ class UserController extends Controller
 
     public function mobileads()
     {
-        $mobileds = Advertisement::select('mobile_ads')->get();
+        $mobileds = Advertisement::select('mobile_ads')->where('mobile_ads', '!=', '')->get();
         $mobile = array();
         foreach ($mobileds as $mobi) {
             $mobile[] = array(

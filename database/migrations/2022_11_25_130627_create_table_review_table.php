@@ -16,7 +16,7 @@ class CreateTableReviewTable extends Migration
         Schema::create('table_review', function (Blueprint $table) {
             $table->id();
             $table->integer('userId');
-            $table->integer('osm_id');
+            $table->string('osm_id');
             $table->string('image_name');
             $table->timestamps();
             $table->softDeletes();

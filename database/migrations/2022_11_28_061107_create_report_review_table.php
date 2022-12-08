@@ -16,7 +16,7 @@ class CreateReportReviewTable extends Migration
         Schema::create('report_review', function (Blueprint $table) {
             $table->id();
             $table->integer('userId');
-            $table->integer('osm_id');
+            $table->string('osm_id');
             $table->string('review_id');
             $table->string('report_msg');
             $table->integer('status');

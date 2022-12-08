@@ -410,8 +410,8 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 //var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 L.control.ruler({
     position: 'bottomright',         // Leaflet control position option
-    circleMarker: {               // Leaflet circle marker options for points used in this plugin
-        color: 'blue',
+    circleMarker: {               	// Leaflet circle marker options for points used in this plugin
+        color: 'blue',			   //
         radius: 2
     },
     lineStyle: {                  // Leaflet polyline options for lines used in this plugin

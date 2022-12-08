@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Model\Users;
 use App\Likes_review;
 use App\report_review;
 use App\reviews_rating;
@@ -13,6 +14,7 @@ use Illuminate\Support\Carbon;
 class Addreview extends Controller
 {
     public $profile_path = 'http://10.10.1.133:8000/uploads/review/';
+    public $user_path = 'http://10.10.1.133:8000/uploads/users/';
 
     /**
      * Display a listing of the resource.
@@ -22,67 +24,166 @@ class Addreview extends Controller
     public function index(Request $request)
     {
         if ($request->filter_id == 0) {
-            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->get();
-
-            // print_r($request->osmid);die;
+            $reviews_rating = reviews_rating::leftjoin('users', 'reviews_rating.user_id','=','users.id')->where('osm_id', '=', $request->osmid)->get();
+            
+            $main = array();
+            foreach($reviews_rating as $row){
+                $like = Likes_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+                $report = report_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+              $main[]= array(
+                'id' => $row->id,
+                'osmid' => $row->osm_id,
+                'title' => $row->title,
+                'message' => $row->message,
+                'rating' => $row->ratings,
+                'user_name' => $row->first_name.' '.$row->last_name,
+                'path' => $this->user_path,
+                'profile_pic' => $row->profile_pic,
+                'Like' => count($like),
+                'report' => count($report),
+                'created_at' => strtotime($row->created_at)
+              );
+            }
             if ($reviews_rating) {
                 return response()
-                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $main]);
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
         } elseif ($request->filter_id == 1) {
-            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 1)->get();
-
+            $reviews_rating = reviews_rating::leftjoin('users', 'reviews_rating.user_id','=','users.id')->where('osm_id', '=', $request->osmid)->where('ratings', 1)->get();
+            $main = array();
+            foreach($reviews_rating as $row){
+                $like = Likes_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+                $report = report_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+              $main[]= array(
+                'id' => $row->id,
+                'osmid' => $row->osm_id,
+                'title' => $row->title,
+                'message' => $row->message,
+                'rating' => $row->ratings,
+                'user_name' => $row->first_name.' '.$row->last_name,
+                'path' => $this->user_path,
+                'profile_pic' => $row->profile_pic,
+                'Like' => count($like),
+                'report' => count($report),
+                'created_at' => strtotime($row->created_at)
+              );
+            }
             // print_r($request->osmid);die;
             if ($reviews_rating) {
                 return response()
-                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $main]);
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
         } elseif ($request->filter_id == 2) {
-            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 2)->get();
-
-            // print_r($request->osmid);die;
+            $reviews_rating = reviews_rating::leftjoin('users', 'reviews_rating.user_id','=','users.id')->where('osm_id', '=', $request->osmid)->where('ratings', 2)->get();
+            $main = array();
+            foreach($reviews_rating as $row){
+                $like = Likes_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+                $report = report_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+              $main[]= array(
+                'id' => $row->id,
+                'osmid' => $row->osm_id,
+                'title' => $row->title,
+                'message' => $row->message,
+                'rating' => $row->ratings,
+                'user_name' => $row->first_name.' '.$row->last_name,
+                'path' => $this->user_path,
+                'profile_pic' => $row->profile_pic,
+                'Like' => count($like),
+                'report' => count($report),
+                'created_at' => strtotime($row->created_at)
+              );
+            }
             if ($reviews_rating) {
                 return response()
-                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $main]);
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
         } elseif ($request->filter_id == 3) {
-            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 3)->get();
-
-            // print_r($request->osmid);die;
+            $reviews_rating = reviews_rating::leftjoin('users', 'reviews_rating.user_id','=','users.id')->where('osm_id', '=', $request->osmid)->where('ratings', 3)->get();
+            $main = array();
+            foreach($reviews_rating as $row){
+                $like = Likes_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+                $report = report_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+              $main[]= array(
+                'id' => $row->id,
+                'osmid' => $row->osm_id,
+                'title' => $row->title,
+                'message' => $row->message,
+                'rating' => $row->ratings,
+                'user_name' => $row->first_name.' '.$row->last_name,
+                'path' => $this->user_path,
+                'profile_pic' => $row->profile_pic,
+                'Like' => count($like),
+                'report' => count($report),
+                'created_at' => strtotime($row->created_at)
+              );
+            }
             if ($reviews_rating) {
                 return response()
-                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $main]);
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
         } elseif ($request->filter_id == 4) {
-            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 4)->get();
-
-            // print_r($request->osmid);die;
+            $reviews_rating = reviews_rating::leftjoin('users', 'reviews_rating.user_id','=','users.id')->where('osm_id', '=', $request->osmid)->where('ratings', 4)->get();
+            $main = array();
+            foreach($reviews_rating as $row){
+                $like = Likes_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+                $report = report_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+              $main[]= array(
+                'id' => $row->id,
+                'osmid' => $row->osm_id,
+                'title' => $row->title,
+                'message' => $row->message,
+                'rating' => $row->ratings,
+                'user_name' => $row->first_name.' '.$row->last_name,
+                'path' => $this->user_path,
+                'profile_pic' => $row->profile_pic,
+                'Like' => count($like),
+                'report' => count($report),
+                'created_at' => strtotime($row->created_at)
+              );
+            }
             if ($reviews_rating) {
                 return response()
-                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $main]);
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
         } elseif ($request->filter_id == 5) {
-            $reviews_rating = reviews_rating::where('osm_id', '=', $request->osmid)->where('ratings', 5)->get();
-
+            $reviews_rating = reviews_rating::leftjoin('users', 'reviews_rating.user_id','=','users.id')->where('osm_id', '=', $request->osmid)->where('ratings', 5)->get();
+            $main = array();
+            foreach($reviews_rating as $row){
+                $like = Likes_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+                $report = report_review::where('userId', $row->user_id)->where('osm_id', $row->osm_id)->get();
+              $main[]= array(
+                'id' => $row->id,
+                'osmid' => $row->osm_id,
+                'title' => $row->title,
+                'message' => $row->message,
+                'rating' => $row->ratings,
+                'user_name' => $row->first_name.' '.$row->last_name,
+                'path' => $this->user_path,
+                'profile_pic' => $row->profile_pic,
+                'Like' => count($like),
+                'report' => count($report),
+                'created_at' => strtotime($row->created_at)
+              );
+            }
             // print_r($request->osmid);die;
             if ($reviews_rating) {
                 return response()
-                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $reviews_rating]);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $main]);
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
@@ -298,6 +399,9 @@ class Addreview extends Controller
         }
         $UID = $request->userId;
         $osm = $request->osmids;
+       
+        // print_r($_FILES['review_image']['name']);die;
+
         if ($request->file('review_image')) {
             for ($i = 0; $i < count($request->file('review_image')); $i++) {
                 $main_image = md5(time() . '_' . $request->file('review_image')[$i]->getClientOriginalName()) . '.' . $request->file('review_image')[$i]->getClientOriginalExtension();
@@ -312,18 +416,23 @@ class Addreview extends Controller
 
                 $sql = table_review::insertGetId($data);
             }
+            if ($sql) {
+                $photos = table_review::where('userId', $UID)->where('osm_id', $osm)->get();
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'updated Successfully', 'path' => $this->profile_path, 'photos' => $photos]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
             // $array_name = implode(",",$array_images);
         }
-
-
-        if ($sql) {
-            $photos = table_review::where('userId', $UID)->where('osm_id', $osm)->get();
+        else {
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'updated Successfully', 'path' => $this->profile_path, 'photos' => $photos]);
-        } else {
-            return response()
-                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+                ->json(['statusCode' => 0, 'statusMessage' => 'Select image']);
         }
+
+
+       
     }
 
 
@@ -468,14 +577,15 @@ class Addreview extends Controller
 
         $like = $request->like;
         if ($like == 1) {
-            $UNlike = Likes_review::where('userId', $request->userId)->where('review_id', $request->review_id)->where('osm_id', $request->osmids)->delete();
+            $UNlike = Likes_review::where('userId', $request->userId)->where('review_id', $request->review_id)->where('osm_id', $request->osmids)->get();
             //    print_r($UNlike);die;
             if ($UNlike) {
+                $UNlike = Likes_review::where('userId', $request->userId)->where('review_id', $request->review_id)->where('osm_id', $request->osmids)->delete();
                 return response()
                     ->json(['statusCode' => 1, 'Like' => 0, 'statusMessage' => 'Unlike']);
             } else {
                 return response()
-                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+                    ->json(['statusCode' => 1, 'statusMessage' => 'already like', 'data' => $UNlike]);
             }
         } else {
             $data = array(
