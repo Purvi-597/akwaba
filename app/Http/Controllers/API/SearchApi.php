@@ -2462,6 +2462,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2479,6 +2480,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -2499,6 +2501,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2516,6 +2519,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -2537,6 +2541,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2554,6 +2559,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -2575,6 +2581,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2592,6 +2599,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -2897,6 +2905,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2914,6 +2923,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -2933,6 +2943,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2950,6 +2961,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -2970,6 +2982,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -2987,6 +3000,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -3007,6 +3021,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -3024,6 +3039,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -3343,6 +3359,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -3360,6 +3377,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -3380,6 +3398,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -3397,6 +3416,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -3418,6 +3438,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -3435,6 +3456,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -3456,6 +3478,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -3473,6 +3496,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -4246,6 +4270,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4263,6 +4288,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -4283,6 +4309,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4300,6 +4327,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -4321,6 +4349,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4338,6 +4367,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -4359,6 +4389,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4376,6 +4407,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -4681,6 +4713,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4698,6 +4731,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -4717,6 +4751,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4734,6 +4769,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -4754,6 +4790,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4771,6 +4808,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -4791,6 +4829,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -4808,6 +4847,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -5127,6 +5167,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5144,6 +5185,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -5164,6 +5206,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5181,6 +5224,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -5202,6 +5246,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5219,6 +5264,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -5240,6 +5286,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5257,6 +5304,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -5562,6 +5610,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5579,6 +5628,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -5598,6 +5648,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5615,6 +5666,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -5635,6 +5687,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5652,6 +5705,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -5672,6 +5726,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -5689,6 +5744,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -6026,6 +6082,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6043,6 +6100,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -6063,6 +6121,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6080,6 +6139,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6101,6 +6161,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6118,6 +6179,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6139,6 +6201,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6156,6 +6219,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6461,6 +6525,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6478,6 +6543,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -6497,6 +6563,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6514,6 +6581,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6534,6 +6602,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6551,6 +6620,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6571,6 +6641,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6588,6 +6659,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6907,6 +6979,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6924,6 +6997,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -6944,6 +7018,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6961,6 +7036,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -6982,6 +7058,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -6999,6 +7076,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -7020,6 +7098,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -7037,6 +7116,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -7343,6 +7423,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -7360,6 +7441,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -7379,6 +7461,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -7396,6 +7479,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -7416,6 +7500,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -7433,6 +7518,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -7453,6 +7539,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -7470,6 +7557,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -7864,6 +7952,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -7881,6 +7970,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -7901,6 +7991,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -7918,6 +8009,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -7939,6 +8031,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -7956,6 +8049,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -7977,6 +8071,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -7994,6 +8089,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -8295,6 +8391,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8312,6 +8409,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -8331,6 +8429,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8348,6 +8447,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -8368,6 +8468,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8385,6 +8486,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -8405,6 +8507,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8422,6 +8525,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -8741,6 +8845,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8758,6 +8863,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -8778,6 +8884,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8795,6 +8902,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -8816,6 +8924,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8833,6 +8942,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -8854,6 +8964,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -8871,6 +8982,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -9177,6 +9289,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9194,6 +9307,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -9213,6 +9327,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9230,6 +9345,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -9250,6 +9366,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9267,6 +9384,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -9287,6 +9405,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9304,6 +9423,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -9645,6 +9765,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9662,6 +9783,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -9682,6 +9804,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9699,6 +9822,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -9720,6 +9844,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9737,6 +9862,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -9758,6 +9884,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -9775,6 +9902,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -10057,6 +10185,7 @@ class SearchApi extends Controller
 
                                             );
                                         };
+                                        // print_r($weekday);die;
                                         $days = array(
                                             'mo' => 1,
                                             'tu' => 2,
@@ -10080,6 +10209,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10097,6 +10227,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -10116,6 +10247,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10133,6 +10265,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -10153,6 +10286,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10170,6 +10304,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -10188,15 +10323,21 @@ class SearchApi extends Controller
                                             $finaldayes = array();
                                             foreach ($nearby as $key) {
                                                 $dayTime = explode(' ', $key->open_now);
+                                                // print_r($dayTime);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    //    print_r($day);
+                                                      if(count($day) >= 2){
+
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
+                                                    // echo $startday.' '.$endday;
                                                     $time = explode('-', $dayTime[1]);
                                                     $starttime = $time[0];
                                                     $endtime = $time[1];
+                                                  
                                                     if ($endtime == '00:00') {
-                                                        $endtime = '24:00';
+                                                        $endtime = '24:00'; 
                                                     }
                                                     if ($startday == 'may' || $endday == 'sep') {
                                                         $startday = 'mo';
@@ -10208,10 +10349,14 @@ class SearchApi extends Controller
                                                         }
                                                     }
                                                 }
+                                                }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
                                                 }
+                                           
+                                         
                                             }
+                                            // die;
                                             return response()->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'Category' => $category, 'data' => $finaldayes]);
                                         }
                                     } else {
@@ -10526,6 +10671,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10543,6 +10689,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -10829,6 +10976,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10846,6 +10994,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -10866,6 +11015,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10883,6 +11033,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -10903,6 +11054,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10920,6 +11072,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -10961,6 +11114,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -10978,6 +11132,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -10997,6 +11152,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -11014,6 +11170,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -11034,6 +11191,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -11051,6 +11209,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -11071,6 +11230,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -11088,6 +11248,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -11425,6 +11586,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11441,6 +11603,7 @@ class SearchApi extends Controller
                                                     if ($weekday[0]['hours'] >= $starttime && $weekday[0]['hours'] <= $endtime) {
                                                         $finaldayes[] = $key;
                                                     }
+                                                }
                                                 }
                                             }
                                             if ($key->open_now == '24/ 7') {
@@ -11462,6 +11625,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11478,6 +11642,7 @@ class SearchApi extends Controller
                                                     if ($weekday[0]['hours'] >= $starttime && $weekday[0]['hours'] <= $endtime) {
                                                         $finaldayes[] = $key;
                                                     }
+                                                }
                                                 }
                                             }
                                             if ($key->open_now == '24/7') {
@@ -11500,6 +11665,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11517,6 +11683,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -11538,6 +11705,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11555,6 +11723,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -11860,6 +12029,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11877,6 +12047,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -11896,6 +12067,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11913,6 +12085,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -11933,6 +12106,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11950,6 +12124,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -11970,6 +12145,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -11987,6 +12163,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -12306,6 +12483,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -12323,6 +12501,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -12343,6 +12522,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -12360,6 +12540,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -12381,6 +12562,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -12398,6 +12580,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -12419,6 +12602,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -12436,6 +12620,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -13271,6 +13456,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13288,6 +13474,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -13308,6 +13495,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13325,6 +13513,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -13346,6 +13535,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13363,6 +13553,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -13384,6 +13575,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13401,6 +13593,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -13706,6 +13899,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13723,6 +13917,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -13742,6 +13937,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13759,6 +13955,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -13779,6 +13976,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13796,6 +13994,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -13816,6 +14015,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -13833,6 +14033,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -14152,6 +14353,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14169,6 +14371,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -14189,6 +14392,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14206,6 +14410,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -14227,6 +14432,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14244,6 +14450,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -14265,6 +14472,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14282,6 +14490,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -14588,6 +14797,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14605,6 +14815,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -14624,6 +14835,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14641,6 +14853,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -14661,6 +14874,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14678,6 +14892,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -14698,6 +14913,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -14715,6 +14931,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15056,6 +15273,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15073,7 +15291,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
-                                                }
+                                                }}
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
                                                 }
@@ -15093,6 +15311,8 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15110,6 +15330,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15131,6 +15352,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15148,6 +15370,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15169,6 +15392,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15186,6 +15410,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15491,6 +15716,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15508,6 +15734,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -15527,6 +15754,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15544,6 +15772,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15564,6 +15793,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15581,6 +15811,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15601,6 +15832,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15618,6 +15850,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -15937,6 +16170,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15954,6 +16188,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -15974,6 +16209,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -15991,6 +16227,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -16012,6 +16249,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -16029,6 +16267,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -16373,6 +16612,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -16390,6 +16630,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -16409,6 +16650,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -16426,6 +16668,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -16446,6 +16689,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -16463,6 +16707,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -16483,6 +16728,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -16500,6 +16746,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -16837,6 +17084,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -16854,6 +17102,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -16874,6 +17123,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -16891,6 +17141,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -16912,6 +17163,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -16929,6 +17181,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -16950,6 +17203,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -16967,6 +17221,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -17272,6 +17527,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17289,6 +17545,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -17308,6 +17565,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17325,6 +17583,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -17345,6 +17604,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17362,6 +17622,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -17382,6 +17643,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17399,6 +17661,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -17718,6 +17981,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17735,6 +17999,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -17755,6 +18020,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17772,6 +18038,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -17793,6 +18060,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17810,6 +18078,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -17831,6 +18100,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -17848,6 +18118,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -18153,6 +18424,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -18170,6 +18442,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -18189,6 +18462,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -18206,6 +18480,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -18226,6 +18501,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -18243,6 +18519,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -18263,6 +18540,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -18280,6 +18558,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -18674,6 +18953,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -18691,6 +18971,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -18711,6 +18992,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -18728,6 +19010,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -18749,6 +19032,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -18766,6 +19050,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -18787,6 +19072,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -18804,6 +19090,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19105,6 +19392,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19122,6 +19410,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -19141,6 +19430,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19158,6 +19448,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19178,6 +19469,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19195,6 +19487,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19215,6 +19508,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19232,6 +19526,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19550,6 +19845,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19567,6 +19863,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -19587,6 +19884,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19604,6 +19902,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19625,6 +19924,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19642,6 +19942,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19663,6 +19964,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -19680,6 +19982,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -19986,6 +20289,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20003,6 +20307,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -20022,6 +20327,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20039,6 +20345,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20059,6 +20366,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20076,6 +20384,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20096,6 +20405,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20113,6 +20423,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20454,6 +20765,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20471,6 +20783,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -20491,6 +20804,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20508,6 +20822,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20529,6 +20844,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20546,6 +20862,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20567,6 +20884,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20584,6 +20902,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20889,6 +21208,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20906,6 +21226,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -20925,6 +21246,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20942,6 +21264,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20962,6 +21285,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -20979,6 +21303,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -20999,6 +21324,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21016,6 +21342,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -21335,6 +21662,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21352,6 +21680,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -21372,6 +21701,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21389,6 +21719,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -21410,6 +21741,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21427,6 +21759,8 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -21448,6 +21782,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21465,6 +21800,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -21770,6 +22106,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21787,6 +22124,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/ 7') {
                                                     $finaldayes[] = $key;
@@ -21806,6 +22144,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21823,6 +22162,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -21843,6 +22183,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21860,6 +22201,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -21880,6 +22222,7 @@ class SearchApi extends Controller
                                                 $dayTime = explode(' ', $key->open_now);
                                                 if (count($dayTime) >= 2) {
                                                     $day = explode('-', $dayTime[0]);
+                                                    if(count($day) >= 2){
                                                     $startday = strtolower($day[0]);
                                                     $endday = strtolower($day[1]);
                                                     $time = explode('-', $dayTime[1]);
@@ -21897,6 +22240,7 @@ class SearchApi extends Controller
                                                             $finaldayes[] = $key;
                                                         }
                                                     }
+                                                }
                                                 }
                                                 if ($key->open_now == '24/7') {
                                                     $finaldayes[] = $key;
@@ -22234,6 +22578,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22251,6 +22596,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -22271,6 +22617,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22288,6 +22635,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -22309,6 +22657,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22326,6 +22675,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -22669,6 +23019,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22686,6 +23037,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -22705,6 +23057,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22722,6 +23075,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -22742,6 +23096,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22759,6 +23114,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -22779,6 +23135,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -22796,6 +23153,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -23115,6 +23473,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23132,6 +23491,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
@@ -23152,6 +23512,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23169,6 +23530,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -23190,6 +23552,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23207,6 +23570,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -23228,6 +23592,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23245,6 +23610,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -23550,6 +23916,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23568,6 +23935,7 @@ class SearchApi extends Controller
                                                     }
                                                 }
                                             }
+                                        }
                                             if ($key->open_now == '24/ 7') {
                                                 $finaldayes[] = $key;
                                             }
@@ -23586,6 +23954,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23604,6 +23973,7 @@ class SearchApi extends Controller
                                                     }
                                                 }
                                             }
+                                        }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
                                             }
@@ -23623,6 +23993,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23640,6 +24011,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -23660,6 +24032,7 @@ class SearchApi extends Controller
                                             $dayTime = explode(' ', $key->open_now);
                                             if (count($dayTime) >= 2) {
                                                 $day = explode('-', $dayTime[0]);
+                                                if(count($day) >= 2){
                                                 $startday = strtolower($day[0]);
                                                 $endday = strtolower($day[1]);
                                                 $time = explode('-', $dayTime[1]);
@@ -23677,6 +24050,7 @@ class SearchApi extends Controller
                                                         $finaldayes[] = $key;
                                                     }
                                                 }
+                                            }
                                             }
                                             if ($key->open_now == '24/7') {
                                                 $finaldayes[] = $key;
@@ -23812,19 +24186,23 @@ class SearchApi extends Controller
             osm_id as osmid
             from  public.planet_osm_point 
             where name LIKE '%$search%' and name != ''
-            order by way <-> ST_Transform(ST_SetSRID(ST_Point(49.84496533870698,40.37147089250506), 4326), 3857)
             limit 15");
 
         $geojson = array();
         $coordinates = array();
         for ($i = 0; $i < count($nearby); $i++) {
-            $geojson[] = json_decode($nearby[$i]->geojson_data);
-            for ($x = 0; $x < count($geojson); $x++) {
-                $coordinates[] = array(
+            $geojson[] = array(
                     'name' => $nearby[$i]->name,
-                    'coordinates' =>  $geojson[$x]->coordinates
+                    'coordinates' => json_decode($nearby[$i]->geojson_data) 
                 );
             }
+        
+
+        for ($x = 0; $x < count($geojson); $x++) {
+            $coordinates[] = array(
+                'name' => $nearby[$x]->name,
+                'coordinates' =>  $geojson[$x]['coordinates']->coordinates
+            );
         }
 
         return response()

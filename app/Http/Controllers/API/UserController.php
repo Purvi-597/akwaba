@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\car_make;
 use App\car_model;
 use App\cars;
+use App\Claim_orgnization;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,13 @@ use App\Http\Model\Feature;
 use App\Http\Model\Privacy_Policy;
 use App\Http\Model\Subcategories;
 use App\Http\Model\Users;
+use App\Mail\addphotos;
+use App\Mail\addreview;
+use App\menu_items;
 use App\myplaces;
 use App\Placephotos;
+use App\poi;
+use App\PromotOrganisation;
 use App\reviews_rating;
 use App\Saveroute;
 use Hamcrest\FeatureMatcher;
@@ -99,7 +105,7 @@ class UserController extends Controller
             'country_code' => $request->country_code,
             'contact_no' => $request->contact,
             'dial_code' => $request->dial_code,
-            'password' => Hash::make($request->password),
+            'password' => md5($request->password),
             'role' => 'User',
             'otp' => 1234,
             'created_at' => Carbon::now(),
@@ -181,8 +187,8 @@ class UserController extends Controller
 
             $check = Users::where('email', $request->email)->where('status', 1)->first();
             if ($check) {
-                $hashedPassword = $check->password;
-                if (Hash::check($request->password, $hashedPassword)) {
+                $md5pasword =md5($request->password);
+                if ($check->password == $md5pasword) {
                     $update_user_details = array(
                         'device_type' => $request->device_type,
                         'device_token' => $request->device_token,
@@ -425,7 +431,7 @@ class UserController extends Controller
     public function forgotpasswordupdate_api(Request $request)
     {
         $email = $request->input('email');
-        $confirmpassword = Hash::make($request->input('confirmpassword'));
+        $confirmpassword = md5($request->input('confirmpassword'));
         $update = Users::where('email', $email)->update(['password' => $confirmpassword, 'updated_at' => Carbon::now()]);
         if ($update) {
             // return redirect('login')->with('success','Login with new password');
@@ -449,8 +455,6 @@ class UserController extends Controller
             } else {
                 $main_image = '';
             }
-
-
             $checkcar = cars::where('userId', $request->userId)->get();
             if (count($checkcar) != 0) {
                 $cardata = array(
@@ -664,7 +668,7 @@ class UserController extends Controller
                 'title' => $features->title,
                 'description' => strip_tags($features['description']),
                 'image' => $features->image,
-                'ratings' => $features->ratings,
+                'rating' => $features->rating,
                 'latitude' => $features->latitude,
                 'longitude' => $features->longitude
             );
@@ -932,7 +936,7 @@ class UserController extends Controller
                     $osmid =  1;
                 }
            
-            $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('ratings');
+            $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('rating');
             $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
             $photos = Placephotos::where('osm_id', $osmid)->get();
             $myplace = myplaces::where('osmid', '=', $id)->where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
@@ -1012,9 +1016,13 @@ class UserController extends Controller
             }
             // $array_name = implode(",",$array_images);
         }
+        $osm_id = $request->osmids;
+        $userId = $request->userId;
+        $title = $request->title;
 
 
         if ($sql) {
+            $this->addphotosmail($osm_id,$userId,$title);
             $photos = Placephotos::where('osm_id', $osm)->get();
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'updated Successfully', 'path' => $this->place_photo, 'photos' => $photos]);
@@ -1022,6 +1030,52 @@ class UserController extends Controller
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
         }
+    }
+
+    public function addphotosmail($osm_id,$userId,$title){
+        $userdata = Users::where('id',$userId)->first(['first_name','last_name']);
+        $name = $userdata['first_name'] . ' ' . $userdata['last_name'];
+
+        $company = Claim_orgnization::where('osm_id',$osm_id)->first(['companyname','companyemail']);
+        $advertise = PromotOrganisation::where('osm_id',$osm_id)->first(['advertisement_name','advertisement_email']);
+        if ($company) {
+                $data = array(
+                    'companyname' => $company->companyname,
+                    'username' => $name,
+                    'osmname' => $title
+                );
+                $to_email = $company->companyemail;
+
+              $mail = Mail::to($to_email)->send(new addphotos(($data)));
+        }else{
+            $data = array(
+                'companyname' => $title,
+                'username' => $name,
+                'osmname' => $title
+            );
+            $to_email = 'sahilsayyad453@gmail.com';
+
+          $mail = Mail::to($to_email)->send(new addphotos(($data)));
+        }
+
+        if($advertise) {       
+            $data = array(
+                'companyname' => $advertise->advertisement_name,
+                'username' => $name,
+                'osmname' => $title
+            );
+            $to_email = $advertise->advertisement_email;
+
+          $mail = Mail::to($to_email)->send(new addphotos(($data)));
+        }else{
+            $data = array(
+                'companyname' => $title,
+                'username' => $name,
+                'osmname' => $title
+            );
+            $to_email = 'sahilsayyad453@gmail.com';
+            $mail = Mail::to($to_email)->send(new addphotos(($data)));
+        }  
     }
 
     public function remove_place_photo(Request $request){
@@ -1102,7 +1156,7 @@ class UserController extends Controller
         limit 15");
 
         $osmid = 123;
-        $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('ratings');
+        $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('rating');
         $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
         return response()
             ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'avg' => $avg, 'count' => $count, 'data' => $nearby]);
@@ -1203,6 +1257,23 @@ class UserController extends Controller
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..user not registered']);
+        }
+    }
+
+
+    public function Pricingforplace(Request $request) {
+        if (!$request->osmId) {
+            return response()
+                ->json(['statusCode' => -1, 'statusMessage' => 'The osmId field is required.']);
+        }
+        $menu['details'] =  poi::where('osm_id',$request->osmId)->where('status',1)->get();
+        $menu['menu'] = menu_items::where('osm_id',$request->osmId)->where('status',1)->get();
+        if ($menu) {
+            return response()
+                ->json(['statusCode' => 200, 'statusMessage' => 'successfully', 'data' => $menu]);
+        } else {
+            return response()
+                ->json(['statusCode' => -1, 'statusMessage' => 'Something went wrong..']);
         }
     }
 

@@ -88,6 +88,7 @@ Route::post('savedroutes/store',  'API\savedroutes@store');
 Route::get('savedroutes/show',  'API\savedroutes@show');
 Route::post('savedroutes/delete',  'API\savedroutes@delete');
 Route::post('savedroutes/destroy',  'API\savedroutes@destroy');
+Route::get('savedroutes/checkroute',  'API\savedroutes@checkroute');
 
 ///// saved places --------------------------------
 Route::post('mypalces/store',  'API\Mypalces@store');
@@ -132,3 +133,17 @@ Route::get('Places/Photos',  'API\Places@Photos');
 ///////////////////// Feedback //////////////////////////////////////////////////////////
 Route::get('feedback',  'API\Addfeedback@index');
 Route::post('feedback/store',  'API\Addfeedback@store');
+
+
+////// claim organization //////////////////////////////////
+Route::post('Claimorgnizatioon/store',  'API\Claimorgnizatioon@store');
+Route::post('Claimorgnizatioon/PromotOrganisation',  'API\Claimorgnizatioon@PromotOrganisation');
+
+
+////////// Price for place //////////////////////////////////
+Route::get('Pricingforplace',  'API\UserController@Pricingforplace');
+
+/// my address //////////////////////////////
+Route::get('MyAddress',  'API\MyAddress@show');
+Route::post('MyAddress/create',  'API\MyAddress@store');
+Route::get('MyAddress/delete',  'API\MyAddress@delete');
