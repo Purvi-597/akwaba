@@ -24185,7 +24185,7 @@ class SearchApi extends Controller
             ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
             osm_id as osmid
             from  public.planet_osm_point 
-            where name LIKE '%$search%' and name != ''
+            where LOWER(name) LIKE LOWER('%$search%') and name != ''
             limit 15");
 
         $geojson = array();

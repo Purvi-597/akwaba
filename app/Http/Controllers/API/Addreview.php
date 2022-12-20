@@ -20,6 +20,8 @@ class Addreview extends Controller
 {
     public $profile_path = 'http://10.10.1.133:8000/uploads/review/';
     public $user_path = 'http://10.10.1.133:8000/uploads/users/';
+    // public $profile_path = 'http://103.244.122.110:5000/mapproject/public/uploads/review/';
+    // public $user_path = 'http://103.244.122.110:5000/mapproject/public/uploads/users/';
 
     /**
      * Display a listing of the resource.
@@ -28,7 +30,7 @@ class Addreview extends Controller
      */
     public function checkLike($userId,$reviewId,$osmId){
         $check = Likes_review::where('osm_id', $osmId)->where('review_id',$reviewId)->where('userId',$userId)->get();
-       
+
         if(count($check) > 0){
             return 1;
         }else{
@@ -38,7 +40,7 @@ class Addreview extends Controller
 
     public function checkReport($userId,$reviewId,$osmId){
         $check = report_review::where('osm_id', $osmId)->where('review_id',$reviewId)->where('userId',$userId)->get();
-       
+
         if(count($check) > 0){
             return 1;
         }else{
@@ -56,33 +58,38 @@ class Addreview extends Controller
             $report = array();
 
             $id = $request->userId;
-            foreach($reviews_rating as $row){   
-                
+            foreach($reviews_rating as $row){
+
                 // if($row->user_id == $request->userId){
                 //     $like = Likes_review::where('osm_id', $request->osmid)->where('review_id',$row->id)->where('userId',$request->userId)->get();
                 // }else{
                 //     $like = 0;
                 // }
-              
-                
-           
-                $report = report_review::where('osm_id', $row->osm_id)->get();
-              $main[]= array(
-                'id' => $row->id,
-                'osmid' => $row->osm_id,    
-                'title' => $row->title,
-                'message' => $row->message,
-                'rating' => $row->rating,
-                'report' => $this->checkReport($id,$row->id,$row->osm_id),
-                'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
-                'user_name' => $row->first_name.' '.$row->last_name,
-                'path' => $this->user_path,
-                'profile_pic' => $row->profile_pic,
-                'created_at' => strtotime($row->created_at)
-              );
+
+                // $report = report_review::where('osm_id', $row->osm_id)->where('review_id',$row->id)->where('userId',$id)->get();
+                $report = $this->checkReport($id,$row->id,$row->osm_id);
+                    if ($report == 1) {
+                        # code...
+                    } else {
+                        $main[]= array(
+                            'id' => $row->id,
+                            'osmid' => $row->osm_id,
+                            'title' => $row->title,
+                            'message' => $row->message,
+                            'rating' => $row->rating,
+                            'report' => $this->checkReport($id,$row->id,$row->osm_id),
+                            'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
+                            'user_name' => $row->first_name.' '.$row->last_name,
+                            'path' => $this->user_path,
+                            'profile_pic' => $row->profile_pic,
+                            'created_at' => strtotime($row->created_at)
+                          );
+                    }
+
+
             }
 
-         
+
 
 
 
@@ -100,20 +107,24 @@ class Addreview extends Controller
             $report = array();
             $id = $request->userId;
             foreach($reviews_rating as $row){
-                $report = report_review::where('osm_id', $row->osm_id)->get();
-              $main[]= array(
-                'id' => $row->id,
-                'osmid' => $row->osm_id,    
-                'title' => $row->title,
-                'message' => $row->message,
-                'rating' => $row->rating,
-                'report' => $this->checkReport($id,$row->id,$row->osm_id),
-                'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
-                'user_name' => $row->first_name.' '.$row->last_name,
-                'path' => $this->user_path,
-                'profile_pic' => $row->profile_pic,
-                'created_at' => strtotime($row->created_at)
-              );
+                $report = $this->checkReport($id,$row->id,$row->osm_id);
+                if ($report == 1) {
+                    # code...
+                } else {
+                    $main[]= array(
+                        'id' => $row->id,
+                        'osmid' => $row->osm_id,
+                        'title' => $row->title,
+                        'message' => $row->message,
+                        'rating' => $row->rating,
+                        'report' => $this->checkReport($id,$row->id,$row->osm_id),
+                        'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
+                        'user_name' => $row->first_name.' '.$row->last_name,
+                        'path' => $this->user_path,
+                        'profile_pic' => $row->profile_pic,
+                        'created_at' => strtotime($row->created_at)
+                      );
+                }
             }
             // print_r($request->osmid);die;
             if ($reviews_rating) {
@@ -130,21 +141,25 @@ class Addreview extends Controller
             $report = array();
             $id = $request->userId;
             foreach($reviews_rating as $row){
-            
-                $report = report_review::where('osm_id', $row->osm_id)->get();
-              $main[]= array(
-                'id' => $row->id,
-                'osmid' => $row->osm_id,    
-                'title' => $row->title,
-                'message' => $row->message,
-                'rating' => $row->rating,
-                'report' => $this->checkReport($id,$row->id,$row->osm_id),
-                'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
-                'user_name' => $row->first_name.' '.$row->last_name,
-                'path' => $this->user_path,
-                'profile_pic' => $row->profile_pic,
-                'created_at' => strtotime($row->created_at)
-              );
+
+                $report = $this->checkReport($id,$row->id,$row->osm_id);
+                if ($report == 1) {
+                    # code...
+                } else {
+                    $main[]= array(
+                        'id' => $row->id,
+                        'osmid' => $row->osm_id,
+                        'title' => $row->title,
+                        'message' => $row->message,
+                        'rating' => $row->rating,
+                        'report' => $this->checkReport($id,$row->id,$row->osm_id),
+                        'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
+                        'user_name' => $row->first_name.' '.$row->last_name,
+                        'path' => $this->user_path,
+                        'profile_pic' => $row->profile_pic,
+                        'created_at' => strtotime($row->created_at)
+                      );
+                }
             }
             if ($reviews_rating) {
                 return response()
@@ -160,22 +175,26 @@ class Addreview extends Controller
             $report = array();
             $id = $request->userId;
             foreach($reviews_rating as $row){
-      
-           
-                $report = report_review::where('osm_id', $row->osm_id)->get();
-              $main[]= array(
-                'id' => $row->id,
-                'osmid' => $row->osm_id,    
-                'title' => $row->title,
-                'message' => $row->message,
-                'rating' => $row->rating,
-                'report' => $this->checkReport($id,$row->id,$row->osm_id),
-                'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
-                'user_name' => $row->first_name.' '.$row->last_name,
-                'path' => $this->user_path,
-                'profile_pic' => $row->profile_pic,
-                'created_at' => strtotime($row->created_at)
-              );
+
+
+                $report = $this->checkReport($id,$row->id,$row->osm_id);
+                if ($report == 1) {
+                    # code...
+                } else {
+                    $main[]= array(
+                        'id' => $row->id,
+                        'osmid' => $row->osm_id,
+                        'title' => $row->title,
+                        'message' => $row->message,
+                        'rating' => $row->rating,
+                        'report' => $this->checkReport($id,$row->id,$row->osm_id),
+                        'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
+                        'user_name' => $row->first_name.' '.$row->last_name,
+                        'path' => $this->user_path,
+                        'profile_pic' => $row->profile_pic,
+                        'created_at' => strtotime($row->created_at)
+                      );
+                }
             }
             if ($reviews_rating) {
                 return response()
@@ -191,22 +210,24 @@ class Addreview extends Controller
             $report = array();
             $id = $request->userId;
             foreach($reviews_rating as $row){
-             
-           
-                $report = report_review::where('osm_id', $row->osm_id)->get();
-              $main[]= array(
-                'id' => $row->id,
-                'osmid' => $row->osm_id,    
-                'title' => $row->title,
-                'message' => $row->message,
-                'rating' => $row->rating,
-                'report' => $this->checkReport($id,$row->id,$row->osm_id),
-                'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
-                'user_name' => $row->first_name.' '.$row->last_name,
-                'path' => $this->user_path,
-                'profile_pic' => $row->profile_pic,
-                'created_at' => strtotime($row->created_at)
-              );
+                $report = $this->checkReport($id,$row->id,$row->osm_id);
+                if ($report == 1) {
+                    # code...
+                } else {
+                    $main[]= array(
+                        'id' => $row->id,
+                        'osmid' => $row->osm_id,
+                        'title' => $row->title,
+                        'message' => $row->message,
+                        'rating' => $row->rating,
+                        'report' => $this->checkReport($id,$row->id,$row->osm_id),
+                        'Like' =>$this->checkLike($id,$row->id,$row->osm_id),
+                        'user_name' => $row->first_name.' '.$row->last_name,
+                        'path' => $this->user_path,
+                        'profile_pic' => $row->profile_pic,
+                        'created_at' => strtotime($row->created_at)
+                      );
+                }
             }
             if ($reviews_rating) {
                 return response()
@@ -309,16 +330,23 @@ class Addreview extends Controller
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The osmids field is required.']);
         }
-
-
-        $exites = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->where('is_deleted', 0)->first();
+        $exites = reviews_rating::where('user_id', $request->userId)->where('osm_id', $request->osmids)->where('is_deleted', 0)->get();
+        if(count($exites) > 0){
         $PHOTOS = table_review::where('userId', $request->userId)->where('osm_id', $request->osmids)->get();
+        foreach($exites as $value){
+        $check = report_review::where('osm_id', $request->osmids)->where('review_id',$value->id)->where('userId',$request->userId)->first();
+        if($check){
+            $exites = '';
+        }else{
+            $exites = $value;
+        }
+    }
         $Transmission = array();
         for ($i = 0; $i < count($PHOTOS); $i++) {
             $Transmission[] = array(
                 'id' => $PHOTOS[$i]['id'],
                 'images' => $PHOTOS[$i]['image_name']
-            );
+            )           ;
         }
         if ($exites) {
             return response()
@@ -327,6 +355,10 @@ class Addreview extends Controller
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Review not add yet']);
         }
+    }else{
+        return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Review not add yet']);
+    }
     }
 
     /**
@@ -361,7 +393,7 @@ class Addreview extends Controller
           $mail = Mail::to($to_email)->send(new MailAddreview(($data)));
         }
 
-        if($advertise) {       
+        if($advertise) {
             $data = array(
                 'companyname' => $advertise->advertisement_name,
                 'username' => $name,
@@ -379,7 +411,7 @@ class Addreview extends Controller
             $to_email = 'sahilsayyad453@gmail.com';
             $mail = Mail::to($to_email)->send(new MailAddreview(($data)));
         }
-        
+
         // die;
 
     }
@@ -472,7 +504,7 @@ class Addreview extends Controller
         }
         $UID = $request->userId;
         $osm = $request->osmids;
-       
+
         // print_r($_FILES['review_image']['name']);die;
 
         if ($request->file('review_image')) {
@@ -505,7 +537,7 @@ class Addreview extends Controller
         }
 
 
-       
+
     }
 
 
@@ -553,6 +585,7 @@ class Addreview extends Controller
         );
 
         $sql = report_review::insertGetId($data);
+        $delete = table_review::where('userId', $request->userId)->where('osm_id',$request->osmids)->delete();
         if ($sql) {
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Reported Successfully']);

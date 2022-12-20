@@ -15,7 +15,7 @@ if (burl == base_url + 'index.php') {
         zoom: 15,
         zoomControl: false,
         layers: [plainMap],
-        // measureControl:true 
+        // measureControl:true
         // crs: crs
     });
 } else {
@@ -134,7 +134,7 @@ $(document).on('keyup', '.Where-input-box', function () {
 // // var country = document.getElementsByClassName("country-list").innerHTML;
 // function getEventTarget(e) {
 // 	e = e || window.event;
-// 	return e.target || e.srcElement; 
+// 	return e.target || e.srcElement;
 // }
 //    var ul = document.getElementById('country-list');
 //     ul.onclick = function(event) {
@@ -169,6 +169,8 @@ function selectwhere(lat, lang, ids) {
 }
 
 
+
+
 $(document).on('click', '.routeicon', function () {
     $('.navigation-map').removeClass('d-none');
     $('.left-scroll-2').addClass('d-none');
@@ -194,7 +196,7 @@ $(document).on('click', '#car-tab , #walk-tab, #cycle-tab', function () {
         var profile = 'car';
     }
 
-	
+
 
 
     var remove = routingControl(start_lat, start_lang, end_lat, end_lang, profile);
@@ -366,7 +368,7 @@ function selectroute(index) {
         $('.instruction' + index + '').slideToggle();
     } else if (index == 1) {
 		// $('.option0').slideUp();
-        
+
         $('.instruction' + index + '').slideToggle();
     } else {
         $('.instruction' + index + '').slideToggle();
@@ -675,8 +677,8 @@ $(document).on('click', "#subcatBtn", function () {
             $(".eatoutdynamicDiv").css('display', 'flex');
             /* $(".subcatSubsidebar").html(response);
             $(".morecategoryDiv").addClass('extralarge');
-            $(".morecategoryDiv").css('display','flex'); 
-            $(".subcatSubsidebar").css('display','flex'); 
+            $(".morecategoryDiv").css('display','flex');
+            $(".subcatSubsidebar").css('display','flex');
             $.getScript(bootstrap);
             $.getScript(popper);
             $.getScript(simplebar);
@@ -760,8 +762,8 @@ L.control.ruler({
     },
     lengthUnit: { // You can use custom length units. Default unit is kilometers.
         display: 'km', // This is the display value will be shown on the screen. Example: 'meters'
-        decimal: 2, // Distance result will be fixed to this value. 
-        factor: null, // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)  
+        decimal: 2, // Distance result will be fixed to this value.
+        factor: null, // This value will be used to convert from kilometers. Example: 1000 (from kilometers to meters)
         label: 'Distance:'
     }
 }).addTo(map);

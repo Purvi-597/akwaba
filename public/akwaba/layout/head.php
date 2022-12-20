@@ -42,43 +42,44 @@
  
  
   <style>
-.OnClickSearch .img-top {
+.navigation-map .OnClickSearch .img-top {
     width: 100%;
     /* height: 100vh;  Comment this */ 
     background: #fff;
     background-size: cover;
     padding: 20px;
 }
-.OnClickMenuDetails{
+.navigation-map .OnClickMenuDetails{
         height: 85vh;
       z-index: 10000;
       display: block;
       overflow-y: auto;
       width: 84%;
       margin-left: 36px;
-      border-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
       background: white;
 }
-.OnClickSearch .categories-icons-section ,
-.OnClickSearch .brend-image , 
-.OnClickSearch .featured-places-section , .OnClickMenu{
+.navigation-map .OnClickSearch .categories-icons-section ,
+.navigation-map .OnClickSearch .brend-image , 
+.navigation-map .OnClickSearch .featured-places-section , .OnClickMenu{
   display: none;
 }
 
-.OnClickSearch .OnClickMenu{
+.navigation-map .OnClickSearch .OnClickMenu{
   display: block;
 
 }
-.OnClickSearch .img-top-name{
+.navigation-map .OnClickSearch .img-top-name{
   color: #000 !important;
 }
 
-.OnClickMenu .OnClickMenuDetails {
+.navigation-map .OnClickMenu .OnClickMenuDetails {
     padding: 16px 0;
     margin-bottom: 0;
     box-sizing: border-box;
 }
-.OnClickMenu .OnClickMenuDetails .OnClickMenuDetailsList {
+.navigation-map .OnClickMenu .OnClickMenuDetails .OnClickMenuDetailsList {
     display: flex;
     padding-top: 12px;
     padding-bottom: 5px;
@@ -86,7 +87,7 @@
     padding-left: 20px;
 }
 
-.OnClickMenu .OnClickMenuDetailsImage {
+.navigation-map .OnClickMenu .OnClickMenuDetailsImage {
     display: flex;
     align-items: center;
     width: 32px;
@@ -95,17 +96,17 @@
     margin-right: 20px;
 }
 
-.OnClickMenu .OnClickMenuDetailsImage img {
+.navigation-map .OnClickMenu .OnClickMenuDetailsImage img {
     width: 26px;
     height: 26px;
 }
 
-.OnClickMenu .OnClickMenuDetailsAddress{
+.navigation-map .OnClickMenu .OnClickMenuDetailsAddress{
     color: #555 !important;
     cursor: pointer;
     margin-bottom: 0;
 }
-.OnClickMenu span.OnClickMenuDetailsDestination {
+.navigation-map .OnClickMenu span.OnClickMenuDetailsDestination {
     font-size: 14px;
     color: #929292;
 }
@@ -997,15 +998,14 @@
     outline:none;
 }
 
-.navigation-tab .nav-item.show .nav-link:after,
- .navigation-tab .nav-link.active:after {
-  content: '';
+.navigation-tab .nav-item.show .nav-link:after, .navigation-tab .nav-link.active:after {
+    content: '';
     width: 52px;
     height: 4px;
-    background: #ab0000;
+    background: #ffffff;
     position: absolute;
     bottom: -10px;
-    left: 25px;
+    left: -5px;
 }
 
 
@@ -1014,13 +1014,13 @@
 {
 	min-height: 450px;
 }
-#path-results
+/* #path-results
 {
 	background: #F5F5F5;
 	overflow-y: scroll;
   height: 70vh;
-}
-#path-results::-webkit-scrollbar-track
+} */
+/* #path-results::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
@@ -1036,31 +1036,62 @@
 {
 	background-color: #B531AF;
 	border: 2px solid #c7c7c7;
-}
+} */
 
 .instructions
 {
 	background: #F5F5F5;
 	overflow-y: scroll;
   height: 50vh;
+  margin: 0 15px;
 }
 .instructions::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+	background-color: #f0f0f0;
 }
 
 .instructions::-webkit-scrollbar
 {
-	width: 10px;
-	background-color: #F5F5F5;
+	width: 6px;
+	/* background-color: rgba(0, 0, 0, 0.2) !important; */
 }
 
 .instructions::-webkit-scrollbar-thumb
 {
-	background-color: #fff;
+	background-color: rgba(0, 0, 0, 0.2) !important;
 	border: 2px solid #c7c7c7;
 }
+
+.border-dark {
+    border-color: #9ca0a5!important;
+}
+  </style>
+
+  <style>
+       .info-card.ReachTime {
+    height: calc(100vh - 180px);
+    overflow: hidden;
+}
+.ReachTime:hover{
+  overflow:auto ;
+}
+
+      .ReachTime:hover::-webkit-scrollbar,
+      .navigation-map .OnClickMenuDetails::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .ReachTime:hover::-webkit-scrollbar-thumb,
+  .navigation-map .OnClickMenuDetails::-webkit-scrollbar-thumb
+   {
+    background-color: rgba(0, 0, 0, 0.2) !important; 
+  }
+
+  .ReachTime:hover::-webkit-scrollbar-track,
+  .navigation-map .OnClickMenuDetails::-webkit-scrollbar-track  {
+    background-color: #f0f0f0 !important;
+  }
   </style>
 
 

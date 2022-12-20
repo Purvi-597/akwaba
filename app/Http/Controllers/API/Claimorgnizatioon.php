@@ -218,7 +218,7 @@ class Claimorgnizatioon extends Controller
             'advertisement_email' => $request->advertisement_email,
             'adv_dial_code' => $request->adv_dial_code,
             'advertisement_contact_no' => $request->advertisement_contact_no,
-            'advertisement_time' => $request->advertisement_time,  
+            'advertisement_time' => $request->advertisement_time,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         );

@@ -36,6 +36,7 @@ use App\poi;
 use App\PromotOrganisation;
 use App\reviews_rating;
 use App\Saveroute;
+use App\table_review;
 use Hamcrest\FeatureMatcher;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -48,6 +49,13 @@ class UserController extends Controller
     public $featureplace_path = "http://10.10.1.133:8000/uploads/feature/";
     public $profile_path = 'http://10.10.1.133:8000/uploads/users/';
     public $place_photo = 'http://10.10.1.133:8000/uploads/placephoto/';
+    public $review_photo = 'http://10.10.1.133:8000/uploads/review/';
+
+    // public $category_image_path = "http://103.244.122.110:5000/mapproject/public/uploads/categories/";
+    // public $advertisement_path = "http://103.244.122.110:5000/mapproject/public/uploads/advertisement/";
+    // public $featureplace_path = "http://103.244.122.110:5000/mapproject/public/uploads/feature/";
+    // public $profile_path = 'http://103.244.122.110:5000/mapproject/public/uploads/users/';
+    // public $place_photo = 'http://103.244.122.110:5000/mapproject/public/uploads/placephoto/';
 
     public function register(Request $request)
     {
@@ -738,10 +746,10 @@ class UserController extends Controller
             //echo "SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data FROM planet_osm_point WHERE ".$fieldName." IN ('".$values."') and name!=''";
 
             $categoryResult = DB::connection('pgsql')->select("SELECT *,osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, tags->'phone' as phone,
-                tags->'name:en' as en_Name, 
-                tags->'opening_hours' as opening_hours,  
-                tags->'cuisine' as cuisine,  
-                tags->'addr:city' as city,  
+                tags->'name:en' as en_Name,
+                tags->'opening_hours' as opening_hours,
+                tags->'cuisine' as cuisine,
+                tags->'addr:city' as city,
                 tags->'addr:street' as street,
                 tags->'description' as description,
                 tags->'addr:postcode' as postcode,
@@ -754,10 +762,10 @@ class UserController extends Controller
             // print_r($categoryResult);
 
             // $categoryResult = pg_query($db, "SELECT osm_id,name,ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data, tags->'phone' as phone,
-            // tags->'name:en' as en_Name, 
-            // tags->'opening_hours' as opening_hours,  
-            // tags->'cuisine' as cuisine,  
-            // tags->'addr:city' as city,  
+            // tags->'name:en' as en_Name,
+            // tags->'opening_hours' as opening_hours,
+            // tags->'cuisine' as cuisine,
+            // tags->'addr:city' as city,
             // tags->'addr:street' as street,
             // tags->'description' as description,
             // tags->'addr:postcode' as postcode,
@@ -812,14 +820,26 @@ class UserController extends Controller
                 ->json(['statusCode' => 0, 'statusMessage' => 'The website link is required.']);
         }
 
+        if (!$request->opening_days) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The opening days is required.']);
+        }
         if (!$request->opening_hours) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The opening hours is required.']);
         }
+        if (!$request->category) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The category is required.']);
+        }
+        if (!$request->sub_category) {
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'The sub_category is required.']);
+        }
         if (!$request->company_url) {
             $request->company_url = 'null';
         }
-
+        $days = implode($request->opening_days);
 
         $data = array(
             'user_id' => $request->userId,
@@ -832,6 +852,10 @@ class UserController extends Controller
             'latitude' => $request->latitude,
             'longtitude' => $request->longtitude,
             'opening_hours' => $request->opening_hours,
+            'opening_days' => $days,
+            'break_time' => $request->break_time,
+            'category' => $request->category,
+            'sub_category' => $request->sub_category,
             'dail_code' => $request->dail_code,
             'company_url' => $request->company_url,
             'phone_number_comment' => $request->add_comment,
@@ -927,24 +951,24 @@ class UserController extends Controller
                 osm_id as osmid,
                 ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
                 name
-                from 
-                public.planet_osm_point 
+                from
+                public.planet_osm_point
                 WHERE osm_id=" . $id);
                 if($pg_sql){
                     $osmid =  $pg_sql[0]->osmid;
                 }else {
                     $osmid =  1;
                 }
-           
+
             $avg = DB::table('reviews_rating')->where('osm_id', $osmid)->avg('rating');
             $count = DB::table('reviews_rating')->where('osm_id', $osmid)->count();
             $photos = Placephotos::where('osm_id', $osmid)->get();
             $myplace = myplaces::where('osmid', '=', $id)->where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
             $myrout = Saveroute::where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
-             
+
             if(count($myplace) == 0){
-      
-                $myplace =0; 
+
+                $myplace =0;
             }else{
                 $myplace = 1;
             }
@@ -958,11 +982,11 @@ class UserController extends Controller
             }
             $geojson = array();
             $coordinates = array();
-            for ($i=0; $i <count($pg_sql) ; $i++) { 
+            for ($i=0; $i <count($pg_sql) ; $i++) {
                 $geojson[] = json_decode($pg_sql[$i]->geojson_data);
                 for ($x = 0; $x < count($geojson); $x++) {
                     $coordinates[]= $geojson[$x]->coordinates;
-                }   
+                }
             }
             $savedroutes = array();
             foreach($myrout as $route){
@@ -984,7 +1008,7 @@ class UserController extends Controller
                 $save = 0;
             }
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','myplace' => $myplace,'myroute' => $save, 'avg' => $avg, 'count' => $count, 'photos' => $placephotos, 'data' => $pg_sql]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'Successfully','myplace' => $myplace,'myroute' => $save, 'avg' => (int)$avg, 'count' =>(int)$count, 'photos' => $placephotos, 'data' => $pg_sql]);
         }
     }
 
@@ -1009,6 +1033,7 @@ class UserController extends Controller
                 $data = array(
                     'userId' => $request->userId,
                     'osm_id' => $request->osmids,
+                    'tile' => $request->title,
                     'image_name' => $main_image
                 );
 
@@ -1058,7 +1083,7 @@ class UserController extends Controller
           $mail = Mail::to($to_email)->send(new addphotos(($data)));
         }
 
-        if($advertise) {       
+        if($advertise) {
             $data = array(
                 'companyname' => $advertise->advertisement_name,
                 'username' => $name,
@@ -1075,7 +1100,7 @@ class UserController extends Controller
             );
             $to_email = 'sahilsayyad453@gmail.com';
             $mail = Mail::to($to_email)->send(new addphotos(($data)));
-        }  
+        }
     }
 
     public function remove_place_photo(Request $request){
@@ -1095,13 +1120,13 @@ class UserController extends Controller
     {
         $nearby = DB::connection('pgsql')->select("select *,
         tags->'phone' as phone,
-        tags->'name:en' as en_Name,  
-        tags->'name:hy' as hy_Name,  
-        tags->'name:ru' as ru_Name,  
-        tags->'opening_hours' as opening_hours,  
-        tags->'cuisine' as cuisine,  
-        tags->'website' as website,  
-        tags->'addr:city' as city,  
+        tags->'name:en' as en_Name,
+        tags->'name:hy' as hy_Name,
+        tags->'name:ru' as ru_Name,
+        tags->'opening_hours' as opening_hours,
+        tags->'cuisine' as cuisine,
+        tags->'website' as website,
+        tags->'addr:city' as city,
         tags->'addr:street' as street,
         tags->'internet_access' as internet_access,
         tags->'outdoor_seating' as outdoor_seating,
@@ -1150,7 +1175,7 @@ class UserController extends Controller
         tags->'phone_1' as phone_1,
         ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data,
         osm_id as osmid
-        from  public.planet_osm_point 
+        from  public.planet_osm_point
         where amenity != ''
         order by way <-> ST_Transform(ST_SetSRID(ST_Point(49.84496533870698,40.37147089250506), 4326), 3857)
         limit 15");
@@ -1270,11 +1295,51 @@ class UserController extends Controller
         $menu['menu'] = menu_items::where('osm_id',$request->osmId)->where('status',1)->get();
         if ($menu) {
             return response()
-                ->json(['statusCode' => 200, 'statusMessage' => 'successfully', 'data' => $menu]);
+                ->json(['statusCode' => 1, 'statusMessage' => 'successfully', 'data' => $menu]);
         } else {
             return response()
-                ->json(['statusCode' => -1, 'statusMessage' => 'Something went wrong..']);
+                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
         }
+    }
+
+    public function myReviews(Request $request){
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => -1, 'statusMessage' => 'The userId field is required.']);
+        }
+        $reviews = reviews_rating::where('user_id',$request->userId)->get();
+        if(count($reviews) > 0){
+            foreach($reviews as $review){
+                $photos = table_review::where('userId', $request->userId)->where('osm_id', $review->osm_id)->get();
+                $main[] = array(
+                    'review' => $review,
+                    'photos' => $photos,
+                    'path' => $this->review_photo
+                );
+
+
+            }
+            return response()
+            ->json(['statusCode' => 1, 'statusMessage' => 'successfully', 'data' => $main]);
+
+        }else{
+            return response()
+                ->json(['statusCode' => 0, 'statusMessage' => 'Reviews not added yet']);
+        }
+
+
+    }
+
+
+    public function my_photos(Request $request){
+        if (!$request->userId) {
+            return response()
+                ->json(['statusCode' => -1, 'statusMessage' => 'The userId field is required.']);
+        }
+       $main =Placephotos::where('userId',$request->userId)->get();
+        $main2 = $main->groupBy('osm_id');
+        return response()
+        ->json(['statusCode' => 1, 'statusMessage' => 'successfully', 'data' => $main2]);
     }
 
 }

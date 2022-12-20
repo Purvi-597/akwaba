@@ -60,17 +60,15 @@ class savedroutes extends Controller
         $check_coordinates = Saveroute::where([
             ['start_coordinates', '=', $request->start_coordinates],
             ['end_coordinates', '=', $request->end_coordinates],
-            ['userId', '=', $request->userId]
+            ['userId', '=', $request->userId],
+            ['is_deleted', '=', 0]
         ])->get();
         // print_r(count($check_coordinates));die;
         if (count($check_coordinates) > 0) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Already Save route.']);
         } else {
-            # code...
-
-
-            $data = array(
+                 $data = array(
                 'start_coordinates' => $request->start_coordinates,
                 'end_coordinates' => $request->end_coordinates,
                 'start_address' => $request->start_address,
@@ -204,15 +202,16 @@ class savedroutes extends Controller
         $check_coordinates = Saveroute::where([
             ['start_coordinates', '=', $request->start_coordinates],
             ['end_coordinates', '=', $request->end_coordinates],
-            ['userId', '=', $request->userId]
-        ])->get();
+            ['userId', '=', $request->userId],
+            ['is_deleted', '=', 0]
+        ])->first();
         // print_r(count($check_coordinates));die;
-        if (count($check_coordinates) > 0) {
+        if ($check_coordinates) {
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Already Save route.','flag' => 1,'route' => $check_coordinates->id]);
         }else{
             return response()
-            ->json(['statusCode' => 0, 'statusMessage' => 'Not Save route.','flag' => 0,'route' => 0]);
+            ->json(['statusCode' => 1, 'statusMessage' => 'Not Save route.','flag' => 0,'route' => 0]);
         }
     }
 }

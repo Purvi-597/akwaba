@@ -72,7 +72,7 @@ class MyAddress extends Controller
 
                 $data = array(
                     'userId' => $request->userId,
-                    'type' => strtolower($request->type),
+                    'type' => $request->type,
                     'address' => $request->address,
                     'lat' => $request->lat,
                     'lng' => $request->long,
@@ -108,7 +108,7 @@ class MyAddress extends Controller
             $check = my_address::where([['id','=',$request->address_id],['userId', '=', $request->userId]])->first();
                 $data = array(
                     'userId' => $request->userId,
-                    'type' => strtolower($request->type),
+                    'type' => $request->type,
                     'address' => $request->address,
                     'lat' => $request->lat,
                     'lng' => $request->long,
@@ -144,7 +144,7 @@ class MyAddress extends Controller
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The userId field is required.']);
         }
-        $check = my_address::where('userId', '=', $request->userId)->get();
+        $check = my_address::where('userId', '=', $request->userId)->orderBy('id','DESC')->get();
         if ($check) {
             return response()
                 ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $check]);

@@ -355,7 +355,7 @@ if($advertisement_result->num_rows > 0) {
           </div>
 
         </div>
-        <div class="info-card " id="path-results">
+        <div class="info-card ReachTime"  >
 
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade " id="car" role="tabpanel" aria-labelledby="car-tab">

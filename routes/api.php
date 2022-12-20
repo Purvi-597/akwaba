@@ -81,6 +81,8 @@ Route::get('nearbyLocation',  'API\UserController@nearbyLocation');
 Route::post('Add_photo_place',  'API\UserController@Add_photo_place');
 Route::get('mobileads',  'API\UserController@mobileads');
 Route::get('remove_place_photo',  'API\UserController@remove_place_photo');
+Route::get('myReviews',  'API\UserController@myReviews');
+Route::get('my_photos',  'API\UserController@my_photos');
 
 
 ///// saved routes --------------------------------
