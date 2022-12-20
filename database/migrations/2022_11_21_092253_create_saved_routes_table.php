@@ -17,8 +17,8 @@ class CreateSavedRoutesTable extends Migration
         Schema::create('saved_routes', function (Blueprint $table) {
             $table->id();
             $table->integer('userId');
-            $table->double('start_coordinates');
-            $table->double('end_coordinates');
+            $table->string('start_coordinates');
+            $table->string('end_coordinates');
             $table->string('start_address');
             $table->string('end_address');
             $table->integer('is_deleted');

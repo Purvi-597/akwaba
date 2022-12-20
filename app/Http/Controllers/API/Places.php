@@ -16,15 +16,26 @@ class Places extends Controller
      */
     public function Metro()
     {
-        $metroResult = DB::connection('pgsql')->select("select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data from planet_osm_line where railway='subway'");
+        $metroResult = DB::connection('pgsql')->select("select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data from planet_osm_line where railway='subway' order by way");
         // $metroResult = pg_query($db, "select ST_AsGeoJSON(ST_Transform(way,4326)) as geoJSON_data from planet_osm_line where railway='subway'");
         // $metroData= [];
         // while($row = pg_fetch_row($metroResult)) {
         //     array_push($metroData, json_decode($row[0], true));
         // }
-
+        $main = array();
+        $mainmaitro = array();
+        for ($i = 0; $i < count($metroResult); $i++) {
+            $main[] = array(
+                'cordinates' => json_decode($metroResult[$i]->geojson_data)
+            );
+        }
+        for ($j = 0; $j < count($main); $j++) {
+            $mainmaitro[] = array(
+                'metro'.$j => $main[$j]['cordinates']->coordinates
+            );
+        }
         return response()
-            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'data' => $metroResult]);
+            ->json(['statusCode' => 1, 'statusMessage' => 'Successfully', 'coordinates' => $mainmaitro]);
     }
 
     /** 

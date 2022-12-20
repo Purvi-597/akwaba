@@ -257,7 +257,262 @@ if($advertisement_result->num_rows > 0) {
       <div class="closeiconleftpanel closeleftpanel">
         <img src="assets/img/icons/left-arrow.png">
       </div>
-	  <div class="scrollbar left-scroll-2" data-simplebar>
+
+
+    <!-- routing start -->
+    <div class="scrollbar navigation-map d-none">
+        <div class="img-top from-where-input">
+
+          <div class="from-input">
+            <div class="from-input-icon">
+              <span class="">
+                <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                <img src="./assets/img/icons/from-svg.svg" alt="">
+              </span>
+            </div>
+            <input type="text" class="form-control from-input-box From_route basicAutoComplete" id="from-route" placeholder="From">
+            <input type="text" id="start-lat" hidden>
+            <input type="text" id="start-long" hidden>
+          </div>
+          <div class="OnClickMenu" id="suggesstion-box"></div>
+          <div class="swap">
+            <span class="routeswap">
+              <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+              <!-- <a href="javascript:void(0);"> -->
+                <!-- <img src="./assets/img/icons/swap-svg.svg" class="p-absolute swap-between routeswap" alt=""> -->
+              <!-- </a> -->
+              <!-- <img src="./assets/img/icons/where.png" alt=""> -->
+            </span>
+          </div>
+
+          <div class="Where-input">
+            <div class="Where-input-icon">
+              <span class="">
+                <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                <img src="./assets/img/icons/line-svg.svg" class="p-absolute line-between" alt="">
+                <img src="./assets/img/icons/location-svg.svg" alt="">
+              </span>
+            </div>
+            <input type="text" class="form-control Where-input-box" placeholder="Where to" >
+            <input type="text" id="end-lat" hidden>
+            <input type="text" id="end-long" hidden>
+          </div>
+          <div class="OnClickMenu" id="suggesstion-box1"></div>
+          <div class="row my-3 filter">
+
+            <div class="col-md-4 pl-10px">
+               <!-- <button class="No_Filters">
+                <a href="#">
+                  <span class="Filter-btn">
+                    <img src="./assets/img/icons/filter-svg.svg" alt="">
+                  </span>
+                  <span class="No_Filters_btn">Filters</span>
+                </a>
+              </button> -->
+            </div>
+
+
+
+            <div class="col-md-8 px-0">
+              <!-- <ul class="nav nav-tabs navigation-tab" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="car-tab" data-toggle="tab" href="#car" role="tab" aria-controls="car" aria-selected="true">
+                    <img src="./assets/img/icons/car.png" alt="">
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " id="walk-tab" data-toggle="tab" href="#walk" role="tab" aria-controls="walk" aria-selected="false">
+                    <img src="./assets/img/icons/walk.png" alt="">
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="cycle-tab" data-toggle="tab" href="#cycle" role="tab" aria-controls="cycle" aria-selected="false">
+                    <img src="./assets/img/icons/cycle.png" alt="">
+                  </a>
+                </li>
+              </ul> -->
+
+              <ul class="nav nav-tabs navigation-tab px-2" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" id="car-tab" data-id="1"  href="javascript:void(0);" 
+                    >
+                    <img src="./assets/img/icons/car-svg.svg" alt="">
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " id="walk-tab" data-id="2"   href="javascript:void(0);">
+                    <img src="./assets/img/icons/walk-svg.svg" alt="">
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="cycle-tab" data-id="3"  href="javascript:void(0);">
+                    <img src="./assets/img/icons/cycle.svg" alt="">
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="info-card ReachTime"  >
+
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade " id="car" role="tabpanel" aria-labelledby="car-tab">
+              <div class="car-time">
+
+                <!-- <div class="address-one">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+                </div> -->
+
+                <!-- <div class="address-two">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">14&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.2 km</span>
+                  </div>
+                </div> -->
+
+                <!-- <div class="address-three">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">15&nbsp;min</span> <br>
+                    <span class="kilo-meters">4.7 km</span>
+                  </div>
+                </div> -->
+
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade " id="walk" role="tabpanel" aria-labelledby="walk-tab">
+              <div class="walk-time">
+                <!-- <div class="address-one">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+
+                </div> -->
+
+                <!-- <div class="address-two">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+
+                </div> -->
+
+                <!-- <div class="address-three">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+
+                </div> -->
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="cycle" role="tabpanel" aria-labelledby="cycle-tab">
+              <div class="cycle-time">
+                <!-- <div class="address-one">
+                  <div class="img-address">
+
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+
+                </div>
+
+                <div class="address-two">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+
+                </div>
+
+                <div class="address-three">
+                  <div class="img-address">
+                    <img src="./assets/img/icons/small-car.png" alt="..." class=" img-fluid">
+                  </div>
+                  <div class="lh-1">
+                    <span class="address-name">Lorem ipsum dolor sit amet sed armor</span> <br>
+                    <span class="trafic-status">some traffic, as usual</span>
+                  </div>
+                  <div class="lh-1">
+                    <span class="taken-time">19&nbsp;min</span> <br>
+                    <span class="kilo-meters">5.7 km</span>
+                  </div>
+
+                </div> -->
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    <!-- routing end -->
+
+	  <div class="scrollbar left-scroll-2 " data-simplebar>
          <div class="img-top">
           <div class="input-group  search-bar">
             <div class="input-group-prepend">
@@ -491,7 +746,7 @@ if($advertisement_result->num_rows > 0) {
 
 
 		<div class="overlayIconInIframe">
-		  <a class="routeicon" href="#">
+		  <a class="routeicon" href="javascript:void(0)">
 			<img src="assets/img/icons/route.png">
 		  </a>
 		  <?php if(!isset($_SESSION['users'])) { ?>
@@ -1047,7 +1302,6 @@ if($advertisement_result->num_rows > 0) {
 	<?php if(isset($_SESSION['users'])) { ?>
     <input type="hidden" value="<?= $_SESSION['users']['id']?>" id="sessionid" name="sessionid" />
 	<?php } ?>
-
 <script type="text/javascript">
         var metroLatLng = JSON.parse('<?php echo json_encode($metroData); ?>');
         var tourismLatLng = JSON.parse('<?php echo json_encode($tourismData); ?>');

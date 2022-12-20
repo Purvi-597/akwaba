@@ -26,6 +26,10 @@ class CompaniesTable extends Migration
             $table->string('phone_number_comment');
             $table->string('website');
             $table->string('opening_hours');
+            $table->string('break_time');
+            $table->string('opening_days');
+            $table->string('category');
+            $table->string('sub_category');
             $table->string('description');
             $table->string('latitude')->nullable();
             $table->string('longtitude')->nullable();
@@ -44,6 +48,6 @@ class CompaniesTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('company');  
+        Schema::dropIfExists('company');
     }
 }

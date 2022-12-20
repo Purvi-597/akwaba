@@ -80,6 +80,9 @@ Route::get('Privacy_policy',  'API\UserController@Privacy_policy');
 Route::get('nearbyLocation',  'API\UserController@nearbyLocation');
 Route::post('Add_photo_place',  'API\UserController@Add_photo_place');
 Route::get('mobileads',  'API\UserController@mobileads');
+Route::get('remove_place_photo',  'API\UserController@remove_place_photo');
+Route::get('myReviews',  'API\UserController@myReviews');
+Route::get('my_photos',  'API\UserController@my_photos');
 
 
 ///// saved routes --------------------------------
@@ -87,6 +90,7 @@ Route::post('savedroutes/store',  'API\savedroutes@store');
 Route::get('savedroutes/show',  'API\savedroutes@show');
 Route::post('savedroutes/delete',  'API\savedroutes@delete');
 Route::post('savedroutes/destroy',  'API\savedroutes@destroy');
+Route::get('savedroutes/checkroute',  'API\savedroutes@checkroute');
 
 ///// saved places --------------------------------
 Route::post('mypalces/store',  'API\Mypalces@store');
@@ -119,7 +123,8 @@ Route::post('search/Subcategories',  'API\SearchApi@Subcategories');
 Route::post('search/facilities',  'API\SearchApi@facilities');
 Route::post('search/nearbysearch',  'API\SearchApi@nearbysearch');
 Route::post('search/simplesearch',  'API\SearchApi@simplesearch');
-
+Route::get('search/Search',  'API\SearchApi@Search');
+Route::get('search/metrostations',  'API\SearchApi@metrostations');
 
 //// Layes api //////////////////////////////////////////////////////////
 Route::get('Places/Metro',  'API\Places@Metro');
@@ -130,3 +135,17 @@ Route::get('Places/Photos',  'API\Places@Photos');
 ///////////////////// Feedback //////////////////////////////////////////////////////////
 Route::get('feedback',  'API\Addfeedback@index');
 Route::post('feedback/store',  'API\Addfeedback@store');
+
+
+////// claim organization //////////////////////////////////
+Route::post('Claimorgnizatioon/store',  'API\Claimorgnizatioon@store');
+Route::post('Claimorgnizatioon/PromotOrganisation',  'API\Claimorgnizatioon@PromotOrganisation');
+
+
+////////// Price for place //////////////////////////////////
+Route::get('Pricingforplace',  'API\UserController@Pricingforplace');
+
+/// my address //////////////////////////////
+Route::get('MyAddress',  'API\MyAddress@show');
+Route::post('MyAddress/create',  'API\MyAddress@store');
+Route::get('MyAddress/delete',  'API\MyAddress@delete');

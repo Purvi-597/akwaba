@@ -56,23 +56,36 @@ class savedroutes extends Controller
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The userId field is required.']);
         }
-        $data = array(
-            'start_coordinates' => $request->start_coordinates,
-            'end_coordinates' => $request->end_coordinates,
-            'start_address' => $request->start_address,
-            'end_address' => $request->end_address,
-            'userId' => $request->userId,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
 
-        );
-        $insert = Saveroute::insert($data);
-        if ($insert) {
+        $check_coordinates = Saveroute::where([
+            ['start_coordinates', '=', $request->start_coordinates],
+            ['end_coordinates', '=', $request->end_coordinates],
+            ['userId', '=', $request->userId],
+            ['is_deleted', '=', 0]
+        ])->get();
+        // print_r(count($check_coordinates));die;
+        if (count($check_coordinates) > 0) {
             return response()
-                ->json(['statusCode' => 1, 'statusMessage' => 'Route saved successfully']);
+                ->json(['statusCode' => 0, 'statusMessage' => 'Already Save route.']);
         } else {
-            return response()
-                ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+                 $data = array(
+                'start_coordinates' => $request->start_coordinates,
+                'end_coordinates' => $request->end_coordinates,
+                'start_address' => $request->start_address,
+                'end_address' => $request->end_address,
+                'userId' => $request->userId,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+
+            );
+            $insert = Saveroute::insertGetId($data);
+            if ($insert) {
+                return response()
+                    ->json(['statusCode' => 1, 'statusMessage' => 'Route saved successfully','route_id' => $insert]);
+            } else {
+                return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+            }
         }
     }
 
@@ -180,6 +193,25 @@ class savedroutes extends Controller
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+        }
+    }
+
+
+    public function checkroute(Request $request)
+    {
+        $check_coordinates = Saveroute::where([
+            ['start_coordinates', '=', $request->start_coordinates],
+            ['end_coordinates', '=', $request->end_coordinates],
+            ['userId', '=', $request->userId],
+            ['is_deleted', '=', 0]
+        ])->first();
+        // print_r(count($check_coordinates));die;
+        if ($check_coordinates) {
+            return response()
+                ->json(['statusCode' => 1, 'statusMessage' => 'Already Save route.','flag' => 1,'route' => $check_coordinates->id]);
+        }else{
+            return response()
+            ->json(['statusCode' => 1, 'statusMessage' => 'Not Save route.','flag' => 0,'route' => 0]);
         }
     }
 }

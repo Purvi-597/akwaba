@@ -58,7 +58,7 @@ class Mypalces extends Controller
         if (!$request->osmid) {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'The osmid field is required.']);
-        }
+        }                                             
         $data = array(
             'location_coordinates' => $request->location_coordinates,
             'location_address' => $request->location_address,
@@ -135,23 +135,44 @@ class Mypalces extends Controller
     public function delete(request $request)
     {
         if ($request->userId) {
-            if (!$request->myplaceid) {
-                return response()
-                    ->json(['statusCode' => 0, 'statusMessage' => 'The myplaceid field is required.']);
+            if ($request->myplaceid) {
+                $user = myplaces::where('id', '=', $request->myplaceid)->where('userId', '=', $request->userId)->get();
+                if ($user) {
+                    $data = array(
+                        'is_deleted' => $request->userId
+                    );
+                    $insert = myplaces::where('id', '=', $request->myplaceid)->update($data);
+                    return response()
+                        ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
+                } else {
+                    return response()
+                        ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+                }
             }
 
-            $user = myplaces::where('id', '=', $request->myplaceid)->where('userId', '=', $request->userId)->get();
+            if($request->osm_id){
+                $user = myplaces::where('osmid', '=', $request->osm_id)->where('userId', '=', $request->userId)->where('is_deleted', '=', 0)->get();
+                // print_r($user);die;
             if ($user) {
                 $data = array(
                     'is_deleted' => $request->userId
                 );
-                $insert = myplaces::where('id', '=', $request->myplaceid)->update($data);
+                $insert = myplaces::where('userId', '=', $request->userId)->update($data);
+                if($insert){
                 return response()
                     ->json(['statusCode' => 1, 'statusMessage' => 'Successfully']);
+                }else{
+                    return response()
+                    ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
+                }
             } else {
                 return response()
                     ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);
             }
+            }
+
+            
+
         } else {
             return response()
                 ->json(['statusCode' => 0, 'statusMessage' => 'Something went wrong..']);

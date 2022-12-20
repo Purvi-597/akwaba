@@ -16,7 +16,7 @@ class CreateLikesReviewTable extends Migration
         Schema::create('_likes_review', function (Blueprint $table) {
             $table->id();
             $table->integer('userId');
-            $table->integer('osm_id');
+            $table->string('osm_id');
             $table->string('review_id');
             $table->integer('like');
             $table->timestamps();
